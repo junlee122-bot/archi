@@ -1,12 +1,12 @@
 {
-  "strict": false,
+  "strict": true,
   "summary": {
     "total": 40,
     "pass": 38,
-    "warn": 2,
-    "fail": 0
+    "warn": 0,
+    "fail": 2
   },
-  "ok": true,
+  "ok": false,
   "checks": [
     {
       "id": "V01_SCHEMA_VALID",
@@ -119,7 +119,7 @@
     {
       "id": "V19_GATE_R_LICENSE",
       "title": "license gate (GATE_R)",
-      "status": "warn",
+      "status": "fail",
       "details": [
         "P0 source gyeongju_2022_a_building_full_excavation_report: to_verify 상태 (후보 등록만 허용, strict에서 fail)"
       ]
@@ -235,7 +235,7 @@
     {
       "id": "V38_SOURCE_LICENSE_MIXED_POLICY",
       "title": "소스별 개별 license 정책",
-      "status": "warn",
+      "status": "fail",
       "details": [
         "gyeongju_2022_a_building_full_excavation_report: license 미확인 (to_verify)",
         "kim_2023_sillasahakbo_a_building_structure_function: license 미확인 (unknown)",
