@@ -1,47 +1,61 @@
 [
   {
-    "id": "P0_pre_wolji_prior_land_preparation",
-    "name_ko": "월지 조성 이전 선대 대지조성 가능성",
+    "id": "P0_pre_wolji_wetland_and_prior_use",
+    "name_ko": "월지 이전 습지 경관과 선대 이용 (3~4세기 유구 포함)",
     "stage_kind": "해석 단계",
-    "confidence": "E4",
-    "sources": ["ji_2023_wolji_west_land_preparation_recheck"],
-    "visible_features": ["land_preparation.prior_phase_candidate"],
-    "notes": "선대 대지조성층 재검토 논의에 근거한 해석 단계. 유구 확정 단계가 아니다."
+    "confidence": "E2",
+    "sources": ["gyeongju_2022_a_building_full_excavation_report", "ji_2023_wolji_west_land_preparation_recheck"],
+    "visible_features": ["pre_wolji_dongji", "stratigraphy.layers", "trench.north", "land_preparation.prior_phase_candidate"],
+    "notes": "습지층(Ⅶ)과 3세기 전후 선대 유구(Ⅵ층 수혈·주혈·와질토기)는 2022 보고서 p.95-99 보고 사실(E1)이며, 월지 이전 東池 경관은 지영배 2023의 추정(E4)이다. 단계 전체는 해석 단계로 표기한다."
   },
   {
-    "id": "P1_late_7c_palace_reorganization",
-    "name_ko": "7세기 후반 왕궁·월지 주변 공간 재편",
+    "id": "P1_late_5c_prior_land_preparation",
+    "name_ko": "선대 대지조성 단계 (지영배 2023 재검토: 5세기 후엽 추정)",
     "stage_kind": "해석 단계",
     "confidence": "E4",
-    "sources": ["kim_2023_sillasahakbo_a_building_structure_function"],
-    "visible_features": ["site_context.wolji_west", "context.wolji_water_edge"],
-    "notes": "문헌·고고 자료를 종합한 공간 재편 해석 단계."
+    "sources": ["ji_2023_wolji_west_land_preparation_recheck", "gyeongju_2022_a_building_full_excavation_report"],
+    "visible_features": ["land_preparation.multistage", "boto_facility", "stratigraphy.layers", "pre_wolji_dongji"],
+    "notes": "5세기 후엽 편년은 지영배 2023의 재검토 해석(p.855, 876 — 수평축토층 출토 유물·C14 검토 기반, E4)이다. 보토시설(Ⅴ-2)의 물리적 제원은 E2, 방수·호안 기능은 해석(p.874)."
   },
   {
-    "id": "P2_a_building_reported_layout",
-    "name_ko": "A건물지 보고 유구",
+    "id": "P2_late_7c_wolji_and_palace_reorganization",
+    "name_ko": "7세기 후반 월지 조성·궁역 재편 (674 원지·679 궁궐 기사)",
+    "stage_kind": "해석 단계",
+    "confidence": "E4",
+    "sources": ["ji_2023_wolji_west_land_preparation_recheck", "lee_2023_donggung_wolji_character_debate", "kim_2023_sillasahakbo_a_building_structure_function"],
+    "visible_features": ["site_context.wolji_west", "context.wolji_water_edge", "land_preparation.layer", "context.historical_name_donggung_wolji"],
+    "notes": "674 궁원지·679 궁궐이라는 문헌 축과 대규모 대지조성·월지 개축 해석을 종합한 재편 단계(지영배 2023 p.855, 이현태 2023 p.261-262). 해석 단계로 표기한다."
+  },
+  {
+    "id": "P3_a_building_reported_layout",
+    "name_ko": "A건물지 보고 유구 (2018·2022 보고서)",
     "stage_kind": "유구 단계",
     "confidence": "E1",
-    "sources": ["nrich_2018_a_building_restoration_excavation_report"],
+    "sources": ["gyeongju_2022_a_building_full_excavation_report", "nrich_2018_a_building_restoration_excavation_report"],
     "visible_features": [
       "layout.grid.seven_by_four",
       "layout.omitted_inner_columns",
-      "entrance.facility.01",
+      "foundation.jeoksim_grid",
+      "entrance.south.left",
+      "entrance.south.right",
+      "entrance.north.center",
+      "walkway.drainage_or_paved_facility",
       "corridor.east_wing",
-      "walkway.brick_paved"
+      "corridor.west_wing",
+      "corridor.west_corridor",
+      "corridor.west_corridor_stone_platform",
+      "ritual.earthquake_charm",
+      "platform.main_building"
     ],
-    "notes": "공식 보고서 초록에서 확인되는 보고 유구 단계."
+    "notes": "2022 보고서 본문(p.84-119)과 2018 초록에서 확인되는 보고 유구 단계. 치수는 fact_layer에 기재된 보고 수치만 사용하며 좌표는 미확정."
   },
   {
-    "id": "P3_2025_reinterpretation",
-    "name_ko": "2025년 동편 동궁·서편 왕의 공간 재비정",
-    "stage_kind": "해석 단계",
-    "confidence": "E4",
-    "sources": ["khs_2025_silla_capital_10year_outcome"],
-    "visible_features": [
-      "context.eastern_donggung_reinterpretation",
-      "context.western_royal_space_interpretation"
-    ],
-    "notes": "최신 조사성과에 따른 재비정 해석 단계. 공식 source locator 확인 시 근거 보강."
+    "id": "P4_late_use_and_discard_context",
+    "name_ko": "후대 사용·폐기·교란 맥락",
+    "stage_kind": "유구 단계",
+    "confidence": "E2",
+    "sources": ["gyeongju_2022_a_building_full_excavation_report"],
+    "visible_features": ["late_use.disturbance_and_discard", "corridor.west_wing"],
+    "notes": "1·2군 기와무지, 1~4호 수혈(p.84), 근현대 교란·적심 삭평(p.107-108), 전 탈락(p.311) 등 보고된 후대 맥락. 폐기 과정의 세부 시퀀스는 미해석 상태로 둔다."
   }
 ]

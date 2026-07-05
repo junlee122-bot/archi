@@ -2,6 +2,7 @@
 // Keeps fact_layer confidence and geometry_layer (render) confidence strictly
 // separate. Fails closed on structurally invalid input.
 import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import {
   repoRootFromArgs, hasFlag, loadAll, saveJson, paths, stableStringify, sha256, sha256File, DATA_FILES
 } from './lib/io.mjs';
@@ -53,12 +54,33 @@ export function buildSpec(root, { strict = false } = {}) {
       warnings.push(`source ${e.id}: license status '${e.status}' — commercial_safe=false 유지 사유.`);
     }
     if (e.priority === 'P0' && (e.status === 'unverified' || e.status === 'declared_unverified')) {
-      const msg = `P0 source ${e.id} license가 to_verify 상태.`;
-      if (e.used_by_evidence && !params.fallback_mode) {
-        throw new Error(`derive fail-closed: ${msg} 미확인 P0 소스를 evidence로 사용할 수 없다.`);
-      }
-      warnings.push(`${msg} 후보 등록 상태로만 유지(fallback: evidence 미사용).`);
+      const msg = `P0 source ${e.id} license가 to_verify 상태 — human review 전 상업/공개 파생 사용 금지.`;
+      warnings.push(msg);
       if (strict) throw new Error(`derive --strict: ${msg}`);
+    }
+  }
+
+  // Citation gate: license verification gates commercial/public use, but
+  // CITATION requires content verification. Unverified or missing sources
+  // can never back E1/E2 facts (fail-closed).
+  const segMap = new Map(segments.map((s) => [s.id, s]));
+  for (const f of features) {
+    for (const ev of [...(f.fact_layer?.evidence ?? []), ...(f.geometry_layer?.evidence ?? [])]) {
+      const src = sourceMap.get(ev.source_id);
+      if (!src) continue;
+      if (src.verified !== true && ['E1', 'E2'].includes(ev.class)) {
+        throw new Error(`derive fail-closed: ${f.id} — 내용 미검증 소스 ${src.id}를 ${ev.class} 근거로 인용 불가`);
+      }
+      if (src.missing_source === true) {
+        if (ev.class === 'E1') {
+          throw new Error(`derive fail-closed: ${f.id} — missing_source ${src.id}를 E1 근거로 인용 불가`);
+        }
+        const seg = ev.source_segment_id ? segMap.get(ev.source_segment_id) : null;
+        const page = String(seg?.locator?.page ?? ev.locator?.page ?? '');
+        if (page && !page.includes('abstract')) {
+          throw new Error(`derive fail-closed: ${f.id} — missing_source ${src.id}에 본문 page locator(${page}) 사용 불가`);
+        }
+      }
     }
   }
 
@@ -101,6 +123,80 @@ export function buildSpec(root, { strict = false } = {}) {
     render_confidence: 'DEMO',
     is_excavated_positions: false,
     note: 'symbolic 마커. 실제 발굴 기초 위치는 source locator 확보 후만 표시.'
+  };
+
+  // ── report-dimension-scaled footprint (V42) ──────────────────────────
+  const reportDimensionScaled =
+    Number.isFinite(gridFeature.fact_layer.report_length_m) && Number.isFinite(gridFeature.fact_layer.report_width_m)
+      ? {
+          length_m: gridFeature.fact_layer.report_length_m,
+          width_m: gridFeature.fact_layer.report_width_m,
+          source_feature: gridFeature.id,
+          source_segment_id: 'seg_r2022_p84_overview_grid',
+          mode: gridFeature.geometry_layer.geometry_mode ?? 'symbolic',
+          subdivision_assumed: gridFeature.geometry_layer.subdivision_assumed === true,
+          note: '전체 footprint는 보고 치수 스케일. 칸 간격은 균등 가정 — 실측 아님.'
+        }
+      : null;
+
+  // ── jeoksim rubble pads: symbolic positions, report-backed size range ─
+  const jeoksim = specFeatures.find((f) => f.id === 'foundation.jeoksim_grid');
+  const hash01 = (s) => {
+    let h = 2166136261;
+    for (const ch of s) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619) >>> 0; }
+    return (h % 1000) / 1000;
+  };
+  const jeoksimPads = [];
+  if (jeoksim) {
+    const range = jeoksim.fact_layer.jeoksim_diameter_range_cm ?? null;
+    for (let i = 0; i <= baysFront; i++) {
+      for (let j = 0; j <= baysSide; j++) {
+        jeoksimPads.push({
+          col: i,
+          row: j,
+          u: i / baysFront,
+          v: j / baysSide,
+          jitter: Number((hash01(`${i}:${j}`) * 0.08 - 0.04).toFixed(4)),
+          diameter_range_cm: range,
+          depth_cm: jeoksim.fact_layer.jeoksim_depth_cm ?? null,
+          is_excavated_position: false
+        });
+      }
+    }
+  }
+  const jeoksimPadsBlock = jeoksim
+    ? {
+        pads: jeoksimPads,
+        size_source: 'foundation.jeoksim_grid fact_layer (2022 p.85)',
+        positions: 'derived_from_bay_grid_symbolic — 발굴 좌표 아님',
+        render_confidence: 'DEMO'
+      }
+    : null;
+
+  // ── 2.5D stratigraphy mini-section from reported layer sequence ──────
+  const strat = specFeatures.find((f) => f.id === 'stratigraphy.layers');
+  const stratigraphySection = strat
+    ? {
+        section_scope: strat.geometry_layer.section_scope ?? 'north_trench',
+        layers: (strat.fact_layer.layer_sequence ?? []).map((l, i) => ({
+          ...l,
+          order_from_bottom: i,
+          relative_thickness: l.code === 'VII' ? 0.7 : l.code?.startsWith('V-') ? 0.5 : 1.0
+        })),
+        thickness_source: strat.geometry_layer.thickness_source ?? null,
+        render_confidence: strat.geometry_layer.confidence,
+        note: '층 두께 비율은 보고·논문 기재 수치 기반, 단면 형상은 모식화.'
+      }
+    : null;
+
+  // ── entrance layout from report-stated sides (p.85) ──────────────────
+  const entranceFeatures = specFeatures.filter((f) => f.id.startsWith('entrance.'));
+  const entranceLayout = {
+    south: entranceFeatures.filter((f) => f.fact_layer.position_side?.startsWith('south')).map((f) => f.id),
+    north: entranceFeatures.filter((f) => f.fact_layer.position_side?.startsWith('north')).map((f) => f.id),
+    dapdo_on: entranceFeatures.filter((f) => f.fact_layer.has_dapdo === true).map((f) => f.id),
+    side_source: '2022 보고서 p.85 (남편 좌·우 / 북편 중앙)',
+    offsets: 'placeholder — 도면 디지타이즈 전까지 미확정'
   };
 
   // ── hypotheses: axis model, badges, render gating ─────────────────────
@@ -164,6 +260,11 @@ export function buildSpec(root, { strict = false } = {}) {
     derived: {
       mode_tabs: expandModeTabs(params),
       symbolic_column_grid: symbolicColumnGrid,
+      report_dimension_scaled: reportDimensionScaled,
+      jeoksim_pads: jeoksimPadsBlock,
+      stratigraphy_section: stratigraphySection,
+      entrance_layout: entranceLayout,
+      phase_order: specPhases.map((p) => p.id),
       hypothesis_axis_model: {
         mutually_exclusive: false,
         axes: params.required_axes,
@@ -181,11 +282,57 @@ export function buildSpec(root, { strict = false } = {}) {
   return { ...body, meta: { ...body.meta, integrity } };
 }
 
+// source-coverage.json: which sources back which features (fact evidence),
+// with P0 coverage — the M1.5 locator-backing ledger.
+export function buildSourceCoverage(root) {
+  const { params, sources, segments, features, hypotheses, phases } = loadAll(root);
+  const bySource = Object.fromEntries(sources.map((s) => [s.id, {
+    id: s.id, priority: s.priority, verified: s.verified, missing_source: s.missing_source === true,
+    local_available: s.local_available === true,
+    segments: segments.filter((seg) => seg.source_id === s.id).map((seg) => seg.id),
+    fact_evidence_count: 0, geometry_evidence_count: 0,
+    features_backed: [], hypotheses_backed: [], phases_backed: []
+  }]));
+  const p0 = new Set(params.required_p0_features);
+  const p0Coverage = {};
+  for (const f of features) {
+    const backers = new Set();
+    for (const ev of f.fact_layer?.evidence ?? []) {
+      const b = bySource[ev.source_id];
+      if (b) { b.fact_evidence_count++; if (!b.features_backed.includes(f.id)) b.features_backed.push(f.id); backers.add(ev.source_id); }
+    }
+    for (const ev of f.geometry_layer?.evidence ?? []) {
+      const b = bySource[ev.source_id];
+      if (b) b.geometry_evidence_count++;
+    }
+    if (p0.has(f.id)) p0Coverage[f.id] = [...backers].sort();
+  }
+  for (const h of hypotheses) {
+    for (const ev of [...(h.supporting_evidence ?? []), ...(h.counter_evidence ?? [])]) {
+      const b = ev.source_id ? bySource[ev.source_id] : null;
+      if (b && !b.hypotheses_backed.includes(h.id)) b.hypotheses_backed.push(h.id);
+    }
+  }
+  for (const p of phases) for (const sid of p.sources) {
+    const b = bySource[sid];
+    if (b && !b.phases_backed.includes(p.id)) b.phases_backed.push(p.id);
+  }
+  const uncovered = params.required_p0_features.filter((id) => !(p0Coverage[id] ?? []).some((sid) => bySource[sid] && !bySource[sid].missing_source && sid !== 'demo_rule_silla_palace_archaeology_basic'));
+  return {
+    sources: Object.values(bySource),
+    p0_coverage: p0Coverage,
+    p0_without_external_backing: uncovered,
+    note: 'p0_without_external_backing에는 불확실성 marker·가설 layer 등 자체 사실 주장이 없는 feature가 포함될 수 있다.'
+  };
+}
+
 export function main(argv = process.argv.slice(2)) {
   const root = repoRootFromArgs(argv);
   const strict = hasFlag('--strict', argv);
   const spec = buildSpec(root, { strict });
   saveJson(paths.spec(root), spec);
+  const coverage = buildSourceCoverage(root);
+  saveJson(join(paths.artifacts(root), 'source-coverage.json'), coverage);
   console.log(
     `derive: wrote structural-spec.json (${spec.meta.counts.features} features, ` +
     `${spec.meta.counts.hypotheses} hypotheses, ${spec.meta.counts.phases} phases, ` +

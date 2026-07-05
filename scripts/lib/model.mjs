@@ -27,10 +27,18 @@ export function bestClass(evidence = []) {
   return best;
 }
 
-// An evidence entry counts as a measured locator only when it was actually
-// measured against a located source page/figure.
+// EXACT values (*_mm, coordinates, omitted positions) are licensed ONLY by a
+// true measured locator. Disclosed report-dimension scaling (geometry_mode
+// report_dimension_scaled) covers overall footprints at metre scale and must
+// NEVER unlock exact millimetre values like bay spacing (see corruption C07).
 export function isMeasuredLocator(ev) {
   return ev && ev.method === 'measured' && ev.locator && ev.locator.page != null;
+}
+
+// Evidence entries allowed to appear in a geometry layer at all.
+const GEOMETRY_EVIDENCE_METHODS = new Set(['measured', 'report_stated', 'report_dimension_scaled']);
+export function isLocatorBackedGeometryEvidence(ev) {
+  return ev && GEOMETRY_EVIDENCE_METHODS.has(ev.method) && ev.locator && ev.locator.page != null;
 }
 
 export function sourceById(sources, id) {

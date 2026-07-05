@@ -44,10 +44,22 @@
       "caught_by": "verify (V05_GRID_SOURCE_CONSISTENCY, V22_EXACT_DIMENSIONS_NULL_WITHOUT_LOCATOR)"
     },
     {
-      "name": "C08_unverified_p0_source_used_as_evidence",
-      "expect": "to_verify P0 소스의 evidence 사용을 derive/V19가 거부",
+      "name": "C08_e1_evidence_without_segment_locator",
+      "expect": "segment locator 없는 E1 근거를 V41이 거부",
+      "caught": true,
+      "caught_by": "verify (V41_SOURCE_SEGMENT_LOCATOR_BACKING)"
+    },
+    {
+      "name": "C13_missing_source_body_page_locator",
+      "expect": "missing_source 논문의 본문 page locator를 derive/V44가 거부",
       "caught": true,
       "caught_by": "derive (fail-closed)"
+    },
+    {
+      "name": "C14_pdf_copied_into_web_public",
+      "expect": "web/public 내 PDF 자산을 V43이 거부",
+      "caught": true,
+      "caught_by": "verify (V20_NO_SOURCE_MEDIA_IN_WEB_PUBLIC, V43_NO_PUBLIC_PDF_ASSET)"
     },
     {
       "name": "C09_params_grid_mismatch",

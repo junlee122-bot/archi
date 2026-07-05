@@ -1,0 +1,449 @@
+{
+  "sources": [
+    {
+      "id": "nrich_2018_a_building_restoration_excavation_report",
+      "priority": "P0",
+      "verified": true,
+      "missing_source": false,
+      "local_available": false,
+      "segments": [
+        "seg_nrich2018_abstract_a_building"
+      ],
+      "fact_evidence_count": 19,
+      "geometry_evidence_count": 0,
+      "features_backed": [
+        "source_context.official_2018_report",
+        "context.historical_name_donggung_wolji",
+        "context.wolji_water_edge",
+        "layout.grid.seven_by_four",
+        "layout.omitted_inner_columns",
+        "foundation.general_layout",
+        "entrance.south.left",
+        "entrance.south.right",
+        "entrance.north.center",
+        "corridor.east_wing",
+        "corridor.west_wing",
+        "walkway.drainage_or_paved_facility",
+        "ritual.earthquake_charm",
+        "surrounding.south_line_foundation.building.01",
+        "surrounding.south_line_foundation.building.02",
+        "movement.primary_entrance_axis",
+        "movement.corridor_connection_east",
+        "movement.corridor_connection_west",
+        "superstructure.column_grid.symbolic"
+      ],
+      "hypotheses_backed": [],
+      "phases_backed": [
+        "P3_a_building_reported_layout"
+      ]
+    },
+    {
+      "id": "gyeongju_2022_a_building_full_excavation_report",
+      "priority": "P0",
+      "verified": true,
+      "missing_source": false,
+      "local_available": true,
+      "segments": [
+        "seg_report2022_notes_measurement_policy_p3",
+        "seg_report2022_preface_authority_p5_6",
+        "seg_report2022_site_context_p16",
+        "seg_report2022_survey_history_table_p17",
+        "seg_report2022_authorship_p21",
+        "seg_report2022_a_building_overview_p84",
+        "seg_report2022_jeoksim_entrances_p85",
+        "seg_report2022_south_line_foundation_p106",
+        "seg_report2022_west_wing_overview_p107_108",
+        "seg_report2022_west_corridor_plan_p109_110",
+        "seg_report2022_discussion_comparison_p307",
+        "seg_report2022_walkway_discussion_p308_309",
+        "seg_report2022_conclusion_p334_335",
+        "seg_r2022_p95_99_trenches_stratigraphy",
+        "seg_r2022_p103_landprep_jindangu",
+        "seg_r2022_p115_119_west_corridor",
+        "seg_r2022_p315_316_discussion_comparison"
+      ],
+      "fact_evidence_count": 48,
+      "geometry_evidence_count": 5,
+      "features_backed": [
+        "site_context.wolji_west",
+        "context.western_royal_space_interpretation",
+        "layout.grid.seven_by_four",
+        "layout.main_axis",
+        "layout.omitted_inner_columns",
+        "platform.main_building",
+        "foundation.general_layout",
+        "foundation.jeoksim_grid",
+        "entrance.south.left",
+        "entrance.south.right",
+        "entrance.north.center",
+        "corridor.east_wing",
+        "corridor.west_wing",
+        "walkway.drainage_or_paved_facility",
+        "ritual.earthquake_charm",
+        "land_preparation.layer",
+        "land_preparation.prior_phase_candidate",
+        "surrounding.south_line_foundation.building.01",
+        "surrounding.south_line_foundation.building.02",
+        "movement.primary_entrance_axis",
+        "corridor.west_corridor",
+        "corridor.west_corridor_stone_platform",
+        "trench.north",
+        "stratigraphy.layers",
+        "land_preparation.multistage",
+        "boto_facility",
+        "late_use.disturbance_and_discard"
+      ],
+      "hypotheses_backed": [
+        "H1_royal_formal_space",
+        "H3_ritual_audience_banquet_program"
+      ],
+      "phases_backed": [
+        "P0_pre_wolji_wetland_and_prior_use",
+        "P1_late_5c_prior_land_preparation",
+        "P3_a_building_reported_layout",
+        "P4_late_use_and_discard_context"
+      ]
+    },
+    {
+      "id": "kim_2023_sillasahakbo_a_building_structure_function",
+      "priority": "P1",
+      "verified": true,
+      "missing_source": true,
+      "local_available": false,
+      "segments": [
+        "seg_kim2023_abstract_a_building"
+      ],
+      "fact_evidence_count": 11,
+      "geometry_evidence_count": 0,
+      "features_backed": [
+        "site_context.wolji_west",
+        "context.legacy_west_donggung_interpretation",
+        "context.western_royal_space_interpretation",
+        "context.eastern_donggung_reinterpretation",
+        "context.wolji_water_edge",
+        "context.wolseong_relation",
+        "platform.main_building",
+        "land_preparation.layer",
+        "movement.primary_entrance_axis",
+        "movement.corridor_connection_east",
+        "movement.corridor_connection_west"
+      ],
+      "hypotheses_backed": [
+        "H1_royal_formal_space",
+        "H2_prince_palace_legacy_interpretation"
+      ],
+      "phases_backed": [
+        "P2_late_7c_wolji_and_palace_reorganization"
+      ]
+    },
+    {
+      "id": "ji_2023_wolji_west_land_preparation_recheck",
+      "priority": "P1",
+      "verified": true,
+      "missing_source": false,
+      "local_available": true,
+      "segments": [
+        "seg_ji2023_multistage_land_preparation_p855",
+        "seg_ji2023_trench_layers_p857",
+        "seg_ji2023_boto_facility_p859",
+        "seg_ji2023_discontinuity_p867_868",
+        "seg_ji2023_dongji_p869_876"
+      ],
+      "fact_evidence_count": 14,
+      "geometry_evidence_count": 1,
+      "features_backed": [
+        "site_context.wolji_west",
+        "ritual.earthquake_charm",
+        "land_preparation.layer",
+        "land_preparation.prior_phase_candidate",
+        "trench.north",
+        "stratigraphy.layers",
+        "land_preparation.multistage",
+        "boto_facility",
+        "pre_wolji_dongji"
+      ],
+      "hypotheses_backed": [],
+      "phases_backed": [
+        "P0_pre_wolji_wetland_and_prior_use",
+        "P1_late_5c_prior_land_preparation",
+        "P2_late_7c_wolji_and_palace_reorganization"
+      ]
+    },
+    {
+      "id": "lee_2023_donggung_wolji_character_debate",
+      "priority": "P1",
+      "verified": true,
+      "missing_source": false,
+      "local_available": true,
+      "segments": [
+        "seg_lee2023_legacy_theory_p245_246",
+        "seg_lee2023_inner_column_and_royal_space_p246",
+        "seg_lee2023_a_building_ceremony_space_p259_260",
+        "seg_lee2023_conclusion_p263",
+        "seg_lee2023_dongji_sources_p262"
+      ],
+      "fact_evidence_count": 7,
+      "geometry_evidence_count": 0,
+      "features_backed": [
+        "context.legacy_west_donggung_interpretation",
+        "context.western_royal_space_interpretation",
+        "context.eastern_donggung_reinterpretation",
+        "context.wolji_water_edge",
+        "layout.omitted_inner_columns",
+        "pre_wolji_dongji"
+      ],
+      "hypotheses_backed": [
+        "H1_royal_formal_space",
+        "H2_prince_palace_legacy_interpretation",
+        "H3_ritual_audience_banquet_program"
+      ],
+      "phases_backed": [
+        "P2_late_7c_wolji_and_palace_reorganization"
+      ]
+    },
+    {
+      "id": "khs_2025_silla_capital_10year_outcome",
+      "priority": "P1",
+      "verified": true,
+      "missing_source": false,
+      "local_available": false,
+      "segments": [
+        "seg_2025_interpretation_summary"
+      ],
+      "fact_evidence_count": 2,
+      "geometry_evidence_count": 0,
+      "features_backed": [
+        "context.western_royal_space_interpretation",
+        "context.eastern_donggung_reinterpretation"
+      ],
+      "hypotheses_backed": [
+        "H1_royal_formal_space",
+        "H2_prince_palace_legacy_interpretation"
+      ],
+      "phases_backed": []
+    },
+    {
+      "id": "nrich_donggung_wolji_iii_report",
+      "priority": "P1",
+      "verified": true,
+      "missing_source": false,
+      "local_available": false,
+      "segments": [],
+      "fact_evidence_count": 0,
+      "geometry_evidence_count": 0,
+      "features_backed": [],
+      "hypotheses_backed": [],
+      "phases_backed": []
+    },
+    {
+      "id": "demo_rule_silla_palace_archaeology_basic",
+      "priority": "fallback",
+      "verified": true,
+      "missing_source": false,
+      "local_available": false,
+      "segments": [],
+      "fact_evidence_count": 9,
+      "geometry_evidence_count": 45,
+      "features_backed": [
+        "source_context.2022_full_report_candidate",
+        "superstructure.column_grid.symbolic",
+        "superstructure.roof_mass.ghost",
+        "uncertainty.superstructure_height",
+        "uncertainty.roof_type",
+        "uncertainty.function_interpretation",
+        "hypothesis.layer.royal_formal_space",
+        "hypothesis.layer.prince_palace_legacy",
+        "hypothesis.layer.ritual_audience_banquet"
+      ],
+      "hypotheses_backed": [
+        "H1_royal_formal_space",
+        "H3_ritual_audience_banquet_program"
+      ],
+      "phases_backed": []
+    }
+  ],
+  "p0_coverage": {
+    "source_context.official_2018_report": [
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "source_context.2022_full_report_candidate": [
+      "demo_rule_silla_palace_archaeology_basic"
+    ],
+    "site_context.wolji_west": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "ji_2023_wolji_west_land_preparation_recheck",
+      "kim_2023_sillasahakbo_a_building_structure_function"
+    ],
+    "context.historical_name_donggung_wolji": [
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "context.legacy_west_donggung_interpretation": [
+      "kim_2023_sillasahakbo_a_building_structure_function",
+      "lee_2023_donggung_wolji_character_debate"
+    ],
+    "context.western_royal_space_interpretation": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "khs_2025_silla_capital_10year_outcome",
+      "kim_2023_sillasahakbo_a_building_structure_function",
+      "lee_2023_donggung_wolji_character_debate"
+    ],
+    "context.eastern_donggung_reinterpretation": [
+      "khs_2025_silla_capital_10year_outcome",
+      "kim_2023_sillasahakbo_a_building_structure_function",
+      "lee_2023_donggung_wolji_character_debate"
+    ],
+    "context.wolji_water_edge": [
+      "kim_2023_sillasahakbo_a_building_structure_function",
+      "lee_2023_donggung_wolji_character_debate",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "context.wolseong_relation": [
+      "kim_2023_sillasahakbo_a_building_structure_function"
+    ],
+    "layout.grid.seven_by_four": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "layout.main_axis": [
+      "gyeongju_2022_a_building_full_excavation_report"
+    ],
+    "layout.omitted_inner_columns": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "lee_2023_donggung_wolji_character_debate",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "platform.main_building": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "kim_2023_sillasahakbo_a_building_structure_function"
+    ],
+    "foundation.general_layout": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "foundation.jeoksim_grid": [
+      "gyeongju_2022_a_building_full_excavation_report"
+    ],
+    "entrance.south.left": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "entrance.south.right": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "entrance.north.center": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "corridor.east_wing": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "corridor.west_wing": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "walkway.drainage_or_paved_facility": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "ritual.earthquake_charm": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "ji_2023_wolji_west_land_preparation_recheck",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "land_preparation.layer": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "ji_2023_wolji_west_land_preparation_recheck",
+      "kim_2023_sillasahakbo_a_building_structure_function"
+    ],
+    "land_preparation.prior_phase_candidate": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "ji_2023_wolji_west_land_preparation_recheck"
+    ],
+    "surrounding.south_line_foundation.building.01": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "surrounding.south_line_foundation.building.02": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "movement.primary_entrance_axis": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "kim_2023_sillasahakbo_a_building_structure_function",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "movement.corridor_connection_east": [
+      "kim_2023_sillasahakbo_a_building_structure_function",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "movement.corridor_connection_west": [
+      "kim_2023_sillasahakbo_a_building_structure_function",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "superstructure.column_grid.symbolic": [
+      "demo_rule_silla_palace_archaeology_basic",
+      "nrich_2018_a_building_restoration_excavation_report"
+    ],
+    "superstructure.roof_mass.ghost": [
+      "demo_rule_silla_palace_archaeology_basic"
+    ],
+    "uncertainty.superstructure_height": [
+      "demo_rule_silla_palace_archaeology_basic"
+    ],
+    "uncertainty.roof_type": [
+      "demo_rule_silla_palace_archaeology_basic"
+    ],
+    "uncertainty.function_interpretation": [
+      "demo_rule_silla_palace_archaeology_basic"
+    ],
+    "hypothesis.layer.royal_formal_space": [
+      "demo_rule_silla_palace_archaeology_basic"
+    ],
+    "hypothesis.layer.prince_palace_legacy": [
+      "demo_rule_silla_palace_archaeology_basic"
+    ],
+    "hypothesis.layer.ritual_audience_banquet": [
+      "demo_rule_silla_palace_archaeology_basic"
+    ],
+    "corridor.west_corridor": [
+      "gyeongju_2022_a_building_full_excavation_report"
+    ],
+    "corridor.west_corridor_stone_platform": [
+      "gyeongju_2022_a_building_full_excavation_report"
+    ],
+    "trench.north": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "ji_2023_wolji_west_land_preparation_recheck"
+    ],
+    "stratigraphy.layers": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "ji_2023_wolji_west_land_preparation_recheck"
+    ],
+    "land_preparation.multistage": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "ji_2023_wolji_west_land_preparation_recheck"
+    ],
+    "boto_facility": [
+      "gyeongju_2022_a_building_full_excavation_report",
+      "ji_2023_wolji_west_land_preparation_recheck"
+    ],
+    "pre_wolji_dongji": [
+      "ji_2023_wolji_west_land_preparation_recheck",
+      "lee_2023_donggung_wolji_character_debate"
+    ]
+  },
+  "p0_without_external_backing": [
+    "source_context.2022_full_report_candidate",
+    "context.wolseong_relation",
+    "superstructure.roof_mass.ghost",
+    "uncertainty.superstructure_height",
+    "uncertainty.roof_type",
+    "uncertainty.function_interpretation",
+    "hypothesis.layer.royal_formal_space",
+    "hypothesis.layer.prince_palace_legacy",
+    "hypothesis.layer.ritual_audience_banquet"
+  ],
+  "note": "p0_without_external_backing에는 불확실성 marker·가설 layer 등 자체 사실 주장이 없는 feature가 포함될 수 있다."
+}

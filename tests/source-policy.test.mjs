@@ -23,9 +23,24 @@ const r2022 = byId.get('gyeongju_2022_a_building_full_excavation_report');
 assert.equal(r2022.license, 'to_verify');
 assert.equal(r2022.priority, 'P0');
 
-// unverified 2022 P0 candidate must not be cited by any evidence yet
+// M1.5: 2022 report is content-verified with a local packet and now backs the
+// core facts; its unresolved LICENSE still blocks commercial/public use only.
 const used = usedSourceIds(corpus);
-assert.ok(!used.has(r2022.id), '2022 candidate is registry-only until verified');
+assert.ok(used.has(r2022.id), '2022 report backs core facts after packet ingest');
+assert.equal(r2022.verified, true);
+assert.equal(r2022.local_available, true);
+assert.equal(r2022.public_asset_allowed, false);
+
+// kim 2023: missing full text — abstract-level use only
+const kim = byId.get('kim_2023_sillasahakbo_a_building_structure_function');
+assert.equal(kim.missing_source, true);
+for (const f of features) {
+  for (const ev of f.fact_layer.evidence) {
+    if (ev.source_id === kim.id) {
+      assert.notEqual(ev.class, 'E1', `${f.id}: missing_source는 E1 불가`);
+    }
+  }
+}
 
 // internal demo rule never backs factual E1–E4 claims
 for (const f of features) {
@@ -44,12 +59,15 @@ for (const f of features) {
   }
 }
 
-// academic articles are never cited for exact geometry values either
+// geometry evidence: internal placeholder, or a locator-backed measured /
+// report-stated / disclosed dimension-scaling entry — nothing else
 for (const f of features) {
   for (const ev of f.geometry_layer.evidence) {
     const src = byId.get(ev.source_id);
-    assert.ok(src.type === 'internal_rule' || ev.method === 'measured',
-      `${f.id}: geometry evidence는 internal placeholder 또는 measured locator만 허용 (${ev.source_id})`);
+    const locatorBacked = ['measured', 'report_stated', 'report_dimension_scaled'].includes(ev.method)
+      && ev.locator && ev.locator.page != null;
+    assert.ok(src.type === 'internal_rule' || locatorBacked,
+      `${f.id}: geometry evidence는 internal placeholder 또는 locator-backed 항목만 허용 (${ev.source_id}/${ev.method})`);
   }
 }
 

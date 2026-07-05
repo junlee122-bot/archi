@@ -69,6 +69,21 @@
 | V39_FORBIDDEN_LANGUAGE_USER_FACING_ONLY | user-facing 표면만 검사. 금지어 목록·부정 문맥·인용·코드 주석은 예외. 공개 UI가 확정적 복원을 주장하면 fail |
 | V40_COLUMN_GRID_DERIVED_FROM_BAYS | symbolic 기둥은 bays+1 파생·DEMO/E5 전용, 발굴 위치는 source locator 필수 |
 
+## M1.5 신설 (V41–V50)
+
+| ID | 내용 |
+|---|---|
+| V41_SOURCE_SEGMENT_LOCATOR_BACKING | 외부 소스를 인용하는 모든 E1/E2 evidence는 locator.page가 있는 segment로 연결 의무. 모든 segment는 locator.page 보유 |
+| V42_REPORT_DIMENSION_TO_GEOMETRY_DISCLOSURE | 보고 치수를 가진 feature의 geometry_mode는 report_dimension_scaled/symbolic 공시 의무. derived footprint는 fact_layer 치수와 일치, 칸 분할 가정 공시. **주의: 치수 스케일 공시는 exact mm 값(칸 간격 등)을 해금하지 않는다 — exact 값은 method=measured locator 전용 (C07 드릴이 집행)** |
+| V43_NO_PUBLIC_PDF_ASSET | web/ 하위에 PDF/HWP/TIF 금지 + git 추적 파일에 PDF/HWP 금지. source_packets/*.pdf는 gitignore |
+| V44_ACADEMIC_ARTICLE_USAGE_LIMIT | 학술 논문 evidence는 E1 불가, geometry 사용 불가(공시된 치수 스케일 제외), missing_source 논문은 abstract-level locator만 |
+| V45_H2_LEE2023_BACKING | H2는 이현태 2023 page locator 근거를 supporting과 counter 양쪽에 보유 의무 |
+| V46_PHASE_JI2023_BACKING | 선대 단계(P0/P1)와 Ji-backed feature 5종은 지영배 2023 page locator 근거 의무 |
+| V47_REPORT2022_CORE_FEATURE_BACKING | params.report2022_core_features 10종은 2022 보고서 숫자 page locator 근거 의무 |
+| V48_VIEWER_ROUTE_COMPLETENESS | 뷰어 8모드 처리·컴포넌트 완결성 (web/ 부재 시 core-only로 skip, M2에서 재검사) |
+| V49_PRESENTATION_PREVIEW_REQUIRED | artifacts/preview manifest 존재, 파일은 internal_viewer_render만 (소스 이미지 금지) |
+| V50_CORRUPTION_UI_REQUIRED | corruption 드릴 ≥12 시나리오, copy:web 스테이징, VerificationPanel 표시, fail_closed=true (리포트 미생성은 warn) |
+
 ## 금지어 scanner 세부 (V39 / check-forbidden-language.mjs)
 
 검사 대상: `web/app/**/*.tsx`, `web/components/**/*.tsx`, 생성 공개 리포트,

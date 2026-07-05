@@ -6,3 +6,7 @@ artifacts/corruption/
 artifacts/test-tmp/
 *.log
 .DS_Store
+source_packets/*.pdf
+source_packets/*.hwp
+source_packets/*.hwpx
+source_packets/fable_local_prompt_m15_m25.txt

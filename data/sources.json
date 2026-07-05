@@ -16,7 +16,10 @@
     "verified": true,
     "priority": "P0",
     "local_path": null,
-    "notes": "공식 초록에서 7×4칸 내진감주, 출입시설 3개소, 동서편 익랑, 전축 보도시설, 지진구, 남편 줄기초 2동 확인. 2026-07-05 공식 페이지 실사: KOGL 제1유형 문구 원문 확인, PDF 바로보기 링크(약 59.5MB) HEAD 검증. 144p/A4, 2018 보완조사분. PDF ingest 후 page/figure locator를 보강."
+    "notes": "공식 초록에서 7×4칸 내진감주, 출입시설 3개소, 동서편 익랑, 전축 보도시설, 지진구, 남편 줄기초 2동 확인. 2026-07-05 공식 페이지 실사: KOGL 제1유형 문구 원문 확인, PDF 바로보기 링크(약 59.5MB) HEAD 검증. 144p/A4, 2018 보완조사분. PDF ingest 후 page/figure locator를 보강.",
+    "public_asset_allowed": false,
+    "local_available": false,
+    "missing_source": false
   },
   {
     "id": "gyeongju_2022_a_building_full_excavation_report",
@@ -34,8 +37,11 @@
     "accessed": "2026-07-05",
     "verified": true,
     "priority": "P0",
-    "local_path": null,
-    "notes": "2026-07-05 실사: cha.go.kr 간행물 게시판에서 확인, 공식 PDF(112MB) 판권지 직접 판독 — 2022-11-30 발행, 366p, 2019.11~2021.12 조사분(서편 익랑지·회랑지 등). 2018 학술연구총서 127과는 별개 볼륨. portal.nrich.go.kr에는 미등재(검색 검증). 판권지에 무단 전재·복제·변형 금지 문구가 있고 페이지에는 사이트 공통 공공누리 로고만 있어 개별 KOGL 유형 미확정 → license to_verify 유지, human review 전 evidence·파생 사용 금지. PDF 첨부 서버가 bare-IP HTTP라 pdf_url은 공식 게시판 다운로드 경로로만 기록."
+    "local_path": "source_packets/report2022_min_pack_for_fable.pdf",
+    "notes": "2026-07-05 실사: cha.go.kr 간행물 게시판에서 확인, 공식 PDF(112MB) 판권지 직접 판독 — 2022-11-30 발행, 366p, 2019.11~2021.12 조사분(서편 익랑지·회랑지 등). 2018 학술연구총서 127과는 별개 볼륨. portal.nrich.go.kr에는 미등재(검색 검증). 판권지에 무단 전재·복제·변형 금지 문구가 있고 페이지에는 사이트 공통 공공누리 로고만 있어 개별 KOGL 유형 미확정 → license to_verify 유지, human review 전 evidence·파생 사용 금지. PDF 첨부 서버가 bare-IP HTTP라 pdf_url은 공식 게시판 다운로드 경로로만 기록. [M1.5] 공식 PDF 전문 확보(112MB, 366p) 및 본문 페이지 실측 ingest: p.84(25.5×15.2m, 7×4칸, 중앙 4적심 감주), p.85(적심 220~280cm/204cm, 출입 3개소·답도, 낙수받이시설), p.95-103(트렌치 층서·진단구·성토 두께), p.107-119(서익랑·서회랑·석축기단), p.309-316(고찰). PDF는 source_packets/ 로컬 전용 — 커밋·public 복사 금지. [seed 적용] 사용자 packet(min pack 24p) 수령·검증. 전체본(report2022_full_source.pdf)도 로컬 보존 — locator 교차 검증용. p.16 (추정 정전) 지칭, p.334-335 맺음말(왕궁 기능 가능성·보토 역할) 원문 확인.",
+    "public_asset_allowed": false,
+    "local_available": true,
+    "missing_source": false
   },
   {
     "id": "kim_2023_sillasahakbo_a_building_structure_function",
@@ -55,15 +61,18 @@
     "verified": true,
     "priority": "P1",
     "local_path": null,
-    "notes": "2026-07-05 실사: KCI ART002951670·DBpia NODE11398133·DOI 리졸브 확인, 2023.4, pp.161-209, 저자 소속 국립경주문화재연구소. 초록에서 7×4칸 대형건물, 계단 답도시설, 기단토, 2m 대지성토, 최상위 위계, 동궁의 월지 동편 비정 논의 확인. 학회지 저작권 — KOGL 아님, 전문은 DBpia 유료. geometry exact value source로 사용 금지."
+    "notes": "2026-07-05 실사: KCI ART002951670·DBpia NODE11398133·DOI 리졸브 확인, 2023.4, pp.161-209, 저자 소속 국립경주문화재연구소. 초록에서 7×4칸 대형건물, 계단 답도시설, 기단토, 2m 대지성토, 최상위 위계, 동궁의 월지 동편 비정 논의 확인. 학회지 저작권 — KOGL 아님, 전문은 DBpia 유료. geometry exact value source로 사용 금지. [M1.5] 전문 미확보(DBpia 유료) → missing_source:true. abstract-level 근거만 허용(V44), 본문 page locator 사용 금지.",
+    "public_asset_allowed": false,
+    "local_available": false,
+    "missing_source": true
   },
   {
     "id": "ji_2023_wolji_west_land_preparation_recheck",
     "title": "동궁과 월지 서편 지역의 대지조성층 재검토",
     "author": "지영배",
     "publisher": "한국고고학회",
-    "journal": "한국고고학보 129",
-    "url": "https://scholar.kyobobook.co.kr/article/detail/4050068599149",
+    "journal": "한국고고학보 2023권 4호 (제129집)",
+    "url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003048877",
     "pdf_url": null,
     "doi": "10.47439/JKRAS.2023.4.855",
     "type": "academic_article",
@@ -73,8 +82,35 @@
     "accessed": "2026-07-05",
     "verified": true,
     "priority": "P1",
-    "local_path": null,
-    "notes": "2026-07-05 실사: DOI 리졸브·교보스콜라·RISS 서지 확인, 한국고고학보 129 (2023.12), pp.855-879, 저자 소속 국립경주문화재연구소. A건물지 대지조성 단계, 선대 대지조성층, 월지 이전 landscape 논의. phase timeline에 사용. 학회지 저작권 — license unknown."
+    "local_path": "source_packets/ji2023_core_pack_for_fable.pdf",
+    "notes": "2026-07-05 실사: DOI 리졸브·교보스콜라·RISS 서지 확인, 한국고고학보 129 (2023.12), pp.855-879, 저자 소속 국립경주문화재연구소. A건물지 대지조성 단계, 선대 대지조성층, 월지 이전 landscape 논의. phase timeline에 사용. 학회지 저작권 — license unknown. [M1.5] KCI 공개 원문 확보(pp.855-879). p.855(요지: 선대 대지조성 5C 후엽, 보토시설=방수, 東池), p.857/859(8개 대별층, 보토시설 1.8m×0.95m), p.867(C14 불연속), p.869/872(東池 논증·수성퇴적), p.874(호안·차수벽), p.876(맺음말). 학회 저작권 — 짧은 paraphrase+locator만 저장.",
+    "public_asset_allowed": false,
+    "local_available": true,
+    "missing_source": false,
+    "kci_id": "ART003048877"
+  },
+  {
+    "id": "lee_2023_donggung_wolji_character_debate",
+    "title": "'경주 동궁과 월지'의 성격을 둘러싼 논의와 쟁점",
+    "author": "이현태",
+    "publisher": "한국고대학회",
+    "journal": "선사와 고대 72",
+    "url": "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002993374",
+    "pdf_url": null,
+    "doi": "10.23024/pah.2023..72.245",
+    "kci_id": "ART002993374",
+    "type": "academic_article",
+    "year": 2023,
+    "license": "unknown",
+    "license_verified": false,
+    "accessed": "2026-07-05",
+    "verified": true,
+    "priority": "P1",
+    "local_path": "source_packets/lee2023_core_pack_for_fable.pdf",
+    "local_available": true,
+    "missing_source": false,
+    "public_asset_allowed": false,
+    "notes": "[M1.5 신규] KCI 공개 원문 확보(2023.8, pp.245-268). '동궁(태자궁)과 월지'설 형성·비판 연구사(p.245-246), 월지 서편 A건물=국왕의 공간 가능성(p.246), 내진감주+답도→정전 사용 의미(p.259), 서편 건물군-태자궁 연결 곤란·동편 후보(p.263), 東池 사료 논의(p.262). H1/H2 근거 소스. 학회 저작권 — 짧은 paraphrase+locator만 저장."
   },
   {
     "id": "khs_2025_silla_capital_10year_outcome",
@@ -97,7 +133,10 @@
       "https://news.sbs.co.kr/news/endPage.do?news_id=N1007975141",
       "https://www.imaeil.com/page/view/2025020611434553488"
     ],
-    "notes": "2026-07-05 실사: khs.go.kr 공식 보도자료 확인(2025-02-06, newsItemId=155705252, 「국가유산청이 새로 쓰는 신라사」 언론공개회). 월지 동편(Ⅱ-나지구)=동궁, 월지 서편 A건물지(Ⅰ-가지구)=왕의 공간 재비정 내용 직접 확인. 페이지 KOGL 제1유형 마킹 확인 → 공식 latest_interpretation source로 승격(P1 유지). geometry source로 사용 금지. 신라왕경 핵심유적 10년 성과 학술대회(2024-12-03) 보도자료와는 별개 건."
+    "notes": "2026-07-05 실사: khs.go.kr 공식 보도자료 확인(2025-02-06, newsItemId=155705252, 「국가유산청이 새로 쓰는 신라사」 언론공개회). 월지 동편(Ⅱ-나지구)=동궁, 월지 서편 A건물지(Ⅰ-가지구)=왕의 공간 재비정 내용 직접 확인. 페이지 KOGL 제1유형 마킹 확인 → 공식 latest_interpretation source로 승격(P1 유지). geometry source로 사용 금지. 신라왕경 핵심유적 10년 성과 학술대회(2024-12-03) 보도자료와는 별개 건.",
+    "public_asset_allowed": false,
+    "local_available": false,
+    "missing_source": false
   },
   {
     "id": "nrich_donggung_wolji_iii_report",
@@ -114,7 +153,10 @@
     "verified": true,
     "priority": "P1",
     "local_path": null,
-    "notes": "2026-07-05 실사: 공식 페이지에서 KOGL 제4유형 문구 원문 확인(2018 A건물지 보고서의 제1유형과 다름 — 소스별 개별 license 정책의 실증 사례). 2014-2017 동편 가지구 조사분, 2019-11-29 발간. PDF(214.9MB)는 공식 페이지 다운로드만 가능(정적 URL 없음). 동편 동궁 관련 유구 비교 source. 제4유형이므로 상업/변형 제한을 license audit에 반영, 내부 연구 참고만 허용."
+    "notes": "2026-07-05 실사: 공식 페이지에서 KOGL 제4유형 문구 원문 확인(2018 A건물지 보고서의 제1유형과 다름 — 소스별 개별 license 정책의 실증 사례). 2014-2017 동편 가지구 조사분, 2019-11-29 발간. PDF(214.9MB)는 공식 페이지 다운로드만 가능(정적 URL 없음). 동편 동궁 관련 유구 비교 source. 제4유형이므로 상업/변형 제한을 license audit에 반영, 내부 연구 참고만 허용.",
+    "public_asset_allowed": false,
+    "local_available": false,
+    "missing_source": false
   },
   {
     "id": "demo_rule_silla_palace_archaeology_basic",
@@ -130,6 +172,9 @@
     "verified": true,
     "priority": "fallback",
     "local_path": null,
-    "notes": "정확 치수와 좌표가 없을 때 relative placeholder를 생성하기 위한 내부 규칙. factual claim source로 사용 금지."
+    "notes": "정확 치수와 좌표가 없을 때 relative placeholder를 생성하기 위한 내부 규칙. factual claim source로 사용 금지.",
+    "public_asset_allowed": true,
+    "local_available": false,
+    "missing_source": false
   }
 ]

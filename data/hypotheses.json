@@ -7,37 +7,121 @@
     "summary_ko": "서편 A건물지를 월지 서편의 최상위 위계 건물, 왕의 공식 공간 또는 정전급 권위 건물로 보는 해석이다.",
     "confidence": "E4",
     "confidence_notes": [
-      "7×4칸 내진감주 대형건물, 출입시설, 익랑, 보도시설 등 정성 사실은 E1",
-      "왕의 공식 공간/정전급 기능 해석은 보고서·논문·최신 조사성과를 종합한 해석이므로 E4",
-      "PDF 본문에서 정전 표현과 page locator가 확인되면 subclaim confidence를 E1로 승격 가능"
+      "규모(25.5×15.2m)·7×4칸·내진감주·답도 출입시설 등 정성 사실은 2022 보고서 본문 근거 E1",
+      "왕의 공식 공간/정전급 해석은 보고서 고찰(p.310, 315)·이현태 2023(p.246, 259)·2025 공식 재비정을 종합한 해석이므로 E4",
+      "2022 보고서 p.16의 '(추정 정전)' 지칭과 이현태 2023 p.259 표현으로 page locator 확보 — 다만 '추정'이 붙은 해석 진술이므로 E4 유지, 확정 아님"
     ],
     "supporting_features": [
       "layout.grid.seven_by_four",
       "layout.omitted_inner_columns",
-      "entrance.facility.01",
-      "entrance.facility.02",
-      "entrance.facility.03",
+      "entrance.south.left",
+      "entrance.south.right",
+      "entrance.north.center",
       "corridor.east_wing",
       "corridor.west_wing",
-      "walkway.brick_paved",
+      "walkway.drainage_or_paved_facility",
       "land_preparation.layer",
-      "context.western_royal_space_interpretation"
+      "context.western_royal_space_interpretation",
+      "foundation.jeoksim_grid",
+      "corridor.west_corridor",
+      "corridor.west_corridor_stone_platform"
     ],
     "supporting_evidence": [
       {
-        "source_id": "nrich_2018_a_building_restoration_excavation_report",
+        "source_id": "gyeongju_2022_a_building_full_excavation_report",
+        "source_segment_id": "seg_report2022_a_building_overview_p84",
+        "locator": {
+          "page": "84-85",
+          "note": "25.5×15.2m 7×4칸, 내진감주, 대형 적심, 답도 출입시설"
+        },
         "class": "E1",
-        "method": "report_interpreted",
-        "claim": "A건물지의 구조·규모·주변 관계가 보고됨."
+        "method": "report_stated",
+        "claim": "A건물지의 규모·구조·부속시설이 보고서 본문으로 확인됨."
+      },
+      {
+        "source_id": "gyeongju_2022_a_building_full_excavation_report",
+        "source_segment_id": "seg_report2022_site_context_p16",
+        "locator": {
+          "page": "16",
+          "note": "머리말이 조사 구역을 'A건물지(추정 정전)'로 지칭"
+        },
+        "class": "E1",
+        "method": "report_stated",
+        "claim": "보고서 자체가 A건물지에 '추정 정전' 라벨을 사용함 (라벨 사용 사실 E1 — 기능 확정 아님)."
+      },
+      {
+        "source_id": "gyeongju_2022_a_building_full_excavation_report",
+        "source_segment_id": "seg_report2022_conclusion_p334_335",
+        "locator": {
+          "page": "335",
+          "note": "맺음말: 왕궁 기능 가능성 매우 높음"
+        },
+        "class": "E4",
+        "method": "report_discussion_interpretation",
+        "claim": "A건물지 일원의 왕궁 기능 가능성을 매우 높게 평가(보고서 맺음말 해석)."
+      },
+      {
+        "source_id": "gyeongju_2022_a_building_full_excavation_report",
+        "source_segment_id": "seg_report2022_discussion_comparison_p307",
+        "locator": {
+          "page": "310",
+          "note": "내진감주 = 사찰 제외 신라왕경 권위 건축물 중 유일"
+        },
+        "class": "E4",
+        "method": "report_discussion_interpretation",
+        "claim": "내진감주 기법을 A건물지의 위상·권위를 보여주는 속성으로 해석."
+      },
+      {
+        "source_id": "gyeongju_2022_a_building_full_excavation_report",
+        "source_segment_id": "seg_r2022_p315_316_discussion_comparison",
+        "locator": {
+          "page": "315",
+          "note": "발해 상경성 제3호 정전 건물지와 규모·내진감주·출입시설 거의 동일"
+        },
+        "class": "E4",
+        "method": "report_discussion_interpretation",
+        "claim": "정전급 건물지(발해 상경성 제3호 정전)와의 구조 비교로 중심적 역할 추정."
+      },
+      {
+        "source_id": "lee_2023_donggung_wolji_character_debate",
+        "source_segment_id": "seg_lee2023_a_building_ceremony_space_p259_260",
+        "locator": {
+          "page": "259",
+          "note": "내진감주+남쪽 답도 2개소 → 어좌 상정, 정전 사용 의미"
+        },
+        "class": "E4",
+        "method": "academic_interpretation",
+        "claim": "보완발굴 성과를 근거로 A건물의 정전 사용을 해석."
+      },
+      {
+        "source_id": "lee_2023_donggung_wolji_character_debate",
+        "source_segment_id": "seg_lee2023_inner_column_and_royal_space_p246",
+        "locator": {
+          "page": "246",
+          "note": "국왕의 공간일 가능성이 큰 월지 서편의 A건물"
+        },
+        "class": "E4",
+        "method": "academic_interpretation",
+        "claim": "월지 서편 A건물을 국왕의 공간 가능성이 큰 건물로 지칭."
       },
       {
         "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+        "source_segment_id": "seg_kim2023_abstract_a_building",
+        "locator": {
+          "page": "article_abstract",
+          "note": "전문 미확보 — 초록 수준 근거"
+        },
         "class": "E4",
         "method": "academic_interpretation",
         "claim": "A건물지를 왕궁으로 볼 만한 건축 속성 및 최상위 위계 건물로 해석."
       },
       {
         "source_id": "khs_2025_silla_capital_10year_outcome",
+        "source_segment_id": "seg_2025_interpretation_summary",
+        "locator": {
+          "page": "khs_press_release_2025-02-06",
+          "note": "공식 보도자료"
+        },
         "class": "E4",
         "method": "latest_official_interpretation",
         "claim": "월지 서편을 왕의 공간으로 보는 최신 조사성과. 2025-02-06 국가유산청 공식 보도자료로 확인됨."
@@ -56,7 +140,7 @@
       }
     ],
     "unresolved_questions": [
-      "보고서 본문에서 정전 표현이 정확히 어디에 등장하는가?",
+      "'추정 정전' 라벨(2022 p.16)과 정전 사용 해석(이현태 2023 p.259)을 넘어, 내부 시설·유물 맥락 등 기능을 확정할 독립 근거를 확보할 수 있는가?",
       "A건물지의 공식 기능을 정전·의례·접견·연회 중 어디까지 구분할 수 있는가?",
       "월성·월지·동편 동궁 후보지와의 관계를 어느 축으로 시각화해야 하는가?"
     ],
@@ -65,8 +149,9 @@
         "layout.grid.seven_by_four",
         "layout.omitted_inner_columns",
         "land_preparation.layer",
-        "entrance.facility.01",
-        "walkway.brick_paved"
+        "entrance.south.left",
+        "walkway.drainage_or_paved_facility",
+        "foundation.jeoksim_grid"
       ],
       "superstructure_opacity": 0.18,
       "warning": "왕의 공식 공간 해석은 가장 강한 해석축이지만, 상부 목구조의 확정 복원이 아니다."
@@ -80,7 +165,7 @@
     "summary_ko": "동궁과 월지라는 명칭과 기존 연구사에 따라 서편 A건물지를 태자궁 또는 동궁 관련 공간으로 연결해 온 해석이다. 최신 재비정 이후에는 약화된 competing hypothesis로 다룬다.",
     "confidence": "E5",
     "confidence_notes": [
-      "기존 연구사와 명칭은 설명 가치가 있으나, 2025년 조사성과와 김경열 2023 논문은 동궁 위치를 월지 동편으로 보는 해석을 강화한다.",
+      "기존 연구사와 명칭은 설명 가치가 있으나(이현태 2023 p.245-246의 연구사 정리), 동일 논문 p.259·263과 2025년 조사성과, 김경열 2023은 서편-태자궁 연결을 약화시킨다.",
       "따라서 H2는 default model이 아니라 historiography layer다."
     ],
     "supporting_features": [
@@ -90,7 +175,23 @@
     ],
     "supporting_evidence": [
       {
+        "source_id": "lee_2023_donggung_wolji_character_debate",
+        "source_segment_id": "seg_lee2023_legacy_theory_p245_246",
+        "locator": {
+          "page": "245-246",
+          "note": "'동궁(태자궁)과 월지'설의 형성·통설화·2011 명칭 변경"
+        },
+        "class": "E2",
+        "method": "historiography_summary",
+        "claim": "서편 일대를 동궁(태자궁)과 연결해 온 설의 형성 과정과 논거를 정리."
+      },
+      {
         "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+        "source_segment_id": "seg_kim2023_abstract_a_building",
+        "locator": {
+          "page": "article_abstract",
+          "note": "전문 미확보 — 초록 수준 근거"
+        },
         "class": "E4",
         "method": "historiography_summary",
         "claim": "동궁 위치 문제와 기존 논란을 정리하는 연구사 근거."
@@ -98,7 +199,12 @@
     ],
     "counter_evidence": [
       {
-        "claim": "월지 동편을 동궁으로, 서편을 왕의 공간으로 보는 최신 조사성과가 제시됨.",
+        "claim": "월지 서편 건물군은 동궁(태자궁)과 연결되기 힘들다고 정리 (이현태 2023 p.259, 263).",
+        "source_id": "lee_2023_donggung_wolji_character_debate",
+        "class": "E4"
+      },
+      {
+        "claim": "월지 동편을 동궁으로, 서편을 왕의 공간으로 보는 최신 조사성과가 제시됨 (2025-02-06 공식 보도자료).",
         "source_id": "khs_2025_silla_capital_10year_outcome",
         "class": "E4"
       },
@@ -132,35 +238,53 @@
     "summary_ko": "A건물지의 큰 평면, 출입시설, 익랑, 보도시설, 월지 경관과의 관계를 바탕으로 공식 의례·접견·연회 기능 가능성을 검토하는 기능축이다. H1과 완전히 배타적이지 않고, H1 내부의 기능 세부 해석으로도 작동한다.",
     "confidence": "E5",
     "confidence_notes": [
-      "공간·동선 feature 자체는 E1 근거가 있지만, 구체 기능은 별도 문헌/도면/유물 연결 없이는 E5로 둔다.",
-      "월지 water/context layer가 scene에 반드시 있어야 이 hypothesis를 표시할 수 있다."
+      "공간·동선 feature 자체는 E1 근거가 있고, 조회·의례 공간 구조 해석(이현태 2023 p.260)이 추가되었지만, 구체 기능 배분은 독립 근거 없이는 E5로 둔다.",
+      "월지 수변(context.wolji_water_edge)과 선대 東池 경관(pre_wolji_dongji) layer가 scene에 있어야 이 hypothesis를 표시할 수 있다."
     ],
     "requires_features": [
-      "context.wolji_water_edge"
+      "context.wolji_water_edge",
+      "pre_wolji_dongji"
     ],
     "supporting_features": [
       "layout.omitted_inner_columns",
-      "entrance.facility.01",
-      "entrance.facility.02",
-      "entrance.facility.03",
+      "entrance.south.left",
+      "entrance.south.right",
+      "entrance.north.center",
       "corridor.east_wing",
       "corridor.west_wing",
-      "walkway.brick_paved",
+      "walkway.drainage_or_paved_facility",
       "context.wolji_water_edge",
-      "movement.primary_entrance_axis"
+      "movement.primary_entrance_axis",
+      "pre_wolji_dongji"
     ],
     "supporting_evidence": [
       {
-        "source_id": "nrich_2018_a_building_restoration_excavation_report",
+        "source_id": "gyeongju_2022_a_building_full_excavation_report",
+        "source_segment_id": "seg_report2022_jeoksim_entrances_p85",
+        "locator": {
+          "page": "85",
+          "note": "출입시설 3개소·답도·낙수받이(보도)시설"
+        },
         "class": "E1",
-        "method": "reported_features",
-        "claim": "출입시설, 익랑, 보도시설 등 동선 관련 feature가 보고됨."
+        "method": "report_stated",
+        "claim": "동선·출입 관련 유구가 보고서 본문으로 확인됨."
+      },
+      {
+        "source_id": "lee_2023_donggung_wolji_character_debate",
+        "source_segment_id": "seg_lee2023_a_building_ceremony_space_p259_260",
+        "locator": {
+          "page": "260",
+          "note": "A건물지 앞 넓은 마당 = 조회·국가 의례 거행 가능한 공간 구조"
+        },
+        "class": "E4",
+        "method": "academic_interpretation",
+        "claim": "조회·국가 의례 공간 구조라는 해석적 근거."
       },
       {
         "source_id": "demo_rule_silla_palace_archaeology_basic",
         "class": "E5",
         "method": "functional_conjecture",
-        "claim": "기능 연결은 탐색 가설로만 처리."
+        "claim": "구체 기능 배분(의례/접견/연회)은 탐색 가설로만 처리."
       }
     ],
     "counter_evidence": [
@@ -176,10 +300,10 @@
     ],
     "ui_treatment": {
       "highlight": [
-        "entrance.facility.01",
-        "entrance.facility.02",
-        "entrance.facility.03",
-        "walkway.brick_paved",
+        "entrance.south.left",
+        "entrance.south.right",
+        "entrance.north.center",
+        "walkway.drainage_or_paved_facility",
         "context.wolji_water_edge"
       ],
       "superstructure_opacity": 0.1,

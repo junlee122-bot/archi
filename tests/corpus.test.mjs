@@ -10,7 +10,7 @@ const ids = new Set(features.map((f) => f.id));
 
 // scale + required P0 coverage
 assert.ok(features.length >= 30, `canonical features ${features.length} >= 30`);
-assert.equal(params.required_p0_features.length, 37);
+assert.equal(params.required_p0_features.length, 44, 'M1.5 adds 7 locator-backed P0 features');
 for (const id of params.required_p0_features) assert.ok(ids.has(id), `P0 feature ${id}`);
 
 // two-layer structure everywhere, with independent confidence

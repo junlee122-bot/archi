@@ -16,7 +16,8 @@ for (const s of report.scenarios) assert.equal(s.caught, true, `${s.name} caught
 
 // the patch's headline scenarios must be covered
 const names = report.scenarios.map((s) => s.name).join(' ');
-for (const needle of ['fact_e1_downgraded', 'bracket_typology', 'roof_typology', 'omitted_positions', 'commercial_safe', 'forbidden_claim']) {
+for (const needle of ['fact_e1_downgraded', 'bracket_typology', 'roof_typology', 'omitted_positions',
+  'commercial_safe', 'forbidden_claim', 'without_segment_locator', 'missing_source_body_page', 'pdf_copied_into_web_public']) {
   assert.ok(names.includes(needle), `scenario ${needle} present`);
 }
 console.log('corruption.test: PASS');

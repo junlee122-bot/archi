@@ -28,7 +28,16 @@ assert.equal(h2.confidence, 'E5');
 assert.equal(h2.ui_treatment.legacy_badge, true, 'H2 legacy badge');
 assert.ok(h2.ui_treatment.legacy_badge_label_ko.length > 0);
 assert.equal(h3.axis, 'functional_program');
-assert.deepEqual(h3.requires_features, ['context.wolji_water_edge'], 'H3 gated on wolji water layer');
+assert.deepEqual(h3.requires_features, ['context.wolji_water_edge', 'pre_wolji_dongji'],
+  'H3 gated on Wolji AND pre-Wolji water context');
+
+// M1.5: H2 must carry Lee 2023 backing on both sides (V45)
+assert.ok(h2.supporting_evidence.some((ev) => ev.source_id === 'lee_2023_donggung_wolji_character_debate'));
+assert.ok(h2.counter_evidence.some((ev) => ev.source_id === 'lee_2023_donggung_wolji_character_debate'));
+// H1 backed by 2022 report and Lee 2023 with page locators, never "confirmed"
+assert.ok(h1.supporting_evidence.some((ev) => ev.source_id === 'gyeongju_2022_a_building_full_excavation_report' && /\d/.test(String(ev.locator?.page))));
+assert.ok(h1.supporting_evidence.some((ev) => ev.source_id === 'lee_2023_donggung_wolji_character_debate' && /\d/.test(String(ev.locator?.page))));
+assert.ok(!h1.summary_ko.includes('확정'), 'H1 never phrased as confirmed');
 
 // spec-side badges and gating
 const s1 = spec.hypotheses.find((h) => h.id === h1.id);

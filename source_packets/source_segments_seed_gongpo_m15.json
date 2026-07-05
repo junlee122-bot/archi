@@ -1,0 +1,225 @@
+{
+  "note": "Manual source-segments seed for GONGPO-DONGGUNG PRO M1.5. Use short paraphrases only. Do not commit original PDFs or page images.",
+  "segments": [
+    {
+      "id": "seg_report2022_notes_measurement_policy_p3",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": 3, "note": "일러두기: 도면 방위, 수치, 측량 좌표, 축척 원칙" },
+      "summary_ko": "보고서는 유구 도면의 방위를 자북 기준으로 삼고, 입·단면도 수치는 해발고도를 나타낸다고 밝힌다. 측량 좌표는 RTK-GNSS를 사용했으며, 유구 도면은 1/20~1/250 등 여러 축척을 사용했다.",
+      "evidence_class": "E1",
+      "method": "report_metadata",
+      "used_for_features": ["source_context.measurement_policy", "coordinate_system"],
+      "not_usable_for": ["exact_plan_coordinates_without_digitization", "roof_typology", "bracket_typology"]
+    },
+    {
+      "id": "seg_report2022_preface_authority_p5_6",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": "5-6", "note": "발간사" },
+      "summary_ko": "A건물지는 4년에 걸친 보완 발굴조사에서 대형 적심, 정연한 남북축선, 계단 중앙부 답도, 전축 낙수받이시설, 진단구 등이 확인되어 신라왕경 내 핵심적 역할을 담당한 권위 건물로 설명된다. 서편에서 확인된 회랑 석축기단은 월지 서편 일곽의 구조와 A건물지 경관 추정에 도움을 준다고 설명된다.",
+      "evidence_class": "E1",
+      "method": "report_preface",
+      "used_for_features": ["context.authority_building", "ritual.foundation_or_diagnostic_artifact", "corridor.west_corridor_stone_platform", "hypothesis.H1_royal_formal_space"],
+      "not_usable_for": ["exact_geometry", "roof_typology", "bracket_typology"]
+    },
+    {
+      "id": "seg_report2022_site_context_p16",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": 16, "note": "I. 머리말 > 조사 경과" },
+      "summary_ko": "조사 구역은 동궁과 월지 서편 내부 복원 건물지 중 가장 남쪽의 A건물지이며, 보고서는 이를 추정 정전에 해당한다고 설명한다. 연못 서편의 대형 건물지 세 곳은 남북 중심축상에 있고 회랑의 존재와 규모를 통해 중심 건물로 추정되었다.",
+      "evidence_class": "E1",
+      "method": "report_context",
+      "used_for_features": ["site_context.wolji_west", "context.western_building_group_center", "context.estimated_jeongjeon_label"],
+      "not_usable_for": ["confirmed_original_function", "roof_typology"]
+    },
+    {
+      "id": "seg_report2022_survey_history_table_p17",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": 17, "table": "표1", "note": "동궁과 월지 연도별 조사 추진 현황" },
+      "summary_ko": "2018년 조사는 A건물지 규모, 대지 및 기단 축조방법, 남·북편 출입시설, 동·서편 익랑 일부를 확인했다. 2019~2021년 조사는 A건물지 서익랑·서회랑지 및 회랑석축기단, A-B건물지 사이 북편 트렌치 대지조성층을 조사했다.",
+      "evidence_class": "E1",
+      "method": "report_table",
+      "used_for_features": ["layer.excavation_2018", "layer.excavation_2019_2021", "corridor.west_wing", "corridor.west_corridor", "trench.north", "land_preparation.layer"],
+      "not_usable_for": ["exact_geometry"]
+    },
+    {
+      "id": "seg_report2022_authorship_p21",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": 21, "note": "보고서 작업 및 집필자" },
+      "summary_ko": "보고서의 5장 고찰은 김경열·정현승이 집필했고, 6장은 김경열·지영배가 집필한 것으로 정리된다. 김경열 2023 논문 원문이 없더라도 2022 보고서 고찰은 H1 해석축의 일부 근거로 사용할 수 있다.",
+      "evidence_class": "E1",
+      "method": "report_authorship",
+      "used_for_features": ["source_context.report_authorship", "hypothesis.H1_royal_formal_space"],
+      "not_usable_for": ["kim_2023_article_page_locator"]
+    },
+    {
+      "id": "seg_report2022_a_building_overview_p84",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": 84, "note": "IV. 조사 내용 > 유구 > A건물지 개요" },
+      "summary_ko": "A건물지는 동서 방향 장방형 건물지로, 평면 규모는 정면 25.5m × 측면 15.2m이며 정면 7칸 × 측면 4칸으로 보고된다. 중앙부 4개 적심이 확인되지 않아 내진감주로 해석된다.",
+      "evidence_class": "E1",
+      "method": "report_interpreted",
+      "used_for_features": ["layout.grid.seven_by_four", "layout.omitted_inner_columns", "platform.main_building", "foundation.jeoksim_grid"],
+      "not_usable_for": ["roof_typology", "bracket_typology", "exact_column_height"]
+    },
+    {
+      "id": "seg_report2022_jeoksim_entrances_p85",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": 85, "note": "IV. 조사 내용 > A건물지 적심 및 출입시설" },
+      "summary_ko": "A건물지 적심은 직경 220~280cm, 깊이 204cm로 보고된다. 적심은 대지성토와 기단 조성 후 되파기 공법으로 축조되었고, 남편 좌우 2개소와 북편 중앙 1개소의 출입시설이 확인된다. 남편 출입시설에는 답도가 있고, 북편 출입시설 양쪽에는 3~5열 낙수받이/보도시설이 확인된다.",
+      "evidence_class": "E1",
+      "method": "report_interpreted",
+      "used_for_features": ["foundation.jeoksim_grid", "entrance.south.left", "entrance.south.right", "entrance.north.center", "walkway.drainage_or_paved_facility", "foundation.jeoksim_depth_width"],
+      "not_usable_for": ["roof_typology", "bracket_typology"]
+    },
+    {
+      "id": "seg_report2022_south_line_foundation_p106",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": 106, "note": "A건물지 남편 트렌치 줄기초 건물지" },
+      "summary_ko": "남편 트렌치에서는 평면상 줄기초 건물과 지름 약 110cm의 적심이 확인되었다. 보고서는 A건물지와 줄기초 건물지의 선후관계와 축조 양상 파악을 위해 남편 일원의 추가 조사가 필요하다고 설명한다.",
+      "evidence_class": "E1",
+      "method": "report_interpreted",
+      "used_for_features": ["surrounding.south_line_foundation.building.01", "surrounding.south_line_foundation.building.02"],
+      "not_usable_for": ["exact_relationship_to_a_building"]
+    },
+    {
+      "id": "seg_report2022_west_wing_overview_p107_108",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": "107-108", "note": "서익랑지 개요 및 규모" },
+      "summary_ko": "A건물지 서편 S230W280, S240W280 그리드에서 서익랑이 확인되었다. 서익랑은 정면 3칸, 측면 1칸 구조이며 정면 길이 10.1m, 측면 너비 최대 4.2m로 보고된다. 적심 직경은 160~220cm, 평균 192cm로 정리된다.",
+      "evidence_class": "E1",
+      "method": "report_interpreted",
+      "used_for_features": ["corridor.west_wing", "corridor.west_wing.jeoksim"],
+      "not_usable_for": ["complete_corridor_extension"]
+    },
+    {
+      "id": "seg_report2022_west_corridor_plan_p109_110",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": "109-110", "figure": "도면10", "note": "서익랑지·서회랑지 평면도 및 단면도" },
+      "summary_ko": "도면10은 서익랑지와 서회랑지, 익랑 기단적심석열, A건물지 기단지대석 적심열, 서회랑 석축기단의 관계를 보여준다. 보고서는 익랑 기단적심석열을 지대석을 놓기 위한 적심석으로 추정한다.",
+      "evidence_class": "E1",
+      "method": "report_plan_locator",
+      "used_for_features": ["corridor.west_wing", "corridor.west_corridor", "corridor.west_corridor_stone_platform", "corridor.west_wing.foundation_rows"],
+      "not_usable_for": ["public_plan_image_asset", "traced_exact_coordinates_without_digitization"]
+    },
+    {
+      "id": "seg_report2022_discussion_comparison_p307",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": 307, "note": "V. 고찰 > 유구현황 및 구조분석" },
+      "summary_ko": "고찰은 A건물지를 경주에서 보기 드문 7×4칸 대형 건물지로 보고, 중앙열 4개소 적심이 비어 있는 내진감주 기법을 공간 활용 극대화 양상으로 해석한다. 사찰을 제외한 신라왕경 권위 건축물 중 현재로서는 A건물지가 유일하다고 설명한다.",
+      "evidence_class": "E1",
+      "method": "report_discussion",
+      "used_for_features": ["layout.grid.seven_by_four", "layout.omitted_inner_columns", "context.authority_building", "hypothesis.H1_royal_formal_space"],
+      "not_usable_for": ["confirmed_original_function", "roof_typology"]
+    },
+    {
+      "id": "seg_report2022_walkway_discussion_p308_309",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": "308-309", "note": "V. 고찰 > 낙수받이/보도시설" },
+      "summary_ko": "고찰은 기단 주위를 둘러 삼각형 및 장방형 전을 엇갈리게 깐 낙수받이 또는 보도시설을 A건물지의 정확한 규모를 알 수 있게 해주는 요소로 설명한다. 이 시설은 익랑 범위와 관계하며 우수 침입 방지와 보도 이동에 따른 전 탈락 방지 기능도 가진 것으로 해석된다.",
+      "evidence_class": "E1",
+      "method": "report_discussion",
+      "used_for_features": ["walkway.drainage_or_paved_facility", "context.a_building_footprint_precision", "movement.walkway"],
+      "not_usable_for": ["public_report_image_asset"]
+    },
+    {
+      "id": "seg_report2022_conclusion_p334_335",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "locator": { "page": "334-335", "note": "VI. 맺음말" },
+      "summary_ko": "맺음말은 A건물지의 구조, 배치, 대지조성, 부속시설 양상을 밝히기 위한 2018년 이후 보완 발굴조사의 목적을 정리한다. 점토층과 매립토의 성격은 추가 해석이 필요하지만, 보토 역할과 선대 유구 가능성을 언급한다.",
+      "evidence_class": "E1",
+      "method": "report_conclusion",
+      "used_for_features": ["land_preparation.layer", "land_preparation.prior_phase_candidate", "phase.P3_a_building_reported_layout"],
+      "not_usable_for": ["final_strict_phase_model"]
+    },
+    {
+      "id": "seg_lee2023_legacy_theory_p245_246",
+      "source_id": "lee_2023_donggung_wolji_character_debate",
+      "locator": { "page": "245-246", "note": "국문초록 및 머리말" },
+      "summary_ko": "이현태는 ‘동궁(태자궁)과 월지’설이 거의 통설처럼 여겨졌고 2011년 사적명칭 변경에도 영향을 주었으나, 명칭 변경 전후로 반론이 본격화되었다고 정리한다. 또한 유구 분석 소홀과 태자궁으로 보기에는 규모가 지나치게 크다는 비판을 제시한다.",
+      "evidence_class": "E4",
+      "method": "academic_historiography",
+      "used_for_features": ["context.legacy_west_donggung_interpretation", "hypothesis.H2_prince_palace_legacy_interpretation"],
+      "not_usable_for": ["exact_geometry", "measured_dimensions"]
+    },
+    {
+      "id": "seg_lee2023_inner_column_and_royal_space_p246",
+      "source_id": "lee_2023_donggung_wolji_character_debate",
+      "locator": { "page": 246, "note": "머리말" },
+      "summary_ko": "이현태는 월지 서편 건물군이 중심 건물군이며, 내진감주 건물의 성격이 동궁과 월지 해석의 핵심 과제라고 본다. 또한 월지 서편 A건물을 국왕의 공간일 가능성이 큰 대상으로 언급한다.",
+      "evidence_class": "E4",
+      "method": "academic_interpretation",
+      "used_for_features": ["layout.omitted_inner_columns", "context.western_royal_space_interpretation", "hypothesis.H1_royal_formal_space", "hypothesis.H2_prince_palace_legacy_interpretation"],
+      "not_usable_for": ["exact_geometry", "roof_typology"]
+    },
+    {
+      "id": "seg_lee2023_a_building_ceremony_space_p259_260",
+      "source_id": "lee_2023_donggung_wolji_character_debate",
+      "locator": { "page": "259-260", "note": "최근의 논의와 과제: A건물지와 가지구 1호 건물 비교" },
+      "summary_ko": "이현태는 A건물지 보완발굴에서 중앙부 내진감주와 남쪽 출입시설의 답도가 새롭게 확인되었다고 정리한다. 또한 A건물지가 앞에 넓은 마당을 갖추어 조회나 국가 의례를 거행할 수 있는 공간 구조를 가진 점을 논의한다.",
+      "evidence_class": "E4",
+      "method": "academic_interpretation",
+      "used_for_features": ["hypothesis.H1_royal_formal_space", "hypothesis.H3_ritual_audience_banquet_program", "layout.omitted_inner_columns", "entrance.dapdo.south"],
+      "not_usable_for": ["confirmed_original_function"]
+    },
+    {
+      "id": "seg_lee2023_conclusion_p263",
+      "source_id": "lee_2023_donggung_wolji_character_debate",
+      "locator": { "page": 263, "note": "맺음말" },
+      "summary_ko": "이현태는 주변 건물을 동궁 또는 태자궁으로 이해해 온 설이 강한 비판에 직면해 있다고 정리한다. 따라서 H2는 단일한 확정 해석이 아니라 연구사적 layer로 표시해야 한다.",
+      "evidence_class": "E4",
+      "method": "academic_conclusion",
+      "used_for_features": ["hypothesis.H2_prince_palace_legacy_interpretation", "context.legacy_west_donggung_interpretation"],
+      "not_usable_for": ["exact_geometry"]
+    },
+    {
+      "id": "seg_ji2023_multistage_land_preparation_p855",
+      "source_id": "ji_2023_wolji_west_land_preparation_recheck",
+      "locator": { "page": 855, "note": "요약" },
+      "summary_ko": "지영배는 A건물지 대지조성이 7세기 중후반 단기간 공정이 아니라 시간 간격과 단계를 가지고 이루어졌다고 논한다. 근거로 북편 트렌치 토층, 퇴적 순서, 유물, 방사성탄소연대, 월지 이전 東池의 존재를 제시한다.",
+      "evidence_class": "E4",
+      "method": "academic_interpretation",
+      "used_for_features": ["land_preparation.multistage", "trench.north", "phase.P0_pre_wolji_wetland_and_prior_use", "phase.P1_late_5c_prior_land_preparation"],
+      "not_usable_for": ["exact_building_geometry"]
+    },
+    {
+      "id": "seg_ji2023_trench_layers_p857",
+      "source_id": "ji_2023_wolji_west_land_preparation_recheck",
+      "locator": { "page": 857, "note": "A건물지 북편 트렌치 조사현황과 성과" },
+      "summary_ko": "A건물지 북편 트렌치는 A건물지와 B건물지 사이 공지 북편으로 연장 설정되었고, 길이 약 15m, 폭 4m, 깊이 3.3m로 굴착되었다. 기반층부터 표토층까지 8개 대별층위로 구분되며, 선대 유구층과 대지조성층, 매립층, 통일신라시대 문화층이 논의된다.",
+      "evidence_class": "E4",
+      "method": "academic_interpretation",
+      "used_for_features": ["trench.north", "stratigraphy.layers", "land_preparation.layer"],
+      "not_usable_for": ["A_building_exact_foundation_coordinates"]
+    },
+    {
+      "id": "seg_ji2023_boto_facility_p859",
+      "source_id": "ji_2023_wolji_west_land_preparation_recheck",
+      "locator": { "page": 859, "note": "보토시설과 대지조성층 현황" },
+      "summary_ko": "보토시설은 수평축토층 북편을 굴착한 뒤 조성되었고, 습지층에서 A건물지 성토층 상부까지 높이 약 1.8m, 너비 0.95m의 황색 점질실트층으로 설명된다. 보토시설은 대지조성 및 東池 이전 경관 해석에 연결된다.",
+      "evidence_class": "E4",
+      "method": "academic_interpretation",
+      "used_for_features": ["land_preparation.boto_facility", "trench.north", "stratigraphy.layers", "context.pre_wolji_dongji"],
+      "not_usable_for": ["A_building_exact_foundation_coordinates"]
+    },
+    {
+      "id": "seg_ji2023_discontinuity_p867_868",
+      "source_id": "ji_2023_wolji_west_land_preparation_recheck",
+      "locator": { "page": "867-868", "note": "방사성탄소연대와 대지조성 불연속성" },
+      "summary_ko": "지영배는 북편 트렌치의 수평축토층과 대지조성이 시간 간격을 두고 단계적으로 이루어졌을 가능성이 높다고 해석한다. 3세기대 유구층 이후 바로 7세기 후반에 단번에 조성되었다고 보기 어렵다고 정리한다.",
+      "evidence_class": "E4",
+      "method": "academic_interpretation",
+      "used_for_features": ["land_preparation.multistage", "phase.P1_late_5c_prior_land_preparation", "phase.P2_late_7c_wolji_and_palace_reorganization"],
+      "not_usable_for": ["strict_absolute_phase_without_radiocarbon_table"]
+    },
+    {
+      "id": "seg_ji2023_dongji_p869_876",
+      "source_id": "ji_2023_wolji_west_land_preparation_recheck",
+      "locator": { "page": "869-876", "note": "월지 이전 못 東池와 보토시설 기능" },
+      "summary_ko": "지영배는 월지 이전 못인 東池의 존재 가능성과 보토시설의 기능을 논하고, 보토시설이 東池의 호안으로 연못과 연접하는 경관을 추정한다. 결론에서는 A건물지 북편 트렌치 조사 성과를 바탕으로 월지 서편 일대의 선대 대지조성층 존재를 새로 파악할 수 있다고 정리한다.",
+      "evidence_class": "E4",
+      "method": "academic_interpretation",
+      "used_for_features": ["context.pre_wolji_dongji", "context.wolji_water_edge", "land_preparation.boto_facility", "phase.P0_pre_wolji_wetland_and_prior_use"],
+      "not_usable_for": ["confirmed_waterline_geometry", "exact_shoreline"]
+    }
+  ]
+}

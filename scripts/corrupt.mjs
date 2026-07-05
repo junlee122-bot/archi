@@ -1,7 +1,7 @@
 // corrupt.mjs — fail-closed corruption drill. Each scenario tampers a copy of
 // the corpus or artifacts; the pipeline (derive and/or verify) MUST reject it.
 // Exit 0 only when every scenario is caught.
-import { cpSync, mkdirSync, rmSync } from 'node:fs';
+import { cpSync, mkdirSync, rmSync, existsSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -23,6 +23,10 @@ function cloneRoot(name) {
   cpSync(join(realRoot, 'data'), join(dir, 'data'), { recursive: true });
   mkdirSync(join(dir, 'artifacts'), { recursive: true });
   cpSync(paths.spec(realRoot), paths.spec(dir));
+  const preview = join(realRoot, 'artifacts', 'preview');
+  if (existsSync(preview)) cpSync(preview, join(dir, 'artifacts', 'preview'), { recursive: true });
+  const corruptionReport = join(realRoot, 'artifacts', 'corruption-report.json');
+  if (existsSync(corruptionReport)) cpSync(corruptionReport, join(dir, 'artifacts', 'corruption-report.json'));
   return dir;
 }
 
@@ -104,18 +108,37 @@ const SCENARIOS = [
     })
   },
   {
-    name: 'C08_unverified_p0_source_used_as_evidence',
+    name: 'C08_e1_evidence_without_segment_locator',
     mode: 'data',
-    expect: 'to_verify P0 소스의 evidence 사용을 derive/V19가 거부',
+    expect: 'segment locator 없는 E1 근거를 V41이 거부',
     setup: (dir) => editJson(paths.features(dir), (features) => {
       const f = features.find((x) => x.id === 'platform.main_building');
       f.fact_layer.evidence.push({
         source_id: 'gyeongju_2022_a_building_full_excavation_report',
         class: 'E1',
-        method: 'report_interpreted',
+        method: 'report_stated',
         verified: true
       });
     })
+  },
+  {
+    name: 'C13_missing_source_body_page_locator',
+    mode: 'data',
+    expect: 'missing_source 논문의 본문 page locator를 derive/V44가 거부',
+    setup: (dir) => editJson(paths.segments(dir), (segments) => {
+      const seg = segments.find((s) => s.id === 'seg_kim2023_abstract_a_building');
+      seg.locator.page = '170';
+    })
+  },
+  {
+    name: 'C14_pdf_copied_into_web_public',
+    mode: 'artifact',
+    reseal: true,
+    expect: 'web/public 내 PDF 자산을 V43이 거부',
+    setup: (dir) => {
+      mkdirSync(join(dir, 'web', 'public'), { recursive: true });
+      writeFileSync(join(dir, 'web', 'public', 'report-page.pdf'), '%PDF-1.4 dummy');
+    }
   },
   {
     name: 'C09_params_grid_mismatch',

@@ -12,7 +12,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const report = runChecks(root);
 assert.equal(report.ok, true, 'default verify must pass');
 assert.equal(report.summary.fail, 0);
-assert.equal(report.summary.total, 40, 'V01–V40 all present');
+assert.equal(report.summary.total, 50, 'V01–V50 all present');
 
 // strict mode: unresolved locators/licenses escalate to failures (roadmap gate)
 const strictReport = runChecks(root, { strict: true });
@@ -25,6 +25,7 @@ rmSync(tmp, { recursive: true, force: true });
 mkdirSync(tmp, { recursive: true });
 cpSync(join(root, 'params'), join(tmp, 'params'), { recursive: true });
 cpSync(join(root, 'data'), join(tmp, 'data'), { recursive: true });
+cpSync(join(root, 'artifacts', 'preview'), join(tmp, 'artifacts', 'preview'), { recursive: true });
 
 const p = loadJson(paths.params(tmp));
 p.target_site.expected_bays_front = 5;

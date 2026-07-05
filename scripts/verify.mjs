@@ -2,6 +2,7 @@
 // Site-specific expectations (bay counts, required features, banned typology
 // vocabulary) come from params/corpus — NEVER hardcoded in check code (V05).
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -48,12 +49,26 @@ function geometryExactValueViolations(feature) {
 
 // A user-facing string "assigns" a typology term if it contains the term
 // outside a negated / not-assigned context.
+// Korean particles create substring false positives (e.g. '1개소로' contains
+// '소로'). An occurrence only counts when not embedded in a known benign word.
+const TYPOLOGY_FALSE_POSITIVE_CONTEXTS = { '소로': ['개소로', '소로서'], '다포': ['보다포'] };
+function hasRealTerm(text, term) {
+  const benign = TYPOLOGY_FALSE_POSITIVE_CONTEXTS[term] ?? [];
+  let idx = text.indexOf(term);
+  while (idx !== -1) {
+    const context = text.slice(Math.max(0, idx - 2), idx + term.length + 2);
+    if (!benign.some((b) => context.includes(b))) return true;
+    idx = text.indexOf(term, idx + 1);
+  }
+  return false;
+}
+
 function typologyAssignments(strings, terms) {
   const NEG = ['금지', '지정하지 않', '지정되지 않', 'not assigned', '미지정', '미상', '아니다', '아님', '없다', '확정되지 않'];
   const hits = [];
   for (const { text, where } of strings) {
     for (const term of terms) {
-      if (text.includes(term) && !NEG.some((n) => text.includes(n))) {
+      if (hasRealTerm(text, term) && !NEG.some((n) => text.includes(n))) {
         hits.push(`${where}: '${term}' — ${text.slice(0, 100)}`);
       }
     }
@@ -323,7 +338,9 @@ export function runChecks(root, { strict = false } = {}) {
     add('V18_PHASE_FEATURE_LINKS', 'phase→feature 연결', errs.length ? fail(errs) : pass());
   }
 
-  // V19 — GATE_R license gate.
+  // V19 — GATE_R license gate. License verification gates commercial/public
+  // derivative use (not citation); content verification gates citation (V41,
+  // derive fail-closed).
   {
     const errs = [];
     const warns = [];
@@ -331,8 +348,10 @@ export function runChecks(root, { strict = false } = {}) {
     for (const s of sources) {
       const st = licenseStatus(s);
       if (s.priority === 'P0' && (st === 'unverified' || st === 'declared_unverified')) {
-        if (used.has(s.id) && !params.fallback_mode) errs.push(`P0 source ${s.id}: to_verify 상태로 evidence에 사용됨`);
-        else warns.push(`P0 source ${s.id}: to_verify 상태 (후보 등록만 허용, strict에서 fail)`);
+        warns.push(`P0 source ${s.id}: license to_verify — human review 전 상업/공개 파생 사용 금지 (strict에서 fail)`);
+      }
+      if (used.has(s.id) && s.verified !== true) {
+        errs.push(`source ${s.id}: 내용 미검증(verified=false) 상태로 evidence에 사용됨`);
       }
     }
     const expectedSafe = sources.filter((s) => used.has(s.id)).every((s) => isCommercialCompatible(s));
@@ -637,6 +656,219 @@ export function runChecks(root, { strict = false } = {}) {
     }
     if (sym && !['DEMO', 'E5'].includes(sym.render_confidence)) errs.push(`${sym.id}: render_confidence DEMO/E5 필요`);
     add('V40_COLUMN_GRID_DERIVED_FROM_BAYS', '기둥열은 칸 수 파생 symbolic만', errs.length ? fail(errs) : pass());
+  }
+
+  // ── M1.5 checks V41–V50 ────────────────────────────────────────────────
+
+  // V41 — every E1/E2 evidence citing an external source must resolve to a
+  // segment with a concrete locator page.
+  {
+    const errs = [];
+    for (const f of features) {
+      for (const ev of evAll(f)) {
+        const src = sourceMap.get(ev.source_id);
+        if (!src || isInternalRuleSource(src)) continue;
+        if (!['E1', 'E2'].includes(ev.class)) continue;
+        if (!ev.source_segment_id) { errs.push(`${f.id}: ${ev.class} evidence (${ev.source_id})에 source_segment_id 없음`); continue; }
+        const seg = segmentMap.get(ev.source_segment_id);
+        if (!seg) errs.push(`${f.id}: segment ${ev.source_segment_id} 없음`);
+        else if (seg.locator?.page == null) errs.push(`${f.id}: segment ${seg.id}에 locator.page 없음`);
+      }
+    }
+    for (const seg of segments) {
+      if (seg.locator?.page == null) errs.push(`segment ${seg.id}: locator.page 없음`);
+    }
+    add('V41_SOURCE_SEGMENT_LOCATOR_BACKING', 'E1/E2 근거의 segment locator 의무', errs.length ? fail(errs) : pass());
+  }
+
+  // V42 — report dimensions must flow into geometry only via a disclosed
+  // report_dimension_scaled (or stay symbolic).
+  {
+    const errs = [];
+    for (const f of features) {
+      const hasReportDims = Object.keys(f.fact_layer ?? {}).some((k) => /^(report_.*_m|wing_length_m|wing_width_max_m|trench_(length|width|depth)_m|boto_(height|width)_m)$/.test(k));
+      const mode = f.geometry_layer?.geometry_mode;
+      if (hasReportDims && !['report_dimension_scaled', 'symbolic'].includes(mode ?? '')) {
+        errs.push(`${f.id}: 보고 치수가 있는 feature는 geometry_mode를 report_dimension_scaled/symbolic으로 공시해야 함 (현재 ${mode})`);
+      }
+      if (mode === 'report_dimension_scaled' && !(f.geometry_layer.footprint_source || f.geometry_layer.thickness_source)) {
+        errs.push(`${f.id}: report_dimension_scaled 공시(footprint_source/thickness_source) 누락`);
+      }
+    }
+    if (spec) {
+      const grid = features.find((f) => f.id === params.target_site.grid_feature_id);
+      const rds = spec.derived?.report_dimension_scaled;
+      if (grid?.fact_layer?.report_length_m != null) {
+        if (!rds) errs.push('spec.derived.report_dimension_scaled 없음');
+        else {
+          if (rds.length_m !== grid.fact_layer.report_length_m || rds.width_m !== grid.fact_layer.report_width_m) {
+            errs.push(`derived footprint(${rds.length_m}×${rds.width_m}) ≠ fact_layer(${grid.fact_layer.report_length_m}×${grid.fact_layer.report_width_m})`);
+          }
+          if (rds.subdivision_assumed !== true) errs.push('칸 분할 가정(subdivision_assumed) 공시 필요');
+        }
+      }
+    }
+    add('V42_REPORT_DIMENSION_TO_GEOMETRY_DISCLOSURE', '보고 치수→geometry 공시', errs.length ? fail(errs) : pass());
+  }
+
+  // V43 — no source documents as public assets, ever.
+  {
+    const errs = [];
+    const webDir = paths.web(root);
+    if (existsSync(webDir)) {
+      for (const file of walkFiles(webDir)) {
+        if (/\.(pdf|hwp|hwpx|tif|tiff)$/i.test(file)) errs.push(`web/ 내 source 문서 금지: ${relative(root, file)}`);
+      }
+    }
+    const ls = spawnSync('git', ['ls-files', '*.pdf', '*.hwp', '*.hwpx'], { cwd: root, encoding: 'utf8' });
+    if (ls.status === 0 && ls.stdout.trim()) {
+      errs.push(`git 추적 중인 source 문서 금지: ${ls.stdout.trim().split('\n').join(', ')}`);
+    }
+    add('V43_NO_PUBLIC_PDF_ASSET', 'PDF/HWP 공개 자산·커밋 금지', errs.length ? fail(errs) : pass());
+  }
+
+  // V44 — academic articles: never E1, never geometry-backing beyond disclosed
+  // report_dimension_scaled, abstract-only when missing_source.
+  {
+    const errs = [];
+    for (const f of features) {
+      for (const ev of f.fact_layer?.evidence ?? []) {
+        const src = sourceMap.get(ev.source_id);
+        if (!src || src.type !== 'academic_article') continue;
+        if (ev.class === 'E1') errs.push(`${f.id}: 학술 논문 evidence는 E1 불가 (${ev.source_id})`);
+        if (src.missing_source === true) {
+          const seg = ev.source_segment_id ? segmentMap.get(ev.source_segment_id) : null;
+          const page = String(seg?.locator?.page ?? ev.locator?.page ?? '');
+          if (!page.includes('abstract')) errs.push(`${f.id}: missing_source ${src.id}는 abstract-level locator만 허용 (page='${page}')`);
+        }
+      }
+      for (const ev of f.geometry_layer?.evidence ?? []) {
+        const src = sourceMap.get(ev.source_id);
+        if (!src || src.type !== 'academic_article') continue;
+        if (ev.method !== 'report_dimension_scaled') {
+          errs.push(`${f.id}: 학술 논문은 geometry evidence로 사용 불가 (공시된 치수 스케일 제외) — ${ev.source_id}/${ev.method}`);
+        }
+        if (src.missing_source === true) errs.push(`${f.id}: missing_source 논문의 geometry 사용 금지`);
+      }
+    }
+    add('V44_ACADEMIC_ARTICLE_USAGE_LIMIT', '학술 논문 사용 한도', errs.length ? fail(errs) : pass());
+  }
+
+  // V45 — H2 must be backed by Lee 2023 with a page locator.
+  {
+    const errs = [];
+    const h2 = hypotheses.find((h) => h.id === params.hypothesis_rules.legacy_badge_hypothesis);
+    if (!h2) errs.push('H2 없음');
+    else {
+      const lee = (h2.supporting_evidence ?? []).filter((ev) => ev.source_id === 'lee_2023_donggung_wolji_character_debate');
+      if (!lee.length) errs.push('H2에 이현태 2023 supporting evidence 필요');
+      else if (!lee.some((ev) => /\d/.test(String(ev.locator?.page ?? '')))) errs.push('H2의 이현태 2023 근거에 page locator 필요');
+      if (!(h2.counter_evidence ?? []).some((ev) => ev.source_id === 'lee_2023_donggung_wolji_character_debate')) {
+        errs.push('H2 counter_evidence에도 이현태 2023 근거(약화 논거) 필요');
+      }
+    }
+    add('V45_H2_LEE2023_BACKING', 'H2의 이현태 2023 locator 근거', errs.length ? fail(errs) : pass());
+  }
+
+  // V46 — pre-Wolji / prior-land-preparation phases and features must be
+  // backed by Ji 2023 with page locators.
+  {
+    const errs = [];
+    for (const pid of params.ji2023_backed_phases ?? []) {
+      const p = phases.find((x) => x.id === pid);
+      if (!p) { errs.push(`phase ${pid} 없음`); continue; }
+      if (!p.sources.includes('ji_2023_wolji_west_land_preparation_recheck')) errs.push(`${pid}: 지영배 2023 인용 필요`);
+    }
+    for (const fid of params.ji2023_backed_features ?? []) {
+      const f = features.find((x) => x.id === fid);
+      if (!f) { errs.push(`feature ${fid} 없음`); continue; }
+      const ji = (f.fact_layer.evidence ?? []).filter((ev) => ev.source_id === 'ji_2023_wolji_west_land_preparation_recheck');
+      if (!ji.length) errs.push(`${fid}: 지영배 2023 evidence 필요`);
+      else if (!ji.some((ev) => /\d/.test(String(ev.locator?.page ?? '')))) errs.push(`${fid}: 지영배 2023 근거에 page locator 필요`);
+    }
+    add('V46_PHASE_JI2023_BACKING', '선대 단계의 지영배 2023 근거', errs.length ? fail(errs) : pass());
+  }
+
+  // V47 — 2022-report core features must be page-locator backed.
+  {
+    const errs = [];
+    for (const fid of params.report2022_core_features ?? []) {
+      const f = features.find((x) => x.id === fid);
+      if (!f) { errs.push(`feature ${fid} 없음`); continue; }
+      const evs = (f.fact_layer.evidence ?? []).filter((ev) => ev.source_id === 'gyeongju_2022_a_building_full_excavation_report');
+      if (!evs.length) errs.push(`${fid}: 2022 보고서 evidence 필요`);
+      else if (!evs.some((ev) => /^\d/.test(String(ev.locator?.page ?? '')))) errs.push(`${fid}: 2022 보고서 근거에 숫자 page locator 필요`);
+    }
+    add('V47_REPORT2022_CORE_FEATURE_BACKING', '핵심 유구의 2022 보고서 locator 근거', errs.length ? fail(errs) : pass());
+  }
+
+  // V48 — viewer route completeness (skipped when web/ absent: core must be
+  // able to pass in web-less environments; M2 gate re-runs it with web).
+  {
+    const errs = [];
+    const webDir = paths.web(root);
+    if (existsSync(join(webDir, 'app'))) {
+      const pagePath = join(webDir, 'app', 'page.tsx');
+      if (!existsSync(pagePath)) errs.push('web/app/page.tsx 없음');
+      else {
+        const src = readFileSync(pagePath, 'utf8');
+        for (const tab of ['발굴유구', '내진감주', '동선/출입', '위계/기능 해석', 'phase timeline', '불확실성', '검증 결과']) {
+          if (!src.includes(tab)) errs.push(`page.tsx에 '${tab}' 모드 처리 없음`);
+        }
+        if (!src.includes('structural-spec.json')) errs.push('viewer가 structural-spec.json을 로드하지 않음');
+      }
+      for (const c of ['SceneViewer', 'HypothesisPanel', 'EvidenceDrawer', 'PhaseTimeline', 'VerificationPanel', 'UncertaintyPanel', 'ModeTabs']) {
+        if (!existsSync(join(webDir, 'components', `${c}.tsx`))) errs.push(`components/${c}.tsx 없음`);
+      }
+      add('V48_VIEWER_ROUTE_COMPLETENESS', '뷰어 라우트/모드 완결성', errs.length ? fail(errs) : pass());
+    } else {
+      add('V48_VIEWER_ROUTE_COMPLETENESS', '뷰어 라우트/모드 완결성', pass(['web/ 없음 — core-only 환경, M2 게이트에서 재검사']));
+    }
+  }
+
+  // V49 — presentation preview manifest with existing internal renders.
+  {
+    const errs = [];
+    const manifestPath = join(paths.artifacts(root), 'preview', 'preview-manifest.json');
+    if (!existsSync(manifestPath)) errs.push('artifacts/preview/preview-manifest.json 없음');
+    else {
+      const manifest = loadJson(manifestPath);
+      if (!(manifest.files?.length > 0)) errs.push('preview manifest에 파일 없음');
+      for (const f of manifest.files ?? []) {
+        if (f.origin !== 'internal_viewer_render') errs.push(`${f.path}: origin은 internal_viewer_render만 허용 (source 이미지 금지)`);
+        if (!existsSync(join(paths.artifacts(root), 'preview', f.path))) errs.push(`preview 파일 없음: ${f.path}`);
+      }
+    }
+    add('V49_PRESENTATION_PREVIEW_REQUIRED', '프레젠테이션 프리뷰 (내부 렌더 전용)', errs.length ? fail(errs) : pass());
+  }
+
+  // V50 — corruption drill wired into product surface. Report freshness is
+  // warn-level (report is produced later in the same pipeline run).
+  {
+    const errs = [];
+    const warns = [];
+    // Wiring checks run against the real repo (scripts/web are shared code,
+    // not part of per-root data clones).
+    const codeRoot = repoRootFromArgs([]);
+    const corruptSrcPath = join(codeRoot, 'scripts', 'corrupt.mjs');
+    if (!existsSync(corruptSrcPath)) errs.push('scripts/corrupt.mjs 없음');
+    else {
+      const src = readFileSync(corruptSrcPath, 'utf8');
+      const count = (src.match(/name:\s*'C\d+/g) ?? []).length;
+      if (count < 12) errs.push(`corruption 시나리오 ${count} < 12`);
+    }
+    const copySrc = readFileSync(join(codeRoot, 'scripts', 'copy-artifacts-to-web.mjs'), 'utf8');
+    if (!copySrc.includes('corruption-report.json')) errs.push('copy:web이 corruption-report를 스테이징하지 않음');
+    const vpPath = join(paths.web(repoRootFromArgs([])), 'components', 'VerificationPanel.tsx');
+    if (existsSync(vpPath) && !readFileSync(vpPath, 'utf8').includes('corruption-report')) {
+      errs.push('VerificationPanel이 corruption-report를 표시하지 않음');
+    }
+    const reportPath = join(paths.artifacts(root), 'corruption-report.json');
+    if (!existsSync(reportPath)) warns.push('corruption-report.json 미생성 — 이 파이프라인 후속 단계(corrupt)에서 생성 필요');
+    else if (loadJson(reportPath).fail_closed !== true) errs.push('corruption-report: fail_closed=false');
+    if (errs.length) add('V50_CORRUPTION_UI_REQUIRED', 'corruption 드릴의 UI 연결', fail([...errs, ...warns]));
+    else if (warns.length) add('V50_CORRUPTION_UI_REQUIRED', 'corruption 드릴의 UI 연결', warn(warns));
+    else add('V50_CORRUPTION_UI_REQUIRED', 'corruption 드릴의 UI 연결', pass());
   }
 
   const failed = results.filter((r) => r.status === 'fail');
