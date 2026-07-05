@@ -12,7 +12,7 @@ H1/H2/H3는 서로 배타적인 3개의 최종 정답 후보가 아니다. 공�
 ### 근거
 - [E1] A건물지의 구조·규모·주변 관계가 보고됨. (nrich_2018_a_building_restoration_excavation_report)
 - [E4] A건물지를 왕궁으로 볼 만한 건축 속성 및 최상위 위계 건물로 해석. (kim_2023_sillasahakbo_a_building_structure_function)
-- [E4] 월지 서편을 왕의 공간으로 보는 최신 조사성과. 공식 source locator 확인 필요. (khs_2025_silla_capital_10year_outcome)
+- [E4] 월지 서편을 왕의 공간으로 보는 최신 조사성과. 2025-02-06 국가유산청 공식 보도자료로 확인됨. (khs_2025_silla_capital_10year_outcome)
 
 ### 반대 근거
 - [E4] 기존에는 월지 서편이 동궁/태자궁 관련 공간으로 해석되어 왔다. (kim_2023_sillasahakbo_a_building_structure_function)

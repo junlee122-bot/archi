@@ -19,7 +19,13 @@
       "url": "string?",
       "pdf_url": "string?",
       "accessed": "string?",
-      "local_path": "string?"
+      "local_path": "string?",
+      "doi": "string?",
+      "kci_id": "string?",
+      "isbn": "string?",
+      "series": "string?",
+      "license_quote": "string?",
+      "press_urls": "array:string"
     },
     "enums": {
       "type": ["excavation_report", "academic_article", "official_interpretation", "press_article", "internal_rule"],

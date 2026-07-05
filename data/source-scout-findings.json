@@ -1,0 +1,122 @@
+{
+  "scouted_at": "2026-07-05",
+  "method": "parallel web verification (workflow source-scout-donggung, 6 agents; official pages fetched directly where reachable)",
+  "results": [
+    {
+      "id": "nrich_2018_a_building_restoration_excavation_report",
+      "result": {
+        "found": true,
+        "confidence": "high",
+        "access_status": "fetched_ok",
+        "kci_or_doi": null,
+        "license_label": "공공누리 제1유형 (출처표시)",
+        "license_quote": "국립문화유산연구원이(가) 개방한 경주 동궁과 월지 복원정비사업 발굴조사보고서 - A건물지 - 저작물은 공공누리 제 1유형 출처표시 조건에 따라 이용할수 있습니다.",
+        "license_type": "제1유형",
+        "notes": "Verified directly on the live official page (WebFetch returned 503, but curl fetched the page HTML with HTTP 200, 394 KB). (1) Page title matches exactly: '경주 동궁과 월지 복원정비사업 발굴조사보고서 - A건물지 -'; metadata on page: 보고서유형분류=조사연구보고서, 발행년도=2018, 형태사항=144p / A4, 저작권자=국립경주문화유산연구소. (2) Direct PDF found via the page's 바로보기 button (fnPdfViewer('/file_link/newFolder/863/Report/','20190215110949400.pdf','371')) and HEAD-verified: HTTP 200, application/pdf, Content-Length 62,418,925 bytes (~59.5 MB). A byte-identical mirror exists at http://uci.k-heritage.tv/data/ori/2205001/001/O/2205001-001-O00131.pdf (HEAD 200, same 62,418,925 bytes; a 500KB range download of it timed out, so content not internally inspected — identity inferred from identical size/ETag and matching search-result title). The portal's own download button uses a JS survey popup (/kor/includeFileDownLoad.do, file_idx=693909), not a plain GET. (3) License verified on the page itself, not assumed: the visible KOGL statement names this exact work and says 제 1유형 출처표시 (quoted verbatim in license_quote, HTML tags stripped; '이용할수' spacing as in source). Corroborated by the file's use_scope code '371', which the page's own mapping table renders as '공공누리 제1유형 : 출처표시, 상업적, 비상업적 이용가능, 변형 등 2차적 저작물 작성 가능'. No DOI/KCI ID — this is a government excavation report, not a journal article. Saved page copy: /tmp/claude-0/-home-user-archi/a298e777-fbae-5970-8d57-7ba3dab9a512/scratchpad/nrich_page.html.",
+        "official_url": "https://portal.nrich.go.kr/kor/originalUsrView.do?bunya_cd=3014&info_idx=8404&menuIdx=863",
+        "pdf_url": "https://portal.nrich.go.kr/file_link/newFolder/863/Report/20190215110949400.pdf",
+        "press_urls": [],
+        "publisher": "국립경주문화유산연구소 (구 국립경주문화재연구소)",
+        "year": 2018
+      }
+    },
+    {
+      "id": "gyeongju_2022_a_building_full_excavation_report",
+      "result": {
+        "found": true,
+        "confidence": "high",
+        "access_status": "fetched_ok (cha.go.kr item page fetched; official 112MB PDF downloaded and colophon read; portal.nrich.go.kr reachable but its search endpoints timed out intermittently — POST search eventually succeeded and confirmed the 2022 item is NOT on the portal)",
+        "official_url": "https://www.cha.go.kr/cop/bbs/selectBoardArticle.do?nttId=85385&bbsId=BBSMSTR_1021&mn=NS_03_08_01",
+        "pdf_url": "http://116.67.83.213/NEW_PDF/%EA%B2%BD%EC%A3%BC%20%EB%8F%99%EA%B6%81%EA%B3%BC%20%EC%9B%94%EC%A7%80_A%EA%B1%B4%EB%AC%BC%EC%A7%80%20%EB%B0%9C%EA%B5%B4%EC%A1%B0%EC%82%AC%EB%B3%B4%EA%B3%A0%EC%84%9C.pdf",
+        "license_type": "unknown",
+        "license_label": null,
+        "license_quote": null,
+        "kci_or_doi": null,
+        "publisher": "국립경주문화재연구소 (현 국립경주문화유산연구소)",
+        "year": 2022,
+        "press_urls": [],
+        "notes": "VERIFIED FROM PRIMARY SOURCE: downloaded the official PDF (112MB) from the cha.go.kr 간행물 board attachment server and read the colophon (p.365) directly. Exact title: 경주 동궁과 월지 A건물지 발굴조사보고서. Series: 학술연구총서 173. 발행/인쇄: 2022년 11월 30일. 발행처: 국립경주문화재연구소. ISBN 978-89-299-2658-8 93910 (비매품). 발간등록번호 11-1550327-000010-01. 366 pp. Covers the 2019.11.5–2019.12.23 and 2020.6.1–2021.12.31 excavations of A건물지 (서편 익랑지·회랑지 등). PDF metadata: author 국립경주문화재연구소, created 2022-12-26. CAUTION — TWO DISTINCT VOLUMES EXIST: this 2022 volume is different from the 2018 volume 『경주 동궁과 월지 복원정비사업 발굴조사보고서 -A건물지-』 (학술연구총서 127, 발행 2018-11-30, ISBN 978-89-299-1421-9, 142pp, 2018 보완조사), which IS on portal.nrich.go.kr at https://portal.nrich.go.kr/kor/originalUsrView.do?menuIdx=863&info_idx=8404&bunya_cd=3014 with a VERIFIED KOGL 제1유형 statement (\"국립문화유산연구원이(가) 개방한 경주 동궁과 월지 복원정비사업 발굴조사보고서 - A건물지 - 저작물은 공공누리 제 1유형 출처표시 조건에 따라 이용할수 있습니다.\"). PORTAL ABSENCE VERIFIED: queried portal.nrich.go.kr's own publication search (POST originalUsrTotalList.do, keyword A건물지, all institutes) — exactly 1 result (the 2018 item, info_idx=8404); all 12 동궁과 월지 items on the portal were listed and none is the 2022 volume. LICENSE FOR THIS 2022 ITEM: NOT verifiable — the cha.go.kr item page (발행년도 2022, 등록일 2023-03-15) shows only the site-wide generic 공공누리 OPEN footer logo with no per-item KOGL type; the book's own colophon instead carries a restrictive notice: \"이 책의 저작권은 국립경주문화재연구소가 소유하고 있습니다. 국립경주문화재연구소의 동의 없이 무단 전재·복제 및 변형하여 사용하실 수 없습니다.\" Do not assume the 2018 volume's 제1유형 applies to the 2022 volume. PDF URL caveat: it is cha.go.kr's attachment file server (bare IP 116.67.83.213, plain HTTP, Korean filename URL-encoded); the canonical access path is the 다운로드 button on the official_url page. No dedicated press release for the 2022 volume was found (the cha.go.kr newsroom item found relates to 동궁과 월지 Ⅲ, 2019)."
+      }
+    },
+    {
+      "id": "kim_2023_sillasahakbo_a_building_structure_function",
+      "result": {
+        "found": true,
+        "confidence": "high",
+        "access_status": "fetched_ok",
+        "kci_or_doi": "KCI: ART002951670 (https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002951670); DOI: 10.65509/JSHS.2023.04.57.161",
+        "official_url": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11398133",
+        "pdf_url": null,
+        "publisher": "신라사학회 (Silla Historical Society); full text distributed via DBpia",
+        "year": 2023,
+        "license_type": "unknown",
+        "license_label": null,
+        "license_quote": null,
+        "press_urls": [],
+        "notes": "VERIFIED. (1) Bibliographic record confirmed on both DBpia (NODE11398133, fetched OK) and KCI (arti_id ART002951670, fetched OK): 김경열, \"동궁과 월지 주변 건물군의 구조와 기능에 대한 고고학적 검토 －월지 서편 A건물지를 중심으로－\", 신라사학보 57 (신라사학회), 2023.4, pp.161-209. Author affiliation per KCI: 국립경주문화재연구소 (Gyeongju National Research Institute of Cultural Heritage). DOI 10.65509/JSHS.2023.04.57.161 was independently confirmed to resolve (302) to the DBpia article page. Note: an earlier search snippet returned KCI id ART002993374 — that is a DIFFERENT article (이현태, \"'경주 동궁과 월지'의 성격을 둘러싼 논의와 쟁점\", 선사와 고대 72); do not use it. (2) Abstract content: the DBpia abstract (fetched, quoted by the fetch model) contains: \"7×4칸의 대형건물, 계단의 답도시설, 특징적인 기단토와 2m 높이의 대지성토, 건물지 입지 지대의 고대화 등 왕궁으로 볼 수 있을 만한 건축적 속성을 확인하였다\" and \"이는 신라 왕경 내에서 확인되는 건물군 중 A건물지가 최상위 위계를 가진 건물임을 방증해준다\" and, on Donggung's location, \"동궁의 영역과 위치는 출토 유물과 문헌을 통해 월지 주변에 입지할 것으로 추정된다 ... 가능성이 높은 곳은 월지 동편으로 추정된다\". This confirms ALL six checked claims: 7×4칸; 계단·답도시설; 기단토; ~2m 대지성토; 최상위 위계 건물; 동궁의 월지 동편 비정 논의. Caveat: quotes were extracted via an intermediate summarization model from the fetched DBpia page; wording is consistent across two independent fetches but exact punctuation should be re-checked against the page/PDF before quoting in print. (3) License: NO 공공누리(KOGL) marking was seen on either the DBpia or KCI page, and none is expected — this is a private academic society journal, not a government publication. No explicit copyright/CC statement was visible on the fetched pages either, so license_type=unknown (copyright presumptively held by 신라사학회/author; full text is paywalled on DBpia — no free PDF found). KCI citation count shown: 8."
+      }
+    },
+    {
+      "id": "ji_2023_wolji_west_land_preparation_recheck",
+      "result": {
+        "found": true,
+        "confidence": "high",
+        "access_status": "fetched_ok",
+        "kci_or_doi": "10.47439/JKRAS.2023.4.855",
+        "official_url": "https://scholar.kyobobook.co.kr/article/detail/4050068599149",
+        "pdf_url": null,
+        "publisher": "한국고고학회 (Korean Archaeological Society)",
+        "year": 2023,
+        "license_type": "unknown",
+        "license_label": null,
+        "license_quote": null,
+        "press_urls": [],
+        "notes": "VERIFIED. 지영배 (국립경주문화재연구소), \"동궁과 월지 서편 지역의 대지조성층 재검토\" (Eng: \"A Study on the Ground preparation layers of the Western Area of Donggung Palace and Wolji Pond\"), 한국고고학보 제129집, 2023.12, pp. 855-879, 한국고고학회 (KCI 우수등재). DOI 10.47439/JKRAS.2023.4.855 resolves (302) to Kyobo Scholar detail page https://scholar.kyobobook.co.kr/article/detail/4050068599149 — fetched OK, metadata matches. RISS record also fetched OK: https://www.riss.kr/search/detail/DetailView.do?p_mat_type=1a0202e37d52c72d&control_no=ef1249a76de389d5b7998d826d417196 (title/author/journal/vol.129/2023 confirmed there independently of my prompt wording). No direct KCI arti_id landing page located via search (KCI portal search is POST-based and blocked to deep querying from this environment). ABSTRACT CONTENT (task 3): abstract as shown on RISS/Kyobo confirms all three themes — (a) 선대 대지조성층: \"previous site formation layers estimated to had been created around the late 5th century\" in the western area; (b) A건물지 대지조성 단계: argues the ground preparation for Building site A was \"not done in a short period of time [mid-late 7th c.] but ... at temporal intervals and stages\" (staged 대지조성); (c) 월지 이전 경관: evidence of an East Pond (東池) predating Wolji, with a vertical silt/waterproofing facility interpreted as revetment of that earlier pond. English keywords include: Northern trench, Site formation stage, Previous site formation, East Pond, Silt facility. LICENSE (task 4): no 공공누리/KOGL marking or CCL statement was visible on the RISS or Kyobo Scholar pages I fetched; full text is paywalled (RISS marks it 유료 원문). It is a private academic society journal, so KOGL almost certainly does not apply; copyright presumptively held by 한국고고학회/author — treat as all-rights-reserved unless the PDF itself shows otherwise. license_type reported as unknown because no explicit license text was sighted. CAUTION for the evidence project: do not conflate with the similar but distinct article 김경열, \"동궁과 월지 주변 건물군의 구조와 기능에 대한 고고학적 검토 -월지 서편 A건물지를 중심으로-\", 신라사학보 57 (2023.4), pp. 161-209, DOI 10.65509/JSHS.2023.04.57.161 (DBpia NODE11398133)."
+      }
+    },
+    {
+      "id": "khs_2025_silla_capital_10year_outcome",
+      "result": {
+        "found": true,
+        "confidence": "high",
+        "access_status": "fetched_ok",
+        "official_url": "https://khs.go.kr/newsBbz/selectNewsBbzView.do?newsItemId=155705252&sectionId=b_sec_1&mn=NS_01_02",
+        "pdf_url": null,
+        "press_urls": [
+          "https://www.khan.co.kr/article/202502061910001",
+          "https://news.sbs.co.kr/news/endPage.do?news_id=N1007975141",
+          "https://www.imaeil.com/page/view/2025020611434553488",
+          "https://v.daum.net/v/20250206090032188"
+        ],
+        "publisher": "국가유산청 (Korea Heritage Service) — 국립문화유산연구원 / 국립경주문화유산연구소 / 신라왕경핵심유적 복원·정비추진단",
+        "year": 2025,
+        "kci_or_doi": null,
+        "license_type": "제1유형",
+        "license_label": "공공누리 제1유형 (출처표시, KOGL Type 1)",
+        "license_quote": "OPEN 공공누리 공공저작물 자유이용허락 (출처표시)",
+        "notes": "OFFICIAL press release verified by direct fetch of khs.go.kr: title \"신라 태자 '동궁'의 진짜 위치 찾았다\", dated 2025-02-06, newsItemId=155705252, issuing depts 국립문화유산연구원/국립경주문화유산연구소/신라왕경핵심유적 복원·정비추진단. Page content confirms exactly the claim in question: 동궁 relocated to 월지 동편 (Ⅱ-나지구, lower-hierarchy building with 복도식 건물, 마당, 별도 원지, independent drainage) and the 월지 서편 large building (Ⅰ-가지구 A건물지, previously presumed 동궁) reassigned as the king's space; framed as 10 years of 신라왕경 핵심유적 발굴조사 성과, announced at the 「국가유산청이 새로 쓰는 신라사」 언론공개회 held 2025-02-06 11:00 at 서울 코엑스 스튜디오159. Attachments on the official page: \"0206 신라 태자 '동궁'의 진짜 위치 찾았다(본문).hwpx/.hwp\" and \"...(붙임).pdf\" — direct download URL not captured, so pdf_url left null rather than guessed. License VERIFIED on the fetched khs.go.kr page: KOGL marking \"OPEN 공공누리 공공저작물 자유이용허락 (출처표시)\" linking to kogl.or.kr licenseType1.do = 제1유형. Mirror on korea.kr (정책브리핑, also official): https://www.korea.kr/briefing/pressReleaseView.do?newsId=156673105 — same title/date, agency 국가유산청; korea.kr carries its own statement \"'텍스트'에 한하여 공공누리 출처표시의 조건에 따라 자유이용이 가능합니다.\" Access caveat: first khs.go.kr fetch returned HTTP 503, retry succeeded. Press coverage (all 2025-02-06 unless noted): 경향신문 (khan.co.kr/article/202502061910001), SBS (news_id N1007975141), 매일신문 (imaeil.com 2025020611434553488), 헤럴드경제 via Daum (v.daum.net/v/20250206090032188, reporter 이정아, verified outlet by fetch); also 문화일보 https://www.munhwa.com/article/11482908. A direct yna.co.kr (연합뉴스) URL did not surface in searches (newsyonhap.com hits are a different outlet, not Yonhap) — not invented. Distinct earlier related release exists: \"신라왕경 핵심유적 복원·정비 10년 성과와 미래과제 조명\" (khs.go.kr newsItemId=155705169, 2024-11-28, announcing the 2024-12-03 학술대회) — that is NOT the 동궁 relocation announcement; the true 동궁 announcement date is 2025-02-06."
+      }
+    },
+    {
+      "id": "nrich_donggung_wolji_iii_report",
+      "result": {
+        "found": true,
+        "confidence": "high",
+        "access_status": "fetched_ok",
+        "official_url": "https://portal.nrich.go.kr/kor/originalUsrView.do?menuIdx=1046&info_idx=8533",
+        "license_type": "제4유형",
+        "license_label": "공공누리 제4유형 (출처표시+상업적 이용금지+변경금지)",
+        "license_quote": "국립문화유산연구원이(가) 개방한 경주 동궁과 월지 Ⅲ 발굴조사보고서 저작물은 공공누리 제 4유형 출처표시+상업적 이용금지+변경금지 조건에 따라 이용할수 있습니다.",
+        "year": 2019,
+        "publisher": "국립경주문화유산연구소 (구 국립경주문화재연구소; 국립문화유산연구원 소속)",
+        "pdf_url": null,
+        "kci_or_doi": null,
+        "press_urls": [
+          "https://www.cha.go.kr/newsBbz/selectNewsBbzView.do?newsItemId=155701950&sectionId=b_sec_1&mn=NS_01_02_01",
+          "https://www.khs.go.kr/cop/bbs/selectBoardArticle.do?nttId=76115&bbsId=BBSMSTR_1021&mn=NS_03_08_01"
+        ],
+        "notes": "Item page on portal.nrich.go.kr (국가유산 지식이음) fetched successfully twice. License VERIFIED on the page itself, not assumed: exact KOGL statement quoted verbatim names 공공누리 제 4유형 with 출처표시+상업적 이용금지+변경금지 conditions. Year 2019 confirmed by the portal field '발행년도: 2019 년' and by a 문화재청 press release announcing publication on 2019-11-29. PDF is available: the item page lists '경주 동궁과 월지 Ⅲ 발굴조사 보고서.pdf (214.9MB)' with a download function, but the link is a JS-triggered download rather than a static href, so no stable direct PDF URL exists; download via the official item page. Report covers 2014-2017 (8th-9th phase) excavations of the eastern part of Donggung and Wolji (가 district, ~6,575㎡), Inwang-dong, Gyeongju. Publisher was named 국립경주문화재연구소 at publication (2019); the institute was renamed 국립경주문화유산연구소 in 2024, and the KOGL statement attributes the work to parent body 국립문화유산연구원."
+      }
+    }
+  ]
+}

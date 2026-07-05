@@ -40,7 +40,7 @@
         "source_id": "khs_2025_silla_capital_10year_outcome",
         "class": "E4",
         "method": "latest_official_interpretation",
-        "claim": "월지 서편을 왕의 공간으로 보는 최신 조사성과. 공식 source locator 확인 필요."
+        "claim": "월지 서편을 왕의 공간으로 보는 최신 조사성과. 2025-02-06 국가유산청 공식 보도자료로 확인됨."
       }
     ],
     "counter_evidence": [
@@ -135,7 +135,9 @@
       "공간·동선 feature 자체는 E1 근거가 있지만, 구체 기능은 별도 문헌/도면/유물 연결 없이는 E5로 둔다.",
       "월지 water/context layer가 scene에 반드시 있어야 이 hypothesis를 표시할 수 있다."
     ],
-    "requires_features": ["context.wolji_water_edge"],
+    "requires_features": [
+      "context.wolji_water_edge"
+    ],
     "supporting_features": [
       "layout.omitted_inner_columns",
       "entrance.facility.01",

@@ -38,9 +38,9 @@
   {
     "id": "seg_2025_interpretation_summary",
     "source_id": "khs_2025_silla_capital_10year_outcome",
-    "kind": "official_or_press_summary",
-    "locator": { "page": "press_or_official_release", "figure": null, "note": "공식 보도자료/발표자료 locator 확인 전. 확인 시 승격." },
-    "text_status": "summary_pending_official_locator",
+    "kind": "official_press_release",
+    "locator": { "page": "khs_press_release_2025-02-06", "figure": null, "note": "khs.go.kr newsItemId=155705252 「신라 태자 '동궁'의 진짜 위치 찾았다」(2025-02-06) 본문. korea.kr 정책브리핑 미러 존재." },
+    "text_status": "summarized_from_official_release",
     "summary_ko": "신라왕경 핵심유적 조사 성과에 따라 월지 동편을 태자 동궁으로, 월지 서편을 왕의 공간으로 보는 재비정 해석이 제시되었다.",
     "claims": [
       "월지 동편 = 동궁(태자궁) 재비정",
