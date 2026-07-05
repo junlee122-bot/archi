@@ -1,0 +1,8 @@
+node_modules/
+web/node_modules/
+web/.next/
+web/out/
+artifacts/corruption/
+artifacts/test-tmp/
+*.log
+.DS_Store

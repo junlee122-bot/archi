@@ -1,0 +1,67 @@
+[
+  {
+    "id": "seg_nrich2018_abstract_a_building",
+    "source_id": "nrich_2018_a_building_restoration_excavation_report",
+    "kind": "official_abstract",
+    "locator": { "page": "official_page_abstract", "figure": null, "note": "portal.nrich.go.kr 원문 서비스 페이지의 공식 초록. PDF page locator는 후속 ingest 대상." },
+    "text_status": "paraphrased_from_official_abstract",
+    "summary_ko": "A건물지는 7×4칸의 내진감주된 대형건물지이며, 출입시설 3개소, 동서편 익랑, 건물지 전체에 전(塼)으로 축조한 보도시설, 축조연대 추정이 가능한 지진구(地鎭具), 남편 대지의 줄기초 건물지 2동이 확인되었다고 보고한다.",
+    "claims": [
+      "A건물지는 7×4칸의 내진감주된 대형건물지로 보고됨",
+      "출입시설 3개소가 확인됨",
+      "동서편 익랑이 확인됨",
+      "건물지 전체에 전으로 축조한 보도시설이 확인됨",
+      "축조연대 추정이 가능한 지진구가 확인됨",
+      "A건물지 남편 대지에 2동의 줄기초 건물지가 확인됨"
+    ],
+    "usable_for": ["fact_layer"],
+    "not_usable_for": ["exact_dimensions", "coordinates", "superstructure_typology"]
+  },
+  {
+    "id": "seg_kim2023_abstract_a_building",
+    "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+    "kind": "academic_abstract",
+    "locator": { "page": "article_abstract", "figure": null, "note": "신라사학보 57 게재 논문 초록·본문 요지. page locator는 KCI/DOI 확정 후 보강." },
+    "text_status": "paraphrased_from_academic_abstract",
+    "summary_ko": "월지 서편 A건물지를 7×4칸 평면, 계단·답도시설, 기단토, 약 2m 대지성토를 갖춘 최상위 위계 건물로 검토하고, 동궁의 위치를 월지 동편으로 비정하는 논의를 전개한다.",
+    "claims": [
+      "A건물지 7×4칸 평면 검토",
+      "계단·답도시설 언급",
+      "기단토 언급",
+      "약 2m 대지성토 언급",
+      "최상위 위계 건물 해석",
+      "동궁 위치의 월지 동편 비정 논의"
+    ],
+    "usable_for": ["fact_layer_secondary", "interpretation"],
+    "not_usable_for": ["exact_dimensions", "coordinates", "geometry_exact_values"]
+  },
+  {
+    "id": "seg_2025_interpretation_summary",
+    "source_id": "khs_2025_silla_capital_10year_outcome",
+    "kind": "official_or_press_summary",
+    "locator": { "page": "press_or_official_release", "figure": null, "note": "공식 보도자료/발표자료 locator 확인 전. 확인 시 승격." },
+    "text_status": "summary_pending_official_locator",
+    "summary_ko": "신라왕경 핵심유적 조사 성과에 따라 월지 동편을 태자 동궁으로, 월지 서편을 왕의 공간으로 보는 재비정 해석이 제시되었다.",
+    "claims": [
+      "월지 동편 = 동궁(태자궁) 재비정",
+      "월지 서편 = 왕의 공간 해석"
+    ],
+    "usable_for": ["interpretation", "phase_timeline"],
+    "not_usable_for": ["fact_layer", "geometry"]
+  },
+  {
+    "id": "seg_ji2023_land_preparation_abstract",
+    "source_id": "ji_2023_wolji_west_land_preparation_recheck",
+    "kind": "academic_abstract",
+    "locator": { "page": "article_abstract", "figure": null, "note": "한국고고학보 게재 논문 초록·본문 요지. page locator는 KCI/DOI 확정 후 보강." },
+    "text_status": "paraphrased_from_academic_abstract",
+    "summary_ko": "동궁과 월지 서편 지역의 대지조성층을 재검토하여 A건물지 대지조성 단계와 선대 대지조성층, 월지 조성 이전 경관 문제를 논의한다.",
+    "claims": [
+      "서편 지역 대지조성층 재검토",
+      "선대 대지조성층 가능성",
+      "A건물지 대지조성 단계 구분 논의"
+    ],
+    "usable_for": ["interpretation", "phase_timeline"],
+    "not_usable_for": ["exact_dimensions", "coordinates"]
+  }
+]

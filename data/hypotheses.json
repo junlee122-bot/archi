@@ -1,0 +1,187 @@
+[
+  {
+    "id": "H1_royal_formal_space",
+    "axis": "spatial_political_attribution",
+    "title_ko": "왕의 공식 공간 / 정전급 권위 건물 해석",
+    "title_en": "Royal formal-space / high-ranking palace hall interpretation",
+    "summary_ko": "서편 A건물지를 월지 서편의 최상위 위계 건물, 왕의 공식 공간 또는 정전급 권위 건물로 보는 해석이다.",
+    "confidence": "E4",
+    "confidence_notes": [
+      "7×4칸 내진감주 대형건물, 출입시설, 익랑, 보도시설 등 정성 사실은 E1",
+      "왕의 공식 공간/정전급 기능 해석은 보고서·논문·최신 조사성과를 종합한 해석이므로 E4",
+      "PDF 본문에서 정전 표현과 page locator가 확인되면 subclaim confidence를 E1로 승격 가능"
+    ],
+    "supporting_features": [
+      "layout.grid.seven_by_four",
+      "layout.omitted_inner_columns",
+      "entrance.facility.01",
+      "entrance.facility.02",
+      "entrance.facility.03",
+      "corridor.east_wing",
+      "corridor.west_wing",
+      "walkway.brick_paved",
+      "land_preparation.layer",
+      "context.western_royal_space_interpretation"
+    ],
+    "supporting_evidence": [
+      {
+        "source_id": "nrich_2018_a_building_restoration_excavation_report",
+        "class": "E1",
+        "method": "report_interpreted",
+        "claim": "A건물지의 구조·규모·주변 관계가 보고됨."
+      },
+      {
+        "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+        "class": "E4",
+        "method": "academic_interpretation",
+        "claim": "A건물지를 왕궁으로 볼 만한 건축 속성 및 최상위 위계 건물로 해석."
+      },
+      {
+        "source_id": "khs_2025_silla_capital_10year_outcome",
+        "class": "E4",
+        "method": "latest_official_interpretation",
+        "claim": "월지 서편을 왕의 공간으로 보는 최신 조사성과. 공식 source locator 확인 필요."
+      }
+    ],
+    "counter_evidence": [
+      {
+        "claim": "기존에는 월지 서편이 동궁/태자궁 관련 공간으로 해석되어 왔다.",
+        "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+        "class": "E4"
+      },
+      {
+        "claim": "왕의 공식 공간과 정전 기능은 상부구조가 아니라 기능 해석이므로 단일 확정 모델로 렌더할 수 없다.",
+        "source_id": "demo_rule_silla_palace_archaeology_basic",
+        "class": "E5"
+      }
+    ],
+    "unresolved_questions": [
+      "보고서 본문에서 정전 표현이 정확히 어디에 등장하는가?",
+      "A건물지의 공식 기능을 정전·의례·접견·연회 중 어디까지 구분할 수 있는가?",
+      "월성·월지·동편 동궁 후보지와의 관계를 어느 축으로 시각화해야 하는가?"
+    ],
+    "ui_treatment": {
+      "highlight": [
+        "layout.grid.seven_by_four",
+        "layout.omitted_inner_columns",
+        "land_preparation.layer",
+        "entrance.facility.01",
+        "walkway.brick_paved"
+      ],
+      "superstructure_opacity": 0.18,
+      "warning": "왕의 공식 공간 해석은 가장 강한 해석축이지만, 상부 목구조의 확정 복원이 아니다."
+    }
+  },
+  {
+    "id": "H2_prince_palace_legacy_interpretation",
+    "axis": "spatial_political_attribution",
+    "title_ko": "기존 동궁·태자궁 관련 해석",
+    "title_en": "Legacy Donggung / prince-palace interpretation",
+    "summary_ko": "동궁과 월지라는 명칭과 기존 연구사에 따라 서편 A건물지를 태자궁 또는 동궁 관련 공간으로 연결해 온 해석이다. 최신 재비정 이후에는 약화된 competing hypothesis로 다룬다.",
+    "confidence": "E5",
+    "confidence_notes": [
+      "기존 연구사와 명칭은 설명 가치가 있으나, 2025년 조사성과와 김경열 2023 논문은 동궁 위치를 월지 동편으로 보는 해석을 강화한다.",
+      "따라서 H2는 default model이 아니라 historiography layer다."
+    ],
+    "supporting_features": [
+      "site_context.wolji_west",
+      "context.historical_name_donggung_wolji",
+      "context.legacy_west_donggung_interpretation"
+    ],
+    "supporting_evidence": [
+      {
+        "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+        "class": "E4",
+        "method": "historiography_summary",
+        "claim": "동궁 위치 문제와 기존 논란을 정리하는 연구사 근거."
+      }
+    ],
+    "counter_evidence": [
+      {
+        "claim": "월지 동편을 동궁으로, 서편을 왕의 공간으로 보는 최신 조사성과가 제시됨.",
+        "source_id": "khs_2025_silla_capital_10year_outcome",
+        "class": "E4"
+      },
+      {
+        "claim": "김경열 2023 논문은 동궁 가능성이 높은 곳을 월지 동편으로 추정.",
+        "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+        "class": "E4"
+      }
+    ],
+    "unresolved_questions": [
+      "동궁이라는 현대 명칭과 고고학적 동궁 위치 재비정을 UI에서 어떻게 동시에 설명할 것인가?",
+      "기존 서편 동궁 가설을 historical layer로 보존할지, 낮은 confidence competing hypothesis로 둘지?"
+    ],
+    "ui_treatment": {
+      "highlight": [
+        "context.historical_name_donggung_wolji",
+        "context.legacy_west_donggung_interpretation"
+      ],
+      "superstructure_opacity": 0.08,
+      "warning": "기존 해석이며 최신 재비정에 의해 약화된 가설입니다.",
+      "legacy_badge": true,
+      "legacy_badge_label_ko": "기존 해석 / 최신 재비정으로 약화됨",
+      "legacy_badge_label_en": "legacy / weakened by latest reinterpretation"
+    }
+  },
+  {
+    "id": "H3_ritual_audience_banquet_program",
+    "axis": "functional_program",
+    "title_ko": "의례·접견·연회 기능 프로그램 해석",
+    "title_en": "Ritual, audience, or banquet program interpretation",
+    "summary_ko": "A건물지의 큰 평면, 출입시설, 익랑, 보도시설, 월지 경관과의 관계를 바탕으로 공식 의례·접견·연회 기능 가능성을 검토하는 기능축이다. H1과 완전히 배타적이지 않고, H1 내부의 기능 세부 해석으로도 작동한다.",
+    "confidence": "E5",
+    "confidence_notes": [
+      "공간·동선 feature 자체는 E1 근거가 있지만, 구체 기능은 별도 문헌/도면/유물 연결 없이는 E5로 둔다.",
+      "월지 water/context layer가 scene에 반드시 있어야 이 hypothesis를 표시할 수 있다."
+    ],
+    "requires_features": ["context.wolji_water_edge"],
+    "supporting_features": [
+      "layout.omitted_inner_columns",
+      "entrance.facility.01",
+      "entrance.facility.02",
+      "entrance.facility.03",
+      "corridor.east_wing",
+      "corridor.west_wing",
+      "walkway.brick_paved",
+      "context.wolji_water_edge",
+      "movement.primary_entrance_axis"
+    ],
+    "supporting_evidence": [
+      {
+        "source_id": "nrich_2018_a_building_restoration_excavation_report",
+        "class": "E1",
+        "method": "reported_features",
+        "claim": "출입시설, 익랑, 보도시설 등 동선 관련 feature가 보고됨."
+      },
+      {
+        "source_id": "demo_rule_silla_palace_archaeology_basic",
+        "class": "E5",
+        "method": "functional_conjecture",
+        "claim": "기능 연결은 탐색 가설로만 처리."
+      }
+    ],
+    "counter_evidence": [
+      {
+        "claim": "유구만으로 구체적 실내 기능을 단정하기 어렵다.",
+        "source_id": "demo_rule_silla_palace_archaeology_basic",
+        "class": "E5"
+      }
+    ],
+    "unresolved_questions": [
+      "월지 경관·시각축·동선축을 실제 도면으로 검증할 수 있는가?",
+      "의례·접견·연회 기능을 어느 evidence class 이상으로 올릴 수 있는 독립 source가 있는가?"
+    ],
+    "ui_treatment": {
+      "highlight": [
+        "entrance.facility.01",
+        "entrance.facility.02",
+        "entrance.facility.03",
+        "walkway.brick_paved",
+        "context.wolji_water_edge"
+      ],
+      "superstructure_opacity": 0.1,
+      "warning": "기능 프로그램 해석은 낮은 confidence의 설명축입니다. 유구 사실과 분리해 보세요."
+    }
+  }
+]

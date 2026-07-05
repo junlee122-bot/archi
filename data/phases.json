@@ -1,0 +1,47 @@
+[
+  {
+    "id": "P0_pre_wolji_prior_land_preparation",
+    "name_ko": "월지 조성 이전 선대 대지조성 가능성",
+    "stage_kind": "해석 단계",
+    "confidence": "E4",
+    "sources": ["ji_2023_wolji_west_land_preparation_recheck"],
+    "visible_features": ["land_preparation.prior_phase_candidate"],
+    "notes": "선대 대지조성층 재검토 논의에 근거한 해석 단계. 유구 확정 단계가 아니다."
+  },
+  {
+    "id": "P1_late_7c_palace_reorganization",
+    "name_ko": "7세기 후반 왕궁·월지 주변 공간 재편",
+    "stage_kind": "해석 단계",
+    "confidence": "E4",
+    "sources": ["kim_2023_sillasahakbo_a_building_structure_function"],
+    "visible_features": ["site_context.wolji_west", "context.wolji_water_edge"],
+    "notes": "문헌·고고 자료를 종합한 공간 재편 해석 단계."
+  },
+  {
+    "id": "P2_a_building_reported_layout",
+    "name_ko": "A건물지 보고 유구",
+    "stage_kind": "유구 단계",
+    "confidence": "E1",
+    "sources": ["nrich_2018_a_building_restoration_excavation_report"],
+    "visible_features": [
+      "layout.grid.seven_by_four",
+      "layout.omitted_inner_columns",
+      "entrance.facility.01",
+      "corridor.east_wing",
+      "walkway.brick_paved"
+    ],
+    "notes": "공식 보고서 초록에서 확인되는 보고 유구 단계."
+  },
+  {
+    "id": "P3_2025_reinterpretation",
+    "name_ko": "2025년 동편 동궁·서편 왕의 공간 재비정",
+    "stage_kind": "해석 단계",
+    "confidence": "E4",
+    "sources": ["khs_2025_silla_capital_10year_outcome"],
+    "visible_features": [
+      "context.eastern_donggung_reinterpretation",
+      "context.western_royal_space_interpretation"
+    ],
+    "notes": "최신 조사성과에 따른 재비정 해석 단계. 공식 source locator 확인 시 근거 보강."
+  }
+]

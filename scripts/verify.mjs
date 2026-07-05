@@ -1,0 +1,673 @@
+// verify.mjs — V01–V40 verification gate over canonical data + derived artifacts.
+// Site-specific expectations (bay counts, required features, banned typology
+// vocabulary) come from params/corpus — NEVER hardcoded in check code (V05).
+import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import {
+  repoRootFromArgs, hasFlag, loadAll, loadJson, saveJson, paths, stableStringify, sha256, sha256File, DATA_FILES, fileExists
+} from './lib/io.mjs';
+import {
+  rank, isValidClass, bestClass, isMeasuredLocator, isInternalRuleSource, sourceById,
+  licenseStatus, isCommercialCompatible, usedSourceIds, phaseClassCap, expandModeTabs, AXIS_LABELS_KO
+} from './lib/model.mjs';
+import { validateCorpus } from './lib/schema-check.mjs';
+import { scanText, scanSpecObject, forbiddenTerms } from './lib/forbidden.mjs';
+import { buildSpec } from './derive.mjs';
+
+const EXACT_VALUE_KEY = /(_mm|_coordinates)$/;
+
+function walkFiles(dir, out = []) {
+  if (!existsSync(dir)) return out;
+  for (const entry of readdirSync(dir)) {
+    const p = join(dir, entry);
+    const st = statSync(p);
+    if (st.isDirectory()) {
+      if (entry === 'node_modules' || entry === '.next' || entry === '.git') continue;
+      walkFiles(p, out);
+    } else out.push(p);
+  }
+  return out;
+}
+
+function geometryExactValueViolations(feature) {
+  const out = [];
+  const hasMeasured = (feature.geometry_layer.evidence ?? []).some(isMeasuredLocator);
+  const visit = (node, path) => {
+    if (node == null || typeof node !== 'object') return;
+    for (const [k, v] of Object.entries(node)) {
+      if (EXACT_VALUE_KEY.test(k) && v !== null && !hasMeasured) {
+        out.push(`${feature.id}: geometry '${path}${k}'=${JSON.stringify(v)} — measured locator 없음`);
+      }
+      if (typeof v === 'object') visit(v, `${path}${k}.`);
+    }
+  };
+  visit(feature.geometry_layer, '');
+  return out;
+}
+
+// A user-facing string "assigns" a typology term if it contains the term
+// outside a negated / not-assigned context.
+function typologyAssignments(strings, terms) {
+  const NEG = ['금지', '지정하지 않', '지정되지 않', 'not assigned', '미지정', '미상', '아니다', '아님', '없다', '확정되지 않'];
+  const hits = [];
+  for (const { text, where } of strings) {
+    for (const term of terms) {
+      if (text.includes(term) && !NEG.some((n) => text.includes(n))) {
+        hits.push(`${where}: '${term}' — ${text.slice(0, 100)}`);
+      }
+    }
+  }
+  return hits;
+}
+
+function collectUserFacingStrings(spec) {
+  const out = [];
+  const KEYS = ['statement_ko', 'summary_ko', 'name_ko', 'name_en', 'title_ko', 'title_en', 'warning', 'claim', 'note'];
+  const visit = (node, path) => {
+    if (node == null) return;
+    if (Array.isArray(node)) return node.forEach((v, i) => visit(v, `${path}[${i}]`));
+    if (typeof node === 'object') {
+      for (const [k, v] of Object.entries(node)) {
+        if (typeof v === 'string' && (KEYS.includes(k) || k === 'warnings')) out.push({ where: `${path}.${k}`, text: v });
+        else if (Array.isArray(v) && ['warnings', 'confidence_notes', 'unresolved_questions', 'claims'].includes(k)) {
+          v.forEach((s, i) => { if (typeof s === 'string') out.push({ where: `${path}.${k}[${i}]`, text: s }); });
+        } else visit(v, `${path}.${k}`);
+      }
+    }
+  };
+  visit(spec, '$');
+  return out;
+}
+
+export function runChecks(root, { strict = false } = {}) {
+  const corpus = loadAll(root);
+  const { params, sources, segments, features, hypotheses, phases } = corpus;
+  const specPath = paths.spec(root);
+  const spec = fileExists(specPath) ? loadJson(specPath) : null;
+
+  const sourceMap = new Map(sources.map((s) => [s.id, s]));
+  const segmentMap = new Map(segments.map((s) => [s.id, s]));
+  const featureIds = new Set(features.map((f) => f.id));
+  const results = [];
+  const add = (id, title, outcome) => results.push({ id, title, ...outcome });
+  const fail = (details) => ({ status: 'fail', details });
+  const warn = (details) => ({ status: strict ? 'fail' : 'warn', details });
+  const pass = (details = []) => ({ status: 'pass', details });
+  const evAll = (f) => [...(f.fact_layer?.evidence ?? []), ...(f.geometry_layer?.evidence ?? [])];
+
+  // V01
+  {
+    const errs = validateCorpus(corpus);
+    add('V01_SCHEMA_VALID', '데이터 파일 스키마 유효성', errs.length ? fail(errs) : pass());
+  }
+
+  // V02
+  {
+    const errs = [];
+    const seen = new Set();
+    for (const s of sources) {
+      if (seen.has(s.id)) errs.push(`duplicate source id ${s.id}`);
+      seen.add(s.id);
+      if (typeof s.license !== 'string' || s.license.length === 0) errs.push(`${s.id}: license 누락`);
+      if (typeof s.license_verified !== 'boolean') errs.push(`${s.id}: license_verified boolean 누락`);
+    }
+    add('V02_SOURCE_REGISTRY_INTEGRITY', '소스 레지스트리 무결성', errs.length ? fail(errs) : pass());
+  }
+
+  // V03
+  {
+    const errs = [];
+    for (const f of features) for (const ev of evAll(f)) {
+      if (!sourceMap.has(ev.source_id)) errs.push(`${f.id}: unknown source ${ev.source_id}`);
+    }
+    for (const h of hypotheses) {
+      for (const ev of h.supporting_evidence ?? []) if (!sourceMap.has(ev.source_id)) errs.push(`${h.id}: unknown source ${ev.source_id}`);
+      for (const ev of h.counter_evidence ?? []) if (ev.source_id && !sourceMap.has(ev.source_id)) errs.push(`${h.id}: unknown counter source ${ev.source_id}`);
+    }
+    for (const p of phases) for (const sid of p.sources) if (!sourceMap.has(sid)) errs.push(`${p.id}: unknown source ${sid}`);
+    add('V03_EVIDENCE_SOURCE_LINKAGE', 'evidence→source 연결', errs.length ? fail(errs) : pass());
+  }
+
+  // V04
+  {
+    const errs = [];
+    for (const f of features) for (const ev of evAll(f)) {
+      if (!ev.source_segment_id) continue;
+      const seg = segmentMap.get(ev.source_segment_id);
+      if (!seg) errs.push(`${f.id}: unknown segment ${ev.source_segment_id}`);
+      else if (seg.source_id !== ev.source_id) errs.push(`${f.id}: segment ${seg.id} belongs to ${seg.source_id}, not ${ev.source_id}`);
+    }
+    add('V04_SEGMENT_LINKAGE', 'evidence→segment 연결', errs.length ? fail(errs) : pass());
+  }
+
+  // V05 — generic grid/source consistency; expectations live in params+corpus only.
+  {
+    const errs = [];
+    const t = params.target_site;
+    const grid = features.find((f) => f.id === t.grid_feature_id);
+    if (!grid) errs.push(`grid feature '${t.grid_feature_id}' 없음`);
+    else {
+      const bf = grid.fact_layer?.bays_front;
+      const bs = grid.fact_layer?.bays_side;
+      if (!Number.isInteger(bf) || !Number.isInteger(bs)) errs.push(`${grid.id}: fact_layer.bays_front/bays_side 정수 필요`);
+      const best = bestClass(grid.fact_layer?.evidence ?? []);
+      const hasFallbackSeedWarning = params.fallback_mode && (grid.warnings ?? []).some((w) => w.includes('fallback'));
+      if (!(best && rank(best) >= rank('E1')) && !hasFallbackSeedWarning) {
+        errs.push(`${grid.id}: fact_layer에 E1급 evidence 또는 명시적 fallback seed warning 필요 (best=${best})`);
+      }
+      if (Number.isInteger(t.expected_bays_front) && bf !== t.expected_bays_front) {
+        errs.push(`bays_front: corpus=${bf} ≠ params.expected=${t.expected_bays_front}`);
+      }
+      if (Number.isInteger(t.expected_bays_side) && bs !== t.expected_bays_side) {
+        errs.push(`bays_side: corpus=${bs} ≠ params.expected=${t.expected_bays_side}`);
+      }
+      const hasMeasured = (grid.geometry_layer?.evidence ?? []).some(isMeasuredLocator);
+      if (!hasMeasured) {
+        if (grid.geometry_layer?.bay_spacing_front_mm != null || grid.geometry_layer?.bay_spacing_side_mm != null) {
+          errs.push(`${grid.id}: measured locator 없이 exact bay spacing 설정 금지`);
+        }
+      }
+    }
+    add('V05_GRID_SOURCE_CONSISTENCY', '그리드 사실-소스 일관성 (하드코딩 없음)', errs.length ? fail(errs) : pass());
+  }
+
+  // V06
+  {
+    const errs = [];
+    for (const f of features) {
+      for (const [where, c] of [
+        [`${f.id}.confidence`, f.confidence],
+        [`${f.id}.render_confidence`, f.render_confidence],
+        [`${f.id}.fact_layer.confidence`, f.fact_layer?.confidence],
+        [`${f.id}.geometry_layer.confidence`, f.geometry_layer?.confidence]
+      ]) if (!isValidClass(c)) errs.push(`${where}='${c}' invalid`);
+      for (const ev of evAll(f)) if (!isValidClass(ev.class)) errs.push(`${f.id}: evidence class '${ev.class}' invalid`);
+    }
+    for (const h of hypotheses) if (!isValidClass(h.confidence)) errs.push(`${h.id}: confidence invalid`);
+    for (const p of phases) if (!isValidClass(p.confidence)) errs.push(`${p.id}: confidence invalid`);
+    add('V06_CONFIDENCE_ENUM', 'confidence enum 검사', errs.length ? fail(errs) : pass());
+  }
+
+  // V07
+  {
+    const errs = [];
+    const seen = new Set();
+    for (const f of features) {
+      if (seen.has(f.id)) errs.push(`duplicate feature id ${f.id}`);
+      seen.add(f.id);
+    }
+    for (const id of params.required_p0_features) if (!featureIds.has(id)) errs.push(`required P0 feature 누락: ${id}`);
+    if (features.length < 30) errs.push(`canonical features ${features.length} < 30`);
+    add('V07_REQUIRED_P0_FEATURES', '필수 P0 feature 존재', errs.length ? fail(errs) : pass());
+  }
+
+  // V08
+  {
+    const errs = [];
+    for (const f of features) {
+      if (!(f.fact_layer?.evidence?.length > 0)) errs.push(`${f.id}: fact_layer.evidence 비어 있음`);
+      if (!(f.geometry_layer?.evidence?.length > 0)) errs.push(`${f.id}: geometry_layer.evidence 비어 있음`);
+    }
+    add('V08_EVIDENCE_PRESENT', '모든 layer evidence 존재', errs.length ? fail(errs) : pass());
+  }
+
+  // V09 — internal demo rule can never back E1–E4 claims.
+  {
+    const errs = [];
+    for (const f of features) {
+      for (const ev of evAll(f)) {
+        const src = sourceMap.get(ev.source_id);
+        if (isInternalRuleSource(src) && !['DEMO', 'E5'].includes(ev.class)) {
+          errs.push(`${f.id}: internal_rule source가 class ${ev.class}로 인용됨`);
+        }
+      }
+      const fc = f.fact_layer.confidence;
+      if (rank(fc) >= rank('E4') && fc !== 'DEMO') {
+        const hasExternal = (f.fact_layer.evidence ?? []).some((ev) => {
+          const src = sourceMap.get(ev.source_id);
+          return src && !isInternalRuleSource(src) && rank(ev.class) >= rank(fc);
+        });
+        if (!hasExternal) errs.push(`${f.id}: fact confidence ${fc}에 외부 소스 evidence 없음`);
+      }
+    }
+    add('V09_DEMO_SOURCE_POLICY', 'DEMO/internal rule 소스 사용 정책', errs.length ? fail(errs) : pass());
+  }
+
+  // V10
+  {
+    const errs = [];
+    for (const f of features) {
+      if (f.confidence !== f.fact_layer.confidence) errs.push(`${f.id}: confidence(${f.confidence}) ≠ fact_layer(${f.fact_layer.confidence})`);
+      if (f.render_confidence !== f.geometry_layer.confidence) errs.push(`${f.id}: render_confidence(${f.render_confidence}) ≠ geometry_layer(${f.geometry_layer.confidence})`);
+      const best = bestClass(f.fact_layer.evidence ?? []);
+      if (best !== null && rank(f.fact_layer.confidence) > rank(best)) {
+        errs.push(`${f.id}: fact confidence ${f.fact_layer.confidence} > evidence support ${best}`);
+      }
+    }
+    add('V10_CONFIDENCE_CONSISTENT', 'confidence 요약 일관성', errs.length ? fail(errs) : pass());
+  }
+
+  // V11
+  {
+    const errs = [];
+    for (const f of features) {
+      const g = f.geometry_layer;
+      if (g.confidence === 'DEMO' || g.demo_placeholder === true) {
+        if (f.ui_flags?.relative_geometry !== true) errs.push(`${f.id}: DEMO geometry인데 ui_flags.relative_geometry≠true`);
+        if (f.ui_flags?.not_measured !== true) errs.push(`${f.id}: DEMO geometry인데 ui_flags.not_measured≠true`);
+      }
+    }
+    add('V11_RELATIVE_GEOMETRY_FLAGS', '상대 geometry UI 플래그', errs.length ? fail(errs) : pass());
+  }
+
+  // V12
+  {
+    const missing = features.filter((f) => f.category === 'uncertainty').length >= 3
+      ? []
+      : ['uncertainty category feature < 3'];
+    add('V12_UNCERTAINTY_MARKERS_PRESENT', '불확실성 marker 존재', missing.length ? fail(missing) : pass());
+  }
+
+  // V13
+  {
+    const errs = [];
+    for (const h of hypotheses) {
+      for (const fid of [...(h.supporting_features ?? []), ...(h.requires_features ?? []), ...(h.ui_treatment?.highlight ?? [])]) {
+        if (!featureIds.has(fid)) errs.push(`${h.id}: unknown feature ${fid}`);
+      }
+    }
+    add('V13_HYPOTHESIS_FEATURE_LINKS', '가설→feature 연결', errs.length ? fail(errs) : pass());
+  }
+
+  // V14
+  {
+    const errs = hypotheses.filter((h) => !(h.counter_evidence?.length > 0)).map((h) => `${h.id}: counter_evidence 없음`);
+    add('V14_HYPOTHESIS_COUNTER_EVIDENCE', '가설 반대근거 의무', errs.length ? fail(errs) : pass());
+  }
+
+  // V15 — interpretations cap at E4; confidence cannot exceed best support.
+  {
+    const errs = [];
+    for (const h of hypotheses) {
+      if (rank(h.confidence) > rank('E4')) errs.push(`${h.id}: 해석 가설 confidence는 E4 초과 불가 (${h.confidence})`);
+      const best = bestClass(h.supporting_evidence ?? []);
+      if (best !== null && rank(h.confidence) > rank(best)) errs.push(`${h.id}: confidence ${h.confidence} > 근거 support ${best}`);
+    }
+    add('V15_HYPOTHESIS_CONFIDENCE_CAP', '가설 confidence 상한', errs.length ? fail(errs) : pass());
+  }
+
+  // V16
+  {
+    const errs = phases.filter((p) => !(p.sources?.length > 0)).map((p) => `${p.id}: source 없는 phase 금지`);
+    add('V16_PHASE_SOURCES', 'phase 소스 인용 의무', errs.length ? fail(errs) : pass());
+  }
+
+  // V17
+  {
+    const errs = [];
+    for (const p of phases) {
+      const cited = p.sources.map((sid) => sourceMap.get(sid)).filter(Boolean);
+      const cap = phaseClassCap(cited);
+      if (rank(p.confidence) > rank(cap)) errs.push(`${p.id}: confidence ${p.confidence} > 소스 지원 상한 ${cap}`);
+    }
+    add('V17_PHASE_CONFIDENCE_CAP', 'phase confidence ≤ 소스 지원', errs.length ? fail(errs) : pass());
+  }
+
+  // V18
+  {
+    const errs = [];
+    for (const p of phases) for (const fid of p.visible_features) {
+      if (!featureIds.has(fid)) errs.push(`${p.id}: unknown feature ${fid}`);
+    }
+    add('V18_PHASE_FEATURE_LINKS', 'phase→feature 연결', errs.length ? fail(errs) : pass());
+  }
+
+  // V19 — GATE_R license gate.
+  {
+    const errs = [];
+    const warns = [];
+    const used = usedSourceIds(corpus);
+    for (const s of sources) {
+      const st = licenseStatus(s);
+      if (s.priority === 'P0' && (st === 'unverified' || st === 'declared_unverified')) {
+        if (used.has(s.id) && !params.fallback_mode) errs.push(`P0 source ${s.id}: to_verify 상태로 evidence에 사용됨`);
+        else warns.push(`P0 source ${s.id}: to_verify 상태 (후보 등록만 허용, strict에서 fail)`);
+      }
+    }
+    const expectedSafe = sources.filter((s) => used.has(s.id)).every((s) => isCommercialCompatible(s));
+    if (spec && spec.license_audit?.commercial_safe !== expectedSafe) {
+      errs.push(`spec.license_audit.commercial_safe=${spec?.license_audit?.commercial_safe} ≠ computed ${expectedSafe}`);
+    }
+    if (errs.length) add('V19_GATE_R_LICENSE', 'license gate (GATE_R)', fail([...errs, ...warns]));
+    else if (warns.length) add('V19_GATE_R_LICENSE', 'license gate (GATE_R)', warn(warns));
+    else add('V19_GATE_R_LICENSE', 'license gate (GATE_R)', pass());
+  }
+
+  // V20 — no source media copied into web/public.
+  {
+    const errs = [];
+    const pub = join(paths.web(root), 'public');
+    if (existsSync(pub)) {
+      const allowedPath = join(pub, 'ALLOWED_ASSETS.json');
+      const allowed = existsSync(allowedPath) ? new Set(loadJson(allowedPath).map((a) => a.path)) : new Set();
+      for (const file of walkFiles(pub)) {
+        const rel = relative(pub, file);
+        if (/\.(pdf|tif|tiff)$/i.test(rel)) errs.push(`web/public 내 source 문서 금지: ${rel}`);
+        else if (/\.(png|jpe?g|webp|gif)$/i.test(rel) && !allowed.has(rel)) {
+          errs.push(`web/public 내 미신고 raster 이미지: ${rel} (ALLOWED_ASSETS.json 등록 필요, 보고서/도판 복사 금지)`);
+        }
+      }
+    }
+    add('V20_NO_SOURCE_MEDIA_IN_WEB_PUBLIC', '보고서 이미지/PDF 웹 복사 금지', errs.length ? fail(errs) : pass());
+  }
+
+  // V21
+  {
+    const errs = [];
+    for (const f of features.filter((f) => f.id.startsWith('superstructure.'))) {
+      if (f.geometry_layer.ghost !== true) errs.push(`${f.id}: geometry_layer.ghost=true 필요`);
+      if (!['DEMO', 'E5'].includes(f.render_confidence)) errs.push(`${f.id}: render_confidence는 DEMO/E5만 허용`);
+      if (f.render_layer !== 'hypothesis_ghost') errs.push(`${f.id}: render_layer=hypothesis_ghost 필요`);
+    }
+    add('V21_SUPERSTRUCTURE_GHOST_ONLY', '상부구조 ghost/symbolic 전용', errs.length ? fail(errs) : pass());
+  }
+
+  // V22
+  {
+    const errs = features.flatMap(geometryExactValueViolations);
+    add('V22_EXACT_DIMENSIONS_NULL_WITHOUT_LOCATOR', 'measured locator 없는 실측치 금지', errs.length ? fail(errs) : pass());
+  }
+
+  // V23 — artifact integrity (fail-closed corruption detection).
+  {
+    const errs = [];
+    if (!spec) errs.push('artifacts/structural-spec.json 없음 (derive 먼저 실행)');
+    else {
+      const { integrity, ...restMeta } = spec.meta ?? {};
+      if (!integrity) errs.push('meta.integrity 누락');
+      else {
+        const recomputed = sha256(stableStringify({ ...spec, meta: restMeta }));
+        if (recomputed !== integrity) errs.push(`integrity 불일치: spec=${integrity.slice(0, 12)}… recomputed=${recomputed.slice(0, 12)}…`);
+      }
+      for (const [name, fn] of DATA_FILES) {
+        const now = sha256File(fn(root));
+        if (spec.meta?.input_hashes?.[name] !== now) errs.push(`input hash 불일치: ${name} (stale artifact — derive 재실행 필요)`);
+      }
+    }
+    add('V23_ARTIFACT_INTEGRITY', '아티팩트 무결성/신선도', errs.length ? fail(errs) : pass());
+  }
+
+  // V24
+  {
+    const errs = [];
+    if (spec) {
+      const expected = expandModeTabs(params);
+      const actual = spec.derived?.mode_tabs ?? [];
+      if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+        errs.push(`mode_tabs 불일치: ${JSON.stringify(actual)} ≠ ${JSON.stringify(expected)}`);
+      }
+    } else errs.push('spec 없음');
+    add('V24_MODE_TABS', '모드 탭 구성', errs.length ? fail(errs) : pass());
+  }
+
+  // V25
+  {
+    const errs = [];
+    if (spec) {
+      for (const h of spec.hypotheses ?? []) {
+        if (!h.axis) errs.push(`${h.id}: axis 없음`);
+        if (!h.axis_label_ko) errs.push(`${h.id}: axis_label_ko 없음`);
+      }
+    } else errs.push('spec 없음');
+    add('V25_AXIS_LABELS_IN_SPEC', 'spec 내 축 라벨', errs.length ? fail(errs) : pass());
+  }
+
+  // V26
+  {
+    const errs = [];
+    for (const f of features) {
+      if (f.geometry_layer.confidence === 'DEMO' && !(f.warnings?.length > 0)) {
+        errs.push(`${f.id}: DEMO geometry에 warnings 필요`);
+      }
+    }
+    add('V26_WARNINGS_SURFACED', 'DEMO geometry 경고 표면화', errs.length ? fail(errs) : pass());
+  }
+
+  // V27
+  {
+    const warns = [];
+    for (const s of sources) {
+      if (s.verified && !/^\d{4}-\d{2}-\d{2}$/.test(String(s.accessed ?? ''))) {
+        warns.push(`${s.id}: verified인데 accessed 날짜 형식 누락`);
+      }
+    }
+    add('V27_ACCESS_DATES', '소스 열람일 기록', warns.length ? warn(warns) : pass());
+  }
+
+  // V28
+  {
+    const errs = [];
+    if (spec) {
+      for (const v of scanSpecObject(spec)) errs.push(`${v.path}: '${v.term}' — ${v.text}`);
+    }
+    add('V28_SPEC_FORBIDDEN_LANGUAGE', '생성 스펙 내 금지 표현', errs.length ? fail(errs) : pass());
+  }
+
+  // V29
+  {
+    const errs = [];
+    if (spec) {
+      const used = usedSourceIds(corpus);
+      const expected = sources.filter((s) => used.has(s.id)).every((s) => isCommercialCompatible(s));
+      if (spec.license_audit?.commercial_safe !== expected) errs.push(`commercial_safe=${spec.license_audit?.commercial_safe}, expected ${expected}`);
+    } else errs.push('spec 없음');
+    add('V29_COMMERCIAL_SAFE_CONSISTENT', 'commercial_safe 일관성', errs.length ? fail(errs) : pass());
+  }
+
+  // V30 — deterministic rebuild.
+  {
+    const errs = [];
+    try {
+      const a = buildSpec(root);
+      const b = buildSpec(root);
+      if (stableStringify(a) !== stableStringify(b)) errs.push('연속 두 번 derive 결과가 다름 (비결정성)');
+    } catch (err) {
+      errs.push(`rebuild 실패: ${err.message}`);
+    }
+    add('V30_DETERMINISTIC_BUILD', '결정적 빌드', errs.length ? fail(errs) : pass());
+  }
+
+  // V31 — fact/geometry layer separation.
+  {
+    const errs = [];
+    for (const f of features) {
+      if (!f.fact_layer?.confidence) errs.push(`${f.id}: fact_layer.confidence 없음`);
+      if (!f.geometry_layer?.confidence) errs.push(`${f.id}: geometry_layer.confidence 없음`);
+      const hasExternalFact = (f.fact_layer?.evidence ?? []).some((ev) => {
+        const src = sourceMap.get(ev.source_id);
+        return src && !isInternalRuleSource(src) && ['E1', 'E2', 'E3'].includes(ev.class);
+      });
+      if (hasExternalFact && ['E5', 'DEMO'].includes(f.confidence)) {
+        errs.push(`${f.id}: 외부 소스 E1~E3 근거가 있는 사실을 ${f.confidence}로 강등 금지`);
+      }
+      if (f.fact_layer?.confidence === 'DEMO') errs.push(`${f.id}: fact_layer confidence는 DEMO가 될 수 없음`);
+    }
+    add('V31_FACT_GEOMETRY_LAYER_SEPARATION', 'fact/geometry layer 분리', errs.length ? fail(errs) : pass());
+  }
+
+  // V32
+  {
+    const errs = [];
+    for (const f of features) {
+      const g = f.geometry_layer;
+      if (g.type === 'omitted-column-zone') {
+        const hasMeasured = (g.evidence ?? []).some(isMeasuredLocator);
+        if (g.omitted_positions !== null && g.omitted_positions !== undefined && !hasMeasured) {
+          errs.push(`${f.id}: source locator 없이 omitted_positions 좌표 설정 금지`);
+        }
+      }
+    }
+    add('V32_NO_EXACT_POSITION_WITHOUT_LOCATOR', '감주 정확 위치 locator 의무', errs.length ? fail(errs) : pass());
+  }
+
+  // V33 / V34 — typology bans (vocabulary from params, not hardcoded).
+  {
+    const strings = collectUserFacingStrings({ features, hypotheses, phases });
+    const bracketTerms = [...(params.forbidden_bracket_terms ?? []), ...(params.forbidden_bracket_generic_terms ?? [])];
+    const errs = [];
+    for (const f of features) {
+      const bt = f.geometry_layer?.bracket_typology;
+      if (bt !== undefined && bt !== null) errs.push(`${f.id}: bracket_typology는 null이어야 함 (='${bt}')`);
+    }
+    errs.push(...typologyAssignments(strings, bracketTerms));
+    add('V33_BRACKET_TYPOLOGY_FORBIDDEN', '공포(bracket) 양식 지정 금지', errs.length ? fail(errs) : pass());
+
+    const errs34 = [];
+    for (const f of features) {
+      const rt = f.geometry_layer?.roof_type;
+      if (rt !== undefined && rt !== null) errs34.push(`${f.id}: roof_type은 null이어야 함 (='${rt}')`);
+    }
+    errs34.push(...typologyAssignments(strings, params.forbidden_roof_terms ?? []));
+    add('V34_ROOF_TYPOLOGY_FORBIDDEN', '지붕 형식 지정 금지', errs34.length ? fail(errs34) : pass());
+  }
+
+  // V35
+  {
+    const errs = [];
+    for (const h of hypotheses) {
+      if (!h.axis) errs.push(`${h.id}: axis 선언 필요`);
+      else if (!params.required_axes.includes(h.axis)) errs.push(`${h.id}: axis '${h.axis}' 미허용`);
+    }
+    if (spec && spec.derived?.hypothesis_axis_model?.mutually_exclusive !== false) {
+      errs.push('spec은 가설을 상호배타 3택으로 표시하면 안 됨 (mutually_exclusive=false 필요)');
+    }
+    add('V35_HYPOTHESIS_AXIS_MODEL', '가설 축 모델', errs.length ? fail(errs) : pass());
+  }
+
+  // V36
+  {
+    const errs = [];
+    const rule = params.hypothesis_rules;
+    const h3 = hypotheses.find((h) => h.axis === 'functional_program');
+    if (h3) {
+      const required = h3.requires_features ?? [rule.h3_requires_feature];
+      for (const fid of required) if (!featureIds.has(fid)) errs.push(`${h3.id}: 필수 컨텍스트 feature '${fid}' 없음 — render 불가`);
+      if (spec) {
+        const sh = (spec.hypotheses ?? []).find((x) => x.id === h3.id);
+        if (sh && sh.renderable !== (errs.length === 0)) errs.push(`spec의 ${h3.id}.renderable 판정 불일치`);
+      }
+    }
+    add('V36_WOLJI_CONTEXT_REQUIRED_FOR_FUNCTION_HYPOTHESIS', '기능 가설의 월지 컨텍스트 의무', errs.length ? fail(errs) : pass());
+  }
+
+  // V37
+  {
+    const errs = [];
+    const h2 = hypotheses.find((h) => h.id === params.hypothesis_rules.legacy_badge_hypothesis);
+    if (!h2) errs.push('legacy 가설 없음');
+    else {
+      if (h2.ui_treatment?.legacy_badge !== true) errs.push(`${h2.id}: legacy_badge=true 필요`);
+      if (!h2.ui_treatment?.legacy_badge_label_ko) errs.push(`${h2.id}: legacy badge 라벨 필요`);
+      if (!(h2.counter_evidence?.length > 0)) errs.push(`${h2.id}: counter_evidence 필요`);
+    }
+    add('V37_LEGACY_INTERPRETATION_BADGE', 'H2 legacy/약화 배지', errs.length ? fail(errs) : pass());
+  }
+
+  // V38 — mixed license policy, no global assumption.
+  {
+    const errs = [];
+    const warns = [];
+    if (spec?.license_audit) {
+      if ('global_license' in spec.license_audit) errs.push('전역 license 필드 금지');
+      const entries = spec.license_audit.sources ?? [];
+      if (entries.length !== sources.length) errs.push('license audit에 소스별 entry 필요');
+      for (const e of entries) {
+        if (e.status === 'kogl_type4' && e.public_derivative_requires_human_review !== true) {
+          errs.push(`${e.id}: 제4유형은 human review 플래그 필요`);
+        }
+      }
+    } else errs.push('spec.license_audit 없음');
+    for (const s of sources) {
+      const st = licenseStatus(s);
+      if ((st === 'unverified' || st === 'declared_unverified') && s.priority !== 'fallback') {
+        warns.push(`${s.id}: license 미확인 (${s.license})`);
+      }
+    }
+    if (errs.length) add('V38_SOURCE_LICENSE_MIXED_POLICY', '소스별 개별 license 정책', fail([...errs, ...warns]));
+    else if (warns.length) add('V38_SOURCE_LICENSE_MIXED_POLICY', '소스별 개별 license 정책', warn(warns));
+    else add('V38_SOURCE_LICENSE_MIXED_POLICY', '소스별 개별 license 정책', pass());
+  }
+
+  // V39 — forbidden language, user-facing surfaces only.
+  {
+    const errs = [];
+    const targets = [];
+    const webDir = paths.web(root);
+    for (const dir of [join(webDir, 'app'), join(webDir, 'components')]) {
+      for (const f of walkFiles(dir)) if (/\.(tsx|ts)$/.test(f)) targets.push([f, 'code']);
+    }
+    for (const f of walkFiles(paths.reportsDir(root))) if (/\.md$/.test(f)) targets.push([f, 'markdown']);
+    const readme = join(root, 'README.md');
+    if (existsSync(readme)) targets.push([readme, 'markdown']);
+    const demoScript = join(root, 'docs', 'DEMO_SCRIPT.md');
+    if (existsSync(demoScript)) targets.push([demoScript, 'markdown']);
+    for (const [file, kind] of targets) {
+      for (const v of scanText(readFileSync(file, 'utf8'), { kind })) {
+        errs.push(`${relative(root, file)}:${v.line}: '${v.term}' — ${v.text}`);
+      }
+    }
+    add('V39_FORBIDDEN_LANGUAGE_USER_FACING_ONLY', '금지 표현 (user-facing 한정)', errs.length ? fail(errs) : pass());
+  }
+
+  // V40
+  {
+    const errs = [];
+    const grid = features.find((f) => f.id === params.target_site.grid_feature_id);
+    const sym = features.find((f) => f.id === 'superstructure.column_grid.symbolic');
+    if (spec && grid) {
+      const g = spec.derived?.symbolic_column_grid;
+      if (!g) errs.push('spec.derived.symbolic_column_grid 없음');
+      else {
+        if (g.columns_along_front !== grid.fact_layer.bays_front + 1) errs.push(`columns_along_front=${g.columns_along_front} ≠ bays_front+1`);
+        if (g.columns_along_side !== grid.fact_layer.bays_side + 1) errs.push(`columns_along_side=${g.columns_along_side} ≠ bays_side+1`);
+        if (!['DEMO', 'E5'].includes(g.render_confidence)) errs.push('symbolic grid render_confidence는 DEMO/E5');
+        if (g.is_excavated_positions !== false) errs.push('symbolic grid는 발굴 위치가 아님을 명시해야 함');
+      }
+    }
+    if (sym && !['DEMO', 'E5'].includes(sym.render_confidence)) errs.push(`${sym.id}: render_confidence DEMO/E5 필요`);
+    add('V40_COLUMN_GRID_DERIVED_FROM_BAYS', '기둥열은 칸 수 파생 symbolic만', errs.length ? fail(errs) : pass());
+  }
+
+  const failed = results.filter((r) => r.status === 'fail');
+  const warned = results.filter((r) => r.status === 'warn');
+  return {
+    strict,
+    summary: { total: results.length, pass: results.filter((r) => r.status === 'pass').length, warn: warned.length, fail: failed.length },
+    ok: failed.length === 0,
+    checks: results
+  };
+}
+
+export function main(argv = process.argv.slice(2)) {
+  const root = repoRootFromArgs(argv);
+  const strict = hasFlag('--strict', argv);
+  const report = runChecks(root, { strict });
+  saveJson(paths.verification(root), report);
+  for (const c of report.checks) {
+    const mark = c.status === 'pass' ? 'PASS' : c.status === 'warn' ? 'WARN' : 'FAIL';
+    console.log(`[${mark}] ${c.id} — ${c.title}`);
+    if (c.status !== 'pass') for (const d of c.details ?? []) console.log(`       · ${d}`);
+  }
+  console.log(`verify: ${report.summary.pass} pass / ${report.summary.warn} warn / ${report.summary.fail} fail${strict ? ' (strict)' : ''}`);
+  if (!report.ok) process.exit(1);
+}
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  try {
+    main();
+  } catch (err) {
+    console.error(String(err.stack ?? err));
+    process.exit(1);
+  }
+}

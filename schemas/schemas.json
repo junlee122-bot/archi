@@ -1,0 +1,192 @@
+{
+  "$comment": "Lightweight structural schemas interpreted by scripts/lib/schema-check.mjs. Types: string, number, integer, boolean, array, object. Suffix '?' allows null. 'array:string' constrains item type.",
+  "source": {
+    "required": {
+      "id": "string",
+      "title": "string",
+      "publisher": "string",
+      "type": "string",
+      "year": "integer",
+      "license": "string",
+      "license_verified": "boolean",
+      "verified": "boolean",
+      "priority": "string",
+      "notes": "string"
+    },
+    "optional": {
+      "author": "string",
+      "journal": "string",
+      "url": "string?",
+      "pdf_url": "string?",
+      "accessed": "string?",
+      "local_path": "string?"
+    },
+    "enums": {
+      "type": ["excavation_report", "academic_article", "official_interpretation", "press_article", "internal_rule"],
+      "priority": ["P0", "P1", "P2", "fallback"]
+    }
+  },
+  "segment": {
+    "required": {
+      "id": "string",
+      "source_id": "string",
+      "kind": "string",
+      "locator": "object",
+      "text_status": "string",
+      "summary_ko": "string",
+      "claims": "array:string"
+    },
+    "optional": {
+      "usable_for": "array:string",
+      "not_usable_for": "array:string"
+    }
+  },
+  "feature": {
+    "required": {
+      "id": "string",
+      "name_ko": "string",
+      "name_en": "string",
+      "category": "string",
+      "priority": "string",
+      "archaeological_status": "string",
+      "render_layer": "string",
+      "fact_layer": "object",
+      "geometry_layer": "object",
+      "confidence": "string",
+      "render_confidence": "string",
+      "ui_flags": "object",
+      "warnings": "array:string"
+    },
+    "optional": {
+      "linked_hypothesis": "string"
+    },
+    "enums": {
+      "confidence": ["E1", "E2", "E3", "E4", "E5", "DEMO"],
+      "render_confidence": ["E1", "E2", "E3", "E4", "E5", "DEMO"]
+    }
+  },
+  "fact_layer": {
+    "required": {
+      "statement_ko": "string",
+      "confidence": "string",
+      "evidence": "array:object"
+    },
+    "optional": {
+      "bays_front": "integer",
+      "bays_side": "integer"
+    },
+    "enums": {
+      "confidence": ["E1", "E2", "E3", "E4", "E5"]
+    }
+  },
+  "geometry_layer": {
+    "required": {
+      "type": "string",
+      "unit_mode": "string",
+      "confidence": "string",
+      "evidence": "array:object"
+    },
+    "optional": {},
+    "enums": {
+      "confidence": ["E1", "E2", "E3", "E4", "E5", "DEMO"]
+    }
+  },
+  "evidence": {
+    "required": {
+      "source_id": "string",
+      "class": "string",
+      "method": "string",
+      "verified": "boolean"
+    },
+    "optional": {
+      "source_segment_id": "string",
+      "locator": "object?",
+      "note": "string",
+      "claim": "string"
+    },
+    "enums": {
+      "class": ["E1", "E2", "E3", "E4", "E5", "DEMO"]
+    }
+  },
+  "hypothesis_evidence": {
+    "required": {
+      "source_id": "string",
+      "class": "string",
+      "claim": "string"
+    },
+    "optional": {
+      "method": "string"
+    },
+    "enums": {
+      "class": ["E1", "E2", "E3", "E4", "E5", "DEMO"]
+    }
+  },
+  "counter_evidence": {
+    "required": {
+      "claim": "string",
+      "class": "string"
+    },
+    "optional": {
+      "source_id": "string"
+    },
+    "enums": {
+      "class": ["E1", "E2", "E3", "E4", "E5", "DEMO"]
+    }
+  },
+  "hypothesis": {
+    "required": {
+      "id": "string",
+      "axis": "string",
+      "title_ko": "string",
+      "title_en": "string",
+      "summary_ko": "string",
+      "confidence": "string",
+      "confidence_notes": "array:string",
+      "supporting_features": "array:string",
+      "supporting_evidence": "array:object",
+      "counter_evidence": "array:object",
+      "unresolved_questions": "array:string",
+      "ui_treatment": "object"
+    },
+    "optional": {
+      "requires_features": "array:string"
+    },
+    "enums": {
+      "confidence": ["E4", "E5"],
+      "axis": ["spatial_political_attribution", "functional_program", "historiography"]
+    }
+  },
+  "phase": {
+    "required": {
+      "id": "string",
+      "name_ko": "string",
+      "stage_kind": "string",
+      "confidence": "string",
+      "sources": "array:string",
+      "visible_features": "array:string",
+      "notes": "string"
+    },
+    "optional": {},
+    "enums": {
+      "confidence": ["E1", "E2", "E3", "E4", "E5"],
+      "stage_kind": ["유구 단계", "해석 단계"]
+    }
+  },
+  "params": {
+    "required": {
+      "target_site": "object",
+      "fallback_mode": "boolean",
+      "spec_version": "string",
+      "evidence_classes": "object",
+      "required_axes": "array:string",
+      "forbidden_bracket_terms": "array:string",
+      "forbidden_roof_terms": "array:string",
+      "mode_tabs_template": "array:string",
+      "required_p0_features": "array:string",
+      "hypothesis_rules": "object"
+    },
+    "optional": {
+      "forbidden_bracket_generic_terms": "array:string"
+    }
+  }
+}
