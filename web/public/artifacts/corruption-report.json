@@ -1,0 +1,77 @@
+{
+  "fail_closed": true,
+  "scenarios": [
+    {
+      "name": "C01_fact_e1_downgraded_to_e5",
+      "expect": "E1 근거 사실의 강등을 V31이 거부",
+      "caught": true,
+      "caught_by": "verify (V31_FACT_GEOMETRY_LAYER_SEPARATION)"
+    },
+    {
+      "name": "C02_bracket_typology_assigned",
+      "expect": "공포 양식 지정을 V33이 거부",
+      "caught": true,
+      "caught_by": "verify (V33_BRACKET_TYPOLOGY_FORBIDDEN)"
+    },
+    {
+      "name": "C03_roof_typology_assigned",
+      "expect": "지붕 형식 지정을 V34가 거부",
+      "caught": true,
+      "caught_by": "verify (V34_ROOF_TYPOLOGY_FORBIDDEN)"
+    },
+    {
+      "name": "C04_hypothesis_axis_removed",
+      "expect": "axis 누락을 schema/V35가 거부",
+      "caught": true,
+      "caught_by": "derive (fail-closed)"
+    },
+    {
+      "name": "C05_wolji_water_edge_removed",
+      "expect": "월지 수변 layer 삭제를 V07/V13/V36이 거부",
+      "caught": true,
+      "caught_by": "verify (V07_REQUIRED_P0_FEATURES, V13_HYPOTHESIS_FEATURE_LINKS, V18_PHASE_FEATURE_LINKS, V36_WOLJI_CONTEXT_REQUIRED_FOR_FUNCTION_HYPOTHESIS)"
+    },
+    {
+      "name": "C06_omitted_positions_without_locator",
+      "expect": "locator 없는 감주 좌표를 V32가 거부",
+      "caught": true,
+      "caught_by": "verify (V32_NO_EXACT_POSITION_WITHOUT_LOCATOR)"
+    },
+    {
+      "name": "C07_exact_bay_spacing_without_locator",
+      "expect": "locator 없는 실측 칸 간격을 V05/V22가 거부",
+      "caught": true,
+      "caught_by": "verify (V05_GRID_SOURCE_CONSISTENCY, V22_EXACT_DIMENSIONS_NULL_WITHOUT_LOCATOR)"
+    },
+    {
+      "name": "C08_unverified_p0_source_used_as_evidence",
+      "expect": "to_verify P0 소스의 evidence 사용을 derive/V19가 거부",
+      "caught": true,
+      "caught_by": "derive (fail-closed)"
+    },
+    {
+      "name": "C09_params_grid_mismatch",
+      "expect": "params 기대 칸수와 corpus 불일치를 V05가 거부",
+      "caught": true,
+      "caught_by": "verify (V05_GRID_SOURCE_CONSISTENCY)"
+    },
+    {
+      "name": "C10_commercial_safe_flipped_in_spec",
+      "expect": "commercial_safe=true 조작을 V19/V29가 거부",
+      "caught": true,
+      "caught_by": "verify (V19_GATE_R_LICENSE, V29_COMMERCIAL_SAFE_CONSISTENT)"
+    },
+    {
+      "name": "C11_spec_tampered_without_reseal",
+      "expect": "integrity hash 불일치를 V23이 거부",
+      "caught": true,
+      "caught_by": "verify (V23_ARTIFACT_INTEGRITY)"
+    },
+    {
+      "name": "C12_forbidden_claim_injected_into_spec",
+      "expect": "금지 표현 주입을 V28이 거부",
+      "caught": true,
+      "caught_by": "verify (V28_SPEC_FORBIDDEN_LANGUAGE)"
+    }
+  ]
+}

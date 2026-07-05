@@ -1,0 +1,2869 @@
+{
+  "meta": {
+    "generator": "derive.mjs",
+    "spec_version": "0.9.2",
+    "target_site": {
+      "id": "gyeongju_donggung_wolji_west_a_building",
+      "name_ko": "경주 동궁과 월지 서편 A건물지",
+      "name_en": "West A-building site, Donggung Palace and Wolji Pond, Gyeongju",
+      "expected_bays_front": 7,
+      "expected_bays_side": 4,
+      "grid_feature_id": "layout.grid.seven_by_four"
+    },
+    "fallback_mode": false,
+    "input_hashes": {
+      "params/target-site.json": "bc3479be86525ecf90663a96981f523d7bb12e163a48232470dd39b8720156f7",
+      "data/sources.json": "ed2effa98144a09f8f080db34653adc0b111fc75005b383182afc0cf2c574933",
+      "data/source-segments.json": "2cc53728198982b6090e3d3450f2465f0d751fa34779a581cabbaf07d5b2adc4",
+      "data/canonical-features.json": "dc483d1c447fed27eb01cab8ebc64dc5d006b6213c113130441a3edd7dfb5f4c",
+      "data/hypotheses.json": "98b7d5bf3ef6e4c6c4c9010698a0a0ce0f97a7302154e42afd7eb96668299e2d",
+      "data/phases.json": "c1b3f5c35516041f5a7a40bcc075761a0b600abe00b86f5b47b5a611f7e46ca4"
+    },
+    "counts": {
+      "sources": 7,
+      "segments": 4,
+      "features": 37,
+      "hypotheses": 3,
+      "phases": 4
+    },
+    "integrity": "36ce77b39b460e2ce80245d4fdbb960181085ea29b6392473ce95fb23481e59a"
+  },
+  "license_audit": {
+    "commercial_safe": false,
+    "policy": "source별 개별 license. 전역 license 가정 금지. unknown/to_verify/제4유형 사용 시 commercial_safe=false.",
+    "sources": [
+      {
+        "id": "nrich_2018_a_building_restoration_excavation_report",
+        "title": "경주 동궁과 월지 복원정비사업 발굴조사보고서 - A건물지 -",
+        "priority": "P0",
+        "license": "공공누리 제1유형 출처표시",
+        "license_verified": true,
+        "status": "kogl_type1",
+        "used_by_evidence": true,
+        "commercial_compatible": true,
+        "public_derivative_requires_human_review": false,
+        "restriction_note": null
+      },
+      {
+        "id": "gyeongju_2022_a_building_full_excavation_report",
+        "title": "경주 동궁과 월지 A건물지 발굴조사보고서",
+        "priority": "P0",
+        "license": "to_verify",
+        "license_verified": false,
+        "status": "unverified",
+        "used_by_evidence": false,
+        "commercial_compatible": false,
+        "public_derivative_requires_human_review": true,
+        "restriction_note": "license 미확인. 확인 전까지 상업/공개 파생 사용 불가."
+      },
+      {
+        "id": "kim_2023_sillasahakbo_a_building_structure_function",
+        "title": "동궁과 월지 주변 건물군의 구조와 기능에 대한 고고학적 검토－월지 서편 A건물지를 중심으로－",
+        "priority": "P1",
+        "license": "unknown",
+        "license_verified": false,
+        "status": "unverified",
+        "used_by_evidence": true,
+        "commercial_compatible": false,
+        "public_derivative_requires_human_review": true,
+        "restriction_note": "license 미확인. 확인 전까지 상업/공개 파생 사용 불가."
+      },
+      {
+        "id": "ji_2023_wolji_west_land_preparation_recheck",
+        "title": "동궁과 월지 서편 지역의 대지조성층 재검토",
+        "priority": "P1",
+        "license": "unknown",
+        "license_verified": false,
+        "status": "unverified",
+        "used_by_evidence": true,
+        "commercial_compatible": false,
+        "public_derivative_requires_human_review": true,
+        "restriction_note": "license 미확인. 확인 전까지 상업/공개 파생 사용 불가."
+      },
+      {
+        "id": "khs_2025_silla_capital_10year_outcome",
+        "title": "신라 태자 '동궁'의 진짜 위치 찾았다 (국가유산청 보도자료, 2025-02-06)",
+        "priority": "P1",
+        "license": "공공누리 제1유형 출처표시",
+        "license_verified": true,
+        "status": "kogl_type1",
+        "used_by_evidence": true,
+        "commercial_compatible": true,
+        "public_derivative_requires_human_review": false,
+        "restriction_note": null
+      },
+      {
+        "id": "nrich_donggung_wolji_iii_report",
+        "title": "경주 동궁과 월지 Ⅲ 발굴조사보고서",
+        "priority": "P1",
+        "license": "공공누리 제4유형 출처표시+상업적 이용금지+변경금지",
+        "license_verified": true,
+        "status": "kogl_type4",
+        "used_by_evidence": false,
+        "commercial_compatible": false,
+        "public_derivative_requires_human_review": true,
+        "restriction_note": "제4유형: 출처표시·상업적 이용금지·변경금지. 내부 연구 뷰어 참고는 가능하나 상업/공개 파생 자산에는 human review 없이 사용 불가."
+      },
+      {
+        "id": "demo_rule_silla_palace_archaeology_basic",
+        "title": "DEMO RULE: simplified Silla palace archaeological feature rule set",
+        "priority": "fallback",
+        "license": "internal-demo",
+        "license_verified": true,
+        "status": "internal",
+        "used_by_evidence": true,
+        "commercial_compatible": true,
+        "public_derivative_requires_human_review": false,
+        "restriction_note": null
+      }
+    ]
+  },
+  "derived": {
+    "mode_tabs": [
+      "발굴유구",
+      "7×4칸 그리드",
+      "내진감주",
+      "동선/출입",
+      "위계/기능 해석",
+      "phase timeline",
+      "불확실성",
+      "검증 결과"
+    ],
+    "symbolic_column_grid": {
+      "columns_along_front": 8,
+      "columns_along_side": 5,
+      "derivation": "fact_layer.bays_front+1 × fact_layer.bays_side+1 — visualization only",
+      "render_confidence": "DEMO",
+      "is_excavated_positions": false,
+      "note": "symbolic 마커. 실제 발굴 기초 위치는 source locator 확보 후만 표시."
+    },
+    "hypothesis_axis_model": {
+      "mutually_exclusive": false,
+      "axes": [
+        "spatial_political_attribution",
+        "functional_program",
+        "historiography"
+      ],
+      "note": "H1/H2/H3는 서로 배타적인 3개의 최종 정답 후보가 아니라 해석축·기능축 위의 layer다."
+    }
+  },
+  "features": [
+    {
+      "id": "source_context.official_2018_report",
+      "name_ko": "2018 공식 발굴조사보고서(A건물지) 소스 컨텍스트",
+      "name_en": "Official 2018 excavation report source context",
+      "category": "source_context",
+      "priority": "P0",
+      "archaeological_status": "source_meta",
+      "render_layer": "context",
+      "fact_layer": {
+        "statement_ko": "『경주 동궁과 월지 복원정비사업 발굴조사보고서 - A건물지 -』(2018, 국립경주문화유산연구소)가 공식 원문 페이지에서 확인되며, 이 프로젝트 fact_layer의 1차 근거 소스다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "공식 원문 서비스 페이지 존재 및 초록 확인."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "non-spatial",
+        "unit_mode": "none",
+        "confidence": "E5",
+        "demo_placeholder": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "공간 지오메트리가 없는 주석/컨텍스트 layer."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "E5",
+      "ui_flags": {
+        "relative_geometry": false,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": false,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "PDF 본문 page/figure locator는 후속 ingest 대상."
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "E5",
+        "archaeology_vs_hypothesis": "context"
+      }
+    },
+    {
+      "id": "source_context.2022_full_report_candidate",
+      "name_ko": "2022 A건물지 전면 발굴조사보고서 후보 소스 컨텍스트",
+      "name_en": "2022 full excavation report candidate source context",
+      "category": "source_context",
+      "priority": "P0",
+      "archaeological_status": "source_meta",
+      "render_layer": "context",
+      "fact_layer": {
+        "statement_ko": "『경주 동궁과 월지 A건물지 발굴조사보고서』(2022 후보)가 별도 소스로 등록되어 있으나 URL·license·PDF locator는 확인 전(to_verify)이다.",
+        "confidence": "E5",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "레지스트리 후보 등록 상태의 내부 기술. 공식 확인 시 승격."
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "non-spatial",
+        "unit_mode": "none",
+        "confidence": "E5",
+        "demo_placeholder": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "공간 지오메트리가 없는 주석/컨텍스트 layer."
+          }
+        ]
+      },
+      "confidence": "E5",
+      "render_confidence": "E5",
+      "ui_flags": {
+        "relative_geometry": false,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": false,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "소스 확인 전까지 이 feature는 어떤 사실 주장도 지지하지 않는다.",
+        "license 확인 전 commercial_safe=false 유지."
+      ],
+      "derived_badges": {
+        "fact_badge": "E5",
+        "render_badge": "E5",
+        "archaeology_vs_hypothesis": "context"
+      }
+    },
+    {
+      "id": "site_context.wolji_west",
+      "name_ko": "월지 서편 입지",
+      "name_en": "Location in the western area of Wolji",
+      "category": "site_context",
+      "priority": "P0",
+      "archaeological_status": "reported_context",
+      "render_layer": "context",
+      "fact_layer": {
+        "statement_ko": "A건물지는 경주 동궁과 월지 사적 내 월지 서편 지역에 위치한다.",
+        "confidence": "E2",
+        "evidence": [
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_abstract_a_building",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "논문 제목·초록이 「월지 서편 A건물지」로 위치를 명시."
+            },
+            "class": "E2",
+            "method": "academic_statement",
+            "verified": true
+          },
+          {
+            "source_id": "ji_2023_wolji_west_land_preparation_recheck",
+            "source_segment_id": "seg_ji2023_land_preparation_abstract",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "논문 제목이 「동궁과 월지 서편 지역」을 명시."
+            },
+            "class": "E2",
+            "method": "academic_statement",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "site-placement",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "relative_position": "west_of_wolji",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "사적 내 상대 위치 표시. 좌표 아님."
+          }
+        ]
+      },
+      "confidence": "E2",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "정확한 좌표·범위는 도면 ingest 후 확정."
+      ],
+      "derived_badges": {
+        "fact_badge": "E2",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "context"
+      }
+    },
+    {
+      "id": "context.historical_name_donggung_wolji",
+      "name_ko": "사적 명칭 「경주 동궁과 월지」",
+      "name_en": "Official site name \"Donggung Palace and Wolji Pond, Gyeongju\"",
+      "category": "context",
+      "priority": "P0",
+      "archaeological_status": "reported_context",
+      "render_layer": "context",
+      "fact_layer": {
+        "statement_ko": "현행 공식 명칭으로 「경주 동궁과 월지」가 사용되며, 2018 보고서 표제에서도 확인된다. 명칭 자체가 동궁의 위치를 고고학적으로 확정하는 것은 아니다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "보고서 표제 「경주 동궁과 월지 …」에서 명칭 사용 확인."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "non-spatial",
+        "unit_mode": "none",
+        "confidence": "E5",
+        "demo_placeholder": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "공간 지오메트리가 없는 주석/컨텍스트 layer."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "E5",
+      "ui_flags": {
+        "relative_geometry": false,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": false,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "명칭과 고고학적 위치 비정은 분리해서 이해해야 한다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "E5",
+        "archaeology_vs_hypothesis": "context"
+      }
+    },
+    {
+      "id": "context.legacy_west_donggung_interpretation",
+      "name_ko": "기존 서편 동궁 관련 해석(연구사)",
+      "name_en": "Legacy interpretation linking the west area to Donggung (historiography)",
+      "category": "context",
+      "priority": "P0",
+      "archaeological_status": "interpretation",
+      "render_layer": "context",
+      "fact_layer": {
+        "statement_ko": "기존 연구사에서는 월지 서편 일대를 동궁·태자궁 관련 공간과 연결해 온 해석이 존재한다. 최신 재비정 이후에는 historiography layer로 다룬다.",
+        "confidence": "E4",
+        "evidence": [
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_abstract_a_building",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "동궁 위치 문제에 대한 연구사 정리."
+            },
+            "class": "E4",
+            "method": "academic_interpretation",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "non-spatial",
+        "unit_mode": "none",
+        "confidence": "E5",
+        "demo_placeholder": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "공간 지오메트리가 없는 주석/컨텍스트 layer."
+          }
+        ]
+      },
+      "confidence": "E4",
+      "render_confidence": "E5",
+      "ui_flags": {
+        "relative_geometry": false,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": false,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "H2(기존 해석)의 근거 layer이며, 최신 재비정에 의해 약화된 해석이다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E4",
+        "render_badge": "E5",
+        "archaeology_vs_hypothesis": "context"
+      }
+    },
+    {
+      "id": "context.western_royal_space_interpretation",
+      "name_ko": "월지 서편 = 왕의 공간 해석",
+      "name_en": "Western area as royal space (latest interpretation)",
+      "category": "context",
+      "priority": "P0",
+      "archaeological_status": "interpretation",
+      "render_layer": "context",
+      "fact_layer": {
+        "statement_ko": "최신 조사성과는 월지 서편을 왕의 공간(최상위 위계 공간)으로 보는 해석을 제시한다.",
+        "confidence": "E4",
+        "evidence": [
+          {
+            "source_id": "khs_2025_silla_capital_10year_outcome",
+            "source_segment_id": "seg_2025_interpretation_summary",
+            "locator": {
+              "page": "khs_press_release_2025-02-06",
+              "figure": null,
+              "note": "khs.go.kr newsItemId=155705252 공식 보도자료(2025-02-06)에서 재비정 내용 직접 확인. KOGL 제1유형."
+            },
+            "class": "E4",
+            "method": "latest_official_interpretation",
+            "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_abstract_a_building",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "A건물지를 최상위 위계 건물로 해석."
+            },
+            "class": "E4",
+            "method": "academic_interpretation",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "non-spatial",
+        "unit_mode": "none",
+        "confidence": "E5",
+        "demo_placeholder": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "공간 지오메트리가 없는 주석/컨텍스트 layer."
+          }
+        ]
+      },
+      "confidence": "E4",
+      "render_confidence": "E5",
+      "ui_flags": {
+        "relative_geometry": false,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": false,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "해석 layer이며 유구 사실이 아니다.",
+        "공식 발표자료 locator 확인 시 근거 보강."
+      ],
+      "derived_badges": {
+        "fact_badge": "E4",
+        "render_badge": "E5",
+        "archaeology_vs_hypothesis": "context"
+      }
+    },
+    {
+      "id": "context.eastern_donggung_reinterpretation",
+      "name_ko": "월지 동편 = 동궁 재비정",
+      "name_en": "Eastern area as Donggung (reinterpretation)",
+      "category": "context",
+      "priority": "P0",
+      "archaeological_status": "interpretation",
+      "render_layer": "context",
+      "fact_layer": {
+        "statement_ko": "동궁(태자궁)의 위치를 월지 동편으로 보는 재비정 해석이 제시되어 있다.",
+        "confidence": "E4",
+        "evidence": [
+          {
+            "source_id": "khs_2025_silla_capital_10year_outcome",
+            "source_segment_id": "seg_2025_interpretation_summary",
+            "locator": {
+              "page": "khs_press_release_2025-02-06",
+              "figure": null,
+              "note": "khs.go.kr newsItemId=155705252 공식 보도자료(2025-02-06)에서 재비정 내용 직접 확인. KOGL 제1유형."
+            },
+            "class": "E4",
+            "method": "latest_official_interpretation",
+            "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_abstract_a_building",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "동궁 가능성이 높은 곳을 월지 동편으로 추정하는 논의."
+            },
+            "class": "E4",
+            "method": "academic_interpretation",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "non-spatial",
+        "unit_mode": "none",
+        "confidence": "E5",
+        "demo_placeholder": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "공간 지오메트리가 없는 주석/컨텍스트 layer."
+          }
+        ]
+      },
+      "confidence": "E4",
+      "render_confidence": "E5",
+      "ui_flags": {
+        "relative_geometry": false,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": false,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "해석 layer이며 유구 사실이 아니다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E4",
+        "render_badge": "E5",
+        "archaeology_vs_hypothesis": "context"
+      }
+    },
+    {
+      "id": "context.wolji_water_edge",
+      "name_ko": "월지 수변(호안) 컨텍스트",
+      "name_en": "Wolji pond water edge context",
+      "category": "context",
+      "priority": "P0",
+      "archaeological_status": "reported_context",
+      "render_layer": "context",
+      "fact_layer": {
+        "statement_ko": "A건물지의 동쪽으로 월지(연못) 수역과 호안이 인접한다. 수변 경관과의 관계는 기능 해석(H3)의 전제 컨텍스트다.",
+        "confidence": "E2",
+        "evidence": [
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_abstract_a_building",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "「월지 서편 A건물지」라는 위치 기술로부터 월지 수역이 동쪽에 인접함이 확인됨."
+            },
+            "class": "E2",
+            "method": "academic_statement",
+            "verified": true
+          },
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "보고서가 동궁과 월지 사적 내 조사임을 표제·초록에서 확인."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "water-plane",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "relative_position": "east_of_a_building",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "수변 상대 위치 표시. 실제 호안선 아님."
+          }
+        ]
+      },
+      "confidence": "E2",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "실제 호안선 형태·거리는 도면 ingest 후 확정.",
+        "H3 기능축 표시는 이 layer가 있어야 가능하다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E2",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "context"
+      }
+    },
+    {
+      "id": "context.wolseong_relation",
+      "name_ko": "월성(왕성)과의 관계",
+      "name_en": "Relation to Wolseong palace-fortress",
+      "category": "context",
+      "priority": "P0",
+      "archaeological_status": "interpretation",
+      "render_layer": "context",
+      "fact_layer": {
+        "statement_ko": "동궁과 월지는 신라 왕성인 월성에 인접한 궁역으로 논의되며, A건물지의 위계 해석은 월성과의 공간 관계 속에서 검토된다.",
+        "confidence": "E4",
+        "evidence": [
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_abstract_a_building",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "월성·월지 일대 공간 구조 속에서 A건물지 위계를 검토."
+            },
+            "class": "E4",
+            "method": "academic_interpretation",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "direction-marker",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "relative_position": "wolseong_to_the_west",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "방향 지시용 상대 마커."
+          }
+        ]
+      },
+      "confidence": "E4",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "정확한 거리·축선은 도면 ingest 후 확정."
+      ],
+      "derived_badges": {
+        "fact_badge": "E4",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "context"
+      }
+    },
+    {
+      "id": "layout.grid.seven_by_four",
+      "name_ko": "7×4칸 평면 그리드",
+      "name_en": "7 by 4 bay layout grid",
+      "category": "layout",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "bays_front": 7,
+        "bays_side": 4,
+        "confidence": "E1",
+        "statement_ko": "공식 보고서 초록에서 A건물지를 7×4칸 내진감주 대형건물지로 설명한다.",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "공식 source page 초록. PDF page locator는 후속 ingest 대상."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "bay-grid",
+        "unit_mode": "relative",
+        "relative_width": 7,
+        "relative_depth": 4,
+        "bay_spacing_front_mm": null,
+        "bay_spacing_side_mm": null,
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "viewer용 상대 배치. 실측 치수 아님."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "정성 사실은 보고서 근거 E1",
+        "정확한 칸 간격과 좌표는 PDF/도면 ingest 후 확정",
+        "현재 geometry는 상대 배치"
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "layout.main_axis",
+      "name_ko": "건물 주축(방향 미확정)",
+      "name_en": "Main building axis (orientation unresolved)",
+      "category": "layout",
+      "priority": "P0",
+      "archaeological_status": "interpretation",
+      "render_layer": "archaeology_annotation",
+      "fact_layer": {
+        "statement_ko": "7×4칸 그리드 보고로부터 장축(정면 7칸 방향) 개념은 상정 가능하나, 실제 좌향·방위는 도면 확인 전까지 미확정이다.",
+        "confidence": "E5",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "주축 방위는 소스 locator 확보 전 미확정. 표시용 가정만 존재."
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "axis-line",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "orientation_assumed": "south_facing_for_display_only",
+        "orientation_verified": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "표시용 가정 방위. 실제 좌향 아님."
+          }
+        ]
+      },
+      "confidence": "E5",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "방위는 표시용 가정이며 소스 근거가 없다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E5",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "layout.omitted_inner_columns",
+      "name_ko": "내진감주",
+      "name_en": "omitted inner columns",
+      "category": "interpreted_absence",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology_annotation",
+      "fact_layer": {
+        "statement_ko": "보고서 초록은 A건물지를 내진감주된 대형건물지로 설명한다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "PDF 도면에서 exact omitted positions 확인 필요."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "omitted-column-zone",
+        "omitted_positions": null,
+        "unit_mode": "relative_symbolic",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "symbolic_visualization",
+            "verified": true,
+            "note": "정확한 생략 위치를 표시하지 않고 중앙부 symbolic hatch로만 시각화."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "show_omitted_column_overlay": true,
+        "relative_geometry": true,
+        "not_exact_positions": true,
+        "not_measured": true,
+        "uncertainty_visible": true
+      },
+      "warnings": [
+        "내진감주는 보고서 기술 E1",
+        "정확한 생략 기둥 좌표는 아직 확정하지 않음",
+        "기능 해석은 별도 hypothesis panel에서만 다룸"
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "platform.main_building",
+      "name_ko": "주건물 기단(높이 미확정)",
+      "name_en": "Main building platform (height unresolved)",
+      "category": "platform",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "statement_ko": "김경열 2023 논문 초록은 A건물지의 기단토를 언급한다. 기단의 정확한 규모·높이·축조 세부는 도면 확인 전 미확정이다.",
+        "confidence": "E2",
+        "evidence": [
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_abstract_a_building",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "초록의 기단토 언급."
+            },
+            "class": "E2",
+            "method": "academic_statement",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "platform-mass",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "platform_height_mm": null,
+        "relative_height": "low_platform_placeholder",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상대 높이 placeholder. 실측 아님."
+          }
+        ]
+      },
+      "confidence": "E2",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "기단 실측치는 null. PDF/도면 ingest 후 확정."
+      ],
+      "derived_badges": {
+        "fact_badge": "E2",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "foundation.general_layout",
+      "name_ko": "기초 유구 일반 배치",
+      "name_en": "General foundation layout",
+      "category": "foundation",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "statement_ko": "A건물지는 대형건물지로 보고되었으며 기초 유구가 확인된다. 개별 기초의 정확한 배치·치수는 도면 확인 전 미확정이다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "초록의 대형건물지 기술. 세부 기초 배치는 PDF 확인 필요."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "foundation-footprint",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "footprint_dimensions_mm": null,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "풋프린트 상대 표시."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "개별 기초 위치는 source locator 확보 후만 표시 가능."
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "foundation.stone_or_jeoksim_grid",
+      "name_ko": "초석/적심 형식(미구분)",
+      "name_en": "Foundation stones or jeoksim (undetermined)",
+      "category": "foundation",
+      "priority": "P0",
+      "archaeological_status": "unresolved",
+      "render_layer": "archaeology_annotation",
+      "fact_layer": {
+        "statement_ko": "기초 형식(초석식/적심식 등)의 구분은 현재 확보된 초록 수준 소스에서 확정할 수 없다.",
+        "confidence": "E5",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "기초 형식 구분은 PDF 본문·도면 확인 전 미확정."
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "symbolic-foundation-markers",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "marker_positions": "derived_from_bay_grid",
+        "foundation_stone_dimensions_mm": null,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "칸 그리드에서 파생한 symbolic 마커. 실제 발굴 위치 아님."
+          }
+        ]
+      },
+      "confidence": "E5",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "symbolic 마커이며 실제 초석/적심 위치가 아니다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E5",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "entrance.facility.01",
+      "name_ko": "출입시설 1호(3개소 중, 위치 미확정)",
+      "name_en": "Entrance facility 1 of 3 (position unresolved)",
+      "category": "entrance",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "statement_ko": "공식 보고서 초록에서 A건물지에 출입시설 3개소가 확인되었다고 보고한다. 이 feature는 그중 1개소를 나타내며, 개별 위치는 도면 확인 전 미확정이다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "초록의 출입시설 3개소 확인 기술. 개별 위치는 PDF 도면 확인 필요."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "entrance-marker",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "position_verified": false,
+        "relative_position": "placeholder_slot_01",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상대 배치 슬롯. 실제 출입시설 위치 아님."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "개수(3개소)는 E1, 개별 위치는 placeholder."
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "entrance.facility.02",
+      "name_ko": "출입시설 2호(3개소 중, 위치 미확정)",
+      "name_en": "Entrance facility 2 of 3 (position unresolved)",
+      "category": "entrance",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "statement_ko": "공식 보고서 초록에서 A건물지에 출입시설 3개소가 확인되었다고 보고한다. 이 feature는 그중 1개소를 나타내며, 개별 위치는 도면 확인 전 미확정이다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "초록의 출입시설 3개소 확인 기술. 개별 위치는 PDF 도면 확인 필요."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "entrance-marker",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "position_verified": false,
+        "relative_position": "placeholder_slot_02",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상대 배치 슬롯. 실제 출입시설 위치 아님."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "개수(3개소)는 E1, 개별 위치는 placeholder."
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "entrance.facility.03",
+      "name_ko": "출입시설 3호(3개소 중, 위치 미확정)",
+      "name_en": "Entrance facility 3 of 3 (position unresolved)",
+      "category": "entrance",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "statement_ko": "공식 보고서 초록에서 A건물지에 출입시설 3개소가 확인되었다고 보고한다. 이 feature는 그중 1개소를 나타내며, 개별 위치는 도면 확인 전 미확정이다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "초록의 출입시설 3개소 확인 기술. 개별 위치는 PDF 도면 확인 필요."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "entrance-marker",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "position_verified": false,
+        "relative_position": "placeholder_slot_03",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상대 배치 슬롯. 실제 출입시설 위치 아님."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "개수(3개소)는 E1, 개별 위치는 placeholder."
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "corridor.east_wing",
+      "name_ko": "동편 익랑",
+      "name_en": "East wing corridor (ikrang)",
+      "category": "corridor",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "statement_ko": "공식 보고서 초록에서 동서편 익랑이 확인되었다고 보고한다. 이 feature는 동편 익랑이다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "초록의 동서편 익랑 확인 기술."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "wing-volume",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "relative_position": "east_of_main_hall",
+        "wing_dimensions_mm": null,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상대 배치 볼륨."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "익랑 존재는 E1, 규모·정확 위치는 placeholder."
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "corridor.west_wing",
+      "name_ko": "서편 익랑",
+      "name_en": "West wing corridor (ikrang)",
+      "category": "corridor",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "statement_ko": "공식 보고서 초록에서 동서편 익랑이 확인되었다고 보고한다. 이 feature는 서편 익랑이다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "초록의 동서편 익랑 확인 기술."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "wing-volume",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "relative_position": "west_of_main_hall",
+        "wing_dimensions_mm": null,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상대 배치 볼륨."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "익랑 존재는 E1, 규모·정확 위치는 placeholder."
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "walkway.brick_paved",
+      "name_ko": "전축(塼築) 보도시설",
+      "name_en": "Brick-paved walkway",
+      "category": "walkway",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "statement_ko": "공식 보고서 초록에서 건물지 전체에 전(塼)으로 축조한 보도시설이 확인되었다고 보고한다. 재료(전)는 보고 사실이나, 타일 모듈·정확 범위는 미확정이다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "초록의 전축 보도시설 확인 기술."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "walkway-strip",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "walkway_tile_module_mm": null,
+        "extent_verified": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상대 배치 스트립. 타일 모듈 실측 아님."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "보도시설 존재·재료는 E1, 범위·모듈은 placeholder."
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "ritual.earthquake_charm",
+      "name_ko": "지진구(地鎭具)",
+      "name_en": "Ground-pacifying ritual deposit (jijingu)",
+      "category": "ritual",
+      "priority": "P0",
+      "archaeological_status": "reported_find",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "statement_ko": "공식 보고서 초록에서 축조연대 추정이 가능한 지진구가 확인되었다고 보고한다. 출토 위치·세부 내용은 도면·본문 확인 전 미확정이다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "초록의 지진구 확인 기술(축조연대 추정 근거)."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "find-marker",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "position_verified": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상징 마커. 실제 출토 지점 아님."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "지진구 확인은 E1, 출토 지점은 placeholder.",
+        "feature id의 earthquake_charm은 관례적 표기이며 실제 의미는 지진구(地鎭具, 진단구)다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "land_preparation.layer",
+      "name_ko": "대지조성(성토)층",
+      "name_en": "Land preparation (fill) layer",
+      "category": "land_preparation",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "statement_ko": "A건물지 일대의 대지조성층이 학술적으로 논의되며, 김경열 2023 초록은 약 2m 규모의 대지성토를 언급한다. 정확한 층서 두께·범위는 도면 확인 전 미확정이다.",
+        "confidence": "E2",
+        "evidence": [
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_abstract_a_building",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "약 2m 대지성토 언급."
+            },
+            "class": "E2",
+            "method": "academic_statement",
+            "verified": true
+          },
+          {
+            "source_id": "ji_2023_wolji_west_land_preparation_recheck",
+            "source_segment_id": "seg_ji2023_land_preparation_abstract",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "서편 지역 대지조성층 재검토."
+            },
+            "class": "E2",
+            "method": "academic_statement",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "fill-layer-volume",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "layer_thickness_mm": null,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상대 두께 placeholder."
+          }
+        ]
+      },
+      "confidence": "E2",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "「약 2m」는 논문 초록의 언급이며 본 프로젝트 실측치가 아니다. geometry 수치는 null."
+      ],
+      "derived_badges": {
+        "fact_badge": "E2",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "land_preparation.prior_phase_candidate",
+      "name_ko": "선대 대지조성층 후보",
+      "name_en": "Prior-phase land preparation candidate",
+      "category": "land_preparation",
+      "priority": "P0",
+      "archaeological_status": "interpretation",
+      "render_layer": "archaeology_annotation",
+      "fact_layer": {
+        "statement_ko": "월지 조성 이전 선대 대지조성층의 존재 가능성이 재검토 논문에서 논의된다. phase timeline의 P0 단계 근거다.",
+        "confidence": "E4",
+        "evidence": [
+          {
+            "source_id": "ji_2023_wolji_west_land_preparation_recheck",
+            "source_segment_id": "seg_ji2023_land_preparation_abstract",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "선대 대지조성층 및 월지 이전 경관 논의."
+            },
+            "class": "E4",
+            "method": "academic_interpretation",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "under-layer-hint",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "layer_thickness_mm": null,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "하부층 상징 표시."
+          }
+        ]
+      },
+      "confidence": "E4",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "해석 단계 feature이며 확정 유구가 아니다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E4",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "surrounding.south_line_foundation.building.01",
+      "name_ko": "남편 줄기초 건물지 1호",
+      "name_en": "South line-foundation building 1 of 2",
+      "category": "surrounding",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "statement_ko": "공식 보고서 초록에서 A건물지 남편 대지에 2동의 줄기초 건물지가 확인되었다고 보고한다. 이 feature는 그중 1동이며, 개별 위치·규모는 미확정이다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "초록의 남편 줄기초 건물지 2동 확인 기술."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "line-foundation-footprint",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "relative_position": "south_slot_01",
+        "footprint_dimensions_mm": null,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상대 배치 슬롯."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "2동 존재는 E1, 개별 배치는 placeholder."
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "surrounding.south_line_foundation.building.02",
+      "name_ko": "남편 줄기초 건물지 2호",
+      "name_en": "South line-foundation building 2 of 2",
+      "category": "surrounding",
+      "priority": "P0",
+      "archaeological_status": "reported_layout",
+      "render_layer": "archaeology",
+      "fact_layer": {
+        "statement_ko": "공식 보고서 초록에서 A건물지 남편 대지에 2동의 줄기초 건물지가 확인되었다고 보고한다. 이 feature는 그중 1동이며, 개별 위치·규모는 미확정이다.",
+        "confidence": "E1",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "초록의 남편 줄기초 건물지 2동 확인 기술."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "line-foundation-footprint",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "relative_position": "south_slot_02",
+        "footprint_dimensions_mm": null,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상대 배치 슬롯."
+          }
+        ]
+      },
+      "confidence": "E1",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "2동 존재는 E1, 개별 배치는 placeholder."
+      ],
+      "derived_badges": {
+        "fact_badge": "E1",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "archaeology"
+      }
+    },
+    {
+      "id": "movement.primary_entrance_axis",
+      "name_ko": "주 진입 동선축(상정)",
+      "name_en": "Primary entrance movement axis (posited)",
+      "category": "movement",
+      "priority": "P0",
+      "archaeological_status": "interpretation",
+      "render_layer": "interpretation",
+      "fact_layer": {
+        "statement_ko": "출입시설 3개소(E1)와 계단·답도시설 언급(E2)을 근거로 주 진입 동선축을 상정한다. 축의 실제 방향·위치는 도면 확인 전 미확정이다.",
+        "confidence": "E4",
+        "evidence": [
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_abstract_a_building",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "계단·답도시설 언급을 동선 해석에 사용."
+            },
+            "class": "E4",
+            "method": "academic_interpretation",
+            "verified": true
+          },
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "출입시설 3개소 확인(동선 해석의 사실 근거)."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "movement-axis",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "axis_verified": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상징 동선축. 실제 동선 아님."
+          }
+        ]
+      },
+      "confidence": "E4",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "동선축은 해석이며 유구 사실이 아니다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E4",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "context"
+      }
+    },
+    {
+      "id": "movement.corridor_connection_east",
+      "name_ko": "동편 익랑 연결 동선(상정)",
+      "name_en": "East wing connection movement (posited)",
+      "category": "movement",
+      "priority": "P0",
+      "archaeological_status": "interpretation",
+      "render_layer": "interpretation",
+      "fact_layer": {
+        "statement_ko": "동편 익랑(E1)을 근거로 주건물과 동편 방향을 잇는 연결 동선을 상정한다.",
+        "confidence": "E4",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "동서편 익랑 확인(연결 동선 해석의 사실 근거)."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_abstract_a_building",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "건물군 구조·기능 검토 속 동선 논의."
+            },
+            "class": "E4",
+            "method": "academic_interpretation",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "movement-link",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "link_verified": false,
+        "relative_position": "east",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상징 연결선."
+          }
+        ]
+      },
+      "confidence": "E4",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "연결 동선은 해석이며 유구 사실이 아니다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E4",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "context"
+      }
+    },
+    {
+      "id": "movement.corridor_connection_west",
+      "name_ko": "서편 익랑 연결 동선(상정)",
+      "name_en": "West wing connection movement (posited)",
+      "category": "movement",
+      "priority": "P0",
+      "archaeological_status": "interpretation",
+      "render_layer": "interpretation",
+      "fact_layer": {
+        "statement_ko": "서편 익랑(E1)을 근거로 주건물과 서편 방향을 잇는 연결 동선을 상정한다.",
+        "confidence": "E4",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "동서편 익랑 확인(연결 동선 해석의 사실 근거)."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_abstract_a_building",
+            "locator": {
+              "page": "article_abstract",
+              "figure": null,
+              "note": "건물군 구조·기능 검토 속 동선 논의."
+            },
+            "class": "E4",
+            "method": "academic_interpretation",
+            "verified": true
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "movement-link",
+        "unit_mode": "relative",
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "link_verified": false,
+        "relative_position": "west",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "relative_visualization",
+            "verified": true,
+            "note": "상징 연결선."
+          }
+        ]
+      },
+      "confidence": "E4",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true
+      },
+      "warnings": [
+        "연결 동선은 해석이며 유구 사실이 아니다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E4",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "context"
+      }
+    },
+    {
+      "id": "superstructure.column_grid.symbolic",
+      "name_ko": "기둥열 symbolic 표시(칸 수 파생)",
+      "name_en": "Symbolic column grid (derived from bay counts)",
+      "category": "superstructure",
+      "priority": "P0",
+      "archaeological_status": "derived_symbolic",
+      "render_layer": "hypothesis_ghost",
+      "fact_layer": {
+        "statement_ko": "7×4칸 구성 보고(E1)로부터 기둥열의 존재는 상정 가능하다. 개별 기둥의 실제 위치·높이는 미확정이며, 표시되는 기둥 마커는 칸 수에서 파생한 symbolic 표시다.",
+        "confidence": "E4",
+        "evidence": [
+          {
+            "source_id": "nrich_2018_a_building_restoration_excavation_report",
+            "source_segment_id": "seg_nrich2018_abstract_a_building",
+            "locator": {
+              "page": "official_page_abstract",
+              "figure": null,
+              "note": "7×4칸 보고(기둥열 상정의 사실 근거)."
+            },
+            "class": "E1",
+            "method": "report_interpreted",
+            "verified": true
+          },
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "개별 기둥 위치·높이는 미확정."
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "symbolic-column-grid",
+        "unit_mode": "relative",
+        "derivation": "bays_front+1 by bays_side+1 markers, visualization only",
+        "column_height_mm": null,
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "ghost": true,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "derived_symbolic_visualization",
+            "verified": true,
+            "note": "칸 수 파생 마커. 실제 발굴 기초 위치는 source locator 필요."
+          }
+        ]
+      },
+      "confidence": "E4",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true,
+        "ghost_only": true
+      },
+      "warnings": [
+        "symbolic 마커이며 발굴 기초 위치가 아니다.",
+        "기둥 높이는 null."
+      ],
+      "derived_badges": {
+        "fact_badge": "E4",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "hypothesis"
+      }
+    },
+    {
+      "id": "superstructure.roof_mass.ghost",
+      "name_ko": "지붕 ghost mass(형식 미지정)",
+      "name_en": "Generic ghost roof mass (no typology assigned)",
+      "category": "superstructure",
+      "priority": "P0",
+      "archaeological_status": "conjectural",
+      "render_layer": "hypothesis_ghost",
+      "fact_layer": {
+        "statement_ko": "대형건물지 위에 목조 상부구조와 지붕이 존재했을 개연성은 있으나, 지붕 형식·공포 양식·높이·규모는 어떤 소스로도 확정되지 않았다. 형식은 지정하지 않는다.",
+        "confidence": "E5",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "상부구조 존재 개연성만 기술. 형식 typology 지정 금지."
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "ghost-roof-mass",
+        "unit_mode": "relative",
+        "roof_type": null,
+        "bracket_typology": null,
+        "roof_height_mm": null,
+        "superstructure_mass": null,
+        "confidence": "DEMO",
+        "demo_placeholder": true,
+        "ghost": true,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "DEMO",
+            "method": "ghost_mass_visualization",
+            "verified": true,
+            "note": "반투명 generic mass. 특정 지붕 형식 아님."
+          }
+        ]
+      },
+      "confidence": "E5",
+      "render_confidence": "DEMO",
+      "ui_flags": {
+        "relative_geometry": true,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": true,
+        "show_archaeology_vs_hypothesis_badge": true,
+        "ghost_only": true
+      },
+      "warnings": [
+        "지붕 형식·공포 양식은 이 사이트에 지정되지 않음(not assigned for this site).",
+        "ghost mass는 규모 추정이 아니다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E5",
+        "render_badge": "DEMO",
+        "archaeology_vs_hypothesis": "hypothesis"
+      }
+    },
+    {
+      "id": "uncertainty.superstructure_height",
+      "name_ko": "상부구조 높이 불확실성",
+      "name_en": "Superstructure height uncertainty",
+      "category": "uncertainty",
+      "priority": "P0",
+      "archaeological_status": "uncertainty_marker",
+      "render_layer": "uncertainty",
+      "fact_layer": {
+        "statement_ko": "상부구조(기둥·지붕) 높이는 어떤 소스로도 확정되지 않았다. 모든 높이 표현은 상대 placeholder다.",
+        "confidence": "E5",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "불확실성 명시 marker. 사실 주장이 아니라 미확정 상태의 기록."
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "non-spatial",
+        "unit_mode": "none",
+        "confidence": "E5",
+        "demo_placeholder": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "불확실성 marker는 공간 지오메트리가 없다."
+          }
+        ]
+      },
+      "confidence": "E5",
+      "render_confidence": "E5",
+      "ui_flags": {
+        "relative_geometry": false,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": false,
+        "show_archaeology_vs_hypothesis_badge": true,
+        "is_uncertainty_marker": true
+      },
+      "warnings": [
+        "이 feature는 미확정 상태 자체를 기록한다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E5",
+        "render_badge": "E5",
+        "archaeology_vs_hypothesis": "uncertainty"
+      }
+    },
+    {
+      "id": "uncertainty.roof_type",
+      "name_ko": "지붕 형식 불확실성",
+      "name_en": "Roof typology uncertainty",
+      "category": "uncertainty",
+      "priority": "P0",
+      "archaeological_status": "uncertainty_marker",
+      "render_layer": "uncertainty",
+      "fact_layer": {
+        "statement_ko": "지붕 형식(예: 특정 전통 지붕 유형)은 지정하지 않는다. 소스 근거 확보 전까지 unknown/conjectural로 유지한다.",
+        "confidence": "E5",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "불확실성 명시 marker. 사실 주장이 아니라 미확정 상태의 기록."
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "non-spatial",
+        "unit_mode": "none",
+        "confidence": "E5",
+        "demo_placeholder": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "불확실성 marker는 공간 지오메트리가 없다."
+          }
+        ]
+      },
+      "confidence": "E5",
+      "render_confidence": "E5",
+      "ui_flags": {
+        "relative_geometry": false,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": false,
+        "show_archaeology_vs_hypothesis_badge": true,
+        "is_uncertainty_marker": true
+      },
+      "warnings": [
+        "이 feature는 미확정 상태 자체를 기록한다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E5",
+        "render_badge": "E5",
+        "archaeology_vs_hypothesis": "uncertainty"
+      }
+    },
+    {
+      "id": "uncertainty.function_interpretation",
+      "name_ko": "기능 해석 불확실성",
+      "name_en": "Functional interpretation uncertainty",
+      "category": "uncertainty",
+      "priority": "P0",
+      "archaeological_status": "uncertainty_marker",
+      "render_layer": "uncertainty",
+      "fact_layer": {
+        "statement_ko": "건물 기능(정전·의례·접견·연회 등)은 확정되지 않았으며 hypothesis 축으로만 다룬다.",
+        "confidence": "E5",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "불확실성 명시 marker. 사실 주장이 아니라 미확정 상태의 기록."
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "non-spatial",
+        "unit_mode": "none",
+        "confidence": "E5",
+        "demo_placeholder": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "불확실성 marker는 공간 지오메트리가 없다."
+          }
+        ]
+      },
+      "confidence": "E5",
+      "render_confidence": "E5",
+      "ui_flags": {
+        "relative_geometry": false,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": false,
+        "show_archaeology_vs_hypothesis_badge": true,
+        "is_uncertainty_marker": true
+      },
+      "warnings": [
+        "이 feature는 미확정 상태 자체를 기록한다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E5",
+        "render_badge": "E5",
+        "archaeology_vs_hypothesis": "uncertainty"
+      }
+    },
+    {
+      "id": "hypothesis.layer.royal_formal_space",
+      "name_ko": "가설 layer: 왕의 공식 공간 / 정전급",
+      "name_en": "Hypothesis layer: royal formal space",
+      "category": "hypothesis_layer",
+      "priority": "P0",
+      "archaeological_status": "hypothesis_layer",
+      "render_layer": "hypothesis",
+      "linked_hypothesis": "H1_royal_formal_space",
+      "fact_layer": {
+        "statement_ko": "이 layer는 가설 H1_royal_formal_space의 UI 표시용 layer다. 세부 내용·근거·반대 근거는 hypotheses.json의 해당 가설을 따른다.",
+        "confidence": "E5",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "가설 연결 layer. 자체 사실 주장 없음."
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "non-spatial",
+        "unit_mode": "none",
+        "confidence": "E5",
+        "demo_placeholder": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "가설 layer는 feature highlight로만 표현된다."
+          }
+        ]
+      },
+      "confidence": "E5",
+      "render_confidence": "E5",
+      "ui_flags": {
+        "relative_geometry": false,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": false,
+        "show_archaeology_vs_hypothesis_badge": true,
+        "is_hypothesis_layer": true
+      },
+      "warnings": [
+        "가설 layer이며 유구 사실이 아니다.",
+        "가설 자체의 confidence(E4)는 hypotheses.json의 H1_royal_formal_space를 따른다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E5",
+        "render_badge": "E5",
+        "archaeology_vs_hypothesis": "hypothesis"
+      }
+    },
+    {
+      "id": "hypothesis.layer.prince_palace_legacy",
+      "name_ko": "가설 layer: 기존 동궁·태자궁 해석",
+      "name_en": "Hypothesis layer: legacy prince-palace interpretation",
+      "category": "hypothesis_layer",
+      "priority": "P0",
+      "archaeological_status": "hypothesis_layer",
+      "render_layer": "hypothesis",
+      "linked_hypothesis": "H2_prince_palace_legacy_interpretation",
+      "fact_layer": {
+        "statement_ko": "이 layer는 가설 H2_prince_palace_legacy_interpretation의 UI 표시용 layer다. 세부 내용·근거·반대 근거는 hypotheses.json의 해당 가설을 따른다.",
+        "confidence": "E5",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "가설 연결 layer. 자체 사실 주장 없음."
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "non-spatial",
+        "unit_mode": "none",
+        "confidence": "E5",
+        "demo_placeholder": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "가설 layer는 feature highlight로만 표현된다."
+          }
+        ]
+      },
+      "confidence": "E5",
+      "render_confidence": "E5",
+      "ui_flags": {
+        "relative_geometry": false,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": false,
+        "show_archaeology_vs_hypothesis_badge": true,
+        "is_hypothesis_layer": true
+      },
+      "warnings": [
+        "가설 layer이며 유구 사실이 아니다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E5",
+        "render_badge": "E5",
+        "archaeology_vs_hypothesis": "hypothesis"
+      }
+    },
+    {
+      "id": "hypothesis.layer.ritual_audience_banquet",
+      "name_ko": "가설 layer: 의례·접견·연회 기능 프로그램",
+      "name_en": "Hypothesis layer: ritual/audience/banquet program",
+      "category": "hypothesis_layer",
+      "priority": "P0",
+      "archaeological_status": "hypothesis_layer",
+      "render_layer": "hypothesis",
+      "linked_hypothesis": "H3_ritual_audience_banquet_program",
+      "fact_layer": {
+        "statement_ko": "이 layer는 가설 H3_ritual_audience_banquet_program의 UI 표시용 layer다. 세부 내용·근거·반대 근거는 hypotheses.json의 해당 가설을 따른다.",
+        "confidence": "E5",
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "가설 연결 layer. 자체 사실 주장 없음."
+          }
+        ]
+      },
+      "geometry_layer": {
+        "type": "non-spatial",
+        "unit_mode": "none",
+        "confidence": "E5",
+        "demo_placeholder": false,
+        "evidence": [
+          {
+            "source_id": "demo_rule_silla_palace_archaeology_basic",
+            "class": "E5",
+            "method": "internal_conjecture_marker",
+            "verified": true,
+            "note": "가설 layer는 feature highlight로만 표현된다."
+          }
+        ]
+      },
+      "confidence": "E5",
+      "render_confidence": "E5",
+      "ui_flags": {
+        "relative_geometry": false,
+        "not_measured": true,
+        "uncertainty_visible": true,
+        "show_source_required_badge": false,
+        "show_archaeology_vs_hypothesis_badge": true,
+        "is_hypothesis_layer": true
+      },
+      "warnings": [
+        "가설 layer이며 유구 사실이 아니다."
+      ],
+      "derived_badges": {
+        "fact_badge": "E5",
+        "render_badge": "E5",
+        "archaeology_vs_hypothesis": "hypothesis"
+      }
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H1_royal_formal_space",
+      "axis": "spatial_political_attribution",
+      "title_ko": "왕의 공식 공간 / 정전급 권위 건물 해석",
+      "title_en": "Royal formal-space / high-ranking palace hall interpretation",
+      "summary_ko": "서편 A건물지를 월지 서편의 최상위 위계 건물, 왕의 공식 공간 또는 정전급 권위 건물로 보는 해석이다.",
+      "confidence": "E4",
+      "confidence_notes": [
+        "7×4칸 내진감주 대형건물, 출입시설, 익랑, 보도시설 등 정성 사실은 E1",
+        "왕의 공식 공간/정전급 기능 해석은 보고서·논문·최신 조사성과를 종합한 해석이므로 E4",
+        "PDF 본문에서 정전 표현과 page locator가 확인되면 subclaim confidence를 E1로 승격 가능"
+      ],
+      "supporting_features": [
+        "layout.grid.seven_by_four",
+        "layout.omitted_inner_columns",
+        "entrance.facility.01",
+        "entrance.facility.02",
+        "entrance.facility.03",
+        "corridor.east_wing",
+        "corridor.west_wing",
+        "walkway.brick_paved",
+        "land_preparation.layer",
+        "context.western_royal_space_interpretation"
+      ],
+      "supporting_evidence": [
+        {
+          "source_id": "nrich_2018_a_building_restoration_excavation_report",
+          "class": "E1",
+          "method": "report_interpreted",
+          "claim": "A건물지의 구조·규모·주변 관계가 보고됨."
+        },
+        {
+          "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+          "class": "E4",
+          "method": "academic_interpretation",
+          "claim": "A건물지를 왕궁으로 볼 만한 건축 속성 및 최상위 위계 건물로 해석."
+        },
+        {
+          "source_id": "khs_2025_silla_capital_10year_outcome",
+          "class": "E4",
+          "method": "latest_official_interpretation",
+          "claim": "월지 서편을 왕의 공간으로 보는 최신 조사성과. 2025-02-06 국가유산청 공식 보도자료로 확인됨."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "claim": "기존에는 월지 서편이 동궁/태자궁 관련 공간으로 해석되어 왔다.",
+          "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+          "class": "E4"
+        },
+        {
+          "claim": "왕의 공식 공간과 정전 기능은 상부구조가 아니라 기능 해석이므로 단일 확정 모델로 렌더할 수 없다.",
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5"
+        }
+      ],
+      "unresolved_questions": [
+        "보고서 본문에서 정전 표현이 정확히 어디에 등장하는가?",
+        "A건물지의 공식 기능을 정전·의례·접견·연회 중 어디까지 구분할 수 있는가?",
+        "월성·월지·동편 동궁 후보지와의 관계를 어느 축으로 시각화해야 하는가?"
+      ],
+      "ui_treatment": {
+        "highlight": [
+          "layout.grid.seven_by_four",
+          "layout.omitted_inner_columns",
+          "land_preparation.layer",
+          "entrance.facility.01",
+          "walkway.brick_paved"
+        ],
+        "superstructure_opacity": 0.18,
+        "warning": "왕의 공식 공간 해석은 가장 강한 해석축이지만, 상부 목구조의 확정 복원이 아니다."
+      },
+      "axis_label_ko": "공간·정치 비정 축",
+      "renderable": true,
+      "missing_required_features": [],
+      "badges": {
+        "axis": "spatial_political_attribution",
+        "axis_label_ko": "공간·정치 비정 축",
+        "confidence": "E4",
+        "legacy": false,
+        "legacy_label_ko": null,
+        "legacy_label_en": null,
+        "strongest": true
+      }
+    },
+    {
+      "id": "H2_prince_palace_legacy_interpretation",
+      "axis": "spatial_political_attribution",
+      "title_ko": "기존 동궁·태자궁 관련 해석",
+      "title_en": "Legacy Donggung / prince-palace interpretation",
+      "summary_ko": "동궁과 월지라는 명칭과 기존 연구사에 따라 서편 A건물지를 태자궁 또는 동궁 관련 공간으로 연결해 온 해석이다. 최신 재비정 이후에는 약화된 competing hypothesis로 다룬다.",
+      "confidence": "E5",
+      "confidence_notes": [
+        "기존 연구사와 명칭은 설명 가치가 있으나, 2025년 조사성과와 김경열 2023 논문은 동궁 위치를 월지 동편으로 보는 해석을 강화한다.",
+        "따라서 H2는 default model이 아니라 historiography layer다."
+      ],
+      "supporting_features": [
+        "site_context.wolji_west",
+        "context.historical_name_donggung_wolji",
+        "context.legacy_west_donggung_interpretation"
+      ],
+      "supporting_evidence": [
+        {
+          "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+          "class": "E4",
+          "method": "historiography_summary",
+          "claim": "동궁 위치 문제와 기존 논란을 정리하는 연구사 근거."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "claim": "월지 동편을 동궁으로, 서편을 왕의 공간으로 보는 최신 조사성과가 제시됨.",
+          "source_id": "khs_2025_silla_capital_10year_outcome",
+          "class": "E4"
+        },
+        {
+          "claim": "김경열 2023 논문은 동궁 가능성이 높은 곳을 월지 동편으로 추정.",
+          "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+          "class": "E4"
+        }
+      ],
+      "unresolved_questions": [
+        "동궁이라는 현대 명칭과 고고학적 동궁 위치 재비정을 UI에서 어떻게 동시에 설명할 것인가?",
+        "기존 서편 동궁 가설을 historical layer로 보존할지, 낮은 confidence competing hypothesis로 둘지?"
+      ],
+      "ui_treatment": {
+        "highlight": [
+          "context.historical_name_donggung_wolji",
+          "context.legacy_west_donggung_interpretation"
+        ],
+        "superstructure_opacity": 0.08,
+        "warning": "기존 해석이며 최신 재비정에 의해 약화된 가설입니다.",
+        "legacy_badge": true,
+        "legacy_badge_label_ko": "기존 해석 / 최신 재비정으로 약화됨",
+        "legacy_badge_label_en": "legacy / weakened by latest reinterpretation"
+      },
+      "axis_label_ko": "공간·정치 비정 축",
+      "renderable": true,
+      "missing_required_features": [],
+      "badges": {
+        "axis": "spatial_political_attribution",
+        "axis_label_ko": "공간·정치 비정 축",
+        "confidence": "E5",
+        "legacy": true,
+        "legacy_label_ko": "기존 해석 / 최신 재비정으로 약화됨",
+        "legacy_label_en": "legacy / weakened by latest reinterpretation",
+        "strongest": false
+      }
+    },
+    {
+      "id": "H3_ritual_audience_banquet_program",
+      "axis": "functional_program",
+      "title_ko": "의례·접견·연회 기능 프로그램 해석",
+      "title_en": "Ritual, audience, or banquet program interpretation",
+      "summary_ko": "A건물지의 큰 평면, 출입시설, 익랑, 보도시설, 월지 경관과의 관계를 바탕으로 공식 의례·접견·연회 기능 가능성을 검토하는 기능축이다. H1과 완전히 배타적이지 않고, H1 내부의 기능 세부 해석으로도 작동한다.",
+      "confidence": "E5",
+      "confidence_notes": [
+        "공간·동선 feature 자체는 E1 근거가 있지만, 구체 기능은 별도 문헌/도면/유물 연결 없이는 E5로 둔다.",
+        "월지 water/context layer가 scene에 반드시 있어야 이 hypothesis를 표시할 수 있다."
+      ],
+      "requires_features": [
+        "context.wolji_water_edge"
+      ],
+      "supporting_features": [
+        "layout.omitted_inner_columns",
+        "entrance.facility.01",
+        "entrance.facility.02",
+        "entrance.facility.03",
+        "corridor.east_wing",
+        "corridor.west_wing",
+        "walkway.brick_paved",
+        "context.wolji_water_edge",
+        "movement.primary_entrance_axis"
+      ],
+      "supporting_evidence": [
+        {
+          "source_id": "nrich_2018_a_building_restoration_excavation_report",
+          "class": "E1",
+          "method": "reported_features",
+          "claim": "출입시설, 익랑, 보도시설 등 동선 관련 feature가 보고됨."
+        },
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "functional_conjecture",
+          "claim": "기능 연결은 탐색 가설로만 처리."
+        }
+      ],
+      "counter_evidence": [
+        {
+          "claim": "유구만으로 구체적 실내 기능을 단정하기 어렵다.",
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5"
+        }
+      ],
+      "unresolved_questions": [
+        "월지 경관·시각축·동선축을 실제 도면으로 검증할 수 있는가?",
+        "의례·접견·연회 기능을 어느 evidence class 이상으로 올릴 수 있는 독립 source가 있는가?"
+      ],
+      "ui_treatment": {
+        "highlight": [
+          "entrance.facility.01",
+          "entrance.facility.02",
+          "entrance.facility.03",
+          "walkway.brick_paved",
+          "context.wolji_water_edge"
+        ],
+        "superstructure_opacity": 0.1,
+        "warning": "기능 프로그램 해석은 낮은 confidence의 설명축입니다. 유구 사실과 분리해 보세요."
+      },
+      "axis_label_ko": "기능 프로그램 축",
+      "renderable": true,
+      "missing_required_features": [],
+      "badges": {
+        "axis": "functional_program",
+        "axis_label_ko": "기능 프로그램 축",
+        "confidence": "E5",
+        "legacy": false,
+        "legacy_label_ko": null,
+        "legacy_label_en": null,
+        "strongest": false
+      }
+    }
+  ],
+  "phases": [
+    {
+      "id": "P0_pre_wolji_prior_land_preparation",
+      "name_ko": "월지 조성 이전 선대 대지조성 가능성",
+      "stage_kind": "해석 단계",
+      "confidence": "E4",
+      "sources": [
+        "ji_2023_wolji_west_land_preparation_recheck"
+      ],
+      "visible_features": [
+        "land_preparation.prior_phase_candidate"
+      ],
+      "notes": "선대 대지조성층 재검토 논의에 근거한 해석 단계. 유구 확정 단계가 아니다.",
+      "source_titles": [
+        "동궁과 월지 서편 지역의 대지조성층 재검토"
+      ]
+    },
+    {
+      "id": "P1_late_7c_palace_reorganization",
+      "name_ko": "7세기 후반 왕궁·월지 주변 공간 재편",
+      "stage_kind": "해석 단계",
+      "confidence": "E4",
+      "sources": [
+        "kim_2023_sillasahakbo_a_building_structure_function"
+      ],
+      "visible_features": [
+        "site_context.wolji_west",
+        "context.wolji_water_edge"
+      ],
+      "notes": "문헌·고고 자료를 종합한 공간 재편 해석 단계.",
+      "source_titles": [
+        "동궁과 월지 주변 건물군의 구조와 기능에 대한 고고학적 검토－월지 서편 A건물지를 중심으로－"
+      ]
+    },
+    {
+      "id": "P2_a_building_reported_layout",
+      "name_ko": "A건물지 보고 유구",
+      "stage_kind": "유구 단계",
+      "confidence": "E1",
+      "sources": [
+        "nrich_2018_a_building_restoration_excavation_report"
+      ],
+      "visible_features": [
+        "layout.grid.seven_by_four",
+        "layout.omitted_inner_columns",
+        "entrance.facility.01",
+        "corridor.east_wing",
+        "walkway.brick_paved"
+      ],
+      "notes": "공식 보고서 초록에서 확인되는 보고 유구 단계.",
+      "source_titles": [
+        "경주 동궁과 월지 복원정비사업 발굴조사보고서 - A건물지 -"
+      ]
+    },
+    {
+      "id": "P3_2025_reinterpretation",
+      "name_ko": "2025년 동편 동궁·서편 왕의 공간 재비정",
+      "stage_kind": "해석 단계",
+      "confidence": "E4",
+      "sources": [
+        "khs_2025_silla_capital_10year_outcome"
+      ],
+      "visible_features": [
+        "context.eastern_donggung_reinterpretation",
+        "context.western_royal_space_interpretation"
+      ],
+      "notes": "최신 조사성과에 따른 재비정 해석 단계. 공식 source locator 확인 시 근거 보강.",
+      "source_titles": [
+        "신라 태자 '동궁'의 진짜 위치 찾았다 (국가유산청 보도자료, 2025-02-06)"
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "id": "seg_nrich2018_abstract_a_building",
+      "source_id": "nrich_2018_a_building_restoration_excavation_report",
+      "kind": "official_abstract",
+      "locator": {
+        "page": "official_page_abstract",
+        "figure": null,
+        "note": "portal.nrich.go.kr 원문 서비스 페이지의 공식 초록. PDF page locator는 후속 ingest 대상."
+      },
+      "text_status": "paraphrased_from_official_abstract",
+      "summary_ko": "A건물지는 7×4칸의 내진감주된 대형건물지이며, 출입시설 3개소, 동서편 익랑, 건물지 전체에 전(塼)으로 축조한 보도시설, 축조연대 추정이 가능한 지진구(地鎭具), 남편 대지의 줄기초 건물지 2동이 확인되었다고 보고한다.",
+      "claims": [
+        "A건물지는 7×4칸의 내진감주된 대형건물지로 보고됨",
+        "출입시설 3개소가 확인됨",
+        "동서편 익랑이 확인됨",
+        "건물지 전체에 전으로 축조한 보도시설이 확인됨",
+        "축조연대 추정이 가능한 지진구가 확인됨",
+        "A건물지 남편 대지에 2동의 줄기초 건물지가 확인됨"
+      ],
+      "usable_for": [
+        "fact_layer"
+      ],
+      "not_usable_for": [
+        "exact_dimensions",
+        "coordinates",
+        "superstructure_typology"
+      ]
+    },
+    {
+      "id": "seg_kim2023_abstract_a_building",
+      "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+      "kind": "academic_abstract",
+      "locator": {
+        "page": "article_abstract",
+        "figure": null,
+        "note": "신라사학보 57 게재 논문 초록·본문 요지. page locator는 KCI/DOI 확정 후 보강."
+      },
+      "text_status": "paraphrased_from_academic_abstract",
+      "summary_ko": "월지 서편 A건물지를 7×4칸 평면, 계단·답도시설, 기단토, 약 2m 대지성토를 갖춘 최상위 위계 건물로 검토하고, 동궁의 위치를 월지 동편으로 비정하는 논의를 전개한다.",
+      "claims": [
+        "A건물지 7×4칸 평면 검토",
+        "계단·답도시설 언급",
+        "기단토 언급",
+        "약 2m 대지성토 언급",
+        "최상위 위계 건물 해석",
+        "동궁 위치의 월지 동편 비정 논의"
+      ],
+      "usable_for": [
+        "fact_layer_secondary",
+        "interpretation"
+      ],
+      "not_usable_for": [
+        "exact_dimensions",
+        "coordinates",
+        "geometry_exact_values"
+      ]
+    },
+    {
+      "id": "seg_2025_interpretation_summary",
+      "source_id": "khs_2025_silla_capital_10year_outcome",
+      "kind": "official_press_release",
+      "locator": {
+        "page": "khs_press_release_2025-02-06",
+        "figure": null,
+        "note": "khs.go.kr newsItemId=155705252 「신라 태자 '동궁'의 진짜 위치 찾았다」(2025-02-06) 본문. korea.kr 정책브리핑 미러 존재."
+      },
+      "text_status": "summarized_from_official_release",
+      "summary_ko": "신라왕경 핵심유적 조사 성과에 따라 월지 동편을 태자 동궁으로, 월지 서편을 왕의 공간으로 보는 재비정 해석이 제시되었다.",
+      "claims": [
+        "월지 동편 = 동궁(태자궁) 재비정",
+        "월지 서편 = 왕의 공간 해석"
+      ],
+      "usable_for": [
+        "interpretation",
+        "phase_timeline"
+      ],
+      "not_usable_for": [
+        "fact_layer",
+        "geometry"
+      ]
+    },
+    {
+      "id": "seg_ji2023_land_preparation_abstract",
+      "source_id": "ji_2023_wolji_west_land_preparation_recheck",
+      "kind": "academic_abstract",
+      "locator": {
+        "page": "article_abstract",
+        "figure": null,
+        "note": "한국고고학보 게재 논문 초록·본문 요지. page locator는 KCI/DOI 확정 후 보강."
+      },
+      "text_status": "paraphrased_from_academic_abstract",
+      "summary_ko": "동궁과 월지 서편 지역의 대지조성층을 재검토하여 A건물지 대지조성 단계와 선대 대지조성층, 월지 조성 이전 경관 문제를 논의한다.",
+      "claims": [
+        "서편 지역 대지조성층 재검토",
+        "선대 대지조성층 가능성",
+        "A건물지 대지조성 단계 구분 논의"
+      ],
+      "usable_for": [
+        "interpretation",
+        "phase_timeline"
+      ],
+      "not_usable_for": [
+        "exact_dimensions",
+        "coordinates"
+      ]
+    }
+  ],
+  "warnings": [
+    "P0 source gyeongju_2022_a_building_full_excavation_report license가 to_verify 상태. 후보 등록 상태로만 유지(fallback: evidence 미사용).",
+    "source kim_2023_sillasahakbo_a_building_structure_function: license status 'unverified' — commercial_safe=false 유지 사유.",
+    "source ji_2023_wolji_west_land_preparation_recheck: license status 'unverified' — commercial_safe=false 유지 사유."
+  ]
+}

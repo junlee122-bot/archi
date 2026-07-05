@@ -1,0 +1,258 @@
+{
+  "strict": false,
+  "summary": {
+    "total": 40,
+    "pass": 38,
+    "warn": 2,
+    "fail": 0
+  },
+  "ok": true,
+  "checks": [
+    {
+      "id": "V01_SCHEMA_VALID",
+      "title": "데이터 파일 스키마 유효성",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V02_SOURCE_REGISTRY_INTEGRITY",
+      "title": "소스 레지스트리 무결성",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V03_EVIDENCE_SOURCE_LINKAGE",
+      "title": "evidence→source 연결",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V04_SEGMENT_LINKAGE",
+      "title": "evidence→segment 연결",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V05_GRID_SOURCE_CONSISTENCY",
+      "title": "그리드 사실-소스 일관성 (하드코딩 없음)",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V06_CONFIDENCE_ENUM",
+      "title": "confidence enum 검사",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V07_REQUIRED_P0_FEATURES",
+      "title": "필수 P0 feature 존재",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V08_EVIDENCE_PRESENT",
+      "title": "모든 layer evidence 존재",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V09_DEMO_SOURCE_POLICY",
+      "title": "DEMO/internal rule 소스 사용 정책",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V10_CONFIDENCE_CONSISTENT",
+      "title": "confidence 요약 일관성",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V11_RELATIVE_GEOMETRY_FLAGS",
+      "title": "상대 geometry UI 플래그",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V12_UNCERTAINTY_MARKERS_PRESENT",
+      "title": "불확실성 marker 존재",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V13_HYPOTHESIS_FEATURE_LINKS",
+      "title": "가설→feature 연결",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V14_HYPOTHESIS_COUNTER_EVIDENCE",
+      "title": "가설 반대근거 의무",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V15_HYPOTHESIS_CONFIDENCE_CAP",
+      "title": "가설 confidence 상한",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V16_PHASE_SOURCES",
+      "title": "phase 소스 인용 의무",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V17_PHASE_CONFIDENCE_CAP",
+      "title": "phase confidence ≤ 소스 지원",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V18_PHASE_FEATURE_LINKS",
+      "title": "phase→feature 연결",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V19_GATE_R_LICENSE",
+      "title": "license gate (GATE_R)",
+      "status": "warn",
+      "details": [
+        "P0 source gyeongju_2022_a_building_full_excavation_report: to_verify 상태 (후보 등록만 허용, strict에서 fail)"
+      ]
+    },
+    {
+      "id": "V20_NO_SOURCE_MEDIA_IN_WEB_PUBLIC",
+      "title": "보고서 이미지/PDF 웹 복사 금지",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V21_SUPERSTRUCTURE_GHOST_ONLY",
+      "title": "상부구조 ghost/symbolic 전용",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V22_EXACT_DIMENSIONS_NULL_WITHOUT_LOCATOR",
+      "title": "measured locator 없는 실측치 금지",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V23_ARTIFACT_INTEGRITY",
+      "title": "아티팩트 무결성/신선도",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V24_MODE_TABS",
+      "title": "모드 탭 구성",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V25_AXIS_LABELS_IN_SPEC",
+      "title": "spec 내 축 라벨",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V26_WARNINGS_SURFACED",
+      "title": "DEMO geometry 경고 표면화",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V27_ACCESS_DATES",
+      "title": "소스 열람일 기록",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V28_SPEC_FORBIDDEN_LANGUAGE",
+      "title": "생성 스펙 내 금지 표현",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V29_COMMERCIAL_SAFE_CONSISTENT",
+      "title": "commercial_safe 일관성",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V30_DETERMINISTIC_BUILD",
+      "title": "결정적 빌드",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V31_FACT_GEOMETRY_LAYER_SEPARATION",
+      "title": "fact/geometry layer 분리",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V32_NO_EXACT_POSITION_WITHOUT_LOCATOR",
+      "title": "감주 정확 위치 locator 의무",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V33_BRACKET_TYPOLOGY_FORBIDDEN",
+      "title": "공포(bracket) 양식 지정 금지",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V34_ROOF_TYPOLOGY_FORBIDDEN",
+      "title": "지붕 형식 지정 금지",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V35_HYPOTHESIS_AXIS_MODEL",
+      "title": "가설 축 모델",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V36_WOLJI_CONTEXT_REQUIRED_FOR_FUNCTION_HYPOTHESIS",
+      "title": "기능 가설의 월지 컨텍스트 의무",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V37_LEGACY_INTERPRETATION_BADGE",
+      "title": "H2 legacy/약화 배지",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V38_SOURCE_LICENSE_MIXED_POLICY",
+      "title": "소스별 개별 license 정책",
+      "status": "warn",
+      "details": [
+        "gyeongju_2022_a_building_full_excavation_report: license 미확인 (to_verify)",
+        "kim_2023_sillasahakbo_a_building_structure_function: license 미확인 (unknown)",
+        "ji_2023_wolji_west_land_preparation_recheck: license 미확인 (unknown)"
+      ]
+    },
+    {
+      "id": "V39_FORBIDDEN_LANGUAGE_USER_FACING_ONLY",
+      "title": "금지 표현 (user-facing 한정)",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V40_COLUMN_GRID_DERIVED_FROM_BAYS",
+      "title": "기둥열은 칸 수 파생 symbolic만",
+      "status": "pass",
+      "details": []
+    }
+  ]
+}
