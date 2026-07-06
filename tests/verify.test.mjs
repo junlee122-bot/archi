@@ -46,7 +46,6 @@ assert.equal(verify.status, 0, `verify on 5×3 fixture must pass (no hardcoded 7
 const fixtureSpec = loadJson(paths.spec(tmp));
 assert.equal(fixtureSpec.derived.symbolic_column_grid.columns_along_front, 6);
 assert.equal(fixtureSpec.derived.symbolic_column_grid.columns_along_side, 4);
-assert.ok(fixtureSpec.derived.mode_tabs.includes('5×3칸 그리드'), 'tabs derive from params');
 
 // verifier source must not embed the target bay counts as literals
 const verifySrc = readFileSync(join(root, 'scripts', 'verify.mjs'), 'utf8');

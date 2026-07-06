@@ -65,13 +65,14 @@
   ],
   "mode_tabs_template": [
     "발굴유구",
-    "{bays_front}×{bays_side}칸 그리드",
+    "제원/그리드",
     "내진감주",
-    "동선/출입",
-    "위계/기능 해석",
-    "phase timeline",
+    "출입/동선",
+    "익랑·회랑",
+    "대지조성·트렌치",
+    "해석축",
     "불확실성",
-    "검증 결과"
+    "검증결과"
   ],
   "required_p0_features": [
     "source_context.official_2018_report",

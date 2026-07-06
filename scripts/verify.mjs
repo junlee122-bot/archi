@@ -1,4 +1,4 @@
-// verify.mjs — V01–V40 verification gate over canonical data + derived artifacts.
+// verify.mjs — V01–V54 verification gate over canonical data + derived artifacts.
 // Site-specific expectations (bay counts, required features, banned typology
 // vocabulary) come from params/corpus — NEVER hardcoded in check code (V05).
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
@@ -807,27 +807,29 @@ export function runChecks(root, { strict = false } = {}) {
     add('V47_REPORT2022_CORE_FEATURE_BACKING', '핵심 유구의 2022 보고서 locator 근거', errs.length ? fail(errs) : pass());
   }
 
-  // V48 — viewer route completeness (skipped when web/ absent: core must be
-  // able to pass in web-less environments; M2 gate re-runs it with web).
+  // V48 — viewer route completeness (M2.5: /, /studio, /verify, /report + the
+  // nine mode tabs). Skipped when web/ absent so core stays green in web-less
+  // environments; the M2.5 gate re-runs it with web present.
   {
     const errs = [];
     const webDir = paths.web(root);
     if (existsSync(join(webDir, 'app'))) {
-      const pagePath = join(webDir, 'app', 'page.tsx');
-      if (!existsSync(pagePath)) errs.push('web/app/page.tsx 없음');
-      else {
-        const src = readFileSync(pagePath, 'utf8');
-        for (const tab of ['발굴유구', '내진감주', '동선/출입', '위계/기능 해석', 'phase timeline', '불확실성', '검증 결과']) {
-          if (!src.includes(tab)) errs.push(`page.tsx에 '${tab}' 모드 처리 없음`);
-        }
-        if (!src.includes('structural-spec.json')) errs.push('viewer가 structural-spec.json을 로드하지 않음');
+      for (const route of ['page.tsx', 'studio/page.tsx', 'verify/page.tsx', 'report/page.tsx']) {
+        if (!existsSync(join(webDir, 'app', route))) errs.push(`web/app/${route} 없음 (route 미구현)`);
       }
-      for (const c of ['SceneViewer', 'HypothesisPanel', 'EvidenceDrawer', 'PhaseTimeline', 'VerificationPanel', 'UncertaintyPanel', 'ModeTabs']) {
+      let combined = '';
+      for (const f of walkFiles(join(webDir, 'app'))) if (/\.(tsx|ts)$/.test(f)) combined += readFileSync(f, 'utf8');
+      for (const f of walkFiles(join(webDir, 'components'))) if (/\.(tsx|ts)$/.test(f)) combined += readFileSync(f, 'utf8');
+      for (const tab of ['발굴유구', '제원/그리드', '내진감주', '출입/동선', '익랑·회랑', '대지조성·트렌치', '해석축', '불확실성', '검증결과']) {
+        if (!combined.includes(tab)) errs.push(`뷰어 코드에 '${tab}' 모드 처리 없음`);
+      }
+      if (!combined.includes('structural-spec.json')) errs.push('viewer가 structural-spec.json을 로드하지 않음');
+      for (const c of ['SceneViewer', 'HypothesisPanel', 'EvidenceDrawer', 'PhaseTimeline', 'VerificationPanel', 'ModeTabs']) {
         if (!existsSync(join(webDir, 'components', `${c}.tsx`))) errs.push(`components/${c}.tsx 없음`);
       }
-      add('V48_VIEWER_ROUTE_COMPLETENESS', '뷰어 라우트/모드 완결성', errs.length ? fail(errs) : pass());
+      add('V48_VIEWER_ROUTE_COMPLETENESS', '뷰어 라우트/모드 완결성 (M2.5)', errs.length ? fail(errs) : pass());
     } else {
-      add('V48_VIEWER_ROUTE_COMPLETENESS', '뷰어 라우트/모드 완결성', pass(['web/ 없음 — core-only 환경, M2 게이트에서 재검사']));
+      add('V48_VIEWER_ROUTE_COMPLETENESS', '뷰어 라우트/모드 완결성 (M2.5)', pass(['web/ 없음 — core-only 환경, M2.5 게이트에서 재검사']));
     }
   }
 

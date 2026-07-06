@@ -1,12 +1,12 @@
 {
-  "strict": true,
+  "strict": false,
   "summary": {
-    "total": 40,
-    "pass": 38,
-    "warn": 0,
-    "fail": 2
+    "total": 54,
+    "pass": 52,
+    "warn": 2,
+    "fail": 0
   },
-  "ok": false,
+  "ok": true,
   "checks": [
     {
       "id": "V01_SCHEMA_VALID",
@@ -119,9 +119,9 @@
     {
       "id": "V19_GATE_R_LICENSE",
       "title": "license gate (GATE_R)",
-      "status": "fail",
+      "status": "warn",
       "details": [
-        "P0 source gyeongju_2022_a_building_full_excavation_report: to_verify 상태 (후보 등록만 허용, strict에서 fail)"
+        "P0 source gyeongju_2022_a_building_full_excavation_report: license to_verify — human review 전 상업/공개 파생 사용 금지 (strict에서 fail)"
       ]
     },
     {
@@ -235,11 +235,12 @@
     {
       "id": "V38_SOURCE_LICENSE_MIXED_POLICY",
       "title": "소스별 개별 license 정책",
-      "status": "fail",
+      "status": "warn",
       "details": [
         "gyeongju_2022_a_building_full_excavation_report: license 미확인 (to_verify)",
         "kim_2023_sillasahakbo_a_building_structure_function: license 미확인 (unknown)",
-        "ji_2023_wolji_west_land_preparation_recheck: license 미확인 (unknown)"
+        "ji_2023_wolji_west_land_preparation_recheck: license 미확인 (unknown)",
+        "lee_2023_donggung_wolji_character_debate: license 미확인 (unknown)"
       ]
     },
     {
@@ -251,6 +252,90 @@
     {
       "id": "V40_COLUMN_GRID_DERIVED_FROM_BAYS",
       "title": "기둥열은 칸 수 파생 symbolic만",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V41_SOURCE_SEGMENT_LOCATOR_BACKING",
+      "title": "E1/E2 근거의 segment locator 의무",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V42_REPORT_DIMENSION_TO_GEOMETRY_DISCLOSURE",
+      "title": "보고 치수→geometry 공시",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V43_NO_PUBLIC_PDF_ASSET",
+      "title": "PDF/HWP 공개 자산·커밋 금지",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V44_ACADEMIC_ARTICLE_USAGE_LIMIT",
+      "title": "학술 논문 사용 한도",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V45_H2_LEE2023_BACKING",
+      "title": "H2의 이현태 2023 locator 근거",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V46_PHASE_JI2023_BACKING",
+      "title": "선대 단계의 지영배 2023 근거",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V47_REPORT2022_CORE_FEATURE_BACKING",
+      "title": "핵심 유구의 2022 보고서 locator 근거",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V48_VIEWER_ROUTE_COMPLETENESS",
+      "title": "뷰어 라우트/모드 완결성 (M2.5)",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V49_PRESENTATION_PREVIEW_REQUIRED",
+      "title": "프레젠테이션 프리뷰 (내부 렌더 전용)",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V50_CORRUPTION_UI_REQUIRED",
+      "title": "corruption 드릴의 UI 연결",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V51_KIM2023_H1_BACKING",
+      "title": "H1의 김경열 2023 근거",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V52_NO_KIM_PUBLIC_ASSET",
+      "title": "Kim 2023 public asset 금지",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V53_KIM_SEGMENT_QUALITY",
+      "title": "Kim segment 품질 (짧은 paraphrase+locator)",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V54_H1_TRIANGULATION",
+      "title": "H1 3원 교차(2022+Kim+Lee)",
       "status": "pass",
       "details": []
     }

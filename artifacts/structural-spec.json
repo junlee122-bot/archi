@@ -12,7 +12,7 @@
     },
     "fallback_mode": false,
     "input_hashes": {
-      "params/target-site.json": "6efb8e321bd8a66b76f7d375ad92b2f5c051bf368caecbaa7e4ad57430d991d4",
+      "params/target-site.json": "9a8c10ef68f3ae95c626916c9222cc877dfcaf96d98820fceb4da619ef7c7de4",
       "data/sources.json": "76c698b454530fca6bdcd199487ce6a1aaa3593d4e0684392e192784b0e88113",
       "data/source-segments.json": "d71863599d2ef2f2c62fd0cd068f61b4f827754176c0e10ffefd95445b42d72e",
       "data/canonical-features.json": "6998120dad2a031b7839b171dada2c5948a4d39548b14b7007b31e2bafc0c5fd",
@@ -26,7 +26,7 @@
       "hypotheses": 3,
       "phases": 5
     },
-    "integrity": "3f24de34b5ab2e250cc9c887d279903b4cbd7eb06c705c38f05358fd9ff9686d"
+    "integrity": "b849eaac652fe3787c8b042cb658bdd04dab7942210466e2411cef77667e9af4"
   },
   "license_audit": {
     "commercial_safe": false,
@@ -133,13 +133,14 @@
   "derived": {
     "mode_tabs": [
       "발굴유구",
-      "7×4칸 그리드",
+      "제원/그리드",
       "내진감주",
-      "동선/출입",
-      "위계/기능 해석",
-      "phase timeline",
+      "출입/동선",
+      "익랑·회랑",
+      "대지조성·트렌치",
+      "해석축",
       "불확실성",
-      "검증 결과"
+      "검증결과"
     ],
     "symbolic_column_grid": {
       "columns_along_front": 8,

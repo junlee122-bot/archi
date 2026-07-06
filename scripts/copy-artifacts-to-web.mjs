@@ -12,11 +12,17 @@ export function main(argv = process.argv.slice(2)) {
   const copies = [
     [paths.spec(root), join(dest, 'structural-spec.json')],
     [paths.verification(root), join(dest, 'verification-report.json')],
-    [join(paths.artifacts(root), 'corruption-report.json'), join(dest, 'corruption-report.json')]
+    // alias for consumers using the M2.5 prompt's name
+    [paths.verification(root), join(dest, 'verifier-report.json')],
+    [join(paths.artifacts(root), 'corruption-report.json'), join(dest, 'corruption-report.json')],
+    [join(paths.artifacts(root), 'source-coverage.json'), join(dest, 'source-coverage.json')],
+    // registry metadata (JSON text only — no source media ever)
+    [paths.sources(root), join(dest, 'sources.json')]
   ];
   for (const f of existsSync(paths.reportsDir(root)) ? readdirSync(paths.reportsDir(root)) : []) {
     if (/\.md$/.test(f)) copies.push([join(paths.reportsDir(root), f), join(dest, 'reports', f)]);
   }
+  copies.push([join(paths.artifacts(root), 'viewer-preview-checklist.md'), join(dest, 'reports', 'viewer-preview-checklist.md')]);
   let copied = 0;
   for (const [src, dst] of copies) {
     if (!existsSync(src)) continue;

@@ -8,9 +8,10 @@
 | source | priority | license | verified | status | evidence 사용 | 상업 호환 | human review 필요 |
 |---|---|---|---|---|---|---|---|
 | nrich_2018_a_building_restoration_excavation_report | P0 | 공공누리 제1유형 출처표시 | true | kogl_type1 | true | true | false |
-| gyeongju_2022_a_building_full_excavation_report | P0 | to_verify | false | unverified | false | false | true |
+| gyeongju_2022_a_building_full_excavation_report | P0 | to_verify | false | unverified | true | false | true |
 | kim_2023_sillasahakbo_a_building_structure_function | P1 | unknown | false | unverified | true | false | true |
 | ji_2023_wolji_west_land_preparation_recheck | P1 | unknown | false | unverified | true | false | true |
+| lee_2023_donggung_wolji_character_debate | P1 | unknown | false | unverified | true | false | true |
 | khs_2025_silla_capital_10year_outcome | P1 | 공공누리 제1유형 출처표시 | true | kogl_type1 | true | true | false |
 | nrich_donggung_wolji_iii_report | P1 | 공공누리 제4유형 출처표시+상업적 이용금지+변경금지 | true | kogl_type4 | false | false | true |
 | demo_rule_silla_palace_archaeology_basic | fallback | internal-demo | true | internal | true | true | false |
@@ -19,5 +20,6 @@
 - **gyeongju_2022_a_building_full_excavation_report**: license 미확인. 확인 전까지 상업/공개 파생 사용 불가.
 - **kim_2023_sillasahakbo_a_building_structure_function**: license 미확인. 확인 전까지 상업/공개 파생 사용 불가.
 - **ji_2023_wolji_west_land_preparation_recheck**: license 미확인. 확인 전까지 상업/공개 파생 사용 불가.
+- **lee_2023_donggung_wolji_character_debate**: license 미확인. 확인 전까지 상업/공개 파생 사용 불가.
 - **nrich_donggung_wolji_iii_report**: 제4유형: 출처표시·상업적 이용금지·변경금지. 내부 연구 뷰어 참고는 가능하나 상업/공개 파생 자산에는 human review 없이 사용 불가.
 

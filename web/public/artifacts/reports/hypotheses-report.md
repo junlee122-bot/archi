@@ -10,32 +10,44 @@ H1/H2/H3는 서로 배타적인 3개의 최종 정답 후보가 아니다. 공�
 - 요약: 서편 A건물지를 월지 서편의 최상위 위계 건물, 왕의 공식 공간 또는 정전급 권위 건물로 보는 해석이다.
 
 ### 근거
-- [E1] A건물지의 구조·규모·주변 관계가 보고됨. (nrich_2018_a_building_restoration_excavation_report)
-- [E4] A건물지를 왕궁으로 볼 만한 건축 속성 및 최상위 위계 건물로 해석. (kim_2023_sillasahakbo_a_building_structure_function)
+- [E1] A건물지의 규모·구조·부속시설이 보고서 본문으로 확인됨. (gyeongju_2022_a_building_full_excavation_report)
+- [E1] 보고서 자체가 A건물지에 '추정 정전' 라벨을 사용함 (라벨 사용 사실 E1 — 기능 확정 아님). (gyeongju_2022_a_building_full_excavation_report)
+- [E4] A건물지 일원의 왕궁 기능 가능성을 매우 높게 평가(보고서 맺음말 해석). (gyeongju_2022_a_building_full_excavation_report)
+- [E4] 내진감주 기법을 A건물지의 위상·권위를 보여주는 속성으로 해석. (gyeongju_2022_a_building_full_excavation_report)
+- [E4] 정전급 건물지(발해 상경성 제3호 정전)와의 구조 비교로 중심적 역할 추정. (gyeongju_2022_a_building_full_excavation_report)
+- [E4] 보완발굴 성과를 근거로 A건물의 정전 사용을 해석. (lee_2023_donggung_wolji_character_debate)
+- [E4] 월지 서편 A건물을 국왕의 공간 가능성이 큰 건물로 지칭. (lee_2023_donggung_wolji_character_debate)
 - [E4] 월지 서편을 왕의 공간으로 보는 최신 조사성과. 2025-02-06 국가유산청 공식 보도자료로 확인됨. (khs_2025_silla_capital_10year_outcome)
+- [E4] 7×4칸·답도·기단토·2m 성토·고대화를 왕궁급 속성으로 정리하고 최상위 위계를 방증한다고 해석 (전문 첨부 판독). (kim_2023_sillasahakbo_a_building_structure_function)
+- [E4] 차수별 조사 특징과 제원표가 2022 보고서 수치와 합치 — H1의 사실 기반 교차 확인. (kim_2023_sillasahakbo_a_building_structure_function)
+- [E4] 월지 남·서편 일곽을 국왕을 위한 공간으로 잠정 상정. (kim_2023_sillasahakbo_a_building_structure_function)
 
 ### 반대 근거
 - [E4] 기존에는 월지 서편이 동궁/태자궁 관련 공간으로 해석되어 왔다. (kim_2023_sillasahakbo_a_building_structure_function)
 - [E5] 왕의 공식 공간과 정전 기능은 상부구조가 아니라 기능 해석이므로 단일 확정 모델로 렌더할 수 없다. (demo_rule_silla_palace_archaeology_basic)
 
 ### 미해결 질문
-- 보고서 본문에서 정전 표현이 정확히 어디에 등장하는가?
+- '추정 정전' 라벨(2022 p.16)과 정전 사용 해석(이현태 2023 p.259)을 넘어, 내부 시설·유물 맥락 등 기능을 확정할 독립 근거를 확보할 수 있는가?
 - A건물지의 공식 기능을 정전·의례·접견·연회 중 어디까지 구분할 수 있는가?
 - 월성·월지·동편 동궁 후보지와의 관계를 어느 축으로 시각화해야 하는가?
 
 ## H2_prince_palace_legacy_interpretation — 기존 동궁·태자궁 관련 해석
 
-- 축: **공간·정치 비정 축** (`spatial_political_attribution`)
+- 축: **연구사 축** (`historiography`)
 - confidence: **E5**
 - 배지: **기존 해석 / 최신 재비정으로 약화됨**
 - 렌더 가능: true
 - 요약: 동궁과 월지라는 명칭과 기존 연구사에 따라 서편 A건물지를 태자궁 또는 동궁 관련 공간으로 연결해 온 해석이다. 최신 재비정 이후에는 약화된 competing hypothesis로 다룬다.
 
 ### 근거
+- [E2] 서편 일대를 동궁(태자궁)과 연결해 온 설의 형성 과정과 논거를 정리. (lee_2023_donggung_wolji_character_debate)
 - [E4] 동궁 위치 문제와 기존 논란을 정리하는 연구사 근거. (kim_2023_sillasahakbo_a_building_structure_function)
+- [E2] 명칭 변경 전후의 '동궁(태자궁)과 월지'설 반론 연구사를 정리. (lee_2023_donggung_wolji_character_debate)
 
 ### 반대 근거
-- [E4] 월지 동편을 동궁으로, 서편을 왕의 공간으로 보는 최신 조사성과가 제시됨. (khs_2025_silla_capital_10year_outcome)
+- [E4] 고려·조선 태자궁 대비 규모 과대 비판(1991)과 유구 분석 소홀 문제 (이현태 2023 p.245). (lee_2023_donggung_wolji_character_debate)
+- [E4] 월지 서편 건물군은 동궁(태자궁)과 연결되기 힘들다고 정리 (이현태 2023 p.259, 263). (lee_2023_donggung_wolji_character_debate)
+- [E4] 월지 동편을 동궁으로, 서편을 왕의 공간으로 보는 최신 조사성과가 제시됨 (2025-02-06 공식 보도자료). (khs_2025_silla_capital_10year_outcome)
 - [E4] 김경열 2023 논문은 동궁 가능성이 높은 곳을 월지 동편으로 추정. (kim_2023_sillasahakbo_a_building_structure_function)
 
 ### 미해결 질문
@@ -50,8 +62,9 @@ H1/H2/H3는 서로 배타적인 3개의 최종 정답 후보가 아니다. 공�
 - 요약: A건물지의 큰 평면, 출입시설, 익랑, 보도시설, 월지 경관과의 관계를 바탕으로 공식 의례·접견·연회 기능 가능성을 검토하는 기능축이다. H1과 완전히 배타적이지 않고, H1 내부의 기능 세부 해석으로도 작동한다.
 
 ### 근거
-- [E1] 출입시설, 익랑, 보도시설 등 동선 관련 feature가 보고됨. (nrich_2018_a_building_restoration_excavation_report)
-- [E5] 기능 연결은 탐색 가설로만 처리. (demo_rule_silla_palace_archaeology_basic)
+- [E1] 동선·출입 관련 유구가 보고서 본문으로 확인됨. (gyeongju_2022_a_building_full_excavation_report)
+- [E4] 조회·국가 의례 공간 구조라는 해석적 근거. (lee_2023_donggung_wolji_character_debate)
+- [E5] 구체 기능 배분(의례/접견/연회)은 탐색 가설로만 처리. (demo_rule_silla_palace_archaeology_basic)
 
 ### 반대 근거
 - [E5] 유구만으로 구체적 실내 기능을 단정하기 어렵다. (demo_rule_silla_palace_archaeology_basic)

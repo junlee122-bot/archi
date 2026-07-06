@@ -26,7 +26,7 @@ assert.ok(existsSync(specPath), 'web/public/artifacts/structural-spec.json stage
 const spec = loadJson(specPath);
 const params = loadJson(paths.params(root));
 assert.deepEqual(spec.derived.mode_tabs, expandModeTabs(params), 'staged spec carries the 8 mode tabs');
-assert.equal(spec.derived.mode_tabs.length, 8);
+assert.equal(spec.derived.mode_tabs.length, 9);
 
 // key UI obligations visible in source: axis labels, legacy badge, split confidences, ghost mass
 const pageSrc = readFileSync(join(web, 'app', 'page.tsx'), 'utf8');

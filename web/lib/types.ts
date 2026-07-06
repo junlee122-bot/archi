@@ -71,8 +71,24 @@ export interface Spec {
   derived: {
     mode_tabs: string[];
     symbolic_column_grid: { columns_along_front: number; columns_along_side: number; render_confidence: string; is_excavated_positions: boolean };
+    report_dimension_scaled: {
+      length_m: number; width_m: number; source_feature: string; source_segment_id: string;
+      mode: string; subdivision_assumed: boolean; note: string;
+    } | null;
+    jeoksim_pads: {
+      pads: { col: number; row: number; u: number; v: number; jitter: number; diameter_range_cm: [number, number] | null; depth_cm: number | null; is_excavated_position: boolean }[];
+      size_source: string; positions: string; render_confidence: string;
+    } | null;
+    stratigraphy_section: {
+      section_scope: string;
+      layers: { code: string; name_ko: string; thickness_note?: string; dating_note?: string; order_from_bottom: number; relative_thickness: number }[];
+      thickness_source: string | null; render_confidence: string; note: string;
+    } | null;
+    entrance_layout: { south: string[]; north: string[]; dapdo_on: string[]; side_source: string; offsets: string };
+    phase_order: string[];
     hypothesis_axis_model: { mutually_exclusive: boolean; axes: string[]; note: string };
   };
+  segments: any[];
   features: Feature[];
   hypotheses: Hypothesis[];
   phases: Phase[];

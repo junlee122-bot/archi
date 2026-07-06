@@ -11,7 +11,7 @@ interface CorruptionReport {
 export default function VerificationPanel({ report }: { report: VerificationReport | null }) {
   const [corruption, setCorruption] = useState<CorruptionReport | null>(null);
   useEffect(() => {
-    fetch('artifacts/corruption-report.json')
+    fetch('/artifacts/corruption-report.json')
       .then((r) => r.json())
       .then(setCorruption)
       .catch(() => setCorruption(null));
@@ -41,7 +41,7 @@ export default function VerificationPanel({ report }: { report: VerificationRepo
         )}
       </div>
       <div className="card">
-        <h3>검증 결과 (V01–V50)</h3>
+        <h3>검증 결과 (V01–V54)</h3>
         <p>
           {report.summary.pass} pass · {report.summary.warn} warn · {report.summary.fail} fail
           {report.strict ? ' (strict)' : ''}

@@ -1,11 +1,16 @@
 {
-  "generated_at": "2026-07-05",
+  "generated_at": "2026-07-06",
   "origin_policy": "internal viewer renders only — source images/PDF pages are never preview assets",
-  "generated_from": "M2 web build (headless Chromium render of the local static viewer)",
-  "note": "M1.5 시점 프리뷰 — M2.5 뷰어 개편 후 재생성 예정. 소스 이미지·도판 아님.",
+  "generated_from": "M2.5 static export (headless Chromium over web/out) — 리뷰 8건 반영 후 재캡처",
+  "note": "M2.5 뷰어 실렌더. 소스 이미지·도판 아님.",
   "files": [
-    { "path": "preview-excavation-mode.png", "origin": "internal_viewer_render", "scene": "발굴유구 모드 (E1/DEMO 분리 배지)" },
-    { "path": "preview-hypothesis-axes.png", "origin": "internal_viewer_render", "scene": "위계/기능 해석 모드 (축 라벨·ghost mass)" },
-    { "path": "preview-verification.png", "origin": "internal_viewer_render", "scene": "검증 결과 모드" }
+    { "path": "preview-excavation-mode.png", "origin": "internal_viewer_render", "scene": "발굴유구 모드 — rubble 적심 패드·감주 hatch·전 스트립·답도·석축" },
+    { "path": "preview-grid-mode.png", "origin": "internal_viewer_render", "scene": "제원/그리드 모드 — 25.5×15.2m scaled grid" },
+    { "path": "preview-stratigraphy-mode.png", "origin": "internal_viewer_render", "scene": "대지조성·트렌치 모드 — 2.5D 층서·보토·東池 해석 layer" },
+    { "path": "preview-hypothesis-axes.png", "origin": "internal_viewer_render", "scene": "해석축 모드 — H1 강조" },
+    { "path": "preview-studio.png", "origin": "internal_viewer_render", "scene": "/studio corpus 리뷰 테이블" },
+    { "path": "preview-verification.png", "origin": "internal_viewer_render", "scene": "/verify V01-V54 + corruption 데모 실행 상태" },
+    { "path": "preview-report.png", "origin": "internal_viewer_render", "scene": "/report 리포트 카드 (증거 리포트)" },
+    { "path": "preview-corruption-ghost-red.png", "origin": "internal_viewer_render", "scene": "검증결과 모드 — ui_c2(지붕→E1) 조작 시 ghost mass가 빨강으로 표시되고 '복원 거부' 문구 표출 (리뷰 fix #4 실증)" }
   ]
 }
