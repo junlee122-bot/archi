@@ -50,10 +50,16 @@
       "caught_by": "verify (V41_SOURCE_SEGMENT_LOCATOR_BACKING)"
     },
     {
-      "name": "C13_missing_source_body_page_locator",
-      "expect": "missing_source 논문의 본문 page locator를 derive/V44가 거부",
+      "name": "C13_academic_article_cited_as_E1",
+      "expect": "학술 논문의 E1 인용을 V44가 거부",
       "caught": true,
-      "caught_by": "derive (fail-closed)"
+      "caught_by": "verify (V44_ACADEMIC_ARTICLE_USAGE_LIMIT)"
+    },
+    {
+      "name": "C15_h1_kim_citations_removed",
+      "expect": "H1의 김경열 2023 근거 삭제를 V51이 거부",
+      "caught": true,
+      "caught_by": "verify (V51_KIM2023_H1_BACKING)"
     },
     {
       "name": "C14_pdf_copied_into_web_public",

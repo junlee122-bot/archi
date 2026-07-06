@@ -18,7 +18,7 @@ for (const f of spec.features) {
 // E1 facts are not downgraded by placeholder/scaled geometry
 const grid = spec.features.find((f) => f.id === params.target_site.grid_feature_id);
 assert.equal(grid.confidence, 'E1', 'grid fact stays E1');
-assert.equal(grid.render_confidence, 'E2', 'grid geometry is report_dimension_scaled (E2), not exact');
+assert.equal(grid.render_confidence, 'E3', 'grid geometry scaled from report dims + Kim cross-check (E3), not exact');
 assert.equal(grid.geometry_layer.geometry_mode, 'report_dimension_scaled');
 assert.equal(grid.geometry_layer.bay_spacing_front_mm, null, 'bay spacing stays null');
 const e1Ids = spec.features.filter((f) => f.confidence === 'E1').map((f) => f.id);

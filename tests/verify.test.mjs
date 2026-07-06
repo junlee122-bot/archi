@@ -12,7 +12,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const report = runChecks(root);
 assert.equal(report.ok, true, 'default verify must pass');
 assert.equal(report.summary.fail, 0);
-assert.equal(report.summary.total, 50, 'V01–V50 all present');
+assert.equal(report.summary.total, 54, 'V01–V54 all present');
 
 // strict mode: unresolved locators/licenses escalate to failures (roadmap gate)
 const strictReport = runChecks(root, { strict: true });

@@ -9,7 +9,8 @@
     "confidence_notes": [
       "규모(25.5×15.2m)·7×4칸·내진감주·답도 출입시설 등 정성 사실은 2022 보고서 본문 근거 E1",
       "왕의 공식 공간/정전급 해석은 보고서 고찰(p.310, 315)·이현태 2023(p.246, 259)·2025 공식 재비정을 종합한 해석이므로 E4",
-      "2022 보고서 p.16의 '(추정 정전)' 지칭과 이현태 2023 p.259 표현으로 page locator 확보 — 다만 '추정'이 붙은 해석 진술이므로 E4 유지, 확정 아님"
+      "2022 보고서 p.16의 '(추정 정전)' 지칭과 이현태 2023 p.259 표현으로 page locator 확보 — 다만 '추정'이 붙은 해석 진술이므로 E4 유지, 확정 아님",
+      "김경열 2023 전문 첨부 판독으로 p.161-162/168-169/202 locator 확보 — H1은 2022 보고서·김경열 2023·이현태 2023 3원 교차(triangulation)로 지지되나 여전히 해석(E4)이다."
     ],
     "supporting_features": [
       "layout.grid.seven_by_four",
@@ -105,17 +106,6 @@
         "claim": "월지 서편 A건물을 국왕의 공간 가능성이 큰 건물로 지칭."
       },
       {
-        "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
-        "source_segment_id": "seg_kim2023_abstract_a_building",
-        "locator": {
-          "page": "article_abstract",
-          "note": "전문 미확보 — 초록 수준 근거"
-        },
-        "class": "E4",
-        "method": "academic_interpretation",
-        "claim": "A건물지를 왕궁으로 볼 만한 건축 속성 및 최상위 위계 건물로 해석."
-      },
-      {
         "source_id": "khs_2025_silla_capital_10year_outcome",
         "source_segment_id": "seg_2025_interpretation_summary",
         "locator": {
@@ -125,6 +115,39 @@
         "class": "E4",
         "method": "latest_official_interpretation",
         "claim": "월지 서편을 왕의 공간으로 보는 최신 조사성과. 2025-02-06 국가유산청 공식 보도자료로 확인됨."
+      },
+      {
+        "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+        "source_segment_id": "seg_kim2023_abstract_core_p161_162",
+        "locator": {
+          "page": "161-162",
+          "note": "왕궁급 건축 속성·최상위 위계 방증"
+        },
+        "class": "E4",
+        "method": "academic_interpretation",
+        "claim": "7×4칸·답도·기단토·2m 성토·고대화를 왕궁급 속성으로 정리하고 최상위 위계를 방증한다고 해석 (전문 첨부 판독)."
+      },
+      {
+        "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+        "source_segment_id": "seg_kim2023_spec_table_p169",
+        "locator": {
+          "page": "168-169",
+          "note": "표1·표2 제원 교차"
+        },
+        "class": "E4",
+        "method": "academic_table_summary",
+        "claim": "차수별 조사 특징과 제원표가 2022 보고서 수치와 합치 — H1의 사실 기반 교차 확인."
+      },
+      {
+        "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+        "source_segment_id": "seg_kim2023_conclusion_royal_space_p202",
+        "locator": {
+          "page": "202",
+          "note": "남·서편=국왕 공간 잠정 상정"
+        },
+        "class": "E4",
+        "method": "academic_interpretation",
+        "claim": "월지 남·서편 일곽을 국왕을 위한 공간으로 잠정 상정."
       }
     ],
     "counter_evidence": [
@@ -154,12 +177,17 @@
         "foundation.jeoksim_grid"
       ],
       "superstructure_opacity": 0.18,
-      "warning": "왕의 공식 공간 해석은 가장 강한 해석축이지만, 상부 목구조의 확정 복원이 아니다."
+      "warning": "왕의 공식 공간 해석은 가장 강한 해석축이지만, 상부 목구조의 확정 복원이 아니다.",
+      "badges_ko": [
+        "가장 강한 해석축",
+        "확정 아님",
+        "상부구조 복원 아님"
+      ]
     }
   },
   {
     "id": "H2_prince_palace_legacy_interpretation",
-    "axis": "spatial_political_attribution",
+    "axis": "historiography",
     "title_ko": "기존 동궁·태자궁 관련 해석",
     "title_en": "Legacy Donggung / prince-palace interpretation",
     "summary_ko": "동궁과 월지라는 명칭과 기존 연구사에 따라 서편 A건물지를 태자궁 또는 동궁 관련 공간으로 연결해 온 해석이다. 최신 재비정 이후에는 약화된 competing hypothesis로 다룬다.",
@@ -187,17 +215,33 @@
       },
       {
         "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
-        "source_segment_id": "seg_kim2023_abstract_a_building",
+        "source_segment_id": "seg_kim2023_research_scope_p163_166",
         "locator": {
-          "page": "article_abstract",
-          "note": "전문 미확보 — 초록 수준 근거"
+          "page": "163-166",
+          "note": "북궁·남궁 비정 한계 등 연구사 검토 (부분 판독)"
         },
         "class": "E4",
         "method": "historiography_summary",
         "claim": "동궁 위치 문제와 기존 논란을 정리하는 연구사 근거."
+      },
+      {
+        "source_id": "lee_2023_donggung_wolji_character_debate",
+        "source_segment_id": "seg_lee2023_research_history_p247",
+        "locator": {
+          "page": "247",
+          "note": "반론 연구사 정리"
+        },
+        "class": "E2",
+        "method": "historiography_summary",
+        "claim": "명칭 변경 전후의 '동궁(태자궁)과 월지'설 반론 연구사를 정리."
       }
     ],
     "counter_evidence": [
+      {
+        "claim": "고려·조선 태자궁 대비 규모 과대 비판(1991)과 유구 분석 소홀 문제 (이현태 2023 p.245).",
+        "source_id": "lee_2023_donggung_wolji_character_debate",
+        "class": "E4"
+      },
       {
         "claim": "월지 서편 건물군은 동궁(태자궁)과 연결되기 힘들다고 정리 (이현태 2023 p.259, 263).",
         "source_id": "lee_2023_donggung_wolji_character_debate",
@@ -243,7 +287,7 @@
     ],
     "requires_features": [
       "context.wolji_water_edge",
-      "pre_wolji_dongji"
+      "context.pre_wolji_dongji"
     ],
     "supporting_features": [
       "layout.omitted_inner_columns",
@@ -255,7 +299,7 @@
       "walkway.drainage_or_paved_facility",
       "context.wolji_water_edge",
       "movement.primary_entrance_axis",
-      "pre_wolji_dongji"
+      "context.pre_wolji_dongji"
     ],
     "supporting_evidence": [
       {

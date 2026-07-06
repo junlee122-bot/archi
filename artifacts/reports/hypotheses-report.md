@@ -17,8 +17,10 @@ H1/H2/H3는 서로 배타적인 3개의 최종 정답 후보가 아니다. 공�
 - [E4] 정전급 건물지(발해 상경성 제3호 정전)와의 구조 비교로 중심적 역할 추정. (gyeongju_2022_a_building_full_excavation_report)
 - [E4] 보완발굴 성과를 근거로 A건물의 정전 사용을 해석. (lee_2023_donggung_wolji_character_debate)
 - [E4] 월지 서편 A건물을 국왕의 공간 가능성이 큰 건물로 지칭. (lee_2023_donggung_wolji_character_debate)
-- [E4] A건물지를 왕궁으로 볼 만한 건축 속성 및 최상위 위계 건물로 해석. (kim_2023_sillasahakbo_a_building_structure_function)
 - [E4] 월지 서편을 왕의 공간으로 보는 최신 조사성과. 2025-02-06 국가유산청 공식 보도자료로 확인됨. (khs_2025_silla_capital_10year_outcome)
+- [E4] 7×4칸·답도·기단토·2m 성토·고대화를 왕궁급 속성으로 정리하고 최상위 위계를 방증한다고 해석 (전문 첨부 판독). (kim_2023_sillasahakbo_a_building_structure_function)
+- [E4] 차수별 조사 특징과 제원표가 2022 보고서 수치와 합치 — H1의 사실 기반 교차 확인. (kim_2023_sillasahakbo_a_building_structure_function)
+- [E4] 월지 남·서편 일곽을 국왕을 위한 공간으로 잠정 상정. (kim_2023_sillasahakbo_a_building_structure_function)
 
 ### 반대 근거
 - [E4] 기존에는 월지 서편이 동궁/태자궁 관련 공간으로 해석되어 왔다. (kim_2023_sillasahakbo_a_building_structure_function)
@@ -31,7 +33,7 @@ H1/H2/H3는 서로 배타적인 3개의 최종 정답 후보가 아니다. 공�
 
 ## H2_prince_palace_legacy_interpretation — 기존 동궁·태자궁 관련 해석
 
-- 축: **공간·정치 비정 축** (`spatial_political_attribution`)
+- 축: **연구사 축** (`historiography`)
 - confidence: **E5**
 - 배지: **기존 해석 / 최신 재비정으로 약화됨**
 - 렌더 가능: true
@@ -40,8 +42,10 @@ H1/H2/H3는 서로 배타적인 3개의 최종 정답 후보가 아니다. 공�
 ### 근거
 - [E2] 서편 일대를 동궁(태자궁)과 연결해 온 설의 형성 과정과 논거를 정리. (lee_2023_donggung_wolji_character_debate)
 - [E4] 동궁 위치 문제와 기존 논란을 정리하는 연구사 근거. (kim_2023_sillasahakbo_a_building_structure_function)
+- [E2] 명칭 변경 전후의 '동궁(태자궁)과 월지'설 반론 연구사를 정리. (lee_2023_donggung_wolji_character_debate)
 
 ### 반대 근거
+- [E4] 고려·조선 태자궁 대비 규모 과대 비판(1991)과 유구 분석 소홀 문제 (이현태 2023 p.245). (lee_2023_donggung_wolji_character_debate)
 - [E4] 월지 서편 건물군은 동궁(태자궁)과 연결되기 힘들다고 정리 (이현태 2023 p.259, 263). (lee_2023_donggung_wolji_character_debate)
 - [E4] 월지 동편을 동궁으로, 서편을 왕의 공간으로 보는 최신 조사성과가 제시됨 (2025-02-06 공식 보도자료). (khs_2025_silla_capital_10year_outcome)
 - [E4] 김경열 2023 논문은 동궁 가능성이 높은 곳을 월지 동편으로 추정. (kim_2023_sillasahakbo_a_building_structure_function)

@@ -12,21 +12,21 @@
     },
     "fallback_mode": false,
     "input_hashes": {
-      "params/target-site.json": "9d42ff459f4dd3fb8334a3b0195fb4ee591b81c18eab227ce3ab54bdd69a2aa6",
-      "data/sources.json": "3e27f18e606b010020e89112d3ee828e6cae69677f1fe22058ed1791bb8636a4",
-      "data/source-segments.json": "f61f7f9d2694273a7a417e30e10d96e88ffeb1d49eedd245be687af32088768e",
-      "data/canonical-features.json": "8a97e40751beaca08eb527e1293bdc367ce194196a59c304157db5955ae2a8bb",
-      "data/hypotheses.json": "96635841df808bc866c22fb51ffaa41ec081be7fc19989d02173f0f7a32244f9",
-      "data/phases.json": "dbd23f29f20d924d24f1d2c3631ae70cbf602cf919256bfe06bd6de79f6205f4"
+      "params/target-site.json": "6efb8e321bd8a66b76f7d375ad92b2f5c051bf368caecbaa7e4ad57430d991d4",
+      "data/sources.json": "76c698b454530fca6bdcd199487ce6a1aaa3593d4e0684392e192784b0e88113",
+      "data/source-segments.json": "d71863599d2ef2f2c62fd0cd068f61b4f827754176c0e10ffefd95445b42d72e",
+      "data/canonical-features.json": "6998120dad2a031b7839b171dada2c5948a4d39548b14b7007b31e2bafc0c5fd",
+      "data/hypotheses.json": "8ed07eb1efee47fd63845463c6836d04538387af54aafe59ecc2eb75043b8393",
+      "data/phases.json": "b42e457ed873601f447656e5b5afa4e48eb91257ef8df651cb0208c2000dca40"
     },
     "counts": {
       "sources": 8,
-      "segments": 30,
+      "segments": 42,
       "features": 45,
       "hypotheses": 3,
       "phases": 5
     },
-    "integrity": "c24b71e99c4e5009de2352ea62c5db1c3df645db402616bffe093c10e8296b56"
+    "integrity": "3f24de34b5ab2e250cc9c887d279903b4cbd7eb06c705c38f05358fd9ff9686d"
   },
   "license_audit": {
     "commercial_safe": false,
@@ -1081,6 +1081,18 @@
             "class": "E2",
             "method": "academic_statement",
             "verified": true
+          },
+          {
+            "source_id": "lee_2023_donggung_wolji_character_debate",
+            "source_segment_id": "seg_lee2023_research_history_p247",
+            "locator": {
+              "page": "247",
+              "figure": null,
+              "note": "명칭 변경 전후 반론 연구사."
+            },
+            "class": "E2",
+            "method": "academic_statement",
+            "verified": true
           }
         ]
       },
@@ -1200,6 +1212,18 @@
             "class": "E4",
             "method": "report_discussion_interpretation",
             "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_conclusion_royal_space_p202",
+            "locator": {
+              "page": "202",
+              "figure": null,
+              "note": "월지 남·서편 일곽=국왕을 위한 공간 잠정 상정."
+            },
+            "class": "E4",
+            "method": "academic_interpretation",
+            "verified": true
           }
         ]
       },
@@ -1280,6 +1304,18 @@
               "page": "263",
               "figure": null,
               "note": "월지 동편 유적이 동궁 후보지로 거론되나 검증 과제가 남았다고 정리."
+            },
+            "class": "E4",
+            "method": "academic_interpretation",
+            "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_conclusion_royal_space_p202",
+            "locator": {
+              "page": "202",
+              "figure": null,
+              "note": "동편 나지구 일곽=동궁·태자 공간 잠정 상정."
             },
             "class": "E4",
             "method": "academic_interpretation",
@@ -1502,10 +1538,24 @@
             "class": "E1",
             "method": "report_stated",
             "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_abstract_core_p161_162",
+            "locator": {
+              "page": "161-162",
+              "figure": null,
+              "note": "7×4칸 대형건물 교차 확인 (전문 첨부 판독)."
+            },
+            "class": "E4",
+            "method": "academic_interpretation",
+            "verified": true
           }
         ],
         "report_length_m": 25.5,
-        "report_width_m": 15.2
+        "report_width_m": 15.2,
+        "footprint_front_m": 25.5,
+        "footprint_side_m": 15.2
       },
       "geometry_layer": {
         "type": "bay-grid",
@@ -1514,7 +1564,7 @@
         "relative_depth": 4,
         "bay_spacing_front_mm": null,
         "bay_spacing_side_mm": null,
-        "confidence": "E2",
+        "confidence": "E3",
         "demo_placeholder": false,
         "evidence": [
           {
@@ -1539,10 +1589,11 @@
         ],
         "geometry_mode": "report_dimension_scaled",
         "footprint_source": "fact_layer.report_length_m × fact_layer.report_width_m (p.84)",
-        "subdivision_assumed": true
+        "subdivision_assumed": true,
+        "method": "scaled_from_report_dimension"
       },
       "confidence": "E1",
-      "render_confidence": "E2",
+      "render_confidence": "E3",
       "ui_flags": {
         "relative_geometry": true,
         "not_measured": true,
@@ -1554,11 +1605,12 @@
         "전체 평면 규모(25.5×15.2m)는 2022 보고서 p.84 근거 E1",
         "칸 수(7×4)는 2018 초록·2022 p.84 근거 E1",
         "개별 칸 간격은 균등 분할 가정 — 도면 디지타이즈 전까지 확정 아님",
-        "좌표·방위는 미확정 (relative placement)"
+        "좌표·방위는 미확정 (relative placement)",
+        "footprint 스케일은 2022 보고서 치수 + 김경열 2023 교차 확인(E3) — 개별 기초 좌표는 미디지타이즈"
       ],
       "derived_badges": {
         "fact_badge": "E1",
-        "render_badge": "E2",
+        "render_badge": "E3",
         "archaeology_vs_hypothesis": "archaeology"
       }
     },
@@ -1707,9 +1759,22 @@
             "class": "E2",
             "method": "academic_statement",
             "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_spec_table_p169",
+            "locator": {
+              "page": "169",
+              "figure": null,
+              "note": "표2 비고: 중앙열 4개소 적심 생략 내진감주 교차 확인."
+            },
+            "class": "E4",
+            "method": "academic_table_summary",
+            "verified": true
           }
         ],
-        "omitted_count": 4
+        "omitted_count": 4,
+        "central_four_missing_jeoksim": true
       },
       "geometry_layer": {
         "type": "omitted-column-zone",
@@ -1903,7 +1968,7 @@
       "archaeological_status": "reported_layout",
       "render_layer": "archaeology",
       "fact_layer": {
-        "statement_ko": "2022 보고서 p.85: A건물지 적심 직경은 220~280cm, 깊이는 204cm이며, 대지성토·기단 조성 후 되파기 공법으로 9단의 천석과 잡석을 층층이 쌓아 축조하였다. 초석과 기단 상부 부재는 잔존하지 않고 각 초석 위치에 적심시설만 확인되었다.",
+        "statement_ko": "2022 보고서 p.85: A건물지 적심 직경은 220~280cm, 깊이는 204cm이며, 대지성토·기단 조성 후 되파기 공법으로 9단의 천석과 잡석을 층층이 쌓아 축조하였다. 초석과 기단 상부 부재는 잔존하지 않고 각 초석 위치에 적심시설만 확인되었다. 고찰 제원표(p.308)는 적심 깊이 2.04m(1개소 실측)·너비 2.2~2.8m와 주칸거리 외진 3.8~4.0m·내진 3.5m를 정리하며, 김경열 2023 표2(p.169)와 수치가 합치한다.",
         "jeoksim_diameter_range_cm": [
           220,
           280
@@ -1922,8 +1987,42 @@
             "class": "E1",
             "method": "report_stated",
             "verified": true
+          },
+          {
+            "source_id": "gyeongju_2022_a_building_full_excavation_report",
+            "source_segment_id": "seg_report2022_discussion_features_p306_312",
+            "locator": {
+              "page": "308",
+              "figure": null,
+              "note": "제원표(표2): 적심·주칸거리 수치."
+            },
+            "class": "E1",
+            "method": "report_stated",
+            "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_spec_table_p169",
+            "locator": {
+              "page": "169",
+              "figure": null,
+              "note": "제원표 교차 확인 — 단독 exact geometry 사용 금지."
+            },
+            "class": "E4",
+            "method": "academic_table_summary",
+            "verified": true
           }
-        ]
+        ],
+        "jeoksim_depth_m": 2.04,
+        "jeoksim_width_range_m": [
+          2.2,
+          2.8
+        ],
+        "outer_bay_spacing_m": [
+          3.8,
+          4
+        ],
+        "inner_bay_spacing_m": 3.5
       },
       "geometry_layer": {
         "type": "rubble-pad-grid",
@@ -1967,7 +2066,8 @@
       "warnings": [
         "적심 제원(직경·깊이·축조법)은 보고서 p.85 근거 E1",
         "개별 적심의 실제 좌표는 도면 디지타이즈 전까지 미확정 — 패드 위치는 칸 그리드 파생 symbolic",
-        "rubble 질감 표현은 시각화이며 실측 형상이 아님"
+        "rubble 질감 표현은 시각화이며 실측 형상이 아님",
+        "주칸거리(외진 3.8~4.0m·내진 3.5m)는 보고 수치(E1) — 개별 적심 좌표는 여전히 미확정, 패드 위치는 symbolic"
       ],
       "derived_badges": {
         "fact_badge": "E1",
@@ -2023,6 +2123,18 @@
             },
             "class": "E1",
             "method": "report_interpreted",
+            "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_excavation_characteristics_table_p168",
+            "locator": {
+              "page": "168",
+              "figure": null,
+              "note": "표1: 3개소 출입시설 확인 교차."
+            },
+            "class": "E4",
+            "method": "academic_table_summary",
             "verified": true
           }
         ]
@@ -2116,6 +2228,18 @@
             "class": "E1",
             "method": "report_interpreted",
             "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_excavation_characteristics_table_p168",
+            "locator": {
+              "page": "168",
+              "figure": null,
+              "note": "표1: 3개소 출입시설 확인 교차."
+            },
+            "class": "E4",
+            "method": "academic_table_summary",
+            "verified": true
           }
         ]
       },
@@ -2207,6 +2331,18 @@
             },
             "class": "E1",
             "method": "report_interpreted",
+            "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_excavation_characteristics_table_p168",
+            "locator": {
+              "page": "168",
+              "figure": null,
+              "note": "표1: 3개소 출입시설 확인 교차."
+            },
+            "class": "E4",
+            "method": "academic_table_summary",
             "verified": true
           }
         ]
@@ -2401,6 +2537,30 @@
             "class": "E1",
             "method": "report_stated",
             "verified": true
+          },
+          {
+            "source_id": "gyeongju_2022_a_building_full_excavation_report",
+            "source_segment_id": "seg_report2022_west_wing_corridor_plan_p107_110",
+            "locator": {
+              "page": "107-110",
+              "figure": null,
+              "note": "통합 locator(개요·규모·도면10)."
+            },
+            "class": "E1",
+            "method": "report_stated",
+            "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_excavation_characteristics_table_p168",
+            "locator": {
+              "page": "168",
+              "figure": null,
+              "note": "표1: 서편 익랑부 확인 교차."
+            },
+            "class": "E4",
+            "method": "academic_table_summary",
+            "verified": true
           }
         ]
       },
@@ -2464,7 +2624,7 @@
       "archaeological_status": "reported_layout",
       "render_layer": "archaeology",
       "fact_layer": {
-        "statement_ko": "2022 보고서 p.85: 북편 출입시설 양쪽에서 3~5열의 낙수받이(보도)시설이 확인되었고, 전(塼)을 한 줄은 세우고 한 줄은 평평하게 깔아 두 줄을 평행하게 두고 그 외연에 장방형 전을 비스듬히 깔았다. 이 시설로 건물지 전체 평면 규모를 추정하였다. 고찰(p.311)은 기능을 보도 가능성을 배제할 수 없으나 낙수받이시설로 보는 것이 합리적이라고 판단한다. 2018 초록은 전축 보도시설로 기술한다.",
+        "statement_ko": "2022 보고서 p.85: 북편 출입시설 양쪽에서 3~5열의 낙수받이(보도)시설이 확인되었고, 전(塼)을 한 줄은 세우고 한 줄은 평평하게 깔아 두 줄을 평행하게 두고 그 외연에 장방형 전을 비스듬히 깔았다. 이 시설로 건물지 전체 평면 규모를 추정하였다. 고찰(p.311)은 기능을 보도 가능성을 배제할 수 없으나 낙수받이시설로 보는 것이 합리적이라고 판단한다. 2018 초록은 전축 보도시설로 기술한다. 제원표(p.308)는 시설너비를 도리방향 2.0m·보방향 1.0~1.2m로 정리한다.",
         "function_status": "nakssubaji_probable_walkway_not_excluded",
         "confidence": "E1",
         "evidence": [
@@ -2503,8 +2663,39 @@
             "class": "E1",
             "method": "report_interpreted",
             "verified": true
+          },
+          {
+            "source_id": "gyeongju_2022_a_building_full_excavation_report",
+            "source_segment_id": "seg_report2022_discussion_features_p306_312",
+            "locator": {
+              "page": "308",
+              "figure": null,
+              "note": "제원표: 낙수받이(보도)시설 너비."
+            },
+            "class": "E1",
+            "method": "report_stated",
+            "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_spec_table_p169",
+            "locator": {
+              "page": "169",
+              "figure": null,
+              "note": "보도시설 제원 교차 확인."
+            },
+            "class": "E4",
+            "method": "academic_table_summary",
+            "verified": true
           }
-        ]
+        ],
+        "walkway_width_m": {
+          "front_direction": 2,
+          "side_direction": [
+            1,
+            1.2
+          ]
+        }
       },
       "geometry_layer": {
         "type": "procedural-brick-strip",
@@ -3713,6 +3904,30 @@
             "class": "E1",
             "method": "report_stated",
             "verified": true
+          },
+          {
+            "source_id": "gyeongju_2022_a_building_full_excavation_report",
+            "source_segment_id": "seg_report2022_west_wing_corridor_plan_p107_110",
+            "locator": {
+              "page": "109-110",
+              "figure": null,
+              "note": "도면10의 서회랑 관계."
+            },
+            "class": "E1",
+            "method": "report_stated",
+            "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_spec_table_p169",
+            "locator": {
+              "page": "169",
+              "figure": null,
+              "note": "회랑 적심·주칸 제원 교차."
+            },
+            "class": "E4",
+            "method": "academic_table_summary",
+            "verified": true
           }
         ]
       },
@@ -3762,7 +3977,7 @@
       "archaeological_status": "reported_layout",
       "render_layer": "archaeology",
       "fact_layer": {
-        "statement_ko": "2022 보고서 p.115-117: 서회랑 석축기단이 확인되었고 평면·입단면은 도면12(p.117)에 수록되어 있다. 고찰은 최소 5단의 사고석(장대석 포함)으로 켜켜이 쌓인 석축으로 정리하며(p.309, 316), A·B·C건물지 전체를 감싸는 1곽의 석축기단이자 동궁과 월지 서쪽 경계로 판단한다(p.84, 316). 맺음말(p.334)은 석축기단이 총 5단으로 4~5단은 미치석 대형 기초석, 1~3단은 치석된 사고석·장대석 교차 축조임을 상술한다.",
+        "statement_ko": "2022 보고서 p.115-117: 서회랑 석축기단이 확인되었고 평면·입단면은 도면12(p.117)에 수록되어 있다. 고찰은 최소 5단의 사고석(장대석 포함)으로 켜켜이 쌓인 석축으로 정리하며(p.309, 316), A·B·C건물지 전체를 감싸는 1곽의 석축기단이자 동궁과 월지 서쪽 경계로 판단한다(p.84, 316). 맺음말(p.334)은 석축기단이 총 5단으로 4~5단은 미치석 대형 기초석, 1~3단은 치석된 사고석·장대석 교차 축조임을 상술한다. 제원표(p.308)는 1.2m 높이의 5단 석축기단으로 정리하고 갑석 미확인으로 최소 1~2단 추가를 추정한다.",
         "stone_courses_min": 5,
         "confidence": "E1",
         "evidence": [
@@ -3825,8 +4040,33 @@
             "class": "E1",
             "method": "report_stated",
             "verified": true
+          },
+          {
+            "source_id": "gyeongju_2022_a_building_full_excavation_report",
+            "source_segment_id": "seg_report2022_discussion_features_p306_312",
+            "locator": {
+              "page": "308",
+              "figure": null,
+              "note": "제원표: 회랑 기단 높이 1.2m·5단."
+            },
+            "class": "E1",
+            "method": "report_stated",
+            "verified": true
+          },
+          {
+            "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+            "source_segment_id": "seg_kim2023_spec_table_p169",
+            "locator": {
+              "page": "169",
+              "figure": null,
+              "note": "석축기단 교차 — 스캔 판독상 6단으로 보이나 보고서 5단 표기를 채택(주석)."
+            },
+            "class": "E4",
+            "method": "academic_table_summary",
+            "verified": true
           }
-        ]
+        ],
+        "stylobate_height_m": 1.2
       },
       "geometry_layer": {
         "type": "layered-stone-platform",
@@ -3857,7 +4097,8 @@
       },
       "warnings": [
         "석축기단 존재·단수(최소 5단)는 보고서 근거 E1",
-        "연장·좌표는 미확정 — layered 표현은 시각화"
+        "연장·좌표는 미확정 — layered 표현은 시각화",
+        "단수 표기: 보고서 표2·맺음말 = 5단(+1~2단 추가 추정). 김경열 2023 표2 스캔 판독은 6단으로 보이나 해상도상 오독 가능성 — 보고서 수치 채택, 불일치 주석 유지"
       ],
       "derived_badges": {
         "fact_badge": "E1",
@@ -4165,7 +4406,7 @@
       }
     },
     {
-      "id": "boto_facility",
+      "id": "land_preparation.boto_facility",
       "name_ko": "보토시설(Ⅴ-2층)",
       "name_en": "Boto (capping-fill) facility, layer V-2",
       "category": "land_preparation",
@@ -4279,7 +4520,7 @@
       }
     },
     {
-      "id": "pre_wolji_dongji",
+      "id": "context.pre_wolji_dongji",
       "name_ko": "월지 이전 못(東池) 경관 추정",
       "name_en": "Pre-Wolji pond (Dongji) landscape hypothesis",
       "category": "context",
@@ -4366,7 +4607,7 @@
       }
     },
     {
-      "id": "late_use.disturbance_and_discard",
+      "id": "artifact.discard_phase_context",
       "name_ko": "후대 사용·폐기·교란 맥락",
       "name_en": "Late-use, discard, and disturbance context",
       "category": "late_use",
@@ -4461,7 +4702,8 @@
       "confidence_notes": [
         "규모(25.5×15.2m)·7×4칸·내진감주·답도 출입시설 등 정성 사실은 2022 보고서 본문 근거 E1",
         "왕의 공식 공간/정전급 해석은 보고서 고찰(p.310, 315)·이현태 2023(p.246, 259)·2025 공식 재비정을 종합한 해석이므로 E4",
-        "2022 보고서 p.16의 '(추정 정전)' 지칭과 이현태 2023 p.259 표현으로 page locator 확보 — 다만 '추정'이 붙은 해석 진술이므로 E4 유지, 확정 아님"
+        "2022 보고서 p.16의 '(추정 정전)' 지칭과 이현태 2023 p.259 표현으로 page locator 확보 — 다만 '추정'이 붙은 해석 진술이므로 E4 유지, 확정 아님",
+        "김경열 2023 전문 첨부 판독으로 p.161-162/168-169/202 locator 확보 — H1은 2022 보고서·김경열 2023·이현태 2023 3원 교차(triangulation)로 지지되나 여전히 해석(E4)이다."
       ],
       "supporting_features": [
         "layout.grid.seven_by_four",
@@ -4557,17 +4799,6 @@
           "claim": "월지 서편 A건물을 국왕의 공간 가능성이 큰 건물로 지칭."
         },
         {
-          "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
-          "source_segment_id": "seg_kim2023_abstract_a_building",
-          "locator": {
-            "page": "article_abstract",
-            "note": "전문 미확보 — 초록 수준 근거"
-          },
-          "class": "E4",
-          "method": "academic_interpretation",
-          "claim": "A건물지를 왕궁으로 볼 만한 건축 속성 및 최상위 위계 건물로 해석."
-        },
-        {
           "source_id": "khs_2025_silla_capital_10year_outcome",
           "source_segment_id": "seg_2025_interpretation_summary",
           "locator": {
@@ -4577,6 +4808,39 @@
           "class": "E4",
           "method": "latest_official_interpretation",
           "claim": "월지 서편을 왕의 공간으로 보는 최신 조사성과. 2025-02-06 국가유산청 공식 보도자료로 확인됨."
+        },
+        {
+          "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+          "source_segment_id": "seg_kim2023_abstract_core_p161_162",
+          "locator": {
+            "page": "161-162",
+            "note": "왕궁급 건축 속성·최상위 위계 방증"
+          },
+          "class": "E4",
+          "method": "academic_interpretation",
+          "claim": "7×4칸·답도·기단토·2m 성토·고대화를 왕궁급 속성으로 정리하고 최상위 위계를 방증한다고 해석 (전문 첨부 판독)."
+        },
+        {
+          "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+          "source_segment_id": "seg_kim2023_spec_table_p169",
+          "locator": {
+            "page": "168-169",
+            "note": "표1·표2 제원 교차"
+          },
+          "class": "E4",
+          "method": "academic_table_summary",
+          "claim": "차수별 조사 특징과 제원표가 2022 보고서 수치와 합치 — H1의 사실 기반 교차 확인."
+        },
+        {
+          "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+          "source_segment_id": "seg_kim2023_conclusion_royal_space_p202",
+          "locator": {
+            "page": "202",
+            "note": "남·서편=국왕 공간 잠정 상정"
+          },
+          "class": "E4",
+          "method": "academic_interpretation",
+          "claim": "월지 남·서편 일곽을 국왕을 위한 공간으로 잠정 상정."
         }
       ],
       "counter_evidence": [
@@ -4606,7 +4870,12 @@
           "foundation.jeoksim_grid"
         ],
         "superstructure_opacity": 0.18,
-        "warning": "왕의 공식 공간 해석은 가장 강한 해석축이지만, 상부 목구조의 확정 복원이 아니다."
+        "warning": "왕의 공식 공간 해석은 가장 강한 해석축이지만, 상부 목구조의 확정 복원이 아니다.",
+        "badges_ko": [
+          "가장 강한 해석축",
+          "확정 아님",
+          "상부구조 복원 아님"
+        ]
       },
       "axis_label_ko": "공간·정치 비정 축",
       "renderable": true,
@@ -4623,7 +4892,7 @@
     },
     {
       "id": "H2_prince_palace_legacy_interpretation",
-      "axis": "spatial_political_attribution",
+      "axis": "historiography",
       "title_ko": "기존 동궁·태자궁 관련 해석",
       "title_en": "Legacy Donggung / prince-palace interpretation",
       "summary_ko": "동궁과 월지라는 명칭과 기존 연구사에 따라 서편 A건물지를 태자궁 또는 동궁 관련 공간으로 연결해 온 해석이다. 최신 재비정 이후에는 약화된 competing hypothesis로 다룬다.",
@@ -4651,17 +4920,33 @@
         },
         {
           "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
-          "source_segment_id": "seg_kim2023_abstract_a_building",
+          "source_segment_id": "seg_kim2023_research_scope_p163_166",
           "locator": {
-            "page": "article_abstract",
-            "note": "전문 미확보 — 초록 수준 근거"
+            "page": "163-166",
+            "note": "북궁·남궁 비정 한계 등 연구사 검토 (부분 판독)"
           },
           "class": "E4",
           "method": "historiography_summary",
           "claim": "동궁 위치 문제와 기존 논란을 정리하는 연구사 근거."
+        },
+        {
+          "source_id": "lee_2023_donggung_wolji_character_debate",
+          "source_segment_id": "seg_lee2023_research_history_p247",
+          "locator": {
+            "page": "247",
+            "note": "반론 연구사 정리"
+          },
+          "class": "E2",
+          "method": "historiography_summary",
+          "claim": "명칭 변경 전후의 '동궁(태자궁)과 월지'설 반론 연구사를 정리."
         }
       ],
       "counter_evidence": [
+        {
+          "claim": "고려·조선 태자궁 대비 규모 과대 비판(1991)과 유구 분석 소홀 문제 (이현태 2023 p.245).",
+          "source_id": "lee_2023_donggung_wolji_character_debate",
+          "class": "E4"
+        },
         {
           "claim": "월지 서편 건물군은 동궁(태자궁)과 연결되기 힘들다고 정리 (이현태 2023 p.259, 263).",
           "source_id": "lee_2023_donggung_wolji_character_debate",
@@ -4693,12 +4978,12 @@
         "legacy_badge_label_ko": "기존 해석 / 최신 재비정으로 약화됨",
         "legacy_badge_label_en": "legacy / weakened by latest reinterpretation"
       },
-      "axis_label_ko": "공간·정치 비정 축",
+      "axis_label_ko": "연구사 축",
       "renderable": true,
       "missing_required_features": [],
       "badges": {
-        "axis": "spatial_political_attribution",
-        "axis_label_ko": "공간·정치 비정 축",
+        "axis": "historiography",
+        "axis_label_ko": "연구사 축",
         "confidence": "E5",
         "legacy": true,
         "legacy_label_ko": "기존 해석 / 최신 재비정으로 약화됨",
@@ -4719,7 +5004,7 @@
       ],
       "requires_features": [
         "context.wolji_water_edge",
-        "pre_wolji_dongji"
+        "context.pre_wolji_dongji"
       ],
       "supporting_features": [
         "layout.omitted_inner_columns",
@@ -4731,7 +5016,7 @@
         "walkway.drainage_or_paved_facility",
         "context.wolji_water_edge",
         "movement.primary_entrance_axis",
-        "pre_wolji_dongji"
+        "context.pre_wolji_dongji"
       ],
       "supporting_evidence": [
         {
@@ -4810,7 +5095,7 @@
         "ji_2023_wolji_west_land_preparation_recheck"
       ],
       "visible_features": [
-        "pre_wolji_dongji",
+        "context.pre_wolji_dongji",
         "stratigraphy.layers",
         "trench.north",
         "land_preparation.prior_phase_candidate"
@@ -4832,9 +5117,9 @@
       ],
       "visible_features": [
         "land_preparation.multistage",
-        "boto_facility",
+        "land_preparation.boto_facility",
         "stratigraphy.layers",
-        "pre_wolji_dongji"
+        "context.pre_wolji_dongji"
       ],
       "notes": "5세기 후엽 편년은 지영배 2023의 재검토 해석(p.855, 876 — 수평축토층 출토 유물·C14 검토 기반, E4)이다. 보토시설(Ⅴ-2)의 물리적 제원은 E2, 방수·호안 기능은 해석(p.874).",
       "source_titles": [
@@ -4856,7 +5141,8 @@
         "site_context.wolji_west",
         "context.wolji_water_edge",
         "land_preparation.layer",
-        "context.historical_name_donggung_wolji"
+        "context.historical_name_donggung_wolji",
+        "platform.main_building"
       ],
       "notes": "674 궁원지·679 궁궐이라는 문헌 축과 대규모 대지조성·월지 개축 해석을 종합한 재편 단계(지영배 2023 p.855, 이현태 2023 p.261-262). 해석 단계로 표기한다.",
       "source_titles": [
@@ -4904,7 +5190,7 @@
         "gyeongju_2022_a_building_full_excavation_report"
       ],
       "visible_features": [
-        "late_use.disturbance_and_discard",
+        "artifact.discard_phase_context",
         "corridor.west_wing"
       ],
       "notes": "1·2군 기와무지, 1~4호 수혈(p.84), 근현대 교란·적심 삭평(p.107-108), 전 탈락(p.311) 등 보고된 후대 맥락. 폐기 과정의 세부 시퀀스는 미해석 상태로 둔다.",
@@ -5004,7 +5290,7 @@
       "seed_origin": "source_segments_seed_gongpo_m15.json"
     },
     {
-      "id": "seg_report2022_survey_history_table_p17",
+      "id": "seg_report2022_survey_history_p17",
       "source_id": "gyeongju_2022_a_building_full_excavation_report",
       "kind": "report_body",
       "locator": {
@@ -5035,7 +5321,7 @@
       "seed_origin": "source_segments_seed_gongpo_m15.json"
     },
     {
-      "id": "seg_report2022_authorship_p21",
+      "id": "seg_report2022_report_authorship_p21",
       "source_id": "gyeongju_2022_a_building_full_excavation_report",
       "kind": "report_front_matter",
       "locator": {
@@ -5754,6 +6040,433 @@
         "geometry",
         "exact_dimensions"
       ]
+    },
+    {
+      "id": "seg_report2022_west_wing_corridor_plan_p107_110",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "kind": "report_body",
+      "locator": {
+        "page": "107-110",
+        "figure": null,
+        "note": "서익랑지 개요·규모(p.107-108) + 도면10 서익랑·서회랑 관계(p.109-110). 인쇄 페이지 원문 실측 확인."
+      },
+      "text_status": "paraphrased_from_source_verified_against_full_text",
+      "summary_ko": "서익랑은 A건물지 서편 적심 중앙에서 5.1~5.3m 떨어져 확인되었고 정면 3칸×측면 1칸, 정면 10.1m·측면 최대 4.2m, 적심 직경 160~220cm(평균 192cm)이다. 도면10은 서익랑지·서회랑지·익랑 기단적심석열·A건물지 기단지대석 적심열·서회랑 석축기단의 관계를 보여주며, 익랑 기단적심석열은 지대석용 적심으로 추정된다.",
+      "claims": [
+        "서익랑 3×1칸, 10.1m×최대 4.2m",
+        "적심 직경 160~220cm 평균 192cm",
+        "도면10: 익랑·회랑·석축기단 관계",
+        "익랑 기단적심석열=지대석용 적심 추정"
+      ],
+      "evidence_class": "E1",
+      "method": "report_interpreted",
+      "used_for_features": [
+        "corridor.west_wing",
+        "corridor.west_corridor",
+        "corridor.west_corridor_stone_platform"
+      ],
+      "usable_for": [
+        "corridor.west_wing",
+        "corridor.west_corridor",
+        "corridor.west_corridor_stone_platform"
+      ],
+      "not_usable_for": [
+        "public_plan_image_asset",
+        "traced_exact_coordinates_without_digitization"
+      ]
+    },
+    {
+      "id": "seg_report2022_discussion_features_p306_312",
+      "source_id": "gyeongju_2022_a_building_full_excavation_report",
+      "kind": "report_discussion",
+      "locator": {
+        "page": "306-312",
+        "figure": null,
+        "note": "V. 고찰 > 유구현황 및 구조분석. 제원표(표2)는 p.308, 속성 요약 p.309, 내진감주 논의 p.310, 낙수받이 논의 p.311 — 인쇄 페이지 원문 실측 확인."
+      },
+      "text_status": "paraphrased_from_source_verified_against_full_text",
+      "summary_ko": "고찰의 제원표(표2, p.308)는 적심 깊이 2.04m(1개소 해당)·너비 2.2~2.8m, 주칸거리 외진 3.8~4.0m·내진 3.5m, 답도(계단 중앙석) 총 4단 추정, 기단·계단 높이 110~115cm, A건물지 기단 해발 53.7m, 익랑·회랑 적심 너비와 주칸, 1.2m 높이 5단 회랑 석축기단(최소 1~2단 추가 추정), 낙수받이(보도)시설 너비(도리 2.0m·보 1.0~1.2m)를 정리한다. 이어 중앙열 4개소 감주의 내진감주 기법이 사찰 제외 신라왕경 권위 건축물 중 유일함을 논한다(p.310).",
+      "claims": [
+        "표2 제원표: 적심 2.04m 깊이·2.2~2.8m 너비 (p.308)",
+        "주칸거리 외진 3.8~4.0m, 내진 3.5m (p.308)",
+        "회랑 석축기단 5단·높이 1.2m (p.308)",
+        "낙수받이 시설너비 도리 2.0m·보 1.0~1.2m (p.308)",
+        "내진감주 = 신라왕경 권위 건축물 중 유일(사찰 제외) (p.310)"
+      ],
+      "evidence_class": "E1",
+      "method": "report_discussion",
+      "used_for_features": [
+        "foundation.jeoksim_grid",
+        "layout.omitted_inner_columns",
+        "walkway.drainage_or_paved_facility",
+        "corridor.west_corridor_stone_platform",
+        "context.authority_building",
+        "hypothesis.H1_royal_formal_space"
+      ],
+      "usable_for": [
+        "foundation.jeoksim_grid",
+        "layout.omitted_inner_columns",
+        "walkway.drainage_or_paved_facility",
+        "corridor.west_corridor_stone_platform",
+        "context.authority_building",
+        "hypothesis.H1_royal_formal_space"
+      ],
+      "not_usable_for": [
+        "confirmed_original_function",
+        "roof_typology"
+      ]
+    },
+    {
+      "id": "seg_lee2023_scale_critique_p245",
+      "source_id": "lee_2023_donggung_wolji_character_debate",
+      "kind": "academic_body",
+      "locator": {
+        "page": "245",
+        "figure": null,
+        "note": "국문초록 — 1991년 규모 비판. 원문 실측 확인."
+      },
+      "text_status": "paraphrased_from_source_verified_against_full_text",
+      "summary_ko": "이현태는 월지 일대를 동궁(태자궁)으로 파악하기에는 고려·조선의 태자궁과 비교해 규모가 지나치게 크다는 비판이 1991년에 제기되었고, 이에 따라 동궁을 '동쪽의 궁궐'로 보고 그 안에 태자궁이 포함된다는 수정 해석이 나왔다고 정리한다.",
+      "claims": [
+        "1991년 규모 과대 비판 제기",
+        "'동쪽의 궁궐' 수정 해석 등장"
+      ],
+      "evidence_class": "E4",
+      "method": "academic_historiography",
+      "used_for_features": [
+        "hypothesis.H2_prince_palace_legacy_interpretation",
+        "context.legacy_west_donggung_interpretation"
+      ],
+      "usable_for": [
+        "hypothesis.H2_prince_palace_legacy_interpretation",
+        "context.legacy_west_donggung_interpretation"
+      ],
+      "not_usable_for": [
+        "exact_geometry",
+        "measured_dimensions"
+      ]
+    },
+    {
+      "id": "seg_lee2023_research_history_p247",
+      "source_id": "lee_2023_donggung_wolji_character_debate",
+      "kind": "academic_body",
+      "locator": {
+        "page": "247",
+        "figure": null,
+        "note": "Ⅰ. 머리말 — 반론 연구사와 논문 구성. 원문 실측 확인."
+      },
+      "text_status": "paraphrased_from_source_verified_against_full_text",
+      "summary_ko": "이현태는 사적 명칭이 '경주 동궁과 월지'로 변경된 즈음부터 상반되는 주장이 끊임없이 제기되었고(윤무병 2010, 최영성 2014, 김병곤, 윤선태 2019 등), 2020년 공동 학술대회에서도 이 쟁점이 확인되었다고 정리하며, '동궁(태자궁)과 월지'설의 형성 과정·비판·최근 쟁점 순으로 연구사를 검토한다.",
+      "claims": [
+        "2011년 전후 반론 지속 제기",
+        "2020년 학술대회에서 쟁점 확인",
+        "연구사 정리 구도(형성→비판→최근 쟁점)"
+      ],
+      "evidence_class": "E4",
+      "method": "academic_historiography",
+      "used_for_features": [
+        "hypothesis.H2_prince_palace_legacy_interpretation",
+        "context.legacy_west_donggung_interpretation"
+      ],
+      "usable_for": [
+        "hypothesis.H2_prince_palace_legacy_interpretation",
+        "context.legacy_west_donggung_interpretation"
+      ],
+      "not_usable_for": [
+        "exact_geometry"
+      ]
+    },
+    {
+      "id": "seg_lee2023_recent_discussion_tasks_p259_263",
+      "source_id": "lee_2023_donggung_wolji_character_debate",
+      "kind": "academic_body",
+      "locator": {
+        "page": "259-263",
+        "figure": null,
+        "note": "Ⅳ. 최근의 논의와 앞으로의 과제 + Ⅴ. 맺음말 일부 — 세부 segment(p259-260/262/263)의 통합 locator. 원문 실측 확인."
+      },
+      "text_status": "paraphrased_from_source_verified_against_full_text",
+      "summary_ko": "이현태는 A건물지 보완발굴의 내진감주·남쪽 답도 확인이 정전 사용을 의미한다고 보고(p.259), 넓은 마당의 조회·의례 공간 구조(p.260), 東池 사료 논의(p.262)를 거쳐, 월지 서편 건물군은 동궁(태자궁)과 연결되기 힘들며 동편 유적이 동궁 후보로 거론되나 검증 과제가 남았다고 맺는다(p.263).",
+      "claims": [
+        "내진감주+답도 → 정전 사용 의미 (p.259)",
+        "조회·국가 의례 공간 구조 (p.260)",
+        "東池 사료 논의 (p.262)",
+        "서편-태자궁 연결 곤란, 동편 후보 (p.263)"
+      ],
+      "evidence_class": "E4",
+      "method": "academic_interpretation",
+      "used_for_features": [
+        "hypothesis.H1_royal_formal_space",
+        "hypothesis.H2_prince_palace_legacy_interpretation",
+        "hypothesis.H3_ritual_audience_banquet_program"
+      ],
+      "usable_for": [
+        "hypothesis.H1_royal_formal_space",
+        "hypothesis.H2_prince_palace_legacy_interpretation",
+        "hypothesis.H3_ritual_audience_banquet_program"
+      ],
+      "not_usable_for": [
+        "confirmed_original_function",
+        "exact_geometry"
+      ]
+    },
+    {
+      "id": "seg_ji2023_dongji_discussion_p867_876",
+      "source_id": "ji_2023_wolji_west_land_preparation_recheck",
+      "kind": "academic_body",
+      "locator": {
+        "page": "867-876",
+        "figure": null,
+        "note": "Ⅲ~Ⅴ장 통합 locator — C14 불연속(p.867), 東池 논증·수성퇴적(p.869-872), 보토=호안·차수벽(p.874), 맺음말(p.876). 원문 실측 확인."
+      },
+      "text_status": "paraphrased_from_source_verified_against_full_text",
+      "summary_ko": "지영배는 C14 불연속 검토(p.867), 매립층 하부 수성퇴적 흔적과 東池 사료 연구(p.869-872)를 근거로 月池 이전 못(東池)의 존재를 논증하고, 보토시설을 東池 호안 겸 차수벽(방수시설)으로 추정하며(p.874), 5C 후엽 선대 대지조성 설정으로 맺는다(p.876).",
+      "claims": [
+        "C14 불연속 (p.867)",
+        "수성퇴적 흔적·東池 논증 (p.869-872)",
+        "보토시설=호안·차수벽 (p.874)",
+        "선대 대지조성 5C 후엽 설정 (p.876)"
+      ],
+      "evidence_class": "E4",
+      "method": "academic_interpretation",
+      "used_for_features": [
+        "context.pre_wolji_dongji",
+        "land_preparation.boto_facility",
+        "land_preparation.multistage",
+        "phase.P0_pre_wolji_wetland_and_prior_use",
+        "phase.P1_late_5c_prior_land_preparation"
+      ],
+      "usable_for": [
+        "context.pre_wolji_dongji",
+        "land_preparation.boto_facility",
+        "land_preparation.multistage",
+        "phase.P0_pre_wolji_wetland_and_prior_use",
+        "phase.P1_late_5c_prior_land_preparation"
+      ],
+      "not_usable_for": [
+        "confirmed_waterline_geometry",
+        "exact_shoreline"
+      ]
+    },
+    {
+      "id": "seg_kim2023_abstract_core_p161_162",
+      "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+      "kind": "academic_body",
+      "locator": {
+        "page": "161-162",
+        "figure": null,
+        "note": "국문초록·주제어. 스캔 페이지 이미지 시각 판독으로 확인."
+      },
+      "text_status": "paraphrased_from_source_verified_against_full_text",
+      "summary_ko": "김경열은 월지 서편 A건물지 발굴조사에서 7×4칸 대형건물, 계단의 답도시설, 특징적인 기단토와 2m 높이 대지성토, 건물지 입지 지대의 고대화 등 왕궁으로 볼 만한 건축적 속성이 확인되었다고 정리하고, A건물지가 신라 왕경 내 최상위 위계 건물임을 방증한다고 본다. 또한 월지를 중심으로 한 왕궁 재편 가능성을 논하고, 동궁 위치는 월지 동편(잠정적으로 나지구)이 가능성이 높다고 추정한다.",
+      "claims": [
+        "7×4칸 대형건물·답도·기단토·2m 대지성토·고대화 = 왕궁급 속성",
+        "A건물지 = 최상위 위계 건물 방증",
+        "월지 중심 왕궁 재편 가능성",
+        "동궁은 월지 동편(나지구) 잠정 추정"
+      ],
+      "evidence_class": "E4",
+      "method": "academic_interpretation",
+      "used_for_features": [
+        "hypothesis.H1_royal_formal_space",
+        "context.authority_building",
+        "layout.grid.seven_by_four",
+        "entrance.dapdo.south",
+        "land_preparation.layer",
+        "context.eastern_donggung_reinterpretation"
+      ],
+      "usable_for": [
+        "hypothesis.H1_royal_formal_space",
+        "context.authority_building",
+        "layout.grid.seven_by_four",
+        "entrance.dapdo.south",
+        "land_preparation.layer",
+        "context.eastern_donggung_reinterpretation"
+      ],
+      "not_usable_for": [
+        "exact_coordinates",
+        "roof_typology",
+        "bracket_typology"
+      ]
+    },
+    {
+      "id": "seg_kim2023_research_scope_p163_166",
+      "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+      "kind": "academic_body",
+      "locator": {
+        "page": "163-166",
+        "figure": null,
+        "note": "Ⅰ. 머리말 후반 — 연구사·비정 문제. p.165 시각 판독(전랑지 북궁 비정 문제·남궁 비정 한계 확인), p.163-164·166은 부분 판독."
+      },
+      "text_status": "paraphrased_from_source_verified_against_full_text",
+      "summary_ko": "김경열은 월지 주변 건물군의 위치 비정을 고고학적 검토로 접근해야 한다고 보고, 전랑지의 북궁 비정과 국립경주박물관 부지의 남궁 비정이 가진 고고학적 근거의 한계를 검토하며, A건물지 중심의 구조·기능 분석 필요성을 제기한다.",
+      "claims": [
+        "북궁(전랑지) 비정 근거의 한계 검토 (p.165)",
+        "남궁(박물관 부지) 비정 근거 부족 검토 (p.165)",
+        "A건물지 중심 고고학적 분석 필요"
+      ],
+      "evidence_class": "E4",
+      "method": "academic_historiography",
+      "used_for_features": [
+        "context.western_royal_space_interpretation",
+        "context.legacy_west_donggung_interpretation",
+        "hypothesis.H1_royal_formal_space",
+        "hypothesis.H2_prince_palace_legacy_interpretation"
+      ],
+      "usable_for": [
+        "context.western_royal_space_interpretation",
+        "context.legacy_west_donggung_interpretation",
+        "hypothesis.H1_royal_formal_space",
+        "hypothesis.H2_prince_palace_legacy_interpretation"
+      ],
+      "not_usable_for": [
+        "exact_geometry"
+      ],
+      "needs_source_review": true
+    },
+    {
+      "id": "seg_kim2023_location_map_p167",
+      "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+      "kind": "academic_context_map",
+      "locator": {
+        "page": "167",
+        "figure": null,
+        "note": "도면 1 — 동궁과 월지 서편 A건물지 위치도(항공사진 기반). 시각 판독 확인. 이미지 자체는 public asset 사용 금지."
+      },
+      "text_status": "paraphrased_from_source_verified_against_full_text",
+      "summary_ko": "김경열 논문의 도면 1은 월지 서편의 A건물지 위치를 가·나·다·라 지구와의 관계 속에서 제시한다. 이 도면은 위치 맥락 locator로만 사용하고, 이미지를 public asset으로 사용하지 않는다.",
+      "claims": [
+        "도면1: A건물지 위치를 지구 구분 맥락에서 제시",
+        "나지구는 2020~ 조사 중으로 표기"
+      ],
+      "evidence_class": "E4",
+      "method": "academic_context_map",
+      "used_for_features": [
+        "site_context.wolji_west",
+        "context.wolji_water_edge",
+        "context.western_building_group_center"
+      ],
+      "usable_for": [
+        "site_context.wolji_west",
+        "context.wolji_water_edge",
+        "context.western_building_group_center"
+      ],
+      "not_usable_for": [
+        "public_image_asset",
+        "exact_coordinate_digitization"
+      ],
+      "locator_figure": "도면 1"
+    },
+    {
+      "id": "seg_kim2023_excavation_characteristics_table_p168",
+      "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+      "kind": "academic_body",
+      "locator": {
+        "page": "168",
+        "figure": null,
+        "note": "표 1 — 차수별 발굴조사 특징 + 층위·성토 서술. 시각 판독 확인."
+      },
+      "text_status": "paraphrased_from_source_verified_against_full_text",
+      "summary_ko": "김경열은 표 1에서 A건물지 차수별 조사 특징을 정리한다: 2018~2021년 보완조사에서 3개소 출입시설과 대지조성 양상, 내진감주·적심축조 양상, 서편 익랑부와 회랑 및 회랑 석축기단이 확인되었다. 본문은 Ⅲ층 기준 층위 대별과 2m 이상 대지 성토 흔적, 권위 건물군 조성을 위한 대규모 토목공사를 서술한다.",
+      "claims": [
+        "표1: 2018-2021 보완조사 — 출입 3개소·대지조성·내진감주·적심축조·서편 익랑부·회랑·석축기단",
+        "2m 이상 대지 성토·대규모 토목공사 (p.168)"
+      ],
+      "evidence_class": "E4",
+      "method": "academic_table_summary",
+      "used_for_features": [
+        "entrance.south.left",
+        "entrance.south.right",
+        "entrance.north.center",
+        "land_preparation.layer",
+        "corridor.west_wing",
+        "corridor.west_corridor_stone_platform"
+      ],
+      "usable_for": [
+        "entrance.south.left",
+        "entrance.south.right",
+        "entrance.north.center",
+        "land_preparation.layer",
+        "corridor.west_wing",
+        "corridor.west_corridor_stone_platform"
+      ],
+      "not_usable_for": [
+        "exact_coordinates"
+      ],
+      "locator_table": "표 1"
+    },
+    {
+      "id": "seg_kim2023_spec_table_p169",
+      "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+      "kind": "academic_body",
+      "locator": {
+        "page": "169",
+        "figure": null,
+        "note": "표 2 — 경주 동궁과 월지 A건물지 제원표. 시각 판독 확인. 2022 보고서 p.308 표2와 수치 합치."
+      },
+      "text_status": "paraphrased_from_source_verified_against_full_text",
+      "summary_ko": "김경열의 제원표는 적심 깊이 2.04m(1개소 해당)·너비 2.2~2.8m, 주칸거리 외진 3.8~4.0m·내진 3.5m, 중앙열 4개소 적심 생략(내진감주), 답도 총 4단 추정, 기단 해발 53.7m, 익랑·회랑 적심과 주칸, 회랑 석축기단 높이 1.2m, 보도시설 너비 등을 정리한다. exact geometry로 단독 사용하지 않고 2022 보고서 p.308 표2와의 교차 확인 source로 사용한다. 석축 단수는 스캔 판독상 6단으로 보이나 보고서 표2·본문은 5단(+1~2단 추가 추정)이므로 보고서 수치를 따른다.",
+      "claims": [
+        "적심 2.04m 깊이·2.2~2.8m 너비 (교차 확인)",
+        "주칸거리 외진 3.8~4.0m·내진 3.5m (교차 확인)",
+        "중앙열 4개소 감주·답도 4단 추정·기단 해발 53.7m",
+        "석축 단수 표기는 보고서(5단) 기준 채택 — 스캔 판독 불일치 주석"
+      ],
+      "evidence_class": "E4",
+      "method": "academic_table_summary",
+      "used_for_features": [
+        "foundation.jeoksim_grid",
+        "foundation.jeoksim_depth_width",
+        "entrance.dapdo.south",
+        "corridor.west_wing",
+        "corridor.west_corridor",
+        "walkway.drainage_or_paved_facility"
+      ],
+      "usable_for": [
+        "foundation.jeoksim_grid",
+        "foundation.jeoksim_depth_width",
+        "entrance.dapdo.south",
+        "corridor.west_wing",
+        "corridor.west_corridor",
+        "walkway.drainage_or_paved_facility"
+      ],
+      "not_usable_for": [
+        "standalone_exact_geometry_without_report2022"
+      ],
+      "locator_table": "표 2"
+    },
+    {
+      "id": "seg_kim2023_conclusion_royal_space_p202",
+      "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+      "kind": "academic_body",
+      "locator": {
+        "page": "202",
+        "figure": null,
+        "note": "Ⅲ장 말미 + Ⅳ. 맺음말 개시. 시각 판독 확인 (p.198-201 나지구 논의는 부분 판독)."
+      },
+      "text_status": "paraphrased_from_source_verified_against_full_text",
+      "summary_ko": "김경열은 잠정적으로 월지 남·서편 일곽을 국왕을 위한 공간으로, 동편 나지구 일곽을 동궁 혹은 태자를 위한 공간으로 상정하며, 왕궁의 중심공간이 월성에서 월지 주변으로 이동했음을 전제하면 월지 서편 건물지 혹은 월지 중심 동편에 동궁이 위치하는 해석이 자연스럽다고 본다.",
+      "claims": [
+        "월지 남·서편 일곽 = 국왕을 위한 공간 (잠정)",
+        "동편 나지구 일곽 = 동궁·태자 공간 (잠정)",
+        "왕궁 중심공간의 월성→월지 이동 전제"
+      ],
+      "evidence_class": "E4",
+      "method": "academic_interpretation",
+      "used_for_features": [
+        "hypothesis.H1_royal_formal_space",
+        "context.western_royal_space_interpretation",
+        "context.eastern_donggung_reinterpretation"
+      ],
+      "usable_for": [
+        "hypothesis.H1_royal_formal_space",
+        "context.western_royal_space_interpretation",
+        "context.eastern_donggung_reinterpretation"
+      ],
+      "not_usable_for": [
+        "confirmed_original_function"
+      ],
+      "needs_source_review": false
     }
   ],
   "warnings": [

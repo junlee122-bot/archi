@@ -1,8 +1,8 @@
 {
   "strict": true,
   "summary": {
-    "total": 50,
-    "pass": 48,
+    "total": 54,
+    "pass": 52,
     "warn": 0,
     "fail": 2
   },
@@ -312,6 +312,30 @@
     {
       "id": "V50_CORRUPTION_UI_REQUIRED",
       "title": "corruption 드릴의 UI 연결",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V51_KIM2023_H1_BACKING",
+      "title": "H1의 김경열 2023 근거",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V52_NO_KIM_PUBLIC_ASSET",
+      "title": "Kim 2023 public asset 금지",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V53_KIM_SEGMENT_QUALITY",
+      "title": "Kim segment 품질 (짧은 paraphrase+locator)",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V54_H1_TRIANGULATION",
+      "title": "H1 3원 교차(2022+Kim+Lee)",
       "status": "pass",
       "details": []
     }

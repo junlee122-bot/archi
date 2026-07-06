@@ -31,13 +31,17 @@ assert.equal(r2022.verified, true);
 assert.equal(r2022.local_available, true);
 assert.equal(r2022.public_asset_allowed, false);
 
-// kim 2023: missing full text — abstract-level use only
+// kim 2023: full article now attached (M1.5b) — but academic articles still
+// never back E1 facts and never carry public-asset rights
 const kim = byId.get('kim_2023_sillasahakbo_a_building_structure_function');
-assert.equal(kim.missing_source, true);
+assert.equal(kim.missing_source, false, 'Kim full text attached');
+assert.equal(kim.local_available, true);
+assert.equal(kim.public_asset_allowed, false);
+assert.equal(kim.license, 'unknown');
 for (const f of features) {
   for (const ev of f.fact_layer.evidence) {
     if (ev.source_id === kim.id) {
-      assert.notEqual(ev.class, 'E1', `${f.id}: missing_source는 E1 불가`);
+      assert.notEqual(ev.class, 'E1', `${f.id}: 학술 논문은 E1 불가`);
     }
   }
 }

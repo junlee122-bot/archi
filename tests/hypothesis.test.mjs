@@ -23,12 +23,12 @@ const h3 = hypotheses.find((h) => h.id === 'H3_ritual_audience_banquet_program')
 assert.equal(h1.axis, 'spatial_political_attribution');
 assert.equal(h1.confidence, 'E4');
 assert.equal(params.hypothesis_rules.strongest_hypothesis, h1.id);
-assert.equal(h2.axis, 'spatial_political_attribution');
+assert.equal(h2.axis, 'historiography');
 assert.equal(h2.confidence, 'E5');
 assert.equal(h2.ui_treatment.legacy_badge, true, 'H2 legacy badge');
 assert.ok(h2.ui_treatment.legacy_badge_label_ko.length > 0);
 assert.equal(h3.axis, 'functional_program');
-assert.deepEqual(h3.requires_features, ['context.wolji_water_edge', 'pre_wolji_dongji'],
+assert.deepEqual(h3.requires_features, ['context.wolji_water_edge', 'context.pre_wolji_dongji'],
   'H3 gated on Wolji AND pre-Wolji water context');
 
 // M1.5: H2 must carry Lee 2023 backing on both sides (V45)

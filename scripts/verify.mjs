@@ -786,6 +786,11 @@ export function runChecks(root, { strict = false } = {}) {
       if (!ji.length) errs.push(`${fid}: 지영배 2023 evidence 필요`);
       else if (!ji.some((ev) => /\d/.test(String(ev.locator?.page ?? '')))) errs.push(`${fid}: 지영배 2023 근거에 page locator 필요`);
     }
+    // 東池 landscape is an interpretation — it can never be presented as E1/E2 fact.
+    const dongji = features.find((x) => x.id === 'context.pre_wolji_dongji');
+    if (dongji && !['E4', 'E5'].includes(dongji.fact_layer.confidence)) {
+      errs.push(`context.pre_wolji_dongji: 東池 경관은 E4/E5만 허용 (현재 ${dongji.fact_layer.confidence})`);
+    }
     add('V46_PHASE_JI2023_BACKING', '선대 단계의 지영배 2023 근거', errs.length ? fail(errs) : pass());
   }
 
@@ -869,6 +874,101 @@ export function runChecks(root, { strict = false } = {}) {
     if (errs.length) add('V50_CORRUPTION_UI_REQUIRED', 'corruption 드릴의 UI 연결', fail([...errs, ...warns]));
     else if (warns.length) add('V50_CORRUPTION_UI_REQUIRED', 'corruption 드릴의 UI 연결', warn(warns));
     else add('V50_CORRUPTION_UI_REQUIRED', 'corruption 드릴의 UI 연결', pass());
+  }
+
+  // ── M1.5b checks V51–V54 (Kim 2023 integration) ───────────────────────
+
+  // V51 — H1 must be backed by Kim 2023 with page locators.
+  {
+    const errs = [];
+    const warns = [];
+    const kimId = params.kim2023_source_id;
+    const kim = sourceMap.get(kimId);
+    const h1 = hypotheses.find((h) => h.id === params.hypothesis_rules.strongest_hypothesis);
+    if (!kim) errs.push('Kim 2023 source 없음');
+    else if (kim.missing_source === true) {
+      warns.push('Kim 2023 전문 미확보(missing_source) — H1은 abstract-level 근거만 사용 가능');
+    }
+    if (!h1) errs.push('H1 없음');
+    else {
+      const kimEvs = (h1.supporting_evidence ?? []).filter((ev) => ev.source_id === kimId);
+      if (!kimEvs.length) errs.push('H1에 김경열 2023 supporting evidence 필요');
+      else {
+        const located = kimEvs.filter((ev) => /\d/.test(String(ev.locator?.page ?? '')));
+        if (!located.length) {
+          if (strict) errs.push('strict: H1의 김경열 2023 근거에 locator-backed segment 필요');
+          else warns.push('H1의 김경열 2023 근거에 page locator 없음 (부분 판독 상태)');
+        }
+        for (const ev of kimEvs) {
+          const seg = ev.source_segment_id ? segmentMap.get(ev.source_segment_id) : null;
+          if (seg?.needs_source_review === true) warns.push(`H1 인용 segment ${seg.id}: needs_source_review (부분 판독)`);
+        }
+      }
+    }
+    if (errs.length) add('V51_KIM2023_H1_BACKING', 'H1의 김경열 2023 근거', fail([...errs, ...warns]));
+    else if (warns.length) add('V51_KIM2023_H1_BACKING', 'H1의 김경열 2023 근거', warn(warns));
+    else add('V51_KIM2023_H1_BACKING', 'H1의 김경열 2023 근거', pass());
+  }
+
+  // V52 — Kim 2023 pages/figures never become public assets.
+  {
+    const errs = [];
+    const pub = join(paths.web(repoRootFromArgs([])), 'public');
+    if (existsSync(pub)) {
+      for (const file of walkFiles(pub)) {
+        const rel = relative(pub, file).toLowerCase();
+        if (rel.includes('kim') && /\.(png|jpe?g|webp|gif|pdf|tif|tiff)$/i.test(rel)) {
+          errs.push(`web/public 내 Kim 2023 파생 자산 금지: ${rel}`);
+        }
+      }
+    }
+    const previewDir = join(paths.artifacts(root), 'preview');
+    if (existsSync(previewDir)) {
+      const manifestPath = join(previewDir, 'preview-manifest.json');
+      if (existsSync(manifestPath)) {
+        for (const f of loadJson(manifestPath).files ?? []) {
+          if (String(f.path).toLowerCase().includes('kim')) errs.push(`preview에 Kim 소스 이미지 금지: ${f.path}`);
+        }
+      }
+    }
+    add('V52_NO_KIM_PUBLIC_ASSET', 'Kim 2023 public asset 금지', errs.length ? fail(errs) : pass());
+  }
+
+  // V53 — Kim segments: short paraphrase + locator, no long quotes.
+  {
+    const errs = [];
+    const kimSegs = segments.filter((s) => s.source_id === params.kim2023_source_id);
+    if (!kimSegs.length) errs.push('Kim 2023 segment 없음');
+    for (const s of kimSegs) {
+      if (s.locator?.page == null) errs.push(`${s.id}: locator.page 필요`);
+      const len = String(s.summary_ko ?? '').length;
+      if (len === 0) errs.push(`${s.id}: summary_ko 없음`);
+      if (len > 500) errs.push(`${s.id}: summary_ko ${len}자 — 짧은 paraphrase 한도(500자) 초과`);
+      if (/[「『][^」』]{120,}[」』]/.test(String(s.summary_ko))) errs.push(`${s.id}: 장문 인용 금지`);
+    }
+    add('V53_KIM_SEGMENT_QUALITY', 'Kim segment 품질 (짧은 paraphrase+locator)', errs.length ? fail(errs) : pass());
+  }
+
+  // V54 — H1 triangulation: 2022 report + Kim 2023 + Lee 2023.
+  {
+    const errs = [];
+    const warns = [];
+    const h1 = hypotheses.find((h) => h.id === params.hypothesis_rules.strongest_hypothesis);
+    const required = params.h1_triangulation_source_ids ?? [];
+    if (!h1) errs.push('H1 없음');
+    else {
+      const cited = new Set((h1.supporting_evidence ?? []).map((ev) => ev.source_id));
+      for (const sid of required) {
+        if (!cited.has(sid)) {
+          const msg = `H1 triangulation 소스 누락: ${sid}`;
+          if (strict) errs.push(`strict: ${msg}`);
+          else warns.push(msg);
+        }
+      }
+    }
+    if (errs.length) add('V54_H1_TRIANGULATION', 'H1 3원 교차(2022+Kim+Lee)', fail([...errs, ...warns]));
+    else if (warns.length) add('V54_H1_TRIANGULATION', 'H1 3원 교차(2022+Kim+Lee)', warn(warns));
+    else add('V54_H1_TRIANGULATION', 'H1 3원 교차(2022+Kim+Lee)', pass());
   }
 
   const failed = results.filter((r) => r.status === 'fail');

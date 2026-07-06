@@ -82,3 +82,22 @@ M2.5 (presentable viewer)는 착수하지 않음 — 다음 스프린트.
 - 김경열 2023 전문 (DBpia 유료) — abstract-level 근거만 사용 가능 (V44 집행).
 - Lee/Ji 논문의 저작권 조건(학회 저작권, KCI 공개 배포) — 인용·발췌 한도 내 사용, license unknown 유지.
 - commercial_safe=false 유지.
+
+## M1.5b 추가 (김경열 2023 전문 반영 — goal:core GREEN 재확인)
+
+- **김경열 2023 전문 PDF 첨부 수령** → `source_packets/kim2023_full_article_for_fable.pdf` (49p 스캔본,
+  텍스트 레이어 없음 → 페이지 이미지 추출 후 시각 판독). `missing_source` 해제,
+  `attachment_available/local_available: true`, license는 unknown 유지.
+- 판독 검증 페이지: p.161-162(초록: 왕궁급 속성·최상위 위계), p.165(북궁·남궁 비정 한계),
+  p.167(도면1 — locator 전용), p.168(표1), p.169(표2 제원표 — **2022 보고서 p.308 표2와 수치 합치 확인**:
+  적심 2.04m/2.2~2.8m, 주칸 외진 3.8~4.0m·내진 3.5m), p.202(남·서편=국왕 공간, 동편 나지구=동궁 잠정).
+  p.163-164·166·170-201은 부분 판독 → 해당 segment `needs_source_review:true`.
+- 석축기단 단수: 보고서 5단(+1~2단 추정) vs Kim 표2 스캔 판독 6단 — 보고서 수치 채택, 불일치 주석 유지.
+- segment 42종(김 6종 포함, 요구 ID 23종 전부 존재). corpus: footprint_front/side_m 필드,
+  주칸거리(E1, p.308), 낙수받이 너비, 석축 1.2m 추가. 리네임: land_preparation.boto_facility /
+  context.pre_wolji_dongji / artifact.discard_phase_context. H2 axis → historiography.
+- verifier V51~V54 추가 (총 54). corruption 15/15 CAUGHT (C13=학술 논문 E1 인용 거부,
+  C15=H1 김 근거 삭제 거부). core 테스트 16종 (신규 6종 포함) 전부 PASS.
+- `npm run goal:core` **GREEN**. `verify:strict` 의도적 fail (license/좌표 디지타이즈 blocker).
+- **M2.5 미착수** — 사용자 지시(“goal:core 먼저”)에 따라 대기. 다음 작업: 4개 route(/, /studio,
+  /verify, /report), 9모드 탭, rubble pads·답도 스트립·층서 단면 렌더, viewer-preview-checklist.

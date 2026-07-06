@@ -122,12 +122,24 @@ const SCENARIOS = [
     })
   },
   {
-    name: 'C13_missing_source_body_page_locator',
+    name: 'C13_academic_article_cited_as_E1',
     mode: 'data',
-    expect: 'missing_source 논문의 본문 page locator를 derive/V44가 거부',
-    setup: (dir) => editJson(paths.segments(dir), (segments) => {
-      const seg = segments.find((s) => s.id === 'seg_kim2023_abstract_a_building');
-      seg.locator.page = '170';
+    expect: '학술 논문의 E1 인용을 V44가 거부',
+    setup: (dir) => editJson(paths.features(dir), (features) => {
+      const f = features.find((x) => x.id === 'site_context.wolji_west');
+      const ev = f.fact_layer.evidence.find((e) => e.source_id === 'kim_2023_sillasahakbo_a_building_structure_function');
+      ev.class = 'E1';
+    })
+  },
+  {
+    name: 'C15_h1_kim_citations_removed',
+    mode: 'data',
+    expect: 'H1의 김경열 2023 근거 삭제를 V51이 거부',
+    setup: (dir) => editJson(paths.hypotheses(dir), (hyps) => {
+      const h1 = hyps.find((h) => h.id === 'H1_royal_formal_space');
+      h1.supporting_evidence = h1.supporting_evidence.filter(
+        (ev) => ev.source_id !== 'kim_2023_sillasahakbo_a_building_structure_function'
+      );
     })
   },
   {

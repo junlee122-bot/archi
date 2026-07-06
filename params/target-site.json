@@ -116,8 +116,8 @@
     "trench.north",
     "stratigraphy.layers",
     "land_preparation.multistage",
-    "boto_facility",
-    "pre_wolji_dongji"
+    "land_preparation.boto_facility",
+    "context.pre_wolji_dongji"
   ],
   "hypothesis_rules": {
     "h3_requires_feature": "context.wolji_water_edge",
@@ -142,11 +142,17 @@
     "trench.north",
     "stratigraphy.layers",
     "land_preparation.multistage",
-    "boto_facility",
-    "pre_wolji_dongji"
+    "land_preparation.boto_facility",
+    "context.pre_wolji_dongji"
   ],
   "ji2023_backed_phases": [
     "P0_pre_wolji_wetland_and_prior_use",
     "P1_late_5c_prior_land_preparation"
-  ]
+  ],
+  "h1_triangulation_source_ids": [
+    "gyeongju_2022_a_building_full_excavation_report",
+    "kim_2023_sillasahakbo_a_building_structure_function",
+    "lee_2023_donggung_wolji_character_debate"
+  ],
+  "kim2023_source_id": "kim_2023_sillasahakbo_a_building_structure_function"
 }
