@@ -11,7 +11,7 @@
 
 ## 스크린샷 (실캡처 — internal render 전용)
 
-artifacts/viewer-preview.png (메인) + artifacts/preview/*.png 7장 — 2026-07-05 정적 빌드 headless Chromium 캡처.
+artifacts/viewer-preview.png (메인) + artifacts/preview/*.png 11장(발표/검수 세트) — 2026-07-06 정적 빌드 headless Chromium 캡처. 파일 목록·장면은 artifacts/preview/preview-manifest.json 참조.
 
 ## route 체크리스트
 
