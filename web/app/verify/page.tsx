@@ -19,7 +19,7 @@ export default function VerifyPage() {
       <StatusBar artifacts={artifacts} />
       <div className="page-body" style={{ display: 'grid', gridTemplateColumns: '1fr 420px', gap: 16 }}>
         <div>
-          <h2>Verification Console — V01–V54</h2>
+          <h2>Verification Console — V01–V64</h2>
           {verification ? (
             <>
               <div className="card">

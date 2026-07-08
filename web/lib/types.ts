@@ -22,8 +22,9 @@ export interface Feature {
   geometry_layer: Record<string, any> & { type: string; confidence: EvidenceClass; evidence: Evidence[] };
   confidence: EvidenceClass;
   render_confidence: EvidenceClass;
-  ui_flags: Record<string, boolean>;
+  ui_flags: Record<string, boolean | number>;
   warnings: string[];
+  not_usable_for?: string[];
   derived_badges?: { fact_badge: EvidenceClass; render_badge: EvidenceClass; archaeology_vs_hypothesis: string };
   linked_hypothesis?: string;
 }
@@ -85,6 +86,20 @@ export interface Spec {
       thickness_source: string | null; render_confidence: string; note: string;
     } | null;
     entrance_layout: { south: string[]; north: string[]; dapdo_on: string[]; side_source: string; offsets: string };
+    proxy_superstructure: {
+      enabled: boolean;
+      default_visible: boolean;
+      mode_visible: string[];
+      features: string[];
+      policy: Record<string, any>;
+      column_positions: { col: number; row: number; u: number; v: number; in_omitted_zone: boolean; style: string; is_excavated_position: boolean }[];
+      omitted_zone: { filled: boolean; style: string; label_ko: string; symbolic_positions: { col: number; row: number }[]; positions_source: string };
+      height_presets: { unit: string; label_ko: string; options: Record<string, number>; default: string };
+      opacity: Record<string, number>;
+      warnings_required: string[];
+      render_confidence: string;
+      note: string;
+    } | null;
     phase_order: string[];
     hypothesis_axis_model: { mutually_exclusive: boolean; axes: string[]; note: string };
   };

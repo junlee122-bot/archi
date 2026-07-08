@@ -182,6 +182,60 @@ const SCENARIOS = [
     setup: (dir) => editJson(paths.spec(dir), (spec) => {
       spec.hypotheses[0].summary_ko = '이 뷰어는 신라 왕궁의 원형 복원을 보여준다.';
     })
+  },
+  // ── M2.6 silhouette overclaim drills ──────────────────────────────────
+  {
+    name: 'C16_roof_typology_assigned_to_proxy_envelope',
+    mode: 'data',
+    expect: 'proxy roof envelope에 지붕형식 지정을 V56/V58이 거부',
+    setup: (dir) => editJson(paths.features(dir), (features) => {
+      const f = features.find((x) => x.id === 'superstructure.proxy.roof_envelope');
+      f.geometry_layer.roof_typology = '팔작';
+    })
+  },
+  {
+    name: 'C17_proxy_column_height_measured_e1',
+    mode: 'data',
+    expect: 'proxy 기둥 실측 높이+E1 승격을 V57/V55가 거부',
+    setup: (dir) => editJson(paths.features(dir), (features) => {
+      const f = features.find((x) => x.id === 'superstructure.proxy.column_posts');
+      f.geometry_layer.column_height_m = 6.0;
+      f.geometry_layer.height_mode = 'measured';
+      f.fact_layer.confidence = 'E1';
+      f.confidence = 'E1';
+    })
+  },
+  {
+    name: 'C18_bracket_typology_assigned_to_proxy',
+    mode: 'data',
+    expect: 'proxy beam frame에 공포양식 지정을 V56이 거부',
+    setup: (dir) => editJson(paths.features(dir), (features) => {
+      const f = features.find((x) => x.id === 'superstructure.proxy.beam_frame');
+      f.geometry_layer.bracket_typology = '주심포';
+    })
+  },
+  {
+    name: 'C19_omitted_zone_filled_with_confident_columns',
+    mode: 'artifact',
+    reseal: true,
+    expect: '감주 영역을 확정 기둥으로 채우는 조작을 V62가 거부',
+    setup: (dir) => editJson(paths.spec(dir), (spec) => {
+      const ps = spec.derived.proxy_superstructure;
+      ps.omitted_zone.filled = true;
+      for (const p of ps.column_positions) {
+        if (p.in_omitted_zone) p.style = 'proxy_post';
+      }
+    })
+  },
+  {
+    name: 'C20_source_image_copied_into_web_public',
+    mode: 'artifact',
+    reseal: true,
+    expect: 'web/public 내 이미지 자산을 V59/V20이 거부',
+    setup: (dir) => {
+      mkdirSync(join(dir, 'web', 'public'), { recursive: true });
+      writeFileSync(join(dir, 'web', 'public', 'source-page.png'), 'fake png bytes');
+    }
   }
 ];
 

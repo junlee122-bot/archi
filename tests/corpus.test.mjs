@@ -36,9 +36,10 @@ for (const f of features) {
 }
 
 // superstructure = ghost only, typology unassigned
+// (M2.6: proxy silhouette features render as E5 — still ghost-class, per V21/V55)
 for (const f of features.filter((x) => x.id.startsWith('superstructure.'))) {
   assert.equal(f.geometry_layer.ghost, true, `${f.id}: ghost`);
-  assert.equal(f.render_confidence, 'DEMO');
+  assert.ok(['DEMO', 'E5'].includes(f.render_confidence), `${f.id}: render DEMO/E5 only`);
 }
 const roof = features.find((f) => f.id === 'superstructure.roof_mass.ghost');
 assert.equal(roof.geometry_layer.roof_type, null);

@@ -1266,5 +1266,35 @@
       "confirmed_original_function"
     ],
     "needs_source_review": false
+  },
+  {
+    "id": "seg_report2022_roof_tile_chimi_material_context_p12_14",
+    "source_id": "gyeongju_2022_a_building_full_excavation_report",
+    "kind": "report_body",
+    "locator": {
+      "page": "12-13, 190",
+      "figure": "사진13-15, 도판55",
+      "note": "화보 p.12-13(사진13 A건물지 출토유물 일괄, 사진14 수막새·암막새 일괄, 사진15 평기와·치미·전 일괄) + IV. 조사 내용 유물 88)·89) 치미(p.190, 도판55: 회랑석축기단 서편 3단·1군 기와무지 수습, 깃대부·머리부 일부 추정). 인쇄 페이지 원문 실측 확인."
+    },
+    "text_status": "paraphrased_from_source_verified_against_full_text",
+    "summary_ko": "보고서에는 A건물지 출토 평기와, 치미, 수막새·암막새, 전 등 기와류·지붕 관련 유물이 정리되어 있다. 치미편 2점(88·89)은 회랑석축기단 서편(3단)과 1군 기와무지에서 수습되었고 각각 깃대부·머리부 일부로 추정된다. 이는 지붕 재료 맥락을 보여주지만 지붕형식 확정 근거로 사용하지 않는다.",
+    "claims": [
+      "A건물지 일원 출토 유물에 평기와·수막새·암막새·전 등 기와류 포함",
+      "치미편 2점(깃대부·머리부 일부 추정) 수습 — 회랑석축기단 서편(3단), 1군 기와무지",
+      "기와류 출토는 지붕 재료 맥락이며 지붕형식 확정 근거가 아님"
+    ],
+    "usable_for": [
+      "material_context.roof_tile_fragments",
+      "material_context.chimi_fragments"
+    ],
+    "not_usable_for": [
+      "roof_typology",
+      "bracket_typology",
+      "roof_reconstruction",
+      "exact_roof_covering"
+    ],
+    "seed_evidence_class": "E1",
+    "seed_method": "report_stated",
+    "seed_origin": "m2_6_direct_pdf_reading"
   }
 ]

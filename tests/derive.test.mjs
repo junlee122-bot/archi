@@ -59,8 +59,9 @@ assert.ok(['DEMO', 'E5'].includes(sg.render_confidence));
 
 // mode tabs come from params template
 assert.deepEqual(spec.derived.mode_tabs, expandModeTabs(params));
-assert.equal(spec.derived.mode_tabs.length, 9, 'M2.5 nine mode tabs');
+assert.equal(spec.derived.mode_tabs.length, 10, 'M2.6 ten mode tabs');
 assert.ok(spec.derived.mode_tabs.includes('제원/그리드'));
+assert.ok(spec.derived.mode_tabs.includes('구조 실루엣'), 'M2.6 silhouette tab');
 
 // license gate propagated
 assert.equal(spec.license_audit.commercial_safe, false, 'unverified sources keep commercial_safe=false');

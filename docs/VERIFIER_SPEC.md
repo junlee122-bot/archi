@@ -80,9 +80,36 @@
 | V45_H2_LEE2023_BACKING | H2는 이현태 2023 page locator 근거를 supporting과 counter 양쪽에 보유 의무 |
 | V46_PHASE_JI2023_BACKING | 선대 단계(P0/P1)와 Ji-backed feature 5종은 지영배 2023 page locator 근거 의무 |
 | V47_REPORT2022_CORE_FEATURE_BACKING | params.report2022_core_features 10종은 2022 보고서 숫자 page locator 근거 의무 |
-| V48_VIEWER_ROUTE_COMPLETENESS | 뷰어 8모드 처리·컴포넌트 완결성 (web/ 부재 시 core-only로 skip, M2에서 재검사) |
+| V48_VIEWER_ROUTE_COMPLETENESS | 뷰어 route 4종 + params 템플릿 전체 모드 탭(M2.6: 10종) 처리·컴포넌트 완결성 (web/ 부재 시 core-only로 skip) |
 | V49_PRESENTATION_PREVIEW_REQUIRED | artifacts/preview manifest 존재, 파일은 internal_viewer_render만 (소스 이미지 금지) |
 | V50_CORRUPTION_UI_REQUIRED | corruption 드릴 ≥12 시나리오, copy:web 스테이징, VerificationPanel 표시, fail_closed=true (리포트 미생성은 warn) |
+
+## V51–V54 (M1.5b — Kim 2023 통합)
+
+| check | 규칙 |
+|---|---|
+| V51_KIM2023_H1_BACKING | H1은 김경열 2023 page locator 근거 의무 (삭제 시 C15 거부) |
+| V52_NO_KIM_PUBLIC_ASSET | Kim 2023 페이지·도판 파생 자산의 web/public·preview 반입 금지 |
+| V53_KIM_SEGMENT_QUALITY | Kim segment는 짧은 paraphrase(≤500자)+page locator, 장문 인용 금지 |
+| V54_H1_TRIANGULATION | H1은 2022+Kim+Lee 3원 교차 인용 의무 (미충족 시 warn/strict fail) |
+
+## V55–V64 (M2.6 — 구조 실루엣 게이트)
+
+| check | 규칙 |
+|---|---|
+| V55_SUPERSTRUCTURE_PROXY_LAYER_ONLY | proxy feature는 proxy_silhouette/material_context/helper layer 전용, excavated 위장·고신뢰 geometry·proxy fact E1 금지 |
+| V56_NO_STYLE_ASSIGNMENT_IN_SILHOUETTE | proxy geometry의 roof/bracket typology null 강제, proxy 텍스트에 형식 용어 positive claim 금지 |
+| V57_COLUMN_HEIGHT_NOT_MEASURED | proxy geometry에 (height/diameter)_(m/mm/cm) 실측치 금지, height_mode=preset_not_measured, preset 단위 scene_units_not_measured |
+| V58_ROOF_ENVELOPE_UNTYPED | roof_mode=untyped_envelope 강제, 기와 피복·용마루 장식 재현 금지, 형식 미상 경고문 의무 |
+| V59_MATERIAL_CONTEXT_NOT_GEOMETRY | 재료 맥락은 DEMO 추상 마커 전용, roof_typology not_usable 명시, web/public 이미지 자산 전면 금지 |
+| V60_DEFAULT_ARCHAEOLOGY_MODE_UNALTERED | proxy default_visible=false, 발굴유구 모드 표시 금지, 불투명도 상한(지붕 강조 시에도 ≤0.28) |
+| V61_PROXY_FEATURES_HAVE_EVIDENCE_OR_EXPLICIT_NULL | provenance 공백 금지, 상부구조 proxy는 '직접 근거 없음' 명시 의무, helper는 ui_helper 분류 강제 |
+| V62_OMITTED_COLUMN_ZONE_NOT_FILLED | 감주 영역 filled=false + absent_slot 스타일 + '기둥 없음/미확인' 라벨 강제 |
+| V63_PROXY_UI_WARNINGS_VISIBLE | 뷰어 코드에 4대 경고 문구(복원 부정·형식 미지정 2종·높이 미확정) 의무 (web/ 부재 시 skip) |
+| V64_PROXY_PREVIEW_REQUIRED | 실루엣 프리뷰 4종이 manifest에 internal_viewer_render로 존재 의무 |
+
+corruption 드릴은 C01~C20 (M2.6 추가: C16 지붕 형식 주입, C17 실측 높이+E1 승격,
+C18 공포양식 주입, C19 감주 충전, C20 public 이미지 반입) — 전부 CAUGHT여야 exit 0.
 
 ## 금지어 scanner 세부 (V39 / check-forbidden-language.mjs)
 
@@ -91,4 +118,7 @@ README 공개 섹션, `docs/DEMO_SCRIPT.md`.
 
 예외 처리: 이 문서와 SOURCE_POLICY의 금지어 목록 섹션, `forbiddenTerms` 배열 내부
 문자열, 코드 주석, 부정 문맥 문장(금지 / 사용하지 않는다 / must not / do not /
-not a / 아니다 등).
+not a / 아니다 / 아님 등 — '아님'은 M2.6 배지 「원형 복원 아님」이 부정 문맥으로
+인식되도록 추가된 동일 부정 형태소). M2.6에서 금지어 목록 자체도 확장되었고
+(실제 신라 궁궐, 정확한 지붕형식, 형식+복원 결합어, 기둥 높이 실측 등)
+tests/no-superstructure-overclaim.test가 이중 검사한다.

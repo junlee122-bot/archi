@@ -11,10 +11,10 @@
 ```
 params/      사이트 기대값 (칸 수, 필수 feature, 금지 typology 용어) — verifier는 이 값만 참조
 data/        소스 레지스트리 · 소스 segment · canonical 2층 corpus · 가설(축 모델) · phase
-scripts/     derive / verify(V01–V54) / corrupt / 리포트 / 금지어 scanner
+scripts/     derive / verify(V01–V64) / corrupt / 리포트 / 금지어 scanner
 artifacts/   생성물: structural-spec.json (integrity 봉인) · verification-report.json · 리포트
 tests/       core 9종 + web smoke
-web/         Next.js + React Three Fiber 정적 뷰어 (route 4종 /·/studio·/verify·/report · 9 mode tabs)
+web/         Next.js + React Three Fiber 정적 뷰어 (route 4종 /·/studio·/verify·/report · 10 mode tabs)
 agents/      역할별 규칙 (건축·verifier·license·가설 엔진)
 docs/        정책 문서 (SOURCE_POLICY / VERIFIER_SPEC / HYPOTHESIS_POLICY / …)
 ```
@@ -22,8 +22,8 @@ docs/        정책 문서 (SOURCE_POLICY / VERIFIER_SPEC / HYPOTHESIS_POLICY / 
 ## 실행
 
 ```bash
-npm run goal:core    # M1.5: validate → derive → verify(V01–V54) → 리포트 → core 테스트 15종
-npm run corrupt      # fail-closed 드릴 (15개 조작 시나리오 전부 거부되어야 통과)
+npm run goal:core    # validate → derive → verify(V01–V64) → 리포트 → core 테스트 17종
+npm run corrupt      # fail-closed 드릴 (20개 조작 시나리오 전부 거부되어야 통과)
 npm run goal:web     # M2.5: 아티팩트 복사 → next build (web/, npm run web:install 선행)
 npm run m3           # M3: 증거/가설/phase/license 리포트 + 금지어 스캔
 npm run goal:strict  # 로드맵 게이트 — locator/license 미확정이 남은 동안 의도적으로 실패
@@ -35,13 +35,16 @@ npm run goal:strict  # 로드맵 게이트 — locator/license 미확정이 남�
 
 | route | 내용 |
 |---|---|
-| `/` | Public Evidence Viewer — 9모드 탭(발굴유구·제원/그리드·내진감주·출입/동선·익랑·회랑·대지조성·트렌치·해석축·불확실성·검증결과), rubble 적심 패드, 감주 hatch, 답도 스트립, 5단 석축, 2.5D 층서 단면, 해석축 모델, 상호작용 phase timeline |
-| `/studio` | Corpus Review Studio — feature 45종 검수 테이블 (locator/DEMO/E5/E1/가설 필터) |
-| `/verify` | Verification Console — V01–V54 + UI corruption 데모(로컬 state 전용) + 실제 드릴 15/15 |
+| `/` | Public Evidence Viewer — 10모드 탭(발굴유구·제원/그리드·내진감주·출입/동선·익랑·회랑·대지조성·트렌치·해석축·**구조 실루엣**·불확실성·검증결과), rubble 적심 패드, 감주 hatch, 답도 스트립, 5단 석축, 2.5D 층서 단면, 해석축 모델, 상호작용 phase timeline |
+| `/studio` | Corpus Review Studio — feature 56종 검수 테이블 (locator/DEMO/E5/E1/가설 필터) |
+| `/verify` | Verification Console — V01–V64 + UI corruption 데모(로컬 state 전용) + 실제 드릴 20/20 |
 | `/report` | Report Viewer — 증거·가설·phase·license·프리뷰 체크리스트 카드 |
 
-모든 표시에서 사실(FACT) confidence와 표시(RENDER) confidence는 분리되며, 상부구조는 ghost mass만 —
-지붕형식·공포양식은 지정하지 않는다. 실렌더 프리뷰: `artifacts/viewer-preview.png`, `artifacts/preview/`.
+모든 표시에서 사실(FACT) confidence와 표시(RENDER) confidence는 분리되며, 상부구조는 ghost mass와
+**구조 실루엣(M2.6)** — 기둥 proxy·보 wireframe·형식 미지정 지붕 envelope — 로만 표시된다.
+실루엣은 원형 복원이 아니다: 지붕형식·공포양식·기둥 높이는 지정하지 않으며(V55~V64),
+높이는 「시각화 preset — 실측 높이 아님」, 감주 영역은 「기둥 없음/미확인」 점선 슬롯으로 남는다.
+정책: `docs/SUPERSTRUCTURE_PROXY_POLICY.md`. 실렌더 프리뷰: `artifacts/viewer-preview.png`, `artifacts/preview/`.
 
 ## 2층 corpus (fact vs geometry)
 

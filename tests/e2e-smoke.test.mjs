@@ -25,8 +25,9 @@ const specPath = join(web, 'public', 'artifacts', 'structural-spec.json');
 assert.ok(existsSync(specPath), 'web/public/artifacts/structural-spec.json staged');
 const spec = loadJson(specPath);
 const params = loadJson(paths.params(root));
-assert.deepEqual(spec.derived.mode_tabs, expandModeTabs(params), 'staged spec carries the 8 mode tabs');
-assert.equal(spec.derived.mode_tabs.length, 9);
+assert.deepEqual(spec.derived.mode_tabs, expandModeTabs(params), 'staged spec carries the params mode tabs');
+assert.equal(spec.derived.mode_tabs.length, 10);
+assert.ok(spec.derived.mode_tabs.includes('구조 실루엣'), 'M2.6 silhouette tab present');
 
 // key UI obligations visible in source: axis labels, legacy badge, split confidences, ghost mass
 const pageSrc = readFileSync(join(web, 'app', 'page.tsx'), 'utf8');

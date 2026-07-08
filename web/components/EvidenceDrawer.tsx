@@ -3,11 +3,13 @@
 import type { Feature, Spec } from '../lib/types';
 import type { SourceMeta } from '../lib/useArtifacts';
 import ConfidenceBadge from './ConfidenceBadge';
-import { linkedHypotheses, linkedPhases, relatedChecks } from '../lib/relations';
+import { linkedHypotheses, linkedPhases, relatedChecks, NOT_CLAIMED_LABELS } from '../lib/relations';
 
 const STACK_LABEL: Record<string, string> = {
   archaeology: '보고 사실', context: '보고 사실 / 맥락', hypothesis: '기능 가설', uncertainty: '불확실성'
 };
+
+const PROXY_LAYERS = new Set(['proxy_silhouette', 'material_context', 'helper']);
 
 // The drawer is the heart of evidence separation: FACT (source-backed claim,
 // class, locator) is always shown apart from RENDER (how we visualize it).
@@ -94,6 +96,37 @@ export default function EvidenceDrawer({
         </p>
         {feature.geometry_layer.evidence.map(evidenceCard)}
       </div>
+
+      {(feature.not_usable_for ?? []).length > 0 && (
+        <div className="fact-block" style={{ borderColor: '#7a4a4a' }}>
+          <h4>NOT CLAIMED — 이 표시가 주장하지 않는 것</h4>
+          <div>
+            {(feature.not_usable_for ?? []).map((k) => (
+              <span key={k} className="badge legacy" style={{ marginRight: 4, marginBottom: 4 }}>
+                {NOT_CLAIMED_LABELS[k] ?? k}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {feature.render_layer === 'proxy_silhouette' && (
+        <div className="card" style={{ marginTop: 8 }}>
+          <h4>왜 표시가 허용되는가?</h4>
+          <p className="small">
+            적심과 평면은 보고서 근거가 있지만, 상부 목구조는 남아 있지 않습니다. 따라서 이 레이어는
+            구조 리듬과 규모감을 이해하기 위한 투명한 proxy입니다. 지붕형식 미지정 · 공포양식 미지정 ·
+            기둥 높이 미확정 — 원형 복원 아님.
+          </p>
+        </div>
+      )}
+      {PROXY_LAYERS.has(feature.render_layer) && feature.render_layer !== 'proxy_silhouette' && (
+        <p className="small warn">
+          {feature.render_layer === 'helper'
+            ? 'UI helper — 고고학 feature가 아니며 사실 주장이 없습니다.'
+            : '재료 맥락 마커 — 절차적 추상 표시이며 지붕형식 확정 근거로 사용하지 않습니다.'}
+        </p>
+      )}
 
       {feature.warnings.length > 0 && (
         <>

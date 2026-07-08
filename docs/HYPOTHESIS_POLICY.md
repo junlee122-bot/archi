@@ -33,6 +33,9 @@
 - V14: 모든 가설에 counter_evidence 강제.
 - V15: 가설 confidence 상한 E4, 근거 등급 초과 금지.
 - H1은 상부 목구조의 확정된 복원으로 제시하지 않는다 (ghost opacity ≤ 0.2 + 경고문).
+- M2.6 구조 실루엣 layer는 H1 선택 시 저불투명으로만 겹쳐지며 「확정 아님」 배지를
+  유지한다 — 실루엣은 가설 강도를 높이는 근거가 아니라 규모 이해용 표시다
+  (docs/SUPERSTRUCTURE_PROXY_POLICY.md, V55~V64).
 
 ## 승격 경로
 

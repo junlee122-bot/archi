@@ -90,6 +90,36 @@
       "expect": "금지 표현 주입을 V28이 거부",
       "caught": true,
       "caught_by": "verify (V28_SPEC_FORBIDDEN_LANGUAGE)"
+    },
+    {
+      "name": "C16_roof_typology_assigned_to_proxy_envelope",
+      "expect": "proxy roof envelope에 지붕형식 지정을 V56/V58이 거부",
+      "caught": true,
+      "caught_by": "verify (V56_NO_STYLE_ASSIGNMENT_IN_SILHOUETTE, V58_ROOF_ENVELOPE_UNTYPED)"
+    },
+    {
+      "name": "C17_proxy_column_height_measured_e1",
+      "expect": "proxy 기둥 실측 높이+E1 승격을 V57/V55가 거부",
+      "caught": true,
+      "caught_by": "verify (V55_SUPERSTRUCTURE_PROXY_LAYER_ONLY, V57_COLUMN_HEIGHT_NOT_MEASURED)"
+    },
+    {
+      "name": "C18_bracket_typology_assigned_to_proxy",
+      "expect": "proxy beam frame에 공포양식 지정을 V56이 거부",
+      "caught": true,
+      "caught_by": "verify (V33_BRACKET_TYPOLOGY_FORBIDDEN, V56_NO_STYLE_ASSIGNMENT_IN_SILHOUETTE)"
+    },
+    {
+      "name": "C19_omitted_zone_filled_with_confident_columns",
+      "expect": "감주 영역을 확정 기둥으로 채우는 조작을 V62가 거부",
+      "caught": true,
+      "caught_by": "verify (V62_OMITTED_COLUMN_ZONE_NOT_FILLED)"
+    },
+    {
+      "name": "C20_source_image_copied_into_web_public",
+      "expect": "web/public 내 이미지 자산을 V59/V20이 거부",
+      "caught": true,
+      "caught_by": "verify (V20_NO_SOURCE_MEDIA_IN_WEB_PUBLIC, V59_MATERIAL_CONTEXT_NOT_GEOMETRY)"
     }
   ]
 }

@@ -30,6 +30,8 @@
 - **stratigraphy.layers** — 북편 트렌치는 기반층(Ⅷ)→습지층(Ⅶ)→선대 유구층(Ⅵ, 3세기 전후 와질토기)→대지조성층(Ⅴ: 수평축토층 Ⅴ-3·보토시설층 Ⅴ-2·성토 상부층 Ⅴ-1)→매립층(Ⅳ)→통일신라 문화층(Ⅲ)→근현대(Ⅱ)→교란·복토(Ⅰ)의 8개 대별층으로 구분된다(지영배 2023 p.857; 2022 보고서 p.95-99의 남·북편 트렌치 층서 서술 합치). 습지층 두께 약 70cm, 대지조성층 1~1.2m(남편) 등 지점별 두께가 보고되어 있다.
 - **land_preparation.multistage** — 2022 보고서 p.98은 대지조성과 A건물지 축조 사이에 공정상의 선후관계가 존재하고 성토 전후로 시기가 다른 문화층이 있음을 보고한다. 지영배 2023은 토층·유물·방사성탄소연대(C14 불연속, p.867)·東池 논의를 근거로 대지조성이 단기간이 아니라 시간 간격과 단계를 가진 다단계 조성임을 논한다(p.855).
 - **artifact.discard_phase_context** — 2022 보고서는 1·2군 기와무지와 1~4호 수혈 등 후대 사용 관련 유구(p.84), 서익랑 일대의 근·현대 교란과 적심 상부 훼손·삭평(p.107-108), 낙수받이시설 전의 탈락 양상(p.311)을 보고한다.
+- **material_context.roof_tile_fragments** — 2022 보고서에는 A건물지 일원 출토 평기와, 수막새·암막새, 전 등 기와류가 정리되어 있다(화보 사진13~15, 본문 유물 기술). 이는 지붕 재료의 출토 맥락을 보여주며, 지붕형식 확정 근거로는 사용하지 않는다.
+- **material_context.chimi_fragments** — 2022 보고서 유물 88·89(도판55)로 치미편 2점이 정리되어 있다. 회랑석축기단 서편(3단)과 1군 기와무지에서 수습되었고 각각 깃대부·머리부 일부로 추정된다. 치미편의 존재는 지붕 장식 부재의 맥락을 보여주지만, 치미 전체 형태 복원이나 지붕형식 확정 근거로 사용하지 않는다.
 
 ## 전체 feature: fact vs render confidence
 
@@ -80,6 +82,17 @@
 | land_preparation.boto_facility | E2 | E2 | wall-like-fill-feature |
 | context.pre_wolji_dongji | E4 | DEMO | 상대 placeholder (실측 아님) |
 | artifact.discard_phase_context | E1 | DEMO | 상대 placeholder (실측 아님) |
+| superstructure.proxy.overview | E4 | E5 | proxy-superstructure-silhouette |
+| superstructure.proxy.column_posts | E4 | E5 | proxy-column-posts |
+| superstructure.proxy.beam_frame | E4 | E5 | proxy-beam-frame |
+| superstructure.proxy.roof_envelope | E4 | E5 | proxy-roof-envelope |
+| superstructure.proxy.corridor_upper_silhouette | E4 | E5 | proxy-corridor-silhouette |
+| material_context.roof_tile_fragments | E1 | DEMO | 상대 placeholder (실측 아님) |
+| material_context.chimi_fragments | E1 | DEMO | 상대 placeholder (실측 아님) |
+| scale_helper.human_silhouette | E5 | DEMO | 상대 placeholder (실측 아님) |
+| uncertainty.column_height_unknown | E5 | E5 | 공간 지오메트리 없음 |
+| uncertainty.roof_typology_unknown | E5 | E5 | 공간 지오메트리 없음 |
+| uncertainty.bracket_typology_unknown | E5 | E5 | 공간 지오메트리 없음 |
 
 ## DEMO / 상대 geometry placeholder 목록
 
@@ -110,6 +123,9 @@
 - **corridor.west_corridor_stone_platform** (layered-stone-platform) — 석축기단 존재·단수(최소 5단)는 보고서 근거 E1 / 연장·좌표는 미확정 — layered 표현은 시각화 / 단수 표기: 보고서 표2·맺음말 = 5단(+1~2단 추가 추정). 김경열 2023 표2 스캔 판독은 6단으로 보이나 해상도상 오독 가능성 — 보고서 수치 채택, 불일치 주석 유지
 - **context.pre_wolji_dongji** (water-plane-hint) — 東池 경관은 추정(E4) — 확정 유구가 아님 / 수성퇴적 흔적 관찰은 E2 / H3 기능축과 P0 선대 단계 표시의 전제 컨텍스트
 - **artifact.discard_phase_context** (annotation-scatter) — 후대 유구·교란의 존재는 E1, 개별 위치는 상징 표시
+- **material_context.roof_tile_fragments** (material-context-markers) — 기와류 출토 맥락 / 지붕 형식 확정 근거 아님 / 마커는 절차적 추상 표시이며 출토 유물 형상 재현이 아님
+- **material_context.chimi_fragments** (material-context-markers) — 치미 맥락 표시 / 치미 형태 복원 아님 / 지붕 형식 확정 근거 아님
+- **scale_helper.human_silhouette** (scale-helper-figure) — scale helper — 고고학 feature 아님 / 역사적 인물 재현 아님
 
 ## 미확정(소스 locator 필요) 항목
 

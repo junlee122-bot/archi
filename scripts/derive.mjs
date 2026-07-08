@@ -199,6 +199,81 @@ export function buildSpec(root, { strict = false } = {}) {
     offsets: 'placeholder — 도면 디지타이즈 전까지 미확정'
   };
 
+  // ── M2.6: constrained superstructure proxy silhouette ────────────────
+  // Visual-only layer derived from the frozen corpus: positions reuse the
+  // symbolic jeoksim grid, heights are scene-unit presets (never measured),
+  // roof stays an untyped envelope, and the omitted-column zone is NEVER
+  // filled with confident posts (V62 enforces this).
+  const proxyCfg = params.superstructure_proxy ?? null;
+  const proxyOverview = proxyCfg
+    ? specFeatures.find((f) => f.id === proxyCfg.overview_feature_id)
+    : null;
+  let proxySuperstructure = null;
+  if (proxyCfg && proxyOverview && jeoksim) {
+    // symbolic omitted zone: the reported "중앙열 4개소 적심 공백" mapped onto
+    // the symbolic post grid center row — NOT excavated coordinates.
+    const centerRow = Math.floor(baysSide / 2);
+    const omittedCols = [2, 3, 4, 5].filter((c) => c <= baysFront);
+    const isOmitted = (col, row) => row === centerRow && omittedCols.includes(col);
+    proxySuperstructure = {
+      enabled: true,
+      default_visible: false,
+      mode_visible: ['구조 실루엣', '해석축', '불확실성'],
+      features: [
+        ...proxyCfg.proxy_feature_ids,
+        ...proxyCfg.material_context_feature_ids,
+        ...proxyCfg.helper_feature_ids
+      ].filter((id) => specFeatures.some((f) => f.id === id)),
+      policy: {
+        roof_typology: null,
+        bracket_typology: null,
+        column_height_measured: false,
+        is_reconstruction: false,
+        render_confidence: 'E5',
+        fact_basis: [
+          'report_dimension_scaled_footprint',
+          'reported_jeoksim_grid',
+          'reported_entrances',
+          'reported_corridor_stone_platform',
+          'academic_high_status_interpretation',
+          'roof_tile_chimi_material_context'
+        ]
+      },
+      column_positions: jeoksimPads.map((p) => ({
+        col: p.col,
+        row: p.row,
+        u: p.u,
+        v: p.v,
+        in_omitted_zone: isOmitted(p.col, p.row),
+        style: isOmitted(p.col, p.row) ? 'absent_slot' : 'proxy_post',
+        is_excavated_position: false
+      })),
+      omitted_zone: {
+        filled: false,
+        style: 'absent_or_hollow_slot',
+        label_ko: '감주 영역 — 기둥 없음/미확인',
+        symbolic_positions: omittedCols.map((c) => ({ col: c, row: centerRow })),
+        positions_source: 'symbolic — 도면 미디지타이즈, 발굴 좌표 아님 (layout.omitted_inner_columns E1 사실의 상징 표현)'
+      },
+      height_presets: {
+        unit: 'scene_units_not_measured',
+        label_ko: '시각화 preset — 실측 높이 아님',
+        options: { '낮게': 0.75, '중간': 1.0, '높게': 1.25 },
+        default: proxyCfg.default_height_preset ?? '중간'
+      },
+      opacity: {
+        columns: 0.3,
+        beams: 0.26,
+        roof: 0.16,
+        roof_emphasized_max: 0.28,
+        corridor: 0.12
+      },
+      warnings_required: proxyCfg.required_warning_labels,
+      render_confidence: 'E5',
+      note: '구조 실루엣은 표시 layer다 — 지붕형식·공포양식·기둥 높이를 확정하지 않으며 원형 복원이 아니다.'
+    };
+  }
+
   // ── hypotheses: axis model, badges, render gating ─────────────────────
   const specHypotheses = hypotheses.map((h) => {
     const missing = (h.requires_features ?? []).filter((id) => !featureIds.has(id));
@@ -264,6 +339,7 @@ export function buildSpec(root, { strict = false } = {}) {
       jeoksim_pads: jeoksimPadsBlock,
       stratigraphy_section: stratigraphySection,
       entrance_layout: entranceLayout,
+      proxy_superstructure: proxySuperstructure,
       phase_order: specPhases.map((p) => p.id),
       hypothesis_axis_model: {
         mutually_exclusive: false,

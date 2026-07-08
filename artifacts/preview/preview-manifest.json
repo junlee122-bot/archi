@@ -1,19 +1,117 @@
 {
-  "generated_at": "2026-07-06",
-  "generated_from": "M2.5 정적 export (web/out) 위 headless Chromium 캡처, viewport 1560x940",
+  "generated_at": "2026-07-08",
+  "generated_from": "M2.6 정적 export (web/out) 위 headless Chromium 캡처, viewport 1560x940",
   "origin_policy": "internal viewer renders only — source images/PDF pages are never preview assets",
-  "note": "발표/검수용 11장 세트. 전부 뷰어 실렌더이며 소스 이미지·도판이 아님.",
+  "note": "발표/검수 11장 + M2.6 구조 실루엣 5장 = 16장. 전부 뷰어 실렌더이며 소스 이미지·도판이 아님.",
   "files": [
-    { "path": "home-default-excavated.png", "origin": "internal_viewer_render", "route": "/", "mode": "발굴유구", "scene": "발굴유구 기본 화면 — rubble 적심 패드·중앙 감주 hatch·전 스트립 테두리·답도·석축, 우측 feature FACT/RENDER 이중 배지" },
-    { "path": "home-grid-dimensions.png", "origin": "internal_viewer_render", "route": "/", "mode": "제원/그리드", "scene": "정면 25.5m × 측면 15.2m + 7×4칸 gold grid overlay, '칸 분할 균등 가정' 고지" },
-    { "path": "home-omitted-columns-drawer.png", "origin": "internal_viewer_render", "route": "/", "mode": "내진감주", "scene": "중앙 4개소 적심 공백 hatch + '내진감주 해석' 배지 + EvidenceDrawer(FACT/RENDER 분리·소스 카드·locator)" },
-    { "path": "home-movement-entrances.png", "origin": "internal_viewer_render", "route": "/", "mode": "출입/동선", "scene": "남편 답도 2개소 + 북편 중앙 출입시설, 이동 화살표는 해석 layer(발굴 사실 아님) 고지" },
-    { "path": "home-corridor-platform.png", "origin": "internal_viewer_render", "route": "/", "mode": "익랑·회랑", "scene": "동·서 익랑 + 서회랑 6패드 + 서회랑 석축기단" },
-    { "path": "home-stratigraphy.png", "origin": "internal_viewer_render", "route": "/", "mode": "대지조성·트렌치", "scene": "북편 트렌치 2.5D 층서 단면(III~VIII, 상대두께)+보토 세로 밴드+東池 해석 layer" },
-    { "path": "home-hypothesis-axis.png", "origin": "internal_viewer_render", "route": "/", "mode": "해석축", "scene": "H1 해석축 강조 — 축 라벨·배지(가장 강한 해석축/확정 아님/상부구조 복원 아님)·근거 11건 3원 교차(2022+Lee+KHS+Kim), 관련 유구 금색+ghost mass" },
-    { "path": "home-corruption-rejected.png", "origin": "internal_viewer_render", "route": "/", "mode": "검증결과", "scene": "ui_c2(지붕 ghost→E1) 조작 실행 후 ghost mass 빨강 + '⛔ 복원 거부' 문구 + 실제 드릴 15/15 fail_closed:true" },
-    { "path": "studio-table.png", "origin": "internal_viewer_render", "route": "/studio", "scene": "Corpus Review Studio — feature 45/45 테이블(fact/render/seg/locator/가설/phase/flags) + 검색·5필터" },
-    { "path": "verify-console.png", "origin": "internal_viewer_render", "route": "/verify", "scene": "Verification Console V01–V54 — normal 52P/2W/0F, strict RED(의도됨) 설명, UI corruption 3종 + 실제 드릴 15/15" },
-    { "path": "report-page.png", "origin": "internal_viewer_render", "route": "/report", "scene": "Report Viewer — 증거/가설/phase/license/체크리스트 카드(증거 리포트 표시)" }
+    {
+      "path": "home-default-excavated.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "발굴유구",
+      "scene": "발굴유구 기본 화면 — rubble 적심 패드·중앙 감주 hatch·전 스트립 테두리·답도·석축, 우측 feature FACT/RENDER 이중 배지"
+    },
+    {
+      "path": "home-grid-dimensions.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "제원/그리드",
+      "scene": "정면 25.5m × 측면 15.2m + 7×4칸 gold grid overlay, '칸 분할 균등 가정' 고지"
+    },
+    {
+      "path": "home-omitted-columns-drawer.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "내진감주",
+      "scene": "중앙 4개소 적심 공백 hatch + '내진감주 해석' 배지 + EvidenceDrawer(FACT/RENDER 분리·소스 카드·locator)"
+    },
+    {
+      "path": "home-movement-entrances.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "출입/동선",
+      "scene": "남편 답도 2개소 + 북편 중앙 출입시설, 이동 화살표는 해석 layer(발굴 사실 아님) 고지"
+    },
+    {
+      "path": "home-corridor-platform.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "익랑·회랑",
+      "scene": "동·서 익랑 + 서회랑 6패드 + 서회랑 석축기단"
+    },
+    {
+      "path": "home-stratigraphy.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "대지조성·트렌치",
+      "scene": "북편 트렌치 2.5D 층서 단면(III~VIII, 상대두께)+보토 세로 밴드+東池 해석 layer"
+    },
+    {
+      "path": "home-hypothesis-axis.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "해석축",
+      "scene": "H1 해석축 강조 — 축 라벨·배지(가장 강한 해석축/확정 아님/상부구조 복원 아님)·근거 11건 3원 교차(2022+Lee+KHS+Kim), 관련 유구 금색+ghost mass"
+    },
+    {
+      "path": "home-corruption-rejected.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "검증결과",
+      "scene": "ui_c2(지붕 ghost→E1) 조작 실행 후 ghost mass·proxy 지붕 빨강 + '⛔ 복원 거부' 문구 + 실제 드릴 20/20 fail_closed:true"
+    },
+    {
+      "path": "studio-table.png",
+      "origin": "internal_viewer_render",
+      "route": "/studio",
+      "scene": "Corpus Review Studio — feature 56/56 테이블(fact/render/seg/locator/가설/phase/flags) + 검색·5필터"
+    },
+    {
+      "path": "verify-console.png",
+      "origin": "internal_viewer_render",
+      "route": "/verify",
+      "scene": "Verification Console V01–V64 — normal 62P/2W/0F, strict RED(의도됨) 설명, UI corruption 3종 + 실제 드릴 20/20"
+    },
+    {
+      "path": "report-page.png",
+      "origin": "internal_viewer_render",
+      "route": "/report",
+      "scene": "Report Viewer — 증거/가설/phase/license/체크리스트 카드(증거 리포트 표시)"
+    },
+    {
+      "path": "home-structural-silhouette.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "구조 실루엣",
+      "scene": "기둥 proxy+보 wireframe+형식 미지정 roof envelope — 발굴유구 위 투명 실루엣, 배지(원형 복원 아님·지붕형식 미지정·공포양식 미지정·기둥 높이 미확정)와 토글·높이 preset 표시"
+    },
+    {
+      "path": "home-column-frame-drawer.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "구조 실루엣",
+      "scene": "기둥 proxy 선택 — EvidenceDrawer의 FACT(적심 E1)/RENDER(E5 preset)/NOT CLAIMED 분리"
+    },
+    {
+      "path": "home-roof-envelope-warning.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "구조 실루엣",
+      "scene": "roof envelope 선택 — 지붕형식 미상·질량감 표시·기와 출토는 형식 확정 근거 아님 경고"
+    },
+    {
+      "path": "home-archaeology-vs-silhouette-split.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "구조 실루엣",
+      "scene": "좌: 발굴유구만 / 우: 실루엣 겹쳐보기 — 내부 렌더 2장 좌우 합성 비교"
+    },
+    {
+      "path": "home-uncertainty-proxy.png",
+      "origin": "internal_viewer_render",
+      "route": "/",
+      "mode": "불확실성",
+      "scene": "불확실성 모드 — proxy layer가 fact confidence 색·render 불투명도로 표시"
+    }
   ]
 }

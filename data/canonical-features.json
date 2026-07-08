@@ -3686,5 +3686,798 @@
     "warnings": [
       "후대 유구·교란의 존재는 E1, 개별 위치는 상징 표시"
     ]
+  },
+  {
+    "id": "superstructure.proxy.overview",
+    "name_ko": "상부구조 실루엣 개요",
+    "name_en": "Constrained superstructure silhouette (overview)",
+    "category": "conjectural_superstructure_proxy",
+    "priority": "P1",
+    "archaeological_status": "not_excavated_upper_structure",
+    "render_layer": "proxy_silhouette",
+    "fact_layer": {
+      "statement_ko": "A건물지의 상부 목구조는 직접 남아 있지 않으며, 발굴보고서와 논문은 대형 적심·7×4칸 평면·답도·회랑·기단토·대지성토 등 고위계 건물의 구조적 속성을 보고한다. 이 실루엣 레이어는 그 하부 사실에 의해 제약된 표시일 뿐 원형 복원이 아니다.",
+      "confidence": "E4",
+      "evidence": [
+        {
+          "source_id": "gyeongju_2022_a_building_full_excavation_report",
+          "source_segment_id": "seg_report2022_preface_authority_p5_6",
+          "locator": {
+            "page": "5-6",
+            "figure": null,
+            "note": "발간사·일러두기의 대형건물지 위상 서술."
+          },
+          "class": "E1",
+          "method": "report_interpreted",
+          "verified": true
+        },
+        {
+          "source_id": "kim_2023_sillasahakbo_a_building_structure_function",
+          "source_segment_id": "seg_kim2023_abstract_core_p161_162",
+          "locator": {
+            "page": "161-162",
+            "figure": null,
+            "note": "고위계·왕궁급 속성 해석(학술)."
+          },
+          "class": "E4",
+          "method": "academic_interpretation",
+          "verified": true
+        },
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "internal_conjecture_marker",
+          "verified": true,
+          "note": "상부 목구조 자체는 직접 근거 없음 — proxy 표시임을 명시."
+        }
+      ]
+    },
+    "geometry_layer": {
+      "type": "proxy-superstructure-silhouette",
+      "unit_mode": "visual_proxy",
+      "height_mode": "preset_not_measured",
+      "roof_mode": "untyped_envelope",
+      "bracket_typology": null,
+      "roof_typology": null,
+      "column_height_m": null,
+      "confidence": "E5",
+      "demo_placeholder": true,
+      "ghost": true,
+      "method": "visualized_from_report_dimension_and_grid",
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "constrained_proxy_visualization",
+          "verified": true,
+          "note": "보고 치수·그리드에 제약된 투명 실루엣. 형식·높이 주장 없음."
+        }
+      ]
+    },
+    "confidence": "E4",
+    "render_confidence": "E5",
+    "warnings": [
+      "상부 목구조 직접 근거 없음",
+      "기둥 높이 미확정",
+      "지붕형식 미지정",
+      "공포양식 미지정",
+      "원형 복원 아님",
+      "보이는 실루엣은 유구 치수와 고위계 해석을 이해하기 위한 표시 layer"
+    ],
+    "not_usable_for": [
+      "exact_roof_type",
+      "roof_typology",
+      "bracket_typology",
+      "column_height",
+      "entasis",
+      "dancheong",
+      "original_appearance",
+      "confirmed_reconstruction"
+    ],
+    "ui_flags": {
+      "relative_geometry": true,
+      "not_measured": true,
+      "uncertainty_visible": true,
+      "show_source_required_badge": true,
+      "show_archaeology_vs_hypothesis_badge": true,
+      "ghost_only": true,
+      "show_as_ghost": true,
+      "requires_warning_badge": true,
+      "not_reconstruction": true,
+      "default_opacity": 0.22
+    }
+  },
+  {
+    "id": "superstructure.proxy.column_posts",
+    "name_ko": "기둥 proxy 실루엣",
+    "name_en": "Proxy column posts (translucent, height preset)",
+    "category": "conjectural_superstructure_proxy",
+    "priority": "P1",
+    "archaeological_status": "not_excavated_upper_structure",
+    "render_layer": "proxy_silhouette",
+    "fact_layer": {
+      "statement_ko": "A건물지에서는 적심(직경 220~280cm급)과 7×4칸 배치가 보고되어 기둥렬의 존재는 상정 가능하다. 그러나 목재 기둥 자체의 높이·직경·형상은 어떤 소스로도 직접 확인되지 않았다.",
+      "confidence": "E4",
+      "evidence": [
+        {
+          "source_id": "gyeongju_2022_a_building_full_excavation_report",
+          "source_segment_id": "seg_report2022_jeoksim_entrances_p85",
+          "locator": {
+            "page": "85",
+            "figure": null,
+            "note": "적심 제원·배치 보고(기둥 상정의 하부 사실 근거)."
+          },
+          "class": "E1",
+          "method": "report_interpreted",
+          "verified": true
+        },
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "internal_conjecture_marker",
+          "verified": true,
+          "note": "기둥 높이·형상 미확정 — 표시용 preset만 사용."
+        }
+      ]
+    },
+    "geometry_layer": {
+      "type": "proxy-column-posts",
+      "unit_mode": "visual_proxy",
+      "derivation": "positions from derived jeoksim_pads (symbolic), omitted zone stays absent/hollow",
+      "height_mode": "preset_not_measured",
+      "height_presets": [
+        "낮게",
+        "중간",
+        "높게"
+      ],
+      "default_height_preset": "중간",
+      "column_height_m": null,
+      "column_diameter_m": null,
+      "entasis": null,
+      "texture": null,
+      "confidence": "E5",
+      "demo_placeholder": true,
+      "ghost": true,
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "constrained_proxy_visualization",
+          "verified": true,
+          "note": "적심 symbolic 위치 기반 반투명 기둥. scene_units preset — 실측 아님."
+        }
+      ]
+    },
+    "confidence": "E4",
+    "render_confidence": "E5",
+    "warnings": [
+      "적심 위치 기반 기둥 추정 표시",
+      "목재 기둥 높이와 형상 미확정",
+      "배흘림 여부 미지정",
+      "기둥 높이 미확정",
+      "원형 복원 아님"
+    ],
+    "not_usable_for": [
+      "exact_roof_type",
+      "roof_typology",
+      "bracket_typology",
+      "column_height",
+      "entasis",
+      "dancheong",
+      "original_appearance",
+      "column_diameter",
+      "column_position_exact"
+    ],
+    "ui_flags": {
+      "relative_geometry": true,
+      "not_measured": true,
+      "uncertainty_visible": true,
+      "show_source_required_badge": true,
+      "show_archaeology_vs_hypothesis_badge": true,
+      "ghost_only": true,
+      "show_as_ghost": true,
+      "requires_warning_badge": true,
+      "not_reconstruction": true,
+      "default_opacity": 0.3
+    }
+  },
+  {
+    "id": "superstructure.proxy.beam_frame",
+    "name_ko": "보·도리 리듬 wireframe",
+    "name_en": "Beam/purlin rhythm frame (wireframe proxy)",
+    "category": "conjectural_superstructure_proxy",
+    "priority": "P1",
+    "archaeological_status": "not_excavated_upper_structure",
+    "render_layer": "proxy_silhouette",
+    "fact_layer": {
+      "statement_ko": "보·도리 등 수평 부재의 직접 유구는 남아 있지 않다. 표시되는 수평 프레임은 보고된 7×4칸 그리드 리듬에서만 파생한 wireframe이며, 부재 구성·접합 방식을 주장하지 않는다.",
+      "confidence": "E4",
+      "evidence": [
+        {
+          "source_id": "gyeongju_2022_a_building_full_excavation_report",
+          "source_segment_id": "seg_report2022_a_building_overview_p84",
+          "locator": {
+            "page": "84",
+            "figure": null,
+            "note": "7×4칸 그리드 보고(리듬 파생의 근거)."
+          },
+          "class": "E1",
+          "method": "report_interpreted",
+          "verified": true
+        },
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "internal_conjecture_marker",
+          "verified": true,
+          "note": "부재 직접 근거 없음 — 그리드 리듬 표시 전용."
+        }
+      ]
+    },
+    "geometry_layer": {
+      "type": "proxy-beam-frame",
+      "unit_mode": "visual_proxy",
+      "derivation": "thin translucent rails connecting proxy column tops along grid lines",
+      "height_mode": "preset_not_measured",
+      "bracket_typology": null,
+      "joinery": null,
+      "confidence": "E5",
+      "demo_placeholder": true,
+      "ghost": true,
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "constrained_proxy_visualization",
+          "verified": true,
+          "note": "그리드 리듬 wireframe. 부재 상세·접합부 표현 없음."
+        }
+      ]
+    },
+    "confidence": "E4",
+    "render_confidence": "E5",
+    "warnings": [
+      "보/도리 상세 구성 미확정",
+      "그리드 리듬을 이해하기 위한 wireframe",
+      "공포양식 미지정",
+      "원형 복원 아님"
+    ],
+    "not_usable_for": [
+      "exact_roof_type",
+      "roof_typology",
+      "bracket_typology",
+      "column_height",
+      "entasis",
+      "dancheong",
+      "original_appearance",
+      "joinery_detail"
+    ],
+    "ui_flags": {
+      "relative_geometry": true,
+      "not_measured": true,
+      "uncertainty_visible": true,
+      "show_source_required_badge": true,
+      "show_archaeology_vs_hypothesis_badge": true,
+      "ghost_only": true,
+      "show_as_ghost": true,
+      "requires_warning_badge": true,
+      "not_reconstruction": true,
+      "default_opacity": 0.26
+    }
+  },
+  {
+    "id": "superstructure.proxy.roof_envelope",
+    "name_ko": "지붕 질량감 envelope(형식 미지정)",
+    "name_en": "Untyped roof envelope (visual mass only)",
+    "category": "conjectural_superstructure_proxy",
+    "priority": "P1",
+    "archaeological_status": "not_excavated_upper_structure",
+    "render_layer": "proxy_silhouette",
+    "fact_layer": {
+      "statement_ko": "A건물지 일원에서는 평기와·수막새·암막새·치미편 등 지붕 재료 맥락 유물이 보고되어 기와 지붕 부재의 존재 맥락은 확인된다. 그러나 상부 지붕 부재 자체는 남아 있지 않으며 지붕형식은 어떤 소스로도 확정되지 않았다. 표시되는 envelope는 형식 미지정 질량감 표시다.",
+      "confidence": "E4",
+      "evidence": [
+        {
+          "source_id": "gyeongju_2022_a_building_full_excavation_report",
+          "source_segment_id": "seg_report2022_roof_tile_chimi_material_context_p12_14",
+          "locator": {
+            "page": "12-13, 190",
+            "figure": "사진13-15, 도판55",
+            "note": "기와류·치미 출토 정리(재료 맥락) — 형식 확정 근거 아님."
+          },
+          "class": "E1",
+          "method": "report_stated",
+          "verified": true
+        },
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "internal_conjecture_marker",
+          "verified": true,
+          "note": "지붕형식 미상 — untyped envelope만 표시."
+        }
+      ]
+    },
+    "geometry_layer": {
+      "type": "proxy-roof-envelope",
+      "unit_mode": "visual_proxy",
+      "roof_mode": "untyped_envelope",
+      "roof_typology": null,
+      "bracket_typology": null,
+      "eave_length_m": null,
+      "roof_pitch": null,
+      "tile_covering": null,
+      "ridge_decoration": null,
+      "confidence": "E5",
+      "demo_placeholder": true,
+      "ghost": true,
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "constrained_proxy_visualization",
+          "verified": true,
+          "note": "반투명 사각 질량 + wire canopy. 특정 지붕형식 실루엣 회피."
+        }
+      ]
+    },
+    "confidence": "E4",
+    "render_confidence": "E5",
+    "warnings": [
+      "지붕형식 미상",
+      "질량감 표시",
+      "기와 출토는 지붕형식 확정 근거가 아님",
+      "지붕형식 미지정",
+      "원형 복원 아님"
+    ],
+    "not_usable_for": [
+      "exact_roof_type",
+      "roof_typology",
+      "bracket_typology",
+      "column_height",
+      "entasis",
+      "dancheong",
+      "original_appearance",
+      "roof_pitch",
+      "eave_length",
+      "ridge_decoration"
+    ],
+    "ui_flags": {
+      "relative_geometry": true,
+      "not_measured": true,
+      "uncertainty_visible": true,
+      "show_source_required_badge": true,
+      "show_archaeology_vs_hypothesis_badge": true,
+      "ghost_only": true,
+      "show_as_ghost": true,
+      "requires_warning_badge": true,
+      "not_reconstruction": true,
+      "default_opacity": 0.16
+    }
+  },
+  {
+    "id": "superstructure.proxy.corridor_upper_silhouette",
+    "name_ko": "회랑 상부 실루엣",
+    "name_en": "Corridor upper silhouette (lower-opacity proxy)",
+    "category": "conjectural_superstructure_proxy",
+    "priority": "P1",
+    "archaeological_status": "not_excavated_upper_structure",
+    "render_layer": "proxy_silhouette",
+    "fact_layer": {
+      "statement_ko": "서회랑지와 석축기단은 보고서 근거가 있으나 회랑의 상부구조는 보존되지 않았다. 표시되는 회랑 실루엣은 석축기단 위 공간감을 보여주는 저불투명 proxy이며, 불확정 연장 구간은 점선 처리한다.",
+      "confidence": "E4",
+      "evidence": [
+        {
+          "source_id": "gyeongju_2022_a_building_full_excavation_report",
+          "source_segment_id": "seg_report2022_west_corridor_plan_p109_110",
+          "locator": {
+            "page": "109-110",
+            "figure": null,
+            "note": "서회랑지·석축기단 보고(하부 사실 근거)."
+          },
+          "class": "E1",
+          "method": "report_interpreted",
+          "verified": true
+        },
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "internal_conjecture_marker",
+          "verified": true,
+          "note": "회랑 상부구조 미확정."
+        }
+      ]
+    },
+    "geometry_layer": {
+      "type": "proxy-corridor-silhouette",
+      "unit_mode": "visual_proxy",
+      "height_mode": "preset_not_measured",
+      "derivation": "low posts + envelope along report-backed corridor foundation, dashed uncertain extension",
+      "confidence": "E5",
+      "demo_placeholder": true,
+      "ghost": true,
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "constrained_proxy_visualization",
+          "verified": true,
+          "note": "본채보다 낮은 불투명도. 점선 연장."
+        }
+      ]
+    },
+    "confidence": "E4",
+    "render_confidence": "E5",
+    "warnings": [
+      "회랑 상부구조 미확정",
+      "석축기단 위 공간감을 보여주는 표시 layer",
+      "원형 복원 아님"
+    ],
+    "not_usable_for": [
+      "exact_roof_type",
+      "roof_typology",
+      "bracket_typology",
+      "column_height",
+      "entasis",
+      "dancheong",
+      "original_appearance"
+    ],
+    "ui_flags": {
+      "relative_geometry": true,
+      "not_measured": true,
+      "uncertainty_visible": true,
+      "show_source_required_badge": true,
+      "show_archaeology_vs_hypothesis_badge": true,
+      "ghost_only": true,
+      "show_as_ghost": true,
+      "requires_warning_badge": true,
+      "not_reconstruction": true,
+      "default_opacity": 0.12
+    }
+  },
+  {
+    "id": "material_context.roof_tile_fragments",
+    "name_ko": "기와류 출토 맥락(평기와·막새·전)",
+    "name_en": "Roof tile fragments — material context",
+    "category": "material_context",
+    "priority": "P1",
+    "archaeological_status": "excavated_artifact_context",
+    "render_layer": "material_context",
+    "fact_layer": {
+      "statement_ko": "2022 보고서에는 A건물지 일원 출토 평기와, 수막새·암막새, 전 등 기와류가 정리되어 있다(화보 사진13~15, 본문 유물 기술). 이는 지붕 재료의 출토 맥락을 보여주며, 지붕형식 확정 근거로는 사용하지 않는다.",
+      "confidence": "E1",
+      "evidence": [
+        {
+          "source_id": "gyeongju_2022_a_building_full_excavation_report",
+          "source_segment_id": "seg_report2022_roof_tile_chimi_material_context_p12_14",
+          "locator": {
+            "page": "12-13, 190",
+            "figure": "사진13-15",
+            "note": "기와류 일괄 화보·본문 유물 정리. 인쇄 페이지 직접 확인."
+          },
+          "class": "E1",
+          "method": "report_stated",
+          "verified": true
+        }
+      ]
+    },
+    "geometry_layer": {
+      "type": "material-context-markers",
+      "unit_mode": "visual_proxy",
+      "derivation": "small procedural abstract fragment markers in a side tray — never scattered on roof",
+      "roof_covering_reconstruction": false,
+      "confidence": "DEMO",
+      "demo_placeholder": true,
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "DEMO",
+          "method": "abstract_marker_visualization",
+          "verified": true,
+          "note": "절차적 추상 마커. 보고서 사진·도판 사용 금지."
+        }
+      ]
+    },
+    "confidence": "E1",
+    "render_confidence": "DEMO",
+    "warnings": [
+      "기와류 출토 맥락",
+      "지붕 형식 확정 근거 아님",
+      "마커는 절차적 추상 표시이며 출토 유물 형상 재현이 아님"
+    ],
+    "not_usable_for": [
+      "roof_typology",
+      "bracket_typology",
+      "roof_reconstruction",
+      "exact_roof_covering",
+      "original_appearance"
+    ],
+    "ui_flags": {
+      "relative_geometry": true,
+      "not_measured": true,
+      "uncertainty_visible": true,
+      "show_source_required_badge": false,
+      "show_archaeology_vs_hypothesis_badge": true,
+      "requires_warning_badge": true,
+      "material_context_tray": true
+    }
+  },
+  {
+    "id": "material_context.chimi_fragments",
+    "name_ko": "치미편 출토 맥락",
+    "name_en": "Chimi (ridge-end ornament) fragments — material context",
+    "category": "material_context",
+    "priority": "P1",
+    "archaeological_status": "excavated_artifact_context",
+    "render_layer": "material_context",
+    "fact_layer": {
+      "statement_ko": "2022 보고서 유물 88·89(도판55)로 치미편 2점이 정리되어 있다. 회랑석축기단 서편(3단)과 1군 기와무지에서 수습되었고 각각 깃대부·머리부 일부로 추정된다. 치미편의 존재는 지붕 장식 부재의 맥락을 보여주지만, 치미 전체 형태 복원이나 지붕형식 확정 근거로 사용하지 않는다.",
+      "confidence": "E1",
+      "evidence": [
+        {
+          "source_id": "gyeongju_2022_a_building_full_excavation_report",
+          "source_segment_id": "seg_report2022_roof_tile_chimi_material_context_p12_14",
+          "locator": {
+            "page": "190",
+            "figure": "도판55",
+            "note": "유물 88)·89) 치미 — 본문 p.190 직접 판독."
+          },
+          "class": "E1",
+          "method": "report_stated",
+          "verified": true
+        }
+      ]
+    },
+    "geometry_layer": {
+      "type": "material-context-markers",
+      "unit_mode": "visual_proxy",
+      "derivation": "single abstract marker in material tray — no decorative 3D chimi model",
+      "chimi_shape_reconstruction": false,
+      "confidence": "DEMO",
+      "demo_placeholder": true,
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "DEMO",
+          "method": "abstract_marker_visualization",
+          "verified": true,
+          "note": "추상 마커 전용. 치미 형태 재현 금지."
+        }
+      ]
+    },
+    "confidence": "E1",
+    "render_confidence": "DEMO",
+    "warnings": [
+      "치미 맥락 표시",
+      "치미 형태 복원 아님",
+      "지붕 형식 확정 근거 아님"
+    ],
+    "not_usable_for": [
+      "roof_typology",
+      "bracket_typology",
+      "chimi_shape",
+      "roof_reconstruction",
+      "original_appearance"
+    ],
+    "ui_flags": {
+      "relative_geometry": true,
+      "not_measured": true,
+      "uncertainty_visible": true,
+      "show_source_required_badge": false,
+      "show_archaeology_vs_hypothesis_badge": true,
+      "requires_warning_badge": true,
+      "material_context_tray": true
+    }
+  },
+  {
+    "id": "scale_helper.human_silhouette",
+    "name_ko": "스케일 인물(scale helper)",
+    "name_en": "Human silhouette scale helper (UI only)",
+    "category": "helper",
+    "priority": "P2",
+    "archaeological_status": "ui_helper_not_archaeological",
+    "render_layer": "helper",
+    "fact_layer": {
+      "statement_ko": "고고학적 주장이 없는 UI helper다. 중립 회색 인물 실루엣은 규모감을 이해하기 위한 scale helper이며 역사적 인물·복식 재현이 아니다.",
+      "confidence": "E5",
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "internal_conjecture_marker",
+          "verified": true,
+          "note": "비고고학 helper — 사실 주장 없음."
+        }
+      ]
+    },
+    "geometry_layer": {
+      "type": "scale-helper-figure",
+      "unit_mode": "visual_proxy",
+      "derivation": "neutral grey capsule figure near platform, optional toggle",
+      "confidence": "DEMO",
+      "demo_placeholder": true,
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "DEMO",
+          "method": "helper_visualization",
+          "verified": true,
+          "note": "scale helper 표시 전용."
+        }
+      ]
+    },
+    "confidence": "E5",
+    "render_confidence": "DEMO",
+    "warnings": [
+      "scale helper — 고고학 feature 아님",
+      "역사적 인물 재현 아님"
+    ],
+    "not_usable_for": [
+      "historical_person",
+      "costume",
+      "original_appearance"
+    ],
+    "ui_flags": {
+      "relative_geometry": true,
+      "not_measured": true,
+      "uncertainty_visible": false,
+      "show_source_required_badge": false,
+      "show_archaeology_vs_hypothesis_badge": false,
+      "ui_helper": true,
+      "requires_warning_badge": true
+    }
+  },
+  {
+    "id": "uncertainty.column_height_unknown",
+    "name_ko": "기둥 높이 미확정",
+    "name_en": "Column height unknown (explicit uncertainty)",
+    "category": "uncertainty",
+    "priority": "P1",
+    "archaeological_status": "uncertainty_marker",
+    "render_layer": "uncertainty",
+    "fact_layer": {
+      "statement_ko": "목재 기둥의 높이는 어떤 소스로도 확정되지 않았다. 구조 실루엣의 기둥 높이는 시각화 preset(scene units)일 뿐 실측이 아니며, 이 미확정 상태 자체가 실루엣이 저신뢰(E5/DEMO)로 유지되는 이유다.",
+      "confidence": "E5",
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "internal_conjecture_marker",
+          "verified": true,
+          "note": "불확실성 명시 marker."
+        }
+      ]
+    },
+    "geometry_layer": {
+      "type": "non-spatial",
+      "unit_mode": "none",
+      "confidence": "E5",
+      "demo_placeholder": false,
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "internal_conjecture_marker",
+          "verified": true,
+          "note": "불확실성 marker는 공간 지오메트리가 없다."
+        }
+      ]
+    },
+    "confidence": "E5",
+    "render_confidence": "E5",
+    "ui_flags": {
+      "relative_geometry": false,
+      "not_measured": true,
+      "uncertainty_visible": true,
+      "show_source_required_badge": false,
+      "show_archaeology_vs_hypothesis_badge": true,
+      "is_uncertainty_marker": true
+    },
+    "warnings": [
+      "기둥 높이 미확정",
+      "이 feature는 미확정 상태 자체를 기록한다."
+    ]
+  },
+  {
+    "id": "uncertainty.roof_typology_unknown",
+    "name_ko": "지붕형식 미지정",
+    "name_en": "Roof typology not assigned (explicit uncertainty)",
+    "category": "uncertainty",
+    "priority": "P1",
+    "archaeological_status": "uncertainty_marker",
+    "render_layer": "uncertainty",
+    "fact_layer": {
+      "statement_ko": "지붕형식은 이 사이트에 지정되지 않았다(not assigned for this site). 기와류·치미편 출토는 지붕 재료 맥락일 뿐 형식 확정 근거가 아니며, roof envelope는 형식 미지정 질량감 표시로만 유지된다.",
+      "confidence": "E5",
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "internal_conjecture_marker",
+          "verified": true,
+          "note": "불확실성 명시 marker."
+        }
+      ]
+    },
+    "geometry_layer": {
+      "type": "non-spatial",
+      "unit_mode": "none",
+      "confidence": "E5",
+      "demo_placeholder": false,
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "internal_conjecture_marker",
+          "verified": true,
+          "note": "불확실성 marker는 공간 지오메트리가 없다."
+        }
+      ]
+    },
+    "confidence": "E5",
+    "render_confidence": "E5",
+    "ui_flags": {
+      "relative_geometry": false,
+      "not_measured": true,
+      "uncertainty_visible": true,
+      "show_source_required_badge": false,
+      "show_archaeology_vs_hypothesis_badge": true,
+      "is_uncertainty_marker": true
+    },
+    "warnings": [
+      "지붕형식 미지정",
+      "이 feature는 미확정 상태 자체를 기록한다."
+    ]
+  },
+  {
+    "id": "uncertainty.bracket_typology_unknown",
+    "name_ko": "공포양식 미지정",
+    "name_en": "Bracket typology not assigned (explicit uncertainty)",
+    "category": "uncertainty",
+    "priority": "P1",
+    "archaeological_status": "uncertainty_marker",
+    "render_layer": "uncertainty",
+    "fact_layer": {
+      "statement_ko": "공포양식은 이 사이트에 지정되지 않았다(not assigned for this site). 보 프레임 wireframe은 그리드 리듬 표시일 뿐 부재 구성·접합 방식을 주장하지 않는다.",
+      "confidence": "E5",
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "internal_conjecture_marker",
+          "verified": true,
+          "note": "불확실성 명시 marker."
+        }
+      ]
+    },
+    "geometry_layer": {
+      "type": "non-spatial",
+      "unit_mode": "none",
+      "confidence": "E5",
+      "demo_placeholder": false,
+      "evidence": [
+        {
+          "source_id": "demo_rule_silla_palace_archaeology_basic",
+          "class": "E5",
+          "method": "internal_conjecture_marker",
+          "verified": true,
+          "note": "불확실성 marker는 공간 지오메트리가 없다."
+        }
+      ]
+    },
+    "confidence": "E5",
+    "render_confidence": "E5",
+    "ui_flags": {
+      "relative_geometry": false,
+      "not_measured": true,
+      "uncertainty_visible": true,
+      "show_source_required_badge": false,
+      "show_archaeology_vs_hypothesis_badge": true,
+      "is_uncertainty_marker": true
+    },
+    "warnings": [
+      "공포양식 미지정",
+      "이 feature는 미확정 상태 자체를 기록한다."
+    ]
   }
 ]

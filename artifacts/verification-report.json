@@ -1,8 +1,8 @@
 {
   "strict": false,
   "summary": {
-    "total": 54,
-    "pass": 52,
+    "total": 64,
+    "pass": 62,
     "warn": 2,
     "fail": 0
   },
@@ -336,6 +336,66 @@
     {
       "id": "V54_H1_TRIANGULATION",
       "title": "H1 3원 교차(2022+Kim+Lee)",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V55_SUPERSTRUCTURE_PROXY_LAYER_ONLY",
+      "title": "상부구조 proxy layer 격리",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V56_NO_STYLE_ASSIGNMENT_IN_SILHOUETTE",
+      "title": "실루엣 형식(지붕/공포) 미지정 강제",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V57_COLUMN_HEIGHT_NOT_MEASURED",
+      "title": "기둥 높이 preset 전용(실측 금지)",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V58_ROOF_ENVELOPE_UNTYPED",
+      "title": "roof envelope 형식 미지정 유지",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V59_MATERIAL_CONTEXT_NOT_GEOMETRY",
+      "title": "재료 맥락은 추상 마커 전용",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V60_DEFAULT_ARCHAEOLOGY_MODE_UNALTERED",
+      "title": "발굴유구 기본 모드 보존",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V61_PROXY_FEATURES_HAVE_EVIDENCE_OR_EXPLICIT_NULL",
+      "title": "proxy provenance/무근거 명시",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V62_OMITTED_COLUMN_ZONE_NOT_FILLED",
+      "title": "감주 영역 기둥 미충전",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V63_PROXY_UI_WARNINGS_VISIBLE",
+      "title": "proxy UI 경고 문구 표출",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "V64_PROXY_PREVIEW_REQUIRED",
+      "title": "구조 실루엣 프리뷰 (내부 렌더 전용)",
       "status": "pass",
       "details": []
     }

@@ -61,7 +61,8 @@
   "forbidden_roof_terms": [
     "팔작",
     "맞배",
-    "우진각"
+    "우진각",
+    "모임지붕"
   ],
   "mode_tabs_template": [
     "발굴유구",
@@ -71,9 +72,50 @@
     "익랑·회랑",
     "대지조성·트렌치",
     "해석축",
+    "구조 실루엣",
     "불확실성",
     "검증결과"
   ],
+  "superstructure_proxy": {
+    "overview_feature_id": "superstructure.proxy.overview",
+    "proxy_feature_ids": [
+      "superstructure.proxy.overview",
+      "superstructure.proxy.column_posts",
+      "superstructure.proxy.beam_frame",
+      "superstructure.proxy.roof_envelope",
+      "superstructure.proxy.corridor_upper_silhouette"
+    ],
+    "material_context_feature_ids": [
+      "material_context.roof_tile_fragments",
+      "material_context.chimi_fragments"
+    ],
+    "helper_feature_ids": [
+      "scale_helper.human_silhouette"
+    ],
+    "uncertainty_feature_ids": [
+      "uncertainty.column_height_unknown",
+      "uncertainty.roof_typology_unknown",
+      "uncertainty.bracket_typology_unknown"
+    ],
+    "allowed_render_layers": [
+      "proxy_silhouette",
+      "material_context",
+      "helper"
+    ],
+    "required_warning_labels": [
+      "원형 복원 아님",
+      "지붕형식 미지정",
+      "공포양식 미지정",
+      "기둥 높이 미확정"
+    ],
+    "max_default_opacity": 0.28,
+    "preview_files": [
+      "home-structural-silhouette.png",
+      "home-column-frame-drawer.png",
+      "home-roof-envelope-warning.png",
+      "home-archaeology-vs-silhouette-split.png"
+    ]
+  },
   "required_p0_features": [
     "source_context.official_2018_report",
     "source_context.2022_full_report_candidate",

@@ -381,13 +381,20 @@ export function runChecks(root, { strict = false } = {}) {
     add('V20_NO_SOURCE_MEDIA_IN_WEB_PUBLIC', '보고서 이미지/PDF 웹 복사 금지', errs.length ? fail(errs) : pass());
   }
 
-  // V21
+  // V21 — superstructure features are ghost/symbolic only. M2.6: the
+  // 'proxy_silhouette' layer is an equally ghost-class layer, but ONLY for
+  // features registered in params.superstructure_proxy (which puts them under
+  // the stricter V55–V58 regime) — anything else must stay hypothesis_ghost.
   {
     const errs = [];
+    const registeredProxy = new Set(params.superstructure_proxy?.proxy_feature_ids ?? []);
     for (const f of features.filter((f) => f.id.startsWith('superstructure.'))) {
       if (f.geometry_layer.ghost !== true) errs.push(`${f.id}: geometry_layer.ghost=true 필요`);
       if (!['DEMO', 'E5'].includes(f.render_confidence)) errs.push(`${f.id}: render_confidence는 DEMO/E5만 허용`);
-      if (f.render_layer !== 'hypothesis_ghost') errs.push(`${f.id}: render_layer=hypothesis_ghost 필요`);
+      const proxyAllowed = f.render_layer === 'proxy_silhouette' && registeredProxy.has(f.id);
+      if (f.render_layer !== 'hypothesis_ghost' && !proxyAllowed) {
+        errs.push(`${f.id}: render_layer=hypothesis_ghost(또는 등록된 proxy_silhouette) 필요`);
+      }
     }
     add('V21_SUPERSTRUCTURE_GHOST_ONLY', '상부구조 ghost/symbolic 전용', errs.length ? fail(errs) : pass());
   }
@@ -820,7 +827,7 @@ export function runChecks(root, { strict = false } = {}) {
       let combined = '';
       for (const f of walkFiles(join(webDir, 'app'))) if (/\.(tsx|ts)$/.test(f)) combined += readFileSync(f, 'utf8');
       for (const f of walkFiles(join(webDir, 'components'))) if (/\.(tsx|ts)$/.test(f)) combined += readFileSync(f, 'utf8');
-      for (const tab of ['발굴유구', '제원/그리드', '내진감주', '출입/동선', '익랑·회랑', '대지조성·트렌치', '해석축', '불확실성', '검증결과']) {
+      for (const tab of expandModeTabs(params)) {
         if (!combined.includes(tab)) errs.push(`뷰어 코드에 '${tab}' 모드 처리 없음`);
       }
       if (!combined.includes('structural-spec.json')) errs.push('viewer가 structural-spec.json을 로드하지 않음');
@@ -971,6 +978,251 @@ export function runChecks(root, { strict = false } = {}) {
     if (errs.length) add('V54_H1_TRIANGULATION', 'H1 3원 교차(2022+Kim+Lee)', fail([...errs, ...warns]));
     else if (warns.length) add('V54_H1_TRIANGULATION', 'H1 3원 교차(2022+Kim+Lee)', warn(warns));
     else add('V54_H1_TRIANGULATION', 'H1 3원 교차(2022+Kim+Lee)', pass());
+  }
+
+  // ════ M2.6: constrained superstructure silhouette gates (V55–V64) ════
+  const proxyCfg = params.superstructure_proxy ?? null;
+  const proxyIds = proxyCfg
+    ? [...proxyCfg.proxy_feature_ids, ...proxyCfg.material_context_feature_ids, ...proxyCfg.helper_feature_ids]
+    : [];
+  const featById = new Map(features.map((f) => [f.id, f]));
+
+  // V55 — every proxy-layer feature stays in a proxy/material/helper render
+  // layer and NEVER becomes excavated remain or high-confidence geometry.
+  {
+    const errs = [];
+    if (!proxyCfg) errs.push('params.superstructure_proxy 없음');
+    else {
+      for (const id of proxyIds) {
+        const f = featById.get(id);
+        if (!f) { errs.push(`proxy feature 없음: ${id}`); continue; }
+        if (!proxyCfg.allowed_render_layers.includes(f.render_layer)) {
+          errs.push(`${id}: render_layer '${f.render_layer}' — 허용 layer(${proxyCfg.allowed_render_layers.join('/')}) 아님`);
+        }
+        if (f.archaeological_status === 'excavated_remain') {
+          errs.push(`${id}: 상부구조 proxy가 excavated_remain으로 위장됨`);
+        }
+        if (!['E5', 'DEMO'].includes(f.geometry_layer?.confidence)) {
+          errs.push(`${id}: geometry confidence '${f.geometry_layer?.confidence}' — proxy는 E5/DEMO만 허용`);
+        }
+        if (id.startsWith('superstructure.proxy') && ['E1', 'E2', 'E3'].includes(f.fact_layer?.confidence) ) {
+          errs.push(`${id}: 상부구조 proxy fact가 ${f.fact_layer.confidence} — 상부구조 직접 사실은 존재하지 않으므로 E4/E5만 허용`);
+        }
+      }
+    }
+    add('V55_SUPERSTRUCTURE_PROXY_LAYER_ONLY', '상부구조 proxy layer 격리', errs.length ? fail(errs) : pass());
+  }
+
+  // V56 — no style assignment anywhere in the silhouette layer.
+  {
+    const errs = [];
+    const styleTerms = [...params.forbidden_roof_terms, ...params.forbidden_bracket_terms];
+    for (const id of proxyIds) {
+      const f = featById.get(id);
+      if (!f) continue;
+      const g = f.geometry_layer ?? {};
+      for (const key of ['roof_typology', 'roof_type', 'bracket_typology']) {
+        if (key in g && g[key] !== null && g[key] !== undefined) {
+          errs.push(`${id}: geometry.${key}='${g[key]}' — 형식 지정 금지`);
+        }
+      }
+      const texts = [f.name_ko, f.name_en, f.fact_layer?.statement_ko, ...(f.warnings ?? [])].filter(Boolean);
+      for (const t of texts) {
+        for (const term of styleTerms) {
+          if (hasRealTerm(t, term)) errs.push(`${id}: '${term}' 형식 용어가 proxy 텍스트에 등장 — positive claim 금지`);
+        }
+      }
+    }
+    if (spec?.derived?.proxy_superstructure) {
+      const pol = spec.derived.proxy_superstructure.policy ?? {};
+      if (pol.roof_typology !== null) errs.push('spec proxy policy.roof_typology가 null 아님');
+      if (pol.bracket_typology !== null) errs.push('spec proxy policy.bracket_typology가 null 아님');
+    }
+    add('V56_NO_STYLE_ASSIGNMENT_IN_SILHOUETTE', '실루엣 형식(지붕/공포) 미지정 강제', errs.length ? fail(errs) : pass());
+  }
+
+  // V57 — column height is never measured/factual.
+  {
+    const errs = [];
+    for (const id of proxyIds.filter((x) => x.startsWith('superstructure.proxy'))) {
+      const f = featById.get(id);
+      if (!f) continue;
+      const g = f.geometry_layer ?? {};
+      for (const [k, v] of Object.entries(g)) {
+        if (/(height|diameter)_(m|mm|cm)$/.test(k) && v !== null && v !== undefined) {
+          errs.push(`${id}: geometry.${k}=${v} — proxy에 실측 치수 금지`);
+        }
+      }
+      if (id === 'superstructure.proxy.column_posts' && g.height_mode !== 'preset_not_measured') {
+        errs.push(`${id}: height_mode='${g.height_mode}' — preset_not_measured 필수`);
+      }
+    }
+    const hp = spec?.derived?.proxy_superstructure?.height_presets;
+    if (spec?.derived?.proxy_superstructure) {
+      if (hp?.unit !== 'scene_units_not_measured') errs.push('height_presets.unit이 scene_units_not_measured 아님');
+      if (spec.derived.proxy_superstructure.policy?.column_height_measured !== false) {
+        errs.push('policy.column_height_measured가 false 아님');
+      }
+    }
+    add('V57_COLUMN_HEIGHT_NOT_MEASURED', '기둥 높이 preset 전용(실측 금지)', errs.length ? fail(errs) : pass());
+  }
+
+  // V58 — roof envelope stays untyped visual mass.
+  {
+    const errs = [];
+    const roof = featById.get('superstructure.proxy.roof_envelope');
+    if (proxyCfg && !roof) errs.push('superstructure.proxy.roof_envelope 없음');
+    if (roof) {
+      const g = roof.geometry_layer ?? {};
+      if (g.roof_mode !== 'untyped_envelope') errs.push(`roof_mode='${g.roof_mode}' — untyped_envelope 필수`);
+      if (g.roof_typology !== null && g.roof_typology !== undefined) errs.push('roof_typology 지정됨');
+      if (g.tile_covering) errs.push('지붕면 기와 재현(tile_covering) 금지');
+      if (g.ridge_decoration) errs.push('용마루 장식 재현 금지');
+      const warnText = (roof.warnings ?? []).join(' ');
+      if (!/미상|미지정/.test(warnText)) errs.push('roof envelope 경고문에 형식 미상/미지정 명시 필요');
+    }
+    add('V58_ROOF_ENVELOPE_UNTYPED', 'roof envelope 형식 미지정 유지', errs.length ? fail(errs) : pass());
+  }
+
+  // V59 — material context stays abstract markers, never geometry evidence
+  // for roof form, never copied report imagery.
+  {
+    const errs = [];
+    for (const id of proxyCfg?.material_context_feature_ids ?? []) {
+      const f = featById.get(id);
+      if (!f) { errs.push(`material context feature 없음: ${id}`); continue; }
+      if (f.render_layer !== 'material_context') errs.push(`${id}: render_layer는 material_context 필수`);
+      if (f.geometry_layer?.confidence !== 'DEMO') errs.push(`${id}: material 마커 geometry는 DEMO placeholder만 허용`);
+      const nu = f.not_usable_for ?? [];
+      if (!nu.includes('roof_typology')) errs.push(`${id}: not_usable_for에 roof_typology 명시 필요`);
+      if (f.geometry_layer?.roof_covering_reconstruction === true || f.geometry_layer?.chimi_shape_reconstruction === true) {
+        errs.push(`${id}: 재현 지오메트리 금지`);
+      }
+      for (const ev of f.fact_layer?.evidence ?? []) {
+        if (ev.class === 'E1' && !ev.source_segment_id) errs.push(`${id}: E1 근거에 segment locator 필요`);
+      }
+    }
+    const pub = join(paths.web(root), 'public');
+    if (existsSync(pub)) {
+      for (const file of walkFiles(pub)) {
+        if (/\.(png|jpe?g|webp|gif|tiff?|bmp|svg)$/i.test(file)) {
+          errs.push(`web/public 이미지 자산 금지(소스 도판 위험): ${relative(root, file)}`);
+        }
+      }
+    }
+    add('V59_MATERIAL_CONTEXT_NOT_GEOMETRY', '재료 맥락은 추상 마커 전용', errs.length ? fail(errs) : pass());
+  }
+
+  // V60 — default archaeology mode unaltered: proxy never dominates 발굴유구.
+  {
+    const errs = [];
+    const ps = spec?.derived?.proxy_superstructure;
+    if (ps) {
+      if (ps.default_visible !== false) errs.push('proxy default_visible은 false 필수');
+      if ((ps.mode_visible ?? []).includes('발굴유구')) errs.push('발굴유구 모드에서 proxy 기본 표시 금지');
+      const cap = proxyCfg?.max_default_opacity ?? 0.28;
+      for (const [k, v] of Object.entries(ps.opacity ?? {})) {
+        if (k !== 'roof_emphasized_max' && typeof v === 'number' && v > 0.4) {
+          errs.push(`proxy opacity.${k}=${v} — ghost 범위(≤0.4) 초과`);
+        }
+      }
+      if ((ps.opacity?.roof ?? 0) > cap) errs.push(`roof 기본 불투명도 ${ps.opacity.roof} > ${cap}`);
+    }
+    const overview = featById.get(proxyCfg?.overview_feature_id);
+    if (overview && (overview.ui_flags?.default_opacity ?? 1) > (proxyCfg?.max_default_opacity ?? 0.28)) {
+      errs.push('overview default_opacity가 상한 초과');
+    }
+    add('V60_DEFAULT_ARCHAEOLOGY_MODE_UNALTERED', '발굴유구 기본 모드 보존', errs.length ? fail(errs) : pass());
+  }
+
+  // V61 — proxy features carry evidence for their lower-structure fact basis
+  // or explicitly state no-direct-evidence; helpers are declared UI helpers.
+  {
+    const errs = [];
+    for (const id of proxyIds) {
+      const f = featById.get(id);
+      if (!f) continue;
+      const ev = f.fact_layer?.evidence ?? [];
+      if (ev.length === 0) errs.push(`${id}: provenance 비어 있음`);
+      const isHelper = (proxyCfg?.helper_feature_ids ?? []).includes(id);
+      if (isHelper) {
+        if (f.ui_flags?.ui_helper !== true) errs.push(`${id}: helper는 ui_flags.ui_helper=true 필수`);
+        if (f.archaeological_status !== 'ui_helper_not_archaeological') {
+          errs.push(`${id}: helper archaeological_status 오류`);
+        }
+      } else if (id.startsWith('superstructure.proxy')) {
+        const hasSourceBacked = ev.some((e) => ['E1', 'E2', 'E4'].includes(e.class) && e.source_segment_id);
+        const statesNoDirect = /직접 근거 없음|남아 있지 않|보존되지 않|직접 확인되지 않/.test(f.fact_layer?.statement_ko ?? '');
+        if (!hasSourceBacked && !statesNoDirect) {
+          errs.push(`${id}: 하부 사실 근거 또는 '직접 근거 없음' 명시 중 하나 필요`);
+        }
+        if (!statesNoDirect) errs.push(`${id}: 상부구조 직접 근거 없음 상태를 fact 서술에 명시해야 함`);
+      }
+    }
+    for (const id of proxyCfg?.uncertainty_feature_ids ?? []) {
+      if (!featById.get(id)) errs.push(`불확실성 feature 없음: ${id}`);
+    }
+    add('V61_PROXY_FEATURES_HAVE_EVIDENCE_OR_EXPLICIT_NULL', 'proxy provenance/무근거 명시', errs.length ? fail(errs) : pass());
+  }
+
+  // V62 — the omitted inner-column zone is never filled with confident posts.
+  {
+    const errs = [];
+    const ps = spec?.derived?.proxy_superstructure;
+    if (ps) {
+      if (ps.omitted_zone?.filled !== false) errs.push('omitted_zone.filled은 false 필수');
+      const omitted = (ps.column_positions ?? []).filter((p) => p.in_omitted_zone);
+      if (omitted.length === 0) errs.push('감주 영역 symbolic 위치가 column_positions에 없음');
+      for (const p of omitted) {
+        if (p.style !== 'absent_slot') errs.push(`감주 위치 (${p.col},${p.row})가 '${p.style}'로 렌더 — absent_slot 필수`);
+      }
+      if (!String(ps.omitted_zone?.label_ko ?? '').includes('기둥 없음')) {
+        errs.push('감주 영역 라벨(기둥 없음/미확인) 누락');
+      }
+    }
+    const omittedFeature = featById.get('layout.omitted_inner_columns');
+    if (omittedFeature && omittedFeature.category !== 'interpreted_absence') {
+      errs.push('layout.omitted_inner_columns category 변조됨');
+    }
+    add('V62_OMITTED_COLUMN_ZONE_NOT_FILLED', '감주 영역 기둥 미충전', errs.length ? fail(errs) : pass());
+  }
+
+  // V63 — proxy UI warnings are actually present in the viewer code.
+  // Skipped when web/ absent (same policy as V48).
+  {
+    const webDir = paths.web(root);
+    if (existsSync(join(webDir, 'app')) && proxyCfg) {
+      const errs = [];
+      let combined = '';
+      for (const f of walkFiles(join(webDir, 'app'))) if (/\.(tsx|ts)$/.test(f)) combined += readFileSync(f, 'utf8');
+      for (const f of walkFiles(join(webDir, 'components'))) if (/\.(tsx|ts)$/.test(f)) combined += readFileSync(f, 'utf8');
+      for (const f of walkFiles(join(webDir, 'lib'))) if (/\.(tsx|ts)$/.test(f)) combined += readFileSync(f, 'utf8');
+      for (const label of proxyCfg.required_warning_labels) {
+        if (!combined.includes(label)) errs.push(`뷰어 코드에 '${label}' 경고 문구 없음`);
+      }
+      if (!combined.includes('구조 실루엣')) errs.push("뷰어 코드에 '구조 실루엣' 모드 없음");
+      add('V63_PROXY_UI_WARNINGS_VISIBLE', 'proxy UI 경고 문구 표출', errs.length ? fail(errs) : pass());
+    } else {
+      add('V63_PROXY_UI_WARNINGS_VISIBLE', 'proxy UI 경고 문구 표출', pass(['web/ 없음 — core-only 환경, M2.6 게이트에서 재검사']));
+    }
+  }
+
+  // V64 — proxy preview renders exist in the manifest (internal renders only).
+  {
+    const errs = [];
+    const manifestPath = join(paths.artifacts(root), 'preview', 'preview-manifest.json');
+    if (!existsSync(manifestPath)) errs.push('preview-manifest.json 없음');
+    else if (proxyCfg) {
+      const manifest = loadJson(manifestPath);
+      const byPath = new Map((manifest.files ?? []).map((f) => [f.path, f]));
+      for (const name of proxyCfg.preview_files) {
+        const entry = byPath.get(name);
+        if (!entry) { errs.push(`manifest에 ${name} 없음`); continue; }
+        if (entry.origin !== 'internal_viewer_render') errs.push(`${name}: origin은 internal_viewer_render만 허용`);
+        if (!existsSync(join(paths.artifacts(root), 'preview', name))) errs.push(`preview 파일 없음: ${name}`);
+      }
+    }
+    add('V64_PROXY_PREVIEW_REQUIRED', '구조 실루엣 프리뷰 (내부 렌더 전용)', errs.length ? fail(errs) : pass());
   }
 
   const failed = results.filter((r) => r.status === 'fail');

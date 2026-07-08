@@ -62,9 +62,10 @@
         "seg_r2022_p115_119_west_corridor",
         "seg_r2022_p315_316_discussion_comparison",
         "seg_report2022_west_wing_corridor_plan_p107_110",
-        "seg_report2022_discussion_features_p306_312"
+        "seg_report2022_discussion_features_p306_312",
+        "seg_report2022_roof_tile_chimi_material_context_p12_14"
       ],
-      "fact_evidence_count": 53,
+      "fact_evidence_count": 60,
       "geometry_evidence_count": 5,
       "features_backed": [
         "site_context.wolji_west",
@@ -93,7 +94,14 @@
         "stratigraphy.layers",
         "land_preparation.multistage",
         "land_preparation.boto_facility",
-        "artifact.discard_phase_context"
+        "artifact.discard_phase_context",
+        "superstructure.proxy.overview",
+        "superstructure.proxy.column_posts",
+        "superstructure.proxy.beam_frame",
+        "superstructure.proxy.roof_envelope",
+        "superstructure.proxy.corridor_upper_silhouette",
+        "material_context.roof_tile_fragments",
+        "material_context.chimi_fragments"
       ],
       "hypotheses_backed": [
         "H1_royal_formal_space",
@@ -121,7 +129,7 @@
         "seg_kim2023_spec_table_p169",
         "seg_kim2023_conclusion_royal_space_p202"
       ],
-      "fact_evidence_count": 23,
+      "fact_evidence_count": 24,
       "geometry_evidence_count": 0,
       "features_backed": [
         "site_context.wolji_west",
@@ -144,7 +152,8 @@
         "movement.corridor_connection_east",
         "movement.corridor_connection_west",
         "corridor.west_corridor",
-        "corridor.west_corridor_stone_platform"
+        "corridor.west_corridor_stone_platform",
+        "superstructure.proxy.overview"
       ],
       "hypotheses_backed": [
         "H1_royal_formal_space",
@@ -264,8 +273,8 @@
       "missing_source": false,
       "local_available": false,
       "segments": [],
-      "fact_evidence_count": 9,
-      "geometry_evidence_count": 45,
+      "fact_evidence_count": 18,
+      "geometry_evidence_count": 56,
       "features_backed": [
         "source_context.2022_full_report_candidate",
         "superstructure.column_grid.symbolic",
@@ -275,7 +284,16 @@
         "uncertainty.function_interpretation",
         "hypothesis.layer.royal_formal_space",
         "hypothesis.layer.prince_palace_legacy",
-        "hypothesis.layer.ritual_audience_banquet"
+        "hypothesis.layer.ritual_audience_banquet",
+        "superstructure.proxy.overview",
+        "superstructure.proxy.column_posts",
+        "superstructure.proxy.beam_frame",
+        "superstructure.proxy.roof_envelope",
+        "superstructure.proxy.corridor_upper_silhouette",
+        "scale_helper.human_silhouette",
+        "uncertainty.column_height_unknown",
+        "uncertainty.roof_typology_unknown",
+        "uncertainty.bracket_typology_unknown"
       ],
       "hypotheses_backed": [
         "H1_royal_formal_space",

@@ -12,7 +12,18 @@ export const forbiddenTerms = [
   '확정된 태자궁',
   '확정된 왕의 공간',
   '확정 복원',
-  'confirmed original appearance'
+  'confirmed original appearance',
+  // M2.6 silhouette sprint — superstructure overclaim bans
+  '실제 신라 궁궐',
+  '정확한 지붕형식',
+  '신라 지붕 복원',
+  '주심포 복원',
+  '다포 복원',
+  '팔작 복원',
+  '맞배 복원',
+  '실제 기둥 높이',
+  '기둥 높이 실측',
+  '확정 지붕'
 ];
 
 export const allowedReplacements = [
@@ -26,6 +37,8 @@ export const allowedReplacements = [
   'unresolved'
 ];
 
+// '아님' is the nominal form of the same negation morpheme as '아니다/아닙니다'
+// (M2.6: required badge copy "원형 복원 아님" is a negation, not a claim).
 const NEGATION_PATTERNS = [
   '금지',
   '사용하지 않는다',
@@ -35,6 +48,7 @@ const NEGATION_PATTERNS = [
   '아니다',
   '아닙니다',
   '않는다',
+  '아님',
   '금지어'
 ];
 
