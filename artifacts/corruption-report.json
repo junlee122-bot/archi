@@ -1,0 +1,125 @@
+{
+  "fail_closed": true,
+  "scenarios": [
+    {
+      "name": "C01_fact_e1_downgraded_to_e5",
+      "expect": "E1 근거 사실의 강등을 V31이 거부",
+      "caught": true,
+      "caught_by": "verify (V31_FACT_GEOMETRY_LAYER_SEPARATION)"
+    },
+    {
+      "name": "C02_bracket_typology_assigned",
+      "expect": "공포 양식 지정을 V33이 거부",
+      "caught": true,
+      "caught_by": "verify (V33_BRACKET_TYPOLOGY_FORBIDDEN)"
+    },
+    {
+      "name": "C03_roof_typology_assigned",
+      "expect": "지붕 형식 지정을 V34가 거부",
+      "caught": true,
+      "caught_by": "verify (V34_ROOF_TYPOLOGY_FORBIDDEN)"
+    },
+    {
+      "name": "C04_hypothesis_axis_removed",
+      "expect": "axis 누락을 schema/V35가 거부",
+      "caught": true,
+      "caught_by": "derive (fail-closed)"
+    },
+    {
+      "name": "C05_wolji_water_edge_removed",
+      "expect": "월지 수변 layer 삭제를 V07/V13/V36이 거부",
+      "caught": true,
+      "caught_by": "verify (V07_REQUIRED_P0_FEATURES, V13_HYPOTHESIS_FEATURE_LINKS, V18_PHASE_FEATURE_LINKS, V36_WOLJI_CONTEXT_REQUIRED_FOR_FUNCTION_HYPOTHESIS)"
+    },
+    {
+      "name": "C06_omitted_positions_without_locator",
+      "expect": "locator 없는 감주 좌표를 V32가 거부",
+      "caught": true,
+      "caught_by": "verify (V32_NO_EXACT_POSITION_WITHOUT_LOCATOR)"
+    },
+    {
+      "name": "C07_exact_bay_spacing_without_locator",
+      "expect": "locator 없는 실측 칸 간격을 V05/V22가 거부",
+      "caught": true,
+      "caught_by": "verify (V05_GRID_SOURCE_CONSISTENCY, V22_EXACT_DIMENSIONS_NULL_WITHOUT_LOCATOR)"
+    },
+    {
+      "name": "C08_e1_evidence_without_segment_locator",
+      "expect": "segment locator 없는 E1 근거를 V41이 거부",
+      "caught": true,
+      "caught_by": "verify (V41_SOURCE_SEGMENT_LOCATOR_BACKING)"
+    },
+    {
+      "name": "C13_academic_article_cited_as_E1",
+      "expect": "학술 논문의 E1 인용을 V44가 거부",
+      "caught": true,
+      "caught_by": "verify (V44_ACADEMIC_ARTICLE_USAGE_LIMIT)"
+    },
+    {
+      "name": "C15_h1_kim_citations_removed",
+      "expect": "H1의 김경열 2023 근거 삭제를 V51이 거부",
+      "caught": true,
+      "caught_by": "verify (V51_KIM2023_H1_BACKING)"
+    },
+    {
+      "name": "C14_pdf_copied_into_web_public",
+      "expect": "web/public 내 PDF 자산을 V43이 거부",
+      "caught": true,
+      "caught_by": "verify (V20_NO_SOURCE_MEDIA_IN_WEB_PUBLIC, V43_NO_PUBLIC_PDF_ASSET)"
+    },
+    {
+      "name": "C09_params_grid_mismatch",
+      "expect": "params 기대 칸수와 corpus 불일치를 V05가 거부",
+      "caught": true,
+      "caught_by": "verify (V05_GRID_SOURCE_CONSISTENCY)"
+    },
+    {
+      "name": "C10_commercial_safe_flipped_in_spec",
+      "expect": "commercial_safe=true 조작을 V19/V29가 거부",
+      "caught": true,
+      "caught_by": "verify (V19_GATE_R_LICENSE, V29_COMMERCIAL_SAFE_CONSISTENT)"
+    },
+    {
+      "name": "C11_spec_tampered_without_reseal",
+      "expect": "integrity hash 불일치를 V23이 거부",
+      "caught": true,
+      "caught_by": "verify (V23_ARTIFACT_INTEGRITY)"
+    },
+    {
+      "name": "C12_forbidden_claim_injected_into_spec",
+      "expect": "금지 표현 주입을 V28이 거부",
+      "caught": true,
+      "caught_by": "verify (V28_SPEC_FORBIDDEN_LANGUAGE)"
+    },
+    {
+      "name": "C16_roof_typology_assigned_to_proxy_envelope",
+      "expect": "proxy roof envelope에 지붕형식 지정을 V56/V58이 거부",
+      "caught": true,
+      "caught_by": "verify (V56_NO_STYLE_ASSIGNMENT_IN_SILHOUETTE, V58_ROOF_ENVELOPE_UNTYPED)"
+    },
+    {
+      "name": "C17_proxy_column_height_measured_e1",
+      "expect": "proxy 기둥 실측 높이+E1 승격을 V57/V55가 거부",
+      "caught": true,
+      "caught_by": "verify (V55_SUPERSTRUCTURE_PROXY_LAYER_ONLY, V57_COLUMN_HEIGHT_NOT_MEASURED)"
+    },
+    {
+      "name": "C18_bracket_typology_assigned_to_proxy",
+      "expect": "proxy beam frame에 공포양식 지정을 V56이 거부",
+      "caught": true,
+      "caught_by": "verify (V33_BRACKET_TYPOLOGY_FORBIDDEN, V56_NO_STYLE_ASSIGNMENT_IN_SILHOUETTE)"
+    },
+    {
+      "name": "C19_omitted_zone_filled_with_confident_columns",
+      "expect": "감주 영역을 확정 기둥으로 채우는 조작을 V62가 거부",
+      "caught": true,
+      "caught_by": "verify (V62_OMITTED_COLUMN_ZONE_NOT_FILLED)"
+    },
+    {
+      "name": "C20_source_image_copied_into_web_public",
+      "expect": "web/public 내 이미지 자산을 V59/V20이 거부",
+      "caught": true,
+      "caught_by": "verify (V20_NO_SOURCE_MEDIA_IN_WEB_PUBLIC, V59_MATERIAL_CONTEXT_NOT_GEOMETRY)"
+    }
+  ]
+}
