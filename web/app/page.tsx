@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import type { Feature } from '../lib/types';
 import { useArtifacts } from '../lib/useArtifacts';
+import { withBase } from '../lib/basePath';
 import { UI_CORRUPTION_SCENARIOS, CONF_COLOR } from '../lib/relations';
 import StatusBar from '../components/StatusBar';
 import ModeTabs from '../components/ModeTabs';
@@ -316,7 +317,7 @@ export default function Page() {
         <button className="btn danger" onClick={() => setMode('검증결과')}>corruption 데모</button>
         <span className="small">strict RED는 license·좌표 blocker 해소 전까지 의도된 상태입니다.</span>
         <span style={{ marginLeft: 'auto' }} className="small">
-          <a href="/studio">Studio</a> · <a href="/verify">Verify</a> · <a href="/report">Report</a>
+          <a href={withBase('/studio/')}>Studio</a> · <a href={withBase('/verify/')}>Verify</a> · <a href={withBase('/report/')}>Report</a>
         </span>
       </footer>
     </div>

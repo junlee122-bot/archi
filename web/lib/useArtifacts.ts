@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type { Spec, VerificationReport } from './types';
+import { withBase } from './basePath';
 
 export interface CorruptionReport {
   fail_closed: boolean;
@@ -47,7 +48,7 @@ export interface Artifacts {
 }
 
 const J = (path: string) =>
-  fetch(path).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  fetch(withBase(path)).then((r) => (r.ok ? r.json() : null)).catch(() => null);
 
 export function useArtifacts(): Artifacts {
   const [state, setState] = useState<Artifacts>({
@@ -68,4 +69,4 @@ export function useArtifacts(): Artifacts {
 }
 
 export const fetchText = (path: string) =>
-  fetch(path).then((r) => (r.ok ? r.text() : null)).catch(() => null);
+  fetch(withBase(path)).then((r) => (r.ok ? r.text() : null)).catch(() => null);

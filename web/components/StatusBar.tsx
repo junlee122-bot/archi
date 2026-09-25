@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import type { Artifacts } from '../lib/useArtifacts';
+import { withBase } from '../lib/basePath';
 
 export default function StatusBar({ artifacts }: { artifacts: Artifacts }) {
   const { spec, verification, coverage } = artifacts;
@@ -40,7 +41,7 @@ export default function StatusBar({ artifacts }: { artifacts: Artifacts }) {
           const cur = (path ?? '').replace(/\/+$/, '') || '/';
           const target = href.replace(/\/+$/, '') || '/';
           return (
-            <a key={href} href={href} className={cur === target ? 'active' : ''}>{label}</a>
+            <a key={href} href={withBase(href)} className={cur === target ? 'active' : ''}>{label}</a>
           );
         })}
       </nav>

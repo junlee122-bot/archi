@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type { VerificationReport } from '../lib/types';
+import { withBase } from '../lib/basePath';
 
 interface CorruptionReport {
   fail_closed: boolean;
@@ -11,7 +12,7 @@ interface CorruptionReport {
 export default function VerificationPanel({ report }: { report: VerificationReport | null }) {
   const [corruption, setCorruption] = useState<CorruptionReport | null>(null);
   useEffect(() => {
-    fetch('/artifacts/corruption-report.json')
+    fetch(withBase('/artifacts/corruption-report.json'))
       .then((r) => r.json())
       .then(setCorruption)
       .catch(() => setCorruption(null));

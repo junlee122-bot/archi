@@ -1,0 +1,54 @@
+# Builds the static viewer (web/) and publishes it to the gh-pages branch,
+# which GitHub Pages serves at https://<owner>.github.io/<repo>/.
+# The base path follows the repository name, so a repo rename only needs a re-run.
+name: Deploy viewer to GitHub Pages
+
+on:
+  push:
+    branches:
+      - claude/fable-5-gongpo-donggung-patch-y6zz03
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install web dependencies
+        working-directory: web
+        run: npm ci --no-audit --no-fund
+
+      - name: Build static export under /<repo>/
+        working-directory: web
+        env:
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+        run: |
+          npm run build
+          touch out/.nojekyll
+
+      - name: Publish to gh-pages branch
+        working-directory: web/out
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Deploy ${GITHUB_SHA::7} to GitHub Pages"
+          git push -f "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
